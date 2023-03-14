@@ -1,0 +1,489 @@
+{
+	"pages": [{
+			"path": "pages/index/index",
+			"name": "home",
+			"title": "%pages.tabBar.home%",
+			"aliasPath": "/", //对于h5端你必须在首页加上aliasPath并设置为/
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarTextStyle": "white",
+				//				 "enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/category",
+			"name": "category",
+			"style": {
+				"navigationBarTitleText": "%pages.tabBar.category%"
+			}
+		},
+		{
+			"path": "pages/index/cart",
+			"name": "cart",
+			"style": {
+				"navigationBarTitleText": "%pages.tabBar.cart%"
+			}
+		},
+		{
+			"path": "pages/index/user",
+			"name": "user",
+			"style": {
+				"navigationBarTitleText": "%pages.tabBar.mine%",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/user/xianxia",
+			"style": {
+				"navigationBarTitleText": "线下充值"
+			}
+		},
+		{
+			"path": "pages/index/news",
+			"name": "user",
+			"style": {
+				"navigationBarTitleText": "%pages.pages.notice%",
+				"navigationBarBackgroundColor":"#54B85D",
+				"navigationBarTextStyle": "white"
+				// "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/newsD",
+			"name": "user",
+			"style": {
+				"navigationBarTitleText": "%pages.pages.notice%",
+				"navigationBarBackgroundColor":"#54B85D",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/huiyuan/huiyuan",
+			"style": {
+				"navigationBarTitleText": "即拼专区",
+				"navigationBarBackgroundColor":"#54B85D",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		
+		
+		{
+			"path": "pages/huiyuan/pintuan",
+			"style": {
+				"navigationBarTitleText": "拼团专区",
+				"navigationBarBackgroundColor":"#54B85D",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		
+		// 商品goods------start
+		{
+			"path": "pages/goods/list",
+			"style": {
+				"navigationBarTitleText": "商品列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/goods/comment-list",
+			"style": {
+				"navigationBarTitleText": "商品评价"
+			}
+		},
+		{
+			"path": "pages/goods/detail/index",
+			"style": {
+				"navigationBarTitleText": "商品详情"
+			}
+		},
+		// 商品goods------end
+
+		// 活动activity------start
+		// {
+		// 	"path": "pages/activity/groupon/list",
+		// 	"style": {
+		// 		"navigationBarTitleText": "今日必拼"
+		// 	},
+		// 	"meta": {
+		// 		"auth": false,
+		// 		"async": true,
+		// 		"title": "今日必拼",
+		// 		"group": "活动"
+		// 	}
+		// },
+
+		{
+			"path": "pages/activity/groupon/detail",
+			"style": {
+				"navigationBarTitleText": "拼团详情"
+			}
+		},
+		{
+			"path": "pages/activity/groupon/my-groupon",
+			"style": {
+				"navigationBarTitleText": "我的拼团"
+			}
+		},
+		// 活动activity------end
+		// 扩展app ------start
+		// // #ifdef MP-WEIXIN
+		// {
+		// 	"path": "pages/app/live/list",
+		// 	"style": {
+		// 		"navigationBarTitleText": "直播"
+		// 	},
+		// 	"meta": {
+		// 		"auth": false,
+		// 		"async": true,
+		// 		"title": "直播列表",
+		// 		"group": "应用"
+		// 	}
+		// },
+		// // #endif
+		{
+			"path": "pages/app/coupon/list",
+			"style": {
+				"navigationBarTitleText": "优惠券"
+			}
+		},
+		{
+			"path": "pages/app/coupon/detail",
+			"style": {
+				"navigationBarTitleText": "优惠劵详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/app/score/list",
+			"style": {
+				"navigationBarTitleText": "金豆商城"
+			}
+		},
+		// 扩展extend------end
+
+		// 订单order------start
+		{
+			"path": "pages/order/confirm",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		},
+		{
+			"path": "pages/order/detail",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+			"path": "pages/order/list",
+			"name": "orderList",
+			"style": {
+				"navigationBarTitleText": "订单列表"
+			}
+		},
+		{
+			"path": "pages/order/add-comment",
+			"style": {
+				"navigationBarTitleText": "发表评论"
+			}
+		},
+		{
+			"path": "pages/order/express",
+			"name": "expressList",
+			"style": {
+				"navigationBarTitleText": "物流信息"
+			}
+		},
+		{
+			"path": "pages/order/refund",
+			"style": {
+				"navigationBarTitleText": "退款"
+			}
+		},
+		{
+			"path": "pages/order/payment/method",
+			"style": {
+				"navigationBarTitleText": "支付方式"
+			}
+		},
+		{
+			"path": "pages/order/payment/result",
+			"style": {
+				"navigationBarTitleText": "支付结果"
+			}
+		},
+		{
+			"path": "pages/order/ptOrder",
+			"name": "orderList",
+			"style": {
+				"navigationBarTitleText": "%locale.teamuporder%"
+			}
+		},
+		{
+			"path": "pages/order/commonPtOrder",
+			"name": "orderList",
+			"style": {
+				"navigationBarTitleText": "拼团订单"
+			}
+		},
+		{
+			"path": "pages/order/hexiao",
+			"style": {
+				"navigationBarTitleText": "商家核销"
+			}
+		},
+		// 订单order------end
+		// 公共public ------ start
+		{
+			"path": "pages/public/richtext",
+			"style": {
+				"navigationBarTitleText": "" //公共富文本
+			}
+		},
+		{
+			"path": "pages/public/feedback",
+			"style": {
+				"navigationBarTitleText": "意见反馈"
+			}
+		},
+		{
+			"path": "pages/public/my_feed",
+			"style": {
+				"navigationBarTitleText": "我的反馈"
+			}
+		},
+		{
+			"path": "pages/public/forgot",
+			"style": {
+				"navigationBarTitleText": "忘记密码"
+				// "navigationBarBackgroundColor": "#fe4242",
+				// "navigationBarTextStyle": "white" //状态栏字体颜色
+				// "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/public/login",
+			"name": "login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/public/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/public/poster/index",
+			"style": {
+				"navigationBarTitleText": "邀请好友",
+				"navigationBarBackgroundColor":"#54B85D",
+				"navigationBarTextStyle":"white"  //状态栏字体颜色
+			}
+		},
+		{
+			"path": "pages/public/faq",
+			"style": {
+				"navigationBarTitleText": "常见问题"
+			}
+		},
+		{
+			"path": "pages/public/tuiguang",
+			"style": {
+				"navigationBarTitleText": "素材推广"
+			}
+		},
+		// 公共public ------ end
+
+		// 我的user ------start
+		{
+			"path": "pages/user/log",
+			"style": {
+				"navigationBarTitleText": "浏览足迹"
+			}
+		},
+		{
+			"path": "pages/user/kefu",
+			"style": {
+				"navigationBarTitleText": "%user.chat%"
+			}
+		},
+		{
+			"path": "pages/user/rule",
+			"style": {
+				"navigationBarTitleText": "即拼规则"
+			}
+		},
+		{
+			"path": "pages/user/address/edit",
+			"style": {
+				"navigationBarTitleText": "编辑地址"
+			}
+		},
+		{
+			"path": "pages/user/address/list",
+			"style": {
+				"navigationBarTitleText": "收货地址"
+			}
+		},
+		{
+			"path": "pages/user/jfOrder",
+			"style": {
+				"navigationBarTitleText": "金豆订单"
+			}
+		},
+		{
+			"path": "pages/user/about",
+			"style": {
+				"navigationBarTitleText": "关于我们"
+			}
+		},
+		{
+			"path": "pages/user/set",
+			"style": {
+				"navigationBarTitleText": "%pages.pages.setting%"
+			}
+		}, 
+		{
+			"path": "pages/user/edit-password",
+			"style": {
+				"navigationBarTitleText": "%user.set.Change.login.password%"
+			}
+		},
+		{
+			"path": "pages/user/favorite",
+			"style": {
+				"navigationBarTitleText": "收藏"
+			}
+		},
+		{
+			"path": "pages/user/info",
+			"style": {
+				"navigationBarTitleText": "个人信息"
+			}
+		},
+		{
+			"path": "pages/user/edit-phone",
+			"style": {
+				"navigationBarTitleText": "修改手机号"
+			}
+		},
+		
+		{
+			"path": "pages/user/team",
+			"style": {
+				"navigationBarTitleText": "%user.title.team%"
+				// "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/user/upgrade",
+			"style": {
+				"navigationBarTitleText": "会员升级"
+				// "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/user/wallet/index",
+			"style": {
+				"navigationBarTitleText": "%user.title.purse%"
+				//"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/user/setPayPsd",
+			"style": {
+				"navigationBarTitleText": "设置支付密码"
+			}
+		},
+		{
+			"path": "pages/user/changePayPsd",
+			"style": {
+				"navigationBarTitleText": "修改支付密码"
+			}
+		},
+		{
+			"path": "pages/user/forgetPayPsd",
+			"style": {
+				"navigationBarTitleText": "忘记支付密码"
+			}
+		},
+		{
+			"path": "pages/user/wallet/chongzhi",
+			"style": {
+				"navigationBarTitleText": "%pages.pages.Recharge%"
+			}
+		},
+		{
+			"path": "pages/user/wallet/tixian",
+			"style": {
+				"navigationBarTitleText": "%pages.pages.drawing%"
+			}
+		},
+		{
+			"path": "pages/user/wallet/method",
+			"style": {
+				"navigationBarTitleText": "支付方式"
+			}
+		},
+		{
+			"path": "pages/user/wallet/log",
+			"style": {
+				"navigationBarTitleText": "钱包明细"
+			}
+		},
+		{
+			"path": "pages/user/wallet/score-balance",
+			"style": {
+				"navigationBarTitleText": "%user.integral%"
+				//"navigationStyle": "custom"
+			}
+		}
+		// 我的user ------ end
+
+	],
+	// 默认导航栏样式
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#fff",
+		"navigationStyle": "default" //默认是default，即带有原生导航栏。custom,取消导航栏。
+	},
+	// 默认底部导航栏
+	"tabBar": {
+		"color": "#999",
+		"selectedColor": "#54B85D",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "%pages.tabBar.home%",
+				"iconPath": "static/imgs/tabbar/tab-home.png",
+				"selectedIconPath": "/static/imgs/tabbar/tab-home-current.png"
+			},
+			{
+				"pagePath": "pages/index/category",
+				"text": "%pages.tabBar.category%",
+				"iconPath": "static/imgs/tabbar/tab-cate.png",
+				"selectedIconPath": "static/imgs/tabbar/tab-cate-current.png"
+			},
+			{
+				"pagePath": "pages/index/cart",
+				"text": "%pages.tabBar.cart%",
+				"iconPath": "static/imgs/tabbar/tab-cart.png",
+				"selectedIconPath": "static/imgs/tabbar/tab-cart-current.png"
+			},
+			{
+				"pagePath": "pages/index/user",
+				"text": "%pages.tabBar.mine%",
+				"iconPath": "static/imgs/tabbar/tab-my.png",
+				"selectedIconPath": "static/imgs/tabbar/tab-my-current.png"
+			}
+		]
+	}
+}

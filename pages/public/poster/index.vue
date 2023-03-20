@@ -5,10 +5,10 @@
 			<view class="codeCon">
 				<image :src="qrcode"></image>
 				<view class="code">{{u_code}}</view>
-				<view class="txt">我的邀请码</view>
+				<view class="txt">{{$t("public.poster.index.wdyqm")}}</view>
 			</view>
-			<view class=""  style="display: flex;justify-content: center;color: white;">长按保存图片到手机</view>
-			<view class="btn" style="margin-top: 30upx;background: #ffb311;" @click="copyVal()">复制链接</view>
+			<view class=""  style="display: flex;justify-content: center;color: white;">{{$t("public.poster.index.cabctpdsj")}}</view>
+			<view class="btn" style="margin-top: 30upx;background: #ffb311;" @click="copyVal()">{{$t("public.poster.index.fzlj")}}</view>
 			
 		</view>
 		<!-- <sh-invite-poster v-if="posterType === 'user'" @getShareInfo="getShareInfo"></sh-invite-poster> -->
@@ -82,22 +82,23 @@ export default {
 		},
 		// 复制邀请码
 		copyVal() {
+			let that = this;
 			// #ifdef H5
 			 let content = this.url // 复制内容，必须字符串，数字需要转换为字符串
 			       const result = h5Copy(content)
 			       if (result === false) {
-			         this.$msg('复制失败，请重试');
+			         this.$msg(that.$t("public.poster.index.fzsbqcs"));
 			       } else {
-			        this.$msg('复制成功');
+			        this.$msg(that.$t("public.poster.index.fzcg"));
 			       }
 			// #endif
 			uni.setClipboardData({
 				data: this.url,
 				success: () => {
-					this.$msg('复制成功');
+					this.$msg(that.$t("public.poster.index.fzcg"));
 				},
 				fail: () => {
-					this.$msg('复制失败，请重试');
+					this.$msg(that.$t("public.poster.index.fzsbqcs"));
 				}
 			});
 		},
@@ -120,7 +121,7 @@ export default {
 								//将图片保存在手机
 								filePath: res.tempFilePath, //保存的位置
 								success: res => {
-									that.$msg('保存成功');
+									that.$msg(that.$t("ublic.poster.index.bccg"));
 								}
 							});
 						}

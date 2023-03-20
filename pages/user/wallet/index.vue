@@ -8,43 +8,43 @@
 			<image class="user-bg" src="../../../static/imgs/user/user_bg.png" mode=""></image>
 			<view class="card-box" style="text-align: center;">
 				<view style="color: #fff;font-size: 50upx;">{{money}}</view>
-				<view style="color: #fff;">账户余额</view>
+				<view style="color: #fff;">{{$t("user.wallet.accountbalance")}}</view>
 			</view>
 		</view>
 		<view class="content_box">
 			<view class="resale-list x-bc" @tap="jump('/pages/user/wallet/tixian?max='+money)">
 				<view class="x-f">
 					<image class="cuicon" src="../../../static/imgs/user/tx.png"></image>
-					<text>余额提现</text>
+					<text>{{$t("user.wallet.balance.withdraw")}}</text>
 				</view>
 				<text class="cuIcon-right"></text>
 			</view>
 			<view class="resale-list x-bc" @tap="jump('/pages/user/wallet/chongzhi')">
 				<view class="x-f">
 					<image class="cuicon" src="../../../static/imgs/user/cz.png"></image>
-					<text>余额充值</text>
+					<text>{{$t("user.wallet.balance.topup")}}</text>
 				</view>
 				<text class="cuIcon-right"></text>
 			</view>
 			<view class="resale-list x-bc" @tap="jump('/pages/user/wallet/log')">
 				<view class="x-f">
 					<image  class="cuicon" src="../../../static/imgs/user/logs.png"></image>
-					<text>余额明细</text>
+					<text>{{$t("user.wallet.balance.info")}}</text>
 				</view>
 				<text class="cuIcon-right"></text>
 			</view>
 			<view style="margin: 10px 10px;">
-				<h4>会员规则</h4>
-				<view>1.注册用户支付相应费用购买会员礼包成为平台的永久会员.会员卡等级显示在商城的个人中心。</view>
+				<h4>{{$t("user.wallet.member.rule")}}</h4>
+				<view>1.{{$t("user.wallet.member.rule.one")}}。</view>
 				
-				<view>2.成为会员自用省钱  分享赚钱 乐豆增值分红 实体+社交新零售+区块链技术。</view>
+				<view>2.{{$t("user.wallet.member.rule.two")}}。</view>
 				
-				<h4 style="margin: 10px 0;">提现规则：</h4>
-				<view>1、提现周期：周一至周五均可提现。</view>
-				<view>2、转账时间：工作日期间当天提现隔天到账，节假日顺延。</view>
-				<view>3、提现手续费3%</view>
-				<view>4、提现收款请尽量填写支付宝收款账户，方便公司一次性转账。（收款账户请统一使用手机号码，方便错误进行核对）</view>
-				<view>5、最低提现金额满100元。</view>
+				<h4 style="margin: 10px 0;">{{$t("user.wallet.withdrawDeposit")}}：</h4>
+				<view>1、{{$t("user.wallet.withdrawDeposit.period")}}。</view>
+				<view>2、{{$t("user.wallet.withdrawDeposit.time")}}。</view>
+				<view>3、{{$t("user.wallet.withdrawDeposit.commission")}}%</view>
+				<view>4、{{$t("user.wallet.withdrawDeposit.introduce")}}</view>
+				<view>5、{{$t("user.wallet.withdrawDeposit.lowest")}}。</view>
 			</view>
 		</view>
 		<view class="foot_box"></view>

@@ -6,20 +6,20 @@
 				<input type="text" placeholder="请输入旧密码" v-model="oldPsd" password maxlength="6">
 			</view> -->
 			<view class="list">
-				<view>验证码</view>
-				<input type="text" placeholder="请输入验证码" v-model="code.y_code">
+				<view>{{$t('user.forgetPayPsd.yzm')}}</view>
+				<input type="text" :placeholder="$t('user.forgetPayPsd.yzm.placeholder')" v-model="code.y_code">
 				<button class="cu-btn code-btn" :disabled="code.status" @tap="getCode">{{ code.text }}</button>
 			</view>
 			<view class="list">
-				<view>设置密码</view>
-				<input type="text" placeholder="请设置6位纯数字支付密码" v-model="new_paypsd" password maxlength="6">
+				<view>{{$t('user.forgetPayPsd.szmm')}}</view>
+				<input type="text" :placeholder="$t('user.forgetPayPsd.qsz.placehoder')" v-model="new_paypsd" password maxlength="6">
 			</view>
 			<view class="list">
-				<view>确认密码</view>
-				<input type="text" placeholder="请确认密码" v-model="re_paypsd" password maxlength="6">
+				<view>{{$t('user.forgetPayPsd.qrmm')}}</view>
+				<input type="text" :placeholder="$t('user.forgetPayPsd.qrmm.placeholder')" v-model="re_paypsd" password maxlength="6">
 			</view>
 		</view>
-		<view class="subBtn"><view @click="submit">提交</view></view>
+		<view class="subBtn"><view @click="submit">{{$t('user.forgetPayPsd.tj')}}</view></view>
 	</view>
 </template>
 

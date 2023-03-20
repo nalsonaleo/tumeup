@@ -4,7 +4,7 @@
 			<view class="add-address-box flex-sub x-f" v-if="!addressId" @tap="jump('/pages/user/address/list', { from: 'order' })">
 				<image class="address-bg" src="../../static/imgs/order_bot.png" mode=""></image>
 				<view class="box-bg x-bc flex-sub pad">
-					<text class="select-notice">请选择默认地址</text>
+					<text class="select-notice">{{$t("user.order.confirm.qxzmrdz")}}</text>
 					<text class="cuIcon-right"></text>
 				</view>
 			</view>
@@ -41,7 +41,7 @@
 					<block slot="goodsBottom">
 						<view class="goods-price x-bc">
 							<view class="">
-								<text v-if="g.g_type == 3">{{ g.g_integral3 }}金豆+</text>
+								<text v-if="g.g_type == 3">{{ g.g_integral3 }}{{$t("user.order.confirm.jd")}}+</text>
 								<text>￥{{ g.sku_price ? g.sku_price : g.g_price }}</text>
 							</view>
 							<text class="goods-num">x{{ g.num }}</text>
@@ -49,10 +49,10 @@
 					</block>
 				</shopro-mini-card>
 				<view class="coupon x-bc item-list" v-if="g_type == 2" style="height: 70upx;">
-					<view class="item-title">优惠券</view>
+					<view class="item-title">{{$t("user.order.confirm.yhj")}}</view>
 					<view class="x-f" v-if="g.coupon" @tap="selCoupon(g.coupon, index)">
 						<text class="price" v-if="g.pickerData">{{ g.pickerData.title }}</text>
-						<text class="sel-coupon" v-else>选择优惠券</text>
+						<text class="sel-coupon" v-else>{{$t("user.order.confirm.xzyhq")}}</text>
 						<text class="cuIcon-right"></text>
 					</view>
 				</view>
@@ -60,18 +60,18 @@
 
 			<view class="logistic item-list x-bc">
 				<view class="x-f">
-					<view class="item-title">配送方式</view>
+					<view class="item-title">{{$t("user.order.confirm.psfs")}}</view>
 					<!-- <view class="detail">普通配送</view> -->
 				</view>
 				<view>
 					<checkbox-group class="block x-bc">
 						<view class="x-f" style="margin-right: 40rpx;">
 							<checkbox :checked="syType==1" :class="{ checked: syType==1 }" @tap="changeSy(1)" class="goods-radio round orange"></checkbox>
-							<view class="item-title">快递运输</view>
+							<view class="item-title">{{$t("user.order.confirm.kdys")}}</view>
 						</view>
 						<view class="x-f" style="display: none;">
 							<checkbox :checked="syType==2" :class="{ checked: syType==2 }" @tap="changeSy(2)"  class="goods-radio round orange"></checkbox>
-							<view class="item-title">到店自提</view>
+							<view class="item-title">{{$t("user.order.confirm.ddzt")}}</view>
 						</view>
 					</checkbox-group>
 					
@@ -80,45 +80,45 @@
 			
 			<view class="logistic item-list x-bc" v-if="syType==1">
 				<view class="x-f">
-					<view class="item-title">运费</view>
+					<view class="item-title">{{$t("user.order.confirm.yf")}}</view>
 				</view>
 				<view class="item-title">￥{{ freight }}</view>	
 			</view>
 			
 			<view class=" x-bc item-list">
-				<view class="item-title">商品金额</view>
+				<view class="item-title">{{$t("user.order.confirm.spje")}}</view>
 				<view class="x-f">
 					<text class="price">￥{{ total_fee || '0.00' }}</text>
 				</view>
 			</view>
 			<view class="price-box x-bc item-list" v-if="yh_price > 0">
-				<view class="item-title">已优惠</view>
+				<view class="item-title">{{$t("user.order.confirm.yyh")}}</view>
 				<view class="x-f">
 					<text class="price">￥{{ yh_price }}</text>
 				</view>
 			</view>
 			<view class="remark-box" style="display: none;">
 				<view class="item-title">
-					备注:
-					<text class="remark-notice">(100字以内)</text>
+					{{$t("user.order.confirm.remark")}}:
+					<text class="remark-notice">{{$t("user.order.confirm.fontNumber")}}</text>
 				</view>
-				<textarea v-show="!showPicker" class="remark-inp" maxlength="100" v-model="remark" placeholder="请填写备注信息" />
+				<textarea v-show="!showPicker" class="remark-inp" maxlength="100" v-model="remark" :placeholder="$t('user.order.confirm.remark.placeholder')" />
 			</view>
 		</view>
 		<view class="foot_box x-f">
 			<text class="num">
-				共
+				{{$t("user.order.confirm.gong")}}
 				<text>{{ total_num }}</text>
-				件
+				{{$t("user.order.confirm.jie")}}
 			</text>
 			<view class="all-money">
-				<text>合计：</text>
+				<text>{{$t("user.order.confirm.total")}}：</text>
 				<text class="price" v-if="syType==1">￥{{ total_fee + parseFloat(freight) || '0.00' }}</text>
 				<text class="price" v-else-if="syType==2">￥{{ total_fee || '0.00' }}</text>
 			</view>
 			<button class="cu-btn sub-btn" @tap="subOrder" :disabled="isSubOrder">
 				<text v-if="isSubOrder" class="cuIcon-loading2 cuIconfont-spin"></text>
-				提交订单
+				{{$t("user.order.confirm.tjdd")}}
 			</button>
 		</view>
 		<!-- pricker -->
@@ -142,7 +142,7 @@ export default {
 			showPicker: false,
 			isSubOrder: false,
 			pickerData: {
-				title: '选择优惠券',
+				title: this.$t("user.order.confirm.xzyhq"),
 				couponList: []
 			},
 			address: {
@@ -158,7 +158,7 @@ export default {
 			remark: '',
 			orderPre: {},
 			couponId: 0,
-			couponPrice: '选择优惠券',
+			couponPrice: this.$t("user.order.confirm.xzyhq"),
 			total_num: 0,
 			total_fee: 0,
 			userInfo: {},
@@ -255,7 +255,7 @@ export default {
 		subOrder() {
 			var that = this;
 			if (!that.addressId && that.syType==1) {
-				that.$msg('请选择收货地址');
+				that.$msg(that.$t("user.order.confirm.qxzshdz"));
 				return;
 			}
 			// console.log(that.goodsList)

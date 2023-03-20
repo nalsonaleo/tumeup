@@ -20,7 +20,7 @@
 								<view class="goods-title more-t">{{ item.g_name }}</view>
 								<view class="size-tip">{{ item.sku_name }}</view>
 								<view class="order-goods flex align-center justify-between">
-									<text class="order-price"><text v-if="item.o_type==3">{{item.o_t_integral3}}金豆+</text> ￥{{parseFloat(item.o_unit_price)}}</text>
+									<text class="order-price"><text v-if="item.o_type==3">{{item.o_t_integral3}}{{$t("order.commomPtOrder.detail.jd")}}+</text> ￥{{parseFloat(item.o_unit_price)}}</text>
 									<text class="order-num">x{{ item.o_num }}</text>
 								</view>
 							</view>
@@ -30,7 +30,7 @@
 							<view class="btn-box">
 								
 								<button @tap.stop="onComment(item.id,orderDetail.id)" class="cu-btn btn1" v-if="item.o_status == 3">
-									去评价
+									{{$t("order.commomPtOrder.detail.qpj")}}
 								</button>
 							</view>
 						</view>
@@ -39,16 +39,16 @@
 					<view class="order-bottom  x-f" style="margin-top: -20upx;margin-bottom: 20upx;"  v-if="orderDetail.o_status == 0 || orderDetail.o_status == 2">
 						<view class="btn-box" >
 							<button class="cu-btn btn2"  v-if="orderDetail.o_status == 0" @tap.stop="onPay(orderDetail.id, orderDetail.o_total_price)">
-								立即付款
+								{{$t("order.commomPtOrder.detail.ljfk")}}
 							</button>
 							<button class="cu-btn btn1"  v-if="orderDetail.o_status == 0" @tap.stop="onCancel(orderDetail.id)">
-								取消订单
+								{{$t("order.commomPtOrder.detail.qxdd")}}
 							</button>
 							<button class="cu-btn btn1"  v-if="orderDetail.o_status == 2" @tap.stop="checkExpress(orderDetail.id)">
-								查看物流
+								{{$t("order.commomPtOrder.detail.ckwl")}}
 							</button>
 							<button @tap.stop="onConfirm(orderDetail.id)" class="cu-btn btn2" v-if="orderDetail.o_status == 2">
-								确认收货
+								{{$t("order.commomPtOrder.detail.qrsh")}}
 							</button>
 							<!-- <button @tap.stop="onRefund(orderDetail.id)" class="cu-btn btn1" v-if="orderDetail.o_status == 2">
 								申请退款
@@ -59,28 +59,28 @@
 			</view>
 			<!-- 收货信息 -->
 			<view class="notice-box" v-if="orderDetail.is_express == 1">
-				<view class="notice-box__head">收货信息</view>
+				<view class="notice-box__head">{{$t("order.commomPtOrder.detail.shxx")}}</view>
 				<view class="notice-box__content">
 					<view class="x-f notice-item">
-						<text class="title">收货人：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.shr")}}：</text>
 						<text class="detail">{{ orderDetail.a_name }} {{ orderDetail.a_phone }}</text>
 					</view>
 					<view class="x-f notice-item">
-						<text class="title">收货地址：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.shdz")}}：</text>
 						<text class="detail">{{ orderDetail.a_address }}</text>
 					</view>
 				</view>
 			</view>
 			<!-- 配送信息 -->
 			<view class="notice-box" v-if="orderDetail.express_num">
-				<view class="notice-box__head">快递信息</view>
+				<view class="notice-box__head">{{$t("order.commomPtOrder.detail.kdxx")}}</view>
 				<view class="notice-box__content">
 					<view class="x-f notice-item--center">
-						<text class="title">快递公司：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.kdgs")}}：</text>
 						<text class="detail">{{ orderDetail.express_name }}</text>
 					</view>
 					<view class="x-f notice-item">
-						<text class="title">快递单号：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.kddh")}}：</text>
 						<text class="detail">{{ orderDetail.express_num }}</text>
 					</view>
 				</view>
@@ -88,25 +88,25 @@
 			
 			<!-- 订单信息 -->
 			<view class="notice-box">
-				<view class="notice-box__head">订单信息</view>
+				<view class="notice-box__head">{{$t("order.commomPtOrder.detail.ddxx")}}</view>
 				<view class="notice-box__content">
 					<view class="notice-item--center x-f">
-						<text class="title">订单编号：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.ddbh")}}：</text>
 						<text class="detail">{{ orderDetail.o_no }}</text>
 						<!-- <button class="cu-btn copy-btn" @tap="onCopy(orderDetail.o_no)">复制</button> -->
 					</view>
 					<view class="notice-item--center x-f" v-if="orderDetail.hx_code && orderDetail.is_express == 2">
-						<text class="title">核销码：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.hxm")}}：</text>
 						<text class="detail">{{ orderDetail.hx_code }}</text>
-						<button class="cu-btn copy-btn" v-if="orderDetail.o_status == 1" @tap="onCopy(orderDetail.hx_code)">复制</button>
-						<text class="cu-btn copy-btn" v-if="orderDetail.o_status != 1">已使用</text>
+						<button class="cu-btn copy-btn" v-if="orderDetail.o_status == 1" @tap="onCopy(orderDetail.hx_code)">{{$t("order.commomPtOrder.detail.fz")}}</button>
+						<text class="cu-btn copy-btn" v-if="orderDetail.o_status != 1">{{$t("order.commomPtOrder.detail.ysy")}}</text>
 					</view>
 					<view class="notice-item x-f">
-						<text class="title">下单时间：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.xdsj")}}：</text>
 						<text class="detail">{{ orderDetail.o_addtime }}</text>
 					</view>
 					<view class="notice-item x-f" v-if="orderDetail.hx_code && orderDetail.o_status == 1  && orderDetail.is_express == 2">
-						<text class="title">核销码：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.hxm")}}：</text>
 						<image :src="codeImg" style="width: 260rpx;height: 260rpx;"></image>
 					</view>
 				</view>
@@ -114,18 +114,18 @@
 			
 			<!-- 商家信息 -->
 			<view class="notice-box" v-if="orderDetail.is_express == 2">
-				<view class="notice-box__head">商家信息</view>
+				<view class="notice-box__head">{{$t("order.commomPtOrder.detail.cjxx")}}</view>
 				<view class="notice-box__content">
 					<view class="notice-item--center x-f">
-						<text class="title">名称：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.name")}}：</text>
 						<text class="detail">{{ storInfo.store_name }}</text>
 					</view>
 					<view class="notice-item--center x-f">
-						<text class="title">地址：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.dz")}}：</text>
 						<text class="detail">{{ storInfo.store_address }}</text>
 					</view>
 					<view class="notice-item x-f">
-						<text class="title">电话：</text>
+						<text class="title">{{$t("order.commomPtOrder.detail.dh")}}：</text>
 						<text class="detail">{{ storInfo.store_tell }}</text>
 					</view>
 				</view>
@@ -134,9 +134,9 @@
 		
 		<view class="foot_box">
 			<view class="money-box x-f justify-end">
-				<text class="money-title">共{{ orderDetail.o_total_num }}件商品 合计:</text>
+				<text class="money-title">{{$t("order.commomPtOrder.detail.gong")}}{{ orderDetail.o_total_num }}{{$t("order.commomPtOrder.detail.jsp")}} {{$t("order.commomPtOrder.detail.hj")}}:</text>
 				<!-- <text class="all-price" v-if="orderDetail.o_type == 2">￥{{ orderDetail.o_total_price }}</text> -->
-				<text class="all-price" v-if="orderDetail.o_type == 3">{{ orderDetail.data[0].o_t_integral3 }}金豆+￥{{ orderDetail.o_total_price }}</text>
+				<text class="all-price" v-if="orderDetail.o_type == 3">{{ orderDetail.data[0].o_t_integral3 }}{{$t("order.commomPtOrder.detail.jd3")}}+￥{{ orderDetail.o_total_price }}</text>
 				<text class="all-price" v-else>￥{{ orderDetail.o_total_price }}</text>
 			</view>
 		</view>
@@ -156,8 +156,8 @@ export default {
 			time: 0,
 			order_id:'',
 			orderDetail: {},
-			orderStatus:['待付款','待发货','待收货','已收货','已完成'],
-			orderStatus1:['待付款','待成团','待收货','已完成','','','拼团失败','拼团成功'],
+			orderStatus:[this.$t("order.commomPtOrder.detail.dfk"),this.$t("order.commomPtOrder.detail.dfh"),this.$t("order.commomPtOrder.detail.dsh"),this.$t("order.commomPtOrder.detail.ysh"),this.$t("order.commomPtOrder.detail.ywc")],
+			orderStatus1:[this.$t("order.commomPtOrder.detail.dfk"),this.$t("order.commomPtOrder.detail.dct"),this.$t("order.commomPtOrder.detail.status.dsh"),this.$t("order.commomPtOrder.detail.status.ywc"),'','',this.$t("order.commomPtOrder.detail.status.ptsb"),this.$t("order.commomPtOrder.detail.status.ptcg")],
 			codeImg:"",
 			storInfo:{}
 		};
@@ -209,16 +209,16 @@ export default {
 			let content = code ;// 复制内容，必须字符串，数字需要转换为字符串
 			const result = h5Copy(content)
 			if (result == false) {
-			    that.$msg('复制失败，请重试');
+			    that.$msg(that.$t("order.commomPtOrder.detail.status.fzsbqcs"));
 			} else {
-			    that.$msg('复制成功');
+			    that.$msg(that.$t("order.commomPtOrder.detail.status.fzcg"));
 			}
 			// #endif
 			// #ifndef H5
 			uni.setClipboardData({
 				data: code,
 				success: function(data) {	
-					that.$msg('已复制到剪切板');
+					that.$msg(that.$t("order.commomPtOrder.detail.status.yfzdjqb"));
 				},
 				fail: function(err) {},
 				complete: function(res) {}

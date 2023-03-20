@@ -13,7 +13,7 @@
 				<label class="x-bc pay-item" >
 					<view class="x-f">
 						<image class="pay-img" src="../../../static/imgs/wx_pay.png" mode=""></image>
-						<text>微信支付</text>
+						<text>{{$t("user.wallet.wxzf")}}</text>
 					</view>
 					<radio value="8" :class="{ checked: pay_type == 8  }" class="pay-radio orange" :checked="pay_type == 8"></radio>
 				</label>
@@ -21,7 +21,7 @@
 				<label class="x-bc pay-item" >
 					<view class="x-f">
 						<image class="pay-img" src="../../../static/imgs/ali_pay.png" mode=""></image>
-						<text>支付宝支付</text>
+						<text>{{$t('user.wallet.zfbzf')}}</text>
 					</view>
 					<radio value="7" :class="{ checked: pay_type == 7  }" class="pay-radio orange" :checked="pay_type == 7"></radio>
 				</label>
@@ -29,7 +29,7 @@
 				
 			</radio-group>
 			<view class="x-c">
-				<button class="cu-btn pay-btn" @tap="confirmPay">确认支付 ￥{{ total_fee }}</button>
+				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t('user.wallet.qrzf')}} ￥{{ total_fee }}</button>
 			</view>
 		</view>
 		<view class="foot_box"></view>

@@ -12,9 +12,9 @@
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
 			<view class="order-list" v-for="order in orderList" :key="order.id" @tap.stop="jump('/pages/order/detail?order_id='+order.id)">
 				<view class="order-head x-bc">
-					<text class="no">订单编号：{{ order.o_no }}</text>
+					<text class="no">{{$t("user.order.list.orderNumber")}}：{{ order.o_no }}</text>
 					<text class="state" v-if="orderType != 5">{{orderStatus[order.o_status]}}</text>
-					<text class="state" v-else>{{order.o_exchange == 1?'退款中':'已退款'}}</text>
+					<text class="state" v-else>{{order.o_exchange == 1?$t("user.order.list.refund"):$t("user.order.list.refunded")}}</text>
 				</view>
 				<view class="goods-order">
 					<view class="order-content" style="padding-bottom: 30upx;"><shopro-mini-card :type="'order'" :detail="order"></shopro-mini-card></view>
@@ -22,16 +22,16 @@
 					<view class="goods-bottom  x-f"  v-if="order.o_status == 0 || order.o_status == 1 || order.o_status == 2 || order.o_status == 3">
 						<view class="btn-box" >
 							<button class="cu-btn btn2"  v-if="order.o_status == 0" @tap.stop="onPay(order.id, order.o_total_price)">
-								立即付款
+								{{$t("user.order.list.immediatePayment")}}
 							</button>
 							<button class="cu-btn btn1"  v-if="order.o_status == 0" @tap.stop="onCancel(order.id)">
-								取消订单
+								{{$t("user.order.list.cancellationOfOrder")}}
 							</button>
 							<!-- <button class="cu-btn btn1"  v-if="order.o_status >= 2 && order.o_status !=6 && order.o_status != 7" @tap.stop="checkExpress(order.id)">
 								查看物流
 							</button> -->
 							<button @tap.stop="onConfirm(order.id)" class="cu-btn btn2" v-if="order.o_status == 2">
-								确认收货
+								{{$t("user.order.list.confirmReceipt")}}
 							</button>
 							
 							
@@ -64,35 +64,35 @@ export default {
 			isLoading: true,
 			orderType: -1,
 			orderList: [],
-			orderStatus:['待付款','待发货','待收货','已完成','已完成','售后中'],
+			orderStatus:[this.$t("user.order.list.status.obligation"),this.$t("user.order.list.status.goodsToBeShipped"),this.$t("user.order.list.status.waitForReceiving"),this.$t("user.order.list.status.finished"),this.$t("user.order.list.status.finished"),this.$t("user.order.list.status.afterSale")],
 			emptyData: {
 				img: '/static/imgs/empty/empty_groupon.png',
-				tip: '暂无商品，还有更多好货等着你噢~'
+				tip: this.$t("user.order.list.tip"),
 			},
 			orderState: [
 				{
 					id: 0,
-					title: '全部',
+					title: this.$t("user.order.list.status.all"),
 					type: -1
 				},
 				{
 					id: 1,
-					title: '待付款',
+					title: this.$t("user.order.list.status.obligation"),
 					type: 0
 				},
 				{
 					id: 2,
-					title: '待发货',
+					title: this.$t("user.order.list.status.goodsToBeShipped"),
 					type: 1
 				},
 				{
 					id: 3,
-					title: '待收货',
+					title: this.$t("user.order.list.status.waitForReceiving"),
 					type: 2
 				},
 				{
-					id: 3,
-					title: '已完成',
+					id: 4,
+					title: this.$t("user.order.list.status.finished"),
 					type: 3
 				}
 			],

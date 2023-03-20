@@ -5,26 +5,26 @@
 			<!-- 表单 -->
 			<view class="login-box y-f">
 				<view class="input-item x-c">
-					<text class="inp-title">手机号</text>
-					<input class="inp" v-model="u_phone" type="number" placeholder="请输入手机号" placeholder-class="pl" />
+					<text class="inp-title">{{$t("public.forgot.sjh")}}</text>
+					<input class="inp" v-model="u_phone" type="number" :placeholder="$t('public.forgot.sjh.placeholder')" placeholder-class="pl" />
 				</view>
 				<view class="input-item x-c">
-					<text class="inp-title">验证码</text>
-					<input class="inp" v-model="code.y_code" type="text" placeholder="请输入验证码" placeholder-class="pl" />
+					<text class="inp-title">{{$t("public.forgot.yzm")}}</text>
+					<input class="inp" v-model="code.y_code" type="text" :placeholder="$t('public.forgot.yzm.placeholder')" placeholder-class="pl" />
 					<button class="cu-btn code-btn" :disabled="code.status" @tap="getCode">{{ code.text }}</button>
 				</view>
 				<view class="input-item x-c">
-					<text class="inp-title">新密码</text>
-					<input class="inp" password v-model="u_psd" type="text" placeholder="请设置新密码" placeholder-class="pl" />
+					<text class="inp-title">{{$t('public.forgot.xmm')}}</text>
+					<input class="inp" password v-model="u_psd" type="text" :placeholder="$t('public.forgot.xmm.placeholder')" placeholder-class="pl" />
 				</view>
 				<view class="input-item x-c">
-					<text class="inp-title">确认密码</text>
-					<input class="inp" password v-model="re_psd" type="text" placeholder="请确认新密码" placeholder-class="pl" />
+					<text class="inp-title">{{$t("public.forgot.qrmm")}}</text>
+					<input class="inp" password v-model="re_psd" type="text" :placeholder="$t('public.forgot.qrmm.placeholder')" placeholder-class="pl" />
 				</view>
 			</view>
 			<!-- 登录按钮 -->
 			<view class="x-c y-f">
-				<button class="cu-btn login-btn" @tap="restPassword">提交</button>
+				<button class="cu-btn login-btn" @tap="restPassword">{{$t("public.forgot.tj")}}</button>
 			</view>
 		</view>
 	</view>
@@ -35,7 +35,7 @@ export default {
 	data() {
 		return {
 			code: {
-				text: '获取验证码',
+				text: this.$t("public.forgot.hqyzm"),
 				status: false,
 				y_code: ''
 			},
@@ -58,19 +58,19 @@ export default {
 		restPassword() {
 			let that = this;
 			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-				that.$msg('请填写正确手机号码');
+				that.$msg(that.$t("public.forgot.qtxzqsjhm"));
 				return false;
 			}
 			if (!that.code.y_code) {
-				that.$msg('请填写验证码');
+				that.$msg(that.$t("public.forgot.qtxyzm"));
 				return false;
 			}
 			if (!that.u_psd) {
-				that.$msg('请设置登录密码');
+				that.$msg(that.$t('public.forgot.qszdlmm'));
 				return false;
 			}
 			if (!that.re_psd) {
-				that.$msg('请确认登录密码');
+				that.$msg(that.$t('public.forgot.qqrdlmm'));
 				return false;
 			}
 			var data = { u_phone: that.u_phone, y_code: that.code.y_code, u_psd: that.u_psd, re_psd: that.re_psd };
@@ -89,7 +89,7 @@ export default {
 		getCode() {
 			let that = this;
 			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-				that.$msg('请填写正确手机号码');
+				that.$msg(that.$t('请填写正确手机号码'));
 				return false;
 			}
 			let countdown = 60;
@@ -97,15 +97,15 @@ export default {
 			var data = { phone: that.u_phone };
 			that.$api.getCode(data).then(res => {
 				if (res.code === 1) {
-					that.code.text = countdown + '秒';
+					that.code.text = countdown + that.$t('public.forgot.miao');
 					that.code.status = true;
 					let timer = setInterval(() => {
 						if (countdown > 0) {
-							that.code.text = countdown - 1 + '秒';
+							that.code.text = countdown - 1 + that.$t('public.forgot.miao');
 							countdown--;
 						} else {
 							clearInterval(timer);
-							that.code.text = '获取验证码';
+							that.code.text = that.$t("public.forgot.hqyzm");
 							that.code.status = false;
 						}
 					}, 1000);

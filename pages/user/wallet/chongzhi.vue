@@ -3,7 +3,7 @@
 		<view class="form-box">
 			<label>
 				<view class="form-item flex align-center justify-between">
-					<view class="item-title">充值金额:</view>
+					<view class="item-title">{{$t("user.wallet.tixian.topUpAmount.money")}}:</view>
 					<xfl-select
 						style="border: none;"
 						class="item-input flex-sub"
@@ -13,7 +13,7 @@
 						:isCanInput="false"
 						:focusShowList="true"
 						:placeholder="'placeholder'"
-						:initValue="'请选择充值金额'"
+						:initValue="$t('user.wallet.tixian.topUpAmount.money.placeholder')"
 						@change="change"
 						:selectHideType="'hideAll'"
 					></xfl-select>
@@ -21,13 +21,13 @@
 			</label>
 			<view class="form-item flex align-center justify-between">
 				<view class="x-f">
-					<view class="item-title">获得金豆:</view>
+					<view class="item-title">{{$t("user.wallet.tixian.getGoldenBean")}}:</view>
 					<input class="item-input flex-sub" disabled type="text" :value="score" placeholder-class="pl-input" />
 				</view>
 			</view>
 		</view>
 
-		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="submit">提交</button></view>
+		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="submit">{{$t("user.wallet.chongzhi.confirm")}}</button></view>
 	</view>
 </template>
 

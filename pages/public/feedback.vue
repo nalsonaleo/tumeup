@@ -4,7 +4,7 @@
 			<view class="head_box"></view>
 			<view class="content_box pad">
 				<view class="form-item">
-					<view class="inp-title">请选择类型</view>
+					<view class="inp-title">{{$t("public.poster.index.qxzlx")}}</view>
 					<radio-group class="y-start radio-box">
 						<label class="radio-item x-f" v-for="(type, index) in typeList" :key="index" @tap="changeType(index)">
 							<radio class="orange radio-inp" :class="{ chekced: num == index }" :checked="num == index"></radio>
@@ -14,13 +14,13 @@
 				</view>
 				<view class="form-item">
 					<label>
-						<view class="inp-title">相关描述</view>
+						<view class="inp-title">{{$t("public.poster.index.xgms")}}</view>
 						<view class="area-box">
 							<textarea
 								class="inp-area"
 								v-model="f_info"
 								name="message"
-								placeholder="客官~您对我们的服务还满意吗，请给予我们你的意见我们将做的更好~"
+								:placeholder="$t('public.poster.index.kg') + '~' +$t('public.poster.index.ms')+ '~'"
 								placeholder-class="pl-style"
 							/>
 							<view class="img-box">
@@ -35,13 +35,13 @@
 				</view>
 				<view class="form-item">
 					<label>
-						<view class="inp-title">联系方式</view>
-						<input class="inp" v-model="f_phone" name="phone" type="number" placeholder="请输入您的联系电话" placeholder-class="pl-style" />
+						<view class="inp-title">{{$t("public.poster.index.lxfs")}}</view>
+						<input class="inp" v-model="f_phone" name="phone" type="number" :placeholder="$t('public.poster.index.qsrndlxdh')" placeholder-class="pl-style" />
 					</label>
 				</view>
 			</view>
 			<view class="foot_box x-bc pad">
-				<button class="cu-btn post-btn" @tap="addFeedback">提交</button>
+				<button class="cu-btn post-btn" @tap="addFeedback">{{$t("public.poster.index.tj")}}</button>
 				<!-- <button class="cu-btn contact-btn" v-if="false">联系客服</button> -->
 			</view>
 		</view>
@@ -77,7 +77,7 @@ export default {
 		addFeedback() {
 			let that = this;
 			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.f_phone)) {
-				that.$msg('请填写正确手机号码');
+				that.$msg(that.$t("public.poster.index.qtxzqdhhm"));
 				return false;
 			}
 			// console.log(that.imgList[0])
@@ -149,11 +149,12 @@ export default {
 			});
 		},
 		DelImg(index) {
+			let that = this;
 			uni.showModal({
-				title: '删除照片',
-				content: '确定要删除这张照片么？',
-				cancelText: '取消',
-				confirmText: '删除',
+				title: that.$t('public.poster.index.delpic'),
+				content: `${that.$t('public.poster.index.qdysczzzpm')}？`,
+				cancelText: that.$t("public.poster.index.cancel"),
+				confirmText: that.$t("public.poster.index.del"),
 				success: res => {
 					if (res.confirm) {
 						this.imgList.splice(index, 1);

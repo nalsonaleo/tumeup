@@ -29,9 +29,9 @@ export default {
 			scoreList: [],
 			emptyData: {
 				img: '/static/imgs/empty/empty_goods.png',
-				tip: '暂无金豆商品',
+				tip: this.$t("user.app.score.list.tip"),
 				path: '/pages/index/index',
-				pathText: '去首页逛逛'
+				pathText: this.$t("user.coupon.list.button"),
 			},
 			loadStatus: '', //loading,over
 			page: 1,

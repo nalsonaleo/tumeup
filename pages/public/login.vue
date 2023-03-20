@@ -3,28 +3,29 @@
 		<!-- titleview -->
 		<view class="head-box"><cu-custom :isBack="false"></cu-custom></view>
 		<view class="wrapper">
-			<view style="font-size: 54upx;color: #333;margin-left: 60upx;font-weight: 500;margin-bottom: 40upx;">登录</view>
+			<view style="font-size: 54upx;color: #333;margin-left: 60upx;font-weight: 500;margin-bottom: 40upx;">{{$t("public.login.dl")}}</view>
 			<view class="login-box y-f">
-				<view class="input-item x-c"><input class="inp" v-model="u_phone" type="number" placeholder="请输入账号" placeholder-class="pl" /></view>
-				<view class="input-item x-c"><input class="inp" password v-model="u_psd" type="text" placeholder="请输入密码" placeholder-class="pl" /></view>
+				<view class="input-item x-c"><input class="inp" v-model="u_phone" type="number" :placeholder="$t('public.login.placeholder.qsrzh')" placeholder-class="pl" /></view>
+				<view class="input-item x-c"><input class="inp" password v-model="u_psd" type="text" :placeholder="$t('public.login.placeholder.qsrmm')" placeholder-class="pl" /></view>
 			</view>
+			
 			<!-- 登录按钮 -->
 			<view class="x-c y-f">
 				<!-- #ifdef MP-WEIXIN -->
-				<button class="cu-btn login-btn" @getuserinfo="toLogin" open-type="getUserInfo">立即登录</button>
+				<button class="cu-btn login-btn" @getuserinfo="toLogin" open-type="getUserInfo">{{$t('public.login.ljdd')}}</button>
 				<!-- #endif -->
 				<!-- #ifndef MP-WEIXIN -->
-				<button class="cu-btn login-btn" @tap="toLogin">立即登录</button>
+				<button class="cu-btn login-btn" @tap="toLogin">{{$t('public.login.ljdd')}}</button>
 				<!-- #endif -->
 			
 				<view class="tip-box">
-					<view class="tip-btn" style="color: #999;margin: 28upx auto;border: 0;text-align: center;" @tap="jump('/pages/public/forgot')">忘记密码？</view>
+					<view class="tip-btn" style="color: #999;margin: 28upx auto;border: 0;text-align: center;" @tap="jump('/pages/public/forgot')">{{$t("public.login.wjmm")}}？</view>
 				</view>
 			</view>
 			
 		</view>
 		<view class="third-party" @tap="jump('/pages/public/register')" style="position: absolute;z-index: 99; bottom: 40upx;text-align: center;width: 100%;">
-			没有帐号？<text>注册一个吧！</text>
+			{{$t("public.login.myzh")}}？<text>{{$t("public.login.zcygb")}}！</text>
 		</view>
 	</view>
 </template>
@@ -52,11 +53,11 @@ export default {
 		toLogin() {
 			let that = this;
 			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-				that.$msg('请填写正确手机号码');
+				that.$msg(that.$t("public.login.placeholder.qtxzqsjhh"));
 				return false;
 			}
 			if (!that.u_psd) {
-				that.$msg('请填写登录密码');
+				that.$msg(that.$t('public.login.placeholder.qtxdlmm'));
 				return false;
 			}
 			var data = { u_phone: that.u_phone,u_psd: that.u_psd};

@@ -5,13 +5,13 @@
 			<view class="">
 				<text class="unit">￥</text>
 				<text class="price">{{detail.g_price}}</text>
-				<text class="notice">优惠价</text>
+				<text class="notice">{{$t("user.goods.detail.shprice.yhj")}}</text>
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">原价：<text style="text-decoration: line-through;">￥{{ detail.g_price1 }}</text></view>
+					<view class="original-price">{{$t("user.goods.detail.shprice.originalPrice")}}：<text style="text-decoration: line-through;">￥{{ detail.g_price1 }}</text></view>
 					<text class="line"></text>
-					<view class="sold">已售：{{ detail.g_sell }}件</view>
+					<view class="sold">{{$t("user.goods.detail.shprice.ys")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
 				</view>
 				<view class="express"></view>
 			</view>
@@ -20,13 +20,13 @@
 		<view class="score-price-card" v-if="detail.g_type == 3">
 			<view class="x-f">
 				<image class="score-img" src="../../../../static/imgs/score.png" mode=""></image>
-				<text class="price">{{ detail.g_integral3 }}金豆+￥{{ detail.g_price }}</text>
+				<text class="price">{{ detail.g_integral3 }}{{$t("user.goods.detail.shprice.jd")}}+￥{{ detail.g_price }}</text>
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">价值：￥{{ detail.g_price1 }}</view>
+					<view class="original-price">{{$t("user.goods.detail.shprice.jd")}}：￥{{ detail.g_price1 }}</view>
 					<text class="line"></text>
-					<view class="sold">已兑换：{{ detail.g_sell }}件</view>
+					<view class="sold">{{$t("user.goods.detail.shprice.ydh")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
 				</view>
 			</view>
 		</view>
@@ -35,13 +35,13 @@
 			<view class="">
 				<text class="unit">￥</text>
 				<text class="price">{{detail.g_price}}</text>
-				<text class="notice">{{detail.p_num}}人团</text>
+				<text class="notice">{{detail.p_num}}{{$t("user.goods.detail.shprice.rt")}}</text>
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">原价：<text style="text-decoration: line-through;">￥{{ detail.g_price1 }}</text></view>
+					<view class="original-price">{{$t("user.goods.detail.shprice.yj")}}：<text style="text-decoration: line-through;">￥{{ detail.g_price1 }}</text></view>
 					<text class="line"></text>
-					<view class="sold">已拼：{{ detail.g_sell }}件</view>
+					<view class="sold">{{$t("user.goods.detail.shprice.yp")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
 				</view>
 				<!-- <view class="count-down" v-show="activityRules.status === 'waiting'">
 					距开始 {{ activityRules.countDownTime.h || '00' }} : {{ activityRules.countDownTime.m || '00' }} : {{ activityRules.countDownTime.s || '00' }}
@@ -56,7 +56,7 @@
 			<view class="">
 				<text class="unit">￥</text>
 				<text class="price">{{detail.g_price}}</text>
-				<text class="notice">{{detail.p_num}}人团</text>
+				<text class="notice">{{detail.p_num}}{{$t("user.goods.detail.shprice.rt")}}</text>
 			</view>
 			
 			<!-- <view>
@@ -67,7 +67,7 @@
 				{{detail.level1_back}}
 			    </view>
 			  <view style="font-size: 10px;">
-				金牌补贴
+				{{$t("user.goods.detail.shprice.jpbt")}}
 			  </view>
 			</view>
 			
@@ -76,7 +76,7 @@
 				{{detail.level2_back}}
 			    </view>
 			  <view style="font-size: 10px;">
-				钻石补贴
+				{{$t("user.goods.detail.shprice.jspt")}}
 			  </view>
 			</view>
 			
@@ -85,7 +85,7 @@
 				{{detail.level3_back}}
 			    </view>
 			  <view style="font-size: 10px;">
-				黑钻补贴
+				{{$t("user.goods.detail.shprice.hjhy")}}
 			  </view>
 			</view>
 		</view>

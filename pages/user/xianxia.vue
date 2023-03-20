@@ -2,23 +2,23 @@
 	<div class="page-bd chongzhi">
 	        <!-- 页面内容-->
 	        <div class="account">
-	            <div class="text fs28">您选择一种方式支付</div>
+	            <div class="text fs28">{{$t('user.upgrade.nxzyzfszf')}}</div>
 	            <div class="oblock">
-	                <div class="type"><img src="/static/imgs/wx_pay.png" alt=""><span class="fs28">微信收款码</span></div>
+	                <div class="type"><img src="/static/imgs/wx_pay.png" alt=""><span class="fs28">{{$t('user.upgrade.wxskm')}}</span></div>
 	                <img src="/static/imgs/wxpay.png" alt="" class="weixinCode">
 	            </div>
 	            <div class="oblock">
-	                <div class="type"><img src="/static/imgs/ali_pay.png" alt=""><span class="fs28">支付宝收款码</span></div>
+	                <div class="type"><img src="/static/imgs/ali_pay.png" alt=""><span class="fs28">{{$t('user.upgrade.zfbskm')}}</span></div>
 	                <img src="/static/imgs/alipay.png" alt="" class="weixinCode">
 	            </div>
 	            <div class="oblock">
-	                <div class="type"><img src="/static/imgs/yinlian.png" alt=""><span class="fs28">银行账户</span></div>
-	                <p class="fs32 fw_b color_3">张林</p>
+	                <div class="type"><img src="/static/imgs/yinlian.png" alt=""><span class="fs28">{{$t('user.upgrade.yhzh')}}</span></div>
+	                <p class="fs32 fw_b color_3">{{$t('user.upgrade.zl')}}</p>
 	                <view class="fs28 color_3" style="margin: 5px;">
 						<span>{{bank_code}}</span>
-						<span @click="copyVal()" style="margin-left: 5px;padding: 5px 10px;background-color: #00BFFF;">复制卡号</span>
+						<span @click="copyVal()" style="margin-left: 5px;padding: 5px 10px;background-color: #00BFFF;">{{$t('user.upgrade.fzkh')}}</span>
 					</view>
-	                <div class="fs28 color_3"><span>交通银行</span></div>
+	                <div class="fs28 color_3"><span>{{$t('user.upgrade.jtyh')}}</span></div>
 	            </div>
 	        </div>
 	       
@@ -52,22 +52,23 @@
 				});
 			},
 			copyVal() {
+				let that = this;
 				// #ifdef H5
 				 let content = this.bank_code // 复制内容，必须字符串，数字需要转换为字符串
 				       const result = h5Copy(content)
 				       if (result === false) {
-				         this.$msg('复制失败，请重试');
+				         this.$msg(that.$t('user.upgrade.fzsb'));
 				       } else {
-				        this.$msg('复制成功');
+				        this.$msg(that.$t('user.upgrade.fzcg'));
 				       }
 				// #endif
 				uni.setClipboardData({
 					data: this.bank_code,
 					success: () => {
-						this.$msg('复制成功');
+						this.$msg(that.$t('user.upgrade.fzcg'));
 					},
 					fail: () => {
-						this.$msg('复制失败，请重试');
+						this.$msg(that.$t('user.upgrade.fzsb'));
 					}
 				});
 			},

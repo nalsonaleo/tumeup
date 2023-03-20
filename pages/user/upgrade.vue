@@ -11,13 +11,13 @@
 						<view class="text" style="color: #333;">{{item.l_name}}会员 <text  style="font-size: 28upx;margin-left: 30upx;">{{item.level_name}}</text></view>
 						<view class="text" style="color: #666;font-size: 28upx;margin-top: 16upx;display: flex;justify-content: space-between;width: 15rem;">
 							<view>
-								<view style="color: #0081FF;">{{item.l_integral}} 金豆</view>
+								<view style="color: #0081FF;">{{item.l_integral}} {{$t('user.upgrade.jd')}}</view>
 								<view v-if="item.l_level==u_level" style="color: white;">{{item.l_desc}}</view>
 								<view v-if="item.l_level!=u_level" style="color: red;">{{item.l_desc}}</view>
 								
 							</view>
-							<view v-if="item.l_level!=u_level && item.l_level!=1" @click="upgrade(item.id)" style="color: white;background-color: #00BFFF;height: 30px;line-height: 30px;min-width:80px; border-radius: 40px;text-align: center;">开通会员</view>
-							<view v-if="item.l_level==u_level"  style="text-align: center;color: red;min-width:80px;">当前等级</view>
+							<view v-if="item.l_level!=u_level && item.l_level!=1" @click="upgrade(item.id)" style="color: white;background-color: #00BFFF;height: 30px;line-height: 30px;min-width:80px; border-radius: 40px;text-align: center;">{{$t('user.upgrade.kthy')}}</view>
+							<view v-if="item.l_level==u_level"  style="text-align: center;color: red;min-width:80px;">{{$t('user.upgrade.dqdj')}}</view>
 							
 						</view>
 					</view>
@@ -58,8 +58,8 @@ export default {
 		upgrade(lid){
 			var that = this;
 			uni.showModal({
-			    title: '提示',
-			    content: '确定开通会员?',
+			    title: that.$t('user.upgrade.ts'),
+			    content: `${that.$t('user.upgrade.qdkthy')}?`,
 			    success: function (res) {
 			        if (res.confirm) {
 						var data = {
@@ -71,7 +71,7 @@ export default {
 						   if(res.code == 1){
 							   that.getData();
 							   uni.showToast({
-							       title: '升级成功',
+							       title: that.$t('user.upgrade.sjcg'),
 							       duration: 2000
 							   });
 							   

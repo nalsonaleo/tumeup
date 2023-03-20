@@ -3,7 +3,7 @@
 		<swiper-item class="silde-box" v-for="item in 3" :key="item">
 			<view class="silde-item x-f" :class="{ 'silde--active': current == item - 1 }">
 				<image class="item-img" src="/static/imgs/base_avatar.png" mode="aspectFill"></image>
-				<text class="item-text">美**{{ item }}刚刚参与了团购</text>
+				<text class="item-text">{{$t("user.goods.detail.shprice.groupontip.mei")}}**{{ item }}{{$t("user.goods.detail.shprice.groupontip.ggcjltg")}}</text>
 			</view>
 		</swiper-item>
 	</swiper>

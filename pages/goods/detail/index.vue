@@ -22,7 +22,7 @@
 					<view>
 						<view class="goods-title">{{ goodsInfo.g_name }}</view>
 						<view style="display: flex;align-items: center;justify-content: space-between;">
-							<view class="sub-title">正品保证 放心购</view>
+							<view class="sub-title">{{$t("user.app.score.list.detail.tip")}}</view>
 							 <!-- <view style="font-size: 26upx;color: #ef3a3a;">【立即加入7人成团】</view> -->
 						</view>
 					</view>
@@ -35,8 +35,8 @@
 				<view class="sku-box" @tap="toShowgg()" v-if="goodsInfo.g_more == 1">
 					<view class="x-bc">
 						<view class="x-f">
-							<text class="title">规格</text>
-							<text class="tip">{{ currentSkuText || '请选择规格' }}</text>
+							<text class="title">{{$t("user.goods.detail.specification")}}</text>
+							<text class="tip">{{ currentSkuText || $t("user.goods.detail.specification.placeholder") }}</text>
 						</view>
 						<text class="cuIcon-right"></text>
 					</view>
@@ -63,13 +63,13 @@
 										<text class="miso-font sum"  v-if="c.coupon_type == 2 || c.c_type == 2">{{ c.coupon_reduce || c.c_reduce}}</text>
 										<text class="sub">{{ c.coupon_name || c.c_name}}</text>
 									</view>
-									<view class="notice" v-if="c.coupon_type == 2 || c.c_type == 2">满{{ c.coupon_full || c.c_full}}元可用</view>
-									<view class="notice" v-if="c.coupon_type == 3 || c.c_type == 3">{{ parseFloat(c.coupon_discount)  ||  parseFloat(c.c_discount) }}折</view>
-									<view class="notice" v-if="c.type != 2">有效期：{{ c.coupon_start || c.c_start}} 至 {{ c.coupon_end || c.c_end}}</view>
+									<view class="notice" v-if="c.coupon_type == 2 || c.c_type == 2">{{$t("user.goods.detail.man")}}{{ c.coupon_full || c.c_full}}{{$t("user.goods.detail.yky")}}</view>
+									<view class="notice" v-if="c.coupon_type == 3 || c.c_type == 3">{{ parseFloat(c.coupon_discount)  ||  parseFloat(c.c_discount) }}{{$t("user.goods.detail.zhe")}}</view>
+									<view class="notice" v-if="c.type != 2">{{$t("user.goods.detail.yxq")}}：{{ c.coupon_start || c.c_start}} {{$t("user.goods.detail.zhi")}} {{ c.coupon_end || c.c_end}}</view>
 								</view>
 								<view class="coupon-right y-f">
-									<view  v-if="c.type == 1" style="font-size: 24upx;">购买商品可得</view>
-									<button class="cu-btn get-btn" v-if="c.type == 2" @tap="takeCoup(c.id)">立即领取</button>
+									<view  v-if="c.type == 1" style="font-size: 24upx;">{{$t("user.goods.detail.shopInfo")}}</view>
+									<button class="cu-btn get-btn" v-if="c.type == 2" @tap="takeCoup(c.id)">{{$t("user.goods.detail.button.ljlq")}}</button>
 								</view>
 							</view>
 						</view>
@@ -94,7 +94,7 @@
 							<view class="empty-box x-c" v-if="commentList.length == 0"><shopro-empty :isFixed="false" :emptyData="emptyData"></shopro-empty></view>
 							<view class="more-box x-c" v-if="commentList.length > 0">
 								<button class="cu-btn more-btn x-f" @tap="jump('/pages/goods/comment-list?id='+goodsId)">
-									查看全部
+									{{$t("user.goods.detail.button.showAll")}}
 									<text class="cuIcon-right"></text>
 								</button>
 							</view>
@@ -107,11 +107,11 @@
 				<view class="left x-f">
 					<view class="tools-item y-f" @tap="goHome">
 						<image class="tool-img" src="../../../static/imgs/tabbar/tab_home_sel.png" mode=""></image>
-						<text class="tool-title">首页</text>
+						<text class="tool-title">{{$t("user.goods.detail.footer.index")}}</text>
 					</view>
 				</view>
 				<view class="right">
-					<view class="btn-box x-ac"><button class="cu-btn  seckill-btn" @tap="goPay">立即兑换</button></view>
+					<view class="btn-box x-ac"><button class="cu-btn  seckill-btn" @tap="goPay">{{$t("user.goods.detail.footer.ljdh")}}</button></view>
 				</view>
 			</view>
 			<!-- 其他商品foot -->
@@ -119,7 +119,7 @@
 				<view class="left x-f">
 					<view class="tools-item y-f" @tap="goHome">
 						<image class="tool-img" src="../../../static/imgs/tabbar/tab_home_sel.png" mode=""></image>
-						<text class="tool-title">首页</text>
+						<text class="tool-title">{{$t("user.goods.detail.footer.index")}}</text>
 					</view>
 					
 					<view v-if="goodsInfo.g_type == 4" class="tools-item y-f" @tap="rules()">
@@ -128,7 +128,7 @@
 							:src="'../../../static/imgs/rule.png' "
 							mode=""
 						></image>
-						<text class="tool-title">规则</text>
+						<text class="tool-title">{{$t("user.goods.detail.footer.gz")}}</text>
 					</view>
 					
 					<navigator url="/pages/user/rule" v-if="goodsInfo.g_type == 1" class="tools-item y-f" >
@@ -137,7 +137,7 @@
 							:src="'../../../static/imgs/rule.png' "
 							mode=""
 						></image>
-						<text class="tool-title">规则</text>
+						<text class="tool-title">{{$t("user.goods.detail.footer.gz")}}</text>
 					</navigator>
 					
 					
@@ -147,7 +147,7 @@
 							:src="goodsInfo.collect == 0 ? '../../../static/imgs/favorite.png' : '../../../static/imgs/favorite_end.png'"
 							mode=""
 						></image>
-						<text class="tool-title">收藏</text>
+						<text class="tool-title">{{$t("user.goods.detail.footer.sc")}}</text>
 					</view>
 				<!-- 	<view class="tools-item y-f" @tap="onShare">
 						<image class="tool-img" src="../../../static/imgs/share.png" mode=""></image>
@@ -156,14 +156,14 @@
 				</view>
 				<view class="detail-right" style="flex: 2;">
 					<view class="detail-btn-box x-ac"  v-if="goodsInfo.g_type == 2" style="justify-content: flex-end;">
-						<button class="cu-btn tool-btn add-btn" @tap="addCart">加入购物车</button>
-						<button class="cu-btn tool-btn pay-btn" @tap="goPay">立即购买</button>
+						<button class="cu-btn tool-btn add-btn" @tap="addCart">{{$t("user.goods.detail.footer.addgwc")}}</button>
+						<button class="cu-btn tool-btn pay-btn" @tap="goPay">{{$t("user.goods.detail.footer.addgwc")}}</button>
 					</view>
 					
 					<!-- 拼团foot -->
 					<view class="detail-btn-box x-ac" v-if="goodsInfo.g_type == 1 || goodsInfo.g_type==4">
 						<view class="x-f">
-							<button class="cu-btn tool-btn groupon-btn" style="width: 440upx;" @tap="goGroup">立即拼团</button>
+							<button class="cu-btn tool-btn groupon-btn" style="width: 440upx;" @tap="goGroup">{{$t("user.goods.detail.footer.ljpt")}}</button>
 						</view>
 					</view>
 				</view>

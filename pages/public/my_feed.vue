@@ -16,15 +16,15 @@
 					</view>
 					<view class="bot" v-if="item.status">
 						<view style="line-height: 40upx;margin-bottom: 10upx;color: #999;">问:{{item.f_info}}</view>
-						<view  v-for="(i, index2) in item.data" :key='index2' style="line-height: 40upx;margin-bottom: 10upx;color: #000;">答:{{i.f_info}}</view>
-						<view v-if="item.data.length == 0" style="line-height: 40upx;margin-bottom: 10upx;color: #000;">暂无任何回复</view>
+						<view  v-for="(i, index2) in item.data" :key='index2' style="line-height: 40upx;margin-bottom: 10upx;color: #000;">{{$t("public.myFeed.da")}}:{{i.f_info}}</view>
+						<view v-if="item.data.length == 0" style="line-height: 40upx;margin-bottom: 10upx;color: #000;">{{$t("public.muFeed.zwrhhf")}}</view>
 						<!-- <text style="font-size: 26upx;color: #666;">{{i.f_time}}</text> -->
 					</view>
 				</view>
 				</scroll-view>
 			</view>
 			<view class="foot_box x-bc pad">
-				<button class="cu-btn post-btn" @tap="jump('/pages/public/feedback')">我要反馈</button>
+				<button class="cu-btn post-btn" @tap="jump('/pages/public/feedback')">{{$t("public.myFeed.wyfk")}}</button>
 			</view>
 		</view>
 	</form>

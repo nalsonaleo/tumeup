@@ -12,7 +12,7 @@
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
 			<view class="order-list" v-for="order in orderList" :key="order.id" @tap.stop="jump('/pages/order/detail?order_id='+order.id)">
 				<view class="order-head x-bc">
-					<text class="no">订单编号：{{ order.o_no }}</text>
+					<text class="no">{{$t("order.commonPtOrder.orderNumber")}}：{{ order.o_no }}</text>
 					<text class="state" v-if="orderType != 5">{{orderStatus[order.o_status]}}</text>
 					<!-- <text class="state" v-else>{{order.o_exchange == 1?'退款中':'已退款'}}</text> -->
 				</view>
@@ -23,7 +23,7 @@
 						<view class="btn-box" >
 							
 							<button @tap.stop="onConfirm(order.id)" class="cu-btn btn2">
-								确认收货
+								{{$t("order.commomPtOrder.confirmReceipt")}}
 							</button>
 						</view>
 					</view>
@@ -31,10 +31,10 @@
 					<view class="goods-bottom  x-f" style="margin-top: 5px;"  v-if="order.o_status == 7">
 						<view class="btn-box" >
 							<button class="cu-btn btn1"  @tap.stop="chargeIntegral(order.id)">
-								兑换金豆
+								{{$t("order.commomPtOrder.goldBeanExchange")}}
 							</button>
 							<button @tap.stop="tihuo(order.id)" class="cu-btn btn2">
-								提货
+								{{$t("order.commomPtOrder.pickUpTheGoods")}}
 							</button>
 						</view>
 					</view>
@@ -66,35 +66,35 @@ export default {
 			isLoading: true,
 			orderType: -1,
 			orderList: [],
-			orderStatus:['','待成团','待收货','已完成','','','拼团失败','拼团成功'],
+			orderStatus:['',this.$t("order.commonPtOrder.status.dtc"),this.$t("order.commonPtOrder.status.dsh"),this.$t("order.commonPtOrder.status.ywc"),'','',this.$t("order.commomPtOrder.status.ptsb"),this.$t("order.commomPtOrder.status.ptcg")],
 			emptyData: {
 				img: '/static/imgs/empty/empty_groupon.png',
-				tip: '暂无订单，还有更多好货等着你噢~'
+				tip: this.$t("order.commomPtOrder.status.tips")
 			},
 			orderState: [
 				{
 					id: 0,
-					title: '全部',
+					title: this.$t("order.commomPtOrder.status.qb"),
 					type: -1
 				},
 				{
 					id: 1,
-					title: '待付款',
+					title: this.$t("order.commomPtOrder.status.dfk"),
 					type: 0
 				},
 				{
 					id: 2,
-					title: '拼团信息',
+					title: this.$t("order.commomPtOrder.status.ptxx"),
 					type: -10
 				},
 				{
 					id: 3,
-					title: '待收货',
+					title: this.$t("order.commomPtOrder.status.dsh"),
 					type: 2
 				},
 				{
 					id: 4,
-					title: '已完成',
+					title: this.$t("order.commomPtOrder.status.ywc"),
 					type: 3
 				},
 				// {

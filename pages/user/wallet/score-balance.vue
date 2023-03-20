@@ -2,18 +2,18 @@
 	<view class="page_box">
 		<view class="head_box">
 			<cu-custom :isBack="true" style="color: #fff;">
-				<block slot="backText">金豆</block>
+				<block slot="backText">{{$t("user.wallet.scoreBalance.jindou")}}</block>
 				<block slot="content"></block>
 			</cu-custom>
 			<image class="bg" src="../../../static/imgs/integral_bg.png" mode=""></image>
 			<view class="all-box x-c">
 				<text class="all-num">{{ score }}</text>
-				<text class="all-title">当前金豆</text>
+				<text class="all-title">{{$t("user.wallet.scoreBalance.nowjindou")}}</text>
 			</view>
 			<view class="tab-box x-f">
-				<view class="tab-item y-f " @tap="onTab(0)"><text class="tab-name" :class="{ 'tab-active': tabDot == 0 }">全部</text></view>
-				<view class="tab-item y-f " @tap="onTab(1)"><text class="tab-name" :class="{ 'tab-active': tabDot == 1 }">收入</text></view>
-				<view class="tab-item y-f " @tap="onTab(2)"><text class="tab-name" :class="{ 'tab-active': tabDot == 2 }">支出</text></view>
+				<view class="tab-item y-f " @tap="onTab(0)"><text class="tab-name" :class="{ 'tab-active': tabDot == 0 }">{{$t("user.wallet.scoreBalance.all")}}</text></view>
+				<view class="tab-item y-f " @tap="onTab(1)"><text class="tab-name" :class="{ 'tab-active': tabDot == 1 }">{{$t("user.wallet.scoreBalance.income")}}</text></view>
+				<view class="tab-item y-f " @tap="onTab(2)"><text class="tab-name" :class="{ 'tab-active': tabDot == 2 }">{{$t("user.wallet.scoreBalance.expenditure")}}</text></view>
 			</view>
 		</view>
 		<view class="content_box">
@@ -46,7 +46,7 @@ export default {
 		return {
 			emptyData: {
 				img: '/static/imgs/empty/empty_groupon.png',
-				tip: '还没有金豆明细~'
+				tip: this.$t("user.wallet.scoreBalance.tip")
 			},
 			tabDot: 0,
 			scoreLog: [],

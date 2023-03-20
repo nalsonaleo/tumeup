@@ -4,45 +4,45 @@
 		<view class="content_box">
 			<view class="address-item x-f">
 				<label class="x-f flex-sub">
-					<text class="item-title">收货人：</text>
+					<text class="item-title">{{$t("user.address.edit.shr")}}：</text>
 					<input class="inp flex-sub" placeholder="请填写收货人姓名" type="text" v-model="a_name" />
 				</label>
 			</view>
 			<view class="address-item x-f">
 				<label class="x-f flex-sub">
-					<text class="item-title">手机号：</text>
-					<input class="inp flex-sub" placeholder="请输入收货人手机号" type="number" v-model="a_phone" />
+					<text class="item-title">{{$t("user.address.edit.phone")}}：</text>
+					<input class="inp flex-sub" :placeholder="$t('user.address.edit.phone.placeholder')" type="number" v-model="a_phone" />
 				</label>
 			</view>
 			<view class="address-item x-f" @tap="chooseCity">
 				<label class="x-f flex-sub">
-					<text class="item-title">所在地区：</text>
-					<input class="inp flex-sub" disabled type="text" placeholder="点击选择所在地区" v-model="area_text" />
+					<text class="item-title">{{$t("user.address.edit.szdq")}}：</text>
+					<input class="inp flex-sub" disabled type="text" :placeholder="$t('user.address.edit.szdq.placeholder')" v-model="area_text" />
 				</label>
 			</view>
 			<view class="area-box x-f">
 				<label class="x-f x-start">
-					<view class="area-item"><text class="item-title">详细地址：</text></view>
+					<view class="area-item"><text class="item-title">{{$t("user.address.edit.detailAddress")}}：</text></view>
 					<textarea
 						auto-height
 						class="area-inp"
 						type="text"
-						placeholder="如道路、门牌号、小区、楼栋号、单元室等"
+						:placeholder="$t('user.address.edit.textarea.placeholder')"
 						placeholder-class="area-pl"
 						v-model="a_address"
 					/>
 				</label>
 			</view>
 			<view class="default-box x-bc">
-				<text class="title">设为默认地址</text>
+				<text class="title">{{$t("user.address.edit.defaultAddress")}}</text>
 				<switch class="olive switch" @tap="onSwitch" :class="{ checked: is_default }" :checked="is_default"></switch>
 			</view>
 		</view>
 		<view v-if="from == 'edit'" class="foot_box x-bc">
-			<button class="cu-btn delete-btn" @tap="deleteAddress">删除收货地址</button>
-			<button class="cu-btn save-btn" @tap="editAddress">保存收货地址</button>
+			<button class="cu-btn delete-btn" @tap="deleteAddress">{{$t("user.address.edit.delAddress")}}</button>
+			<button class="cu-btn save-btn" @tap="editAddress">{{$t("user.address.edit.saveAddress")}}</button>
 		</view>
-		<view v-else class="foot_box "><button class="cu-btn add-btn" @tap="editAddress">保存收货地址</button></view>
+		<view v-else class="foot_box "><button class="cu-btn add-btn" @tap="editAddress">{{$t("user.address.edit.saveAddress")}}</button></view>
 		
 		<mpvue-city-picker :themeColor="themeColor" ref="mpvueCityPicker" :pickerValueDefault="cityPickerValue" @onCancel="onCancel" @onConfirm="onConfirm"></mpvue-city-picker>
 		
@@ -87,7 +87,7 @@ export default {
 			this.getAddressInfo();
 		}
 		uni.setNavigationBarTitle({
-			title: this.from == 'edit' ? '编辑收货地址' : '添加收货地址'
+			title: this.from == 'edit' ? this.$t("user.address.edit.harvestAddress") : this.$t("user.address.edit.addHarvestAddress")
 		});
 	},
 	methods: {
@@ -119,23 +119,23 @@ export default {
 		editAddress() {
 			let that = this;
 			if(!that.a_name){
-				that.$msg('请填写姓名');
+				that.$msg(that.$t("user.address.edit.name.placeholder"));
 				return;
 			}
 			if(!that.a_phone){
-				that.$msg('请填写手机号');
+				that.$msg(that.$t("user.address.edit.phoneNumber.placeholder"));
 				return;
 			}
 			if(!(/^1[3456789]\d{9}$/.test(that.a_phone))){
-				that.$msg('请填写正确的手机号');
+				that.$msg(that.$t("user.address.edit.phonecorrect"));
 				return;
 			}
 			if(!that.area_text){
-				that.$msg('请选择收货地址');
+				that.$msg(that.$t("user.address.edit.select.harvestAddress"));
 				return;
 			}
 			if(!that.a_address){
-				that.$msg('请填写详细收货地址');
+				that.$msg(that.$t("user.address.edit.inputHarvestAddress"));
 				return;
 			}
 			// 添加地址

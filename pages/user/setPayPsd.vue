@@ -6,20 +6,20 @@
 				<input type="text" placeholder="请输入旧密码" v-model="oldPsd" password maxlength="6">
 			</view> -->
 			<view class="list">
-				<view>验证码</view>
-				<input type="text" placeholder="请输入验证码" v-model="code.y_code">
+				<view>{{$t("user.setPayPsd.yzm")}}</view>
+				<input type="text" :placeholder="$t('user.setPayPsd.yzm.placeholder')" v-model="code.y_code">
 				<button class="cu-btn code-btn" :disabled="code.status" @tap="getCode">{{ code.text }}</button>
 			</view>
 			<view class="list">
-				<view>设置密码</view>
-				<input type="text" placeholder="请设置6位纯数字支付密码" v-model="u_paypsd" password maxlength="6">
+				<view>{{$t('user.setPayPsd.szmm')}}</view>
+				<input type="text" :placeholder="$t('user.setPayPsd.szmm.placeholder')" v-model="u_paypsd" password maxlength="6">
 			</view>
 			<view class="list">
-				<view>确认密码</view>
-				<input type="text" placeholder="请确认密码" v-model="re_paypsd" password maxlength="6">
+				<view>{{$t('user.setPayPsd.qrmm')}}</view>
+				<input type="text" :placeholder="$t('user.setPayPsd.qrmm.placeholder')" v-model="re_paypsd" password maxlength="6">
 			</view>
 		</view>
-		<view class="subBtn"><view @click="submit">提交</view></view>
+		<view class="subBtn"><view @click="submit">{{$t('user.setPayPsd.tj')}}</view></view>
 	</view>
 </template>
 
@@ -31,7 +31,7 @@
 				u_paypsd:'',
 				re_paypsd:'',
 				code: {
-					text: '获取验证码',
+					text: that.$t('user.setPayPsd.hqyzm'),
 					status: false,
 					y_code: ''
 				},
@@ -57,7 +57,7 @@
 								countdown--;
 							} else {
 								clearInterval(timer);
-								that.code.text = '获取验证码';
+								that.code.text = that.$t('user.setPayPsd.hqyzm');
 								that.code.status = false;
 							}
 						}, 1000);
@@ -74,19 +74,19 @@
 				// }
 				var reg = new RegExp(/^\d{6}$/);
 				if(!$this.code.y_code){
-					$this.$msg('请输入验证码');
+					$this.$msg($this.$t('user.setPayPsd.qsryzm'));
 					return;
 				}
 				if(!reg.test($this.u_paypsd)){
-					$this.$msg('请输入6位纯数字支付密码');
+					$this.$msg($this.$t('user.setPayPsd.qsrwcsjmm'));
 					return;
 				}
 				if(!$this.re_paypsd){
-					$this.$msg('请确认支付密码');
+					$this.$msg($this.$t('user.setPayPsd.qqrzfmm'));
 					return;
 				}
 				if($this.re_paypsd != $this.u_paypsd){
-					$this.$msg('两次输入密码不同');
+					$this.$msg($this.$t('user.setPayPsd.lcsrmmbt'));
 					return;
 				}
 				var data = {

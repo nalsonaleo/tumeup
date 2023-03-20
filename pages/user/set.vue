@@ -1,35 +1,35 @@
 <template>
 	<view class="set-box">
 		<view class="list x-bc" @tap="jump('/pages/public/my_feed')">
-			<view class="title">意见反馈</view>
+			<view class="title">{{$t('user.set.yjfk')}}</view>
 			<text class="cuIcon-right"></text>
 		</view>
 		<view class="list x-bc" @tap="jump('/pages/user/address/list')">
-			<view class="title">地址管理</view>
+			<view class="title">{{$t('user.set.ddgl')}}</view>
 			<text class="cuIcon-right"></text>
 		</view>
 		<view class="list x-bc" @tap="jump('/pages/user/edit-password')">
-			<view class="title">修改登录密码</view>
+			<view class="title">{{$t('user.set.xgdlmm')}}</view>
 			<text class="cuIcon-right"></text>
 		</view>
 		<view class="list x-bc" @tap="jump('/pages/user/setPayPsd')" v-if="!userInfo.u_paypsd">
-			<view class="title">设置支付密码</view>
+			<view class="title">{{$t('user.set.szzfmm')}}</view>
 			<text class="cuIcon-right"></text>
 		</view>
 		<view class="list x-bc" @tap="jump('/pages/user/changePayPsd')" v-if="userInfo.u_paypsd">
-			<view class="title">修改支付密码</view>
+			<view class="title">{{$t('user.set.xgzfmm')}}</view>
 			<text class="cuIcon-right"></text>
 		</view>
 		<view class="list x-bc" @tap="jump('/pages/user/kefu')">
-			<view class="title">联系客服</view>
+			<view class="title">{{$t('user.set.lxkf')}}</view>
 			<text class="cuIcon-right"></text>
 		</view>
 		<view class="list x-bc" @tap="jump('/pages/user/about')">
-			<view class="title">关于我们</view>
+			<view class="title">{{$t('user.set.gywm')}}</view>
 			<text class="cuIcon-right"></text>
 		</view>
 		
-		<view class="exitBtn" @tap="outLogin">退出登录</view>
+		<view class="exitBtn" @tap="outLogin">{{$t("user.set.tcdl")}}</view>
 	</view>
 </template>
 
@@ -77,7 +77,7 @@ export default {
 		// 当前版本
 		onVersion() {
 			let version = this.initData.info.version;
-			this.$tools.toast('当前版本:' + version);
+			this.$tools.toast(`${this.$t('user.set.dqbb')}:` + version);
 		}
 	}
 };

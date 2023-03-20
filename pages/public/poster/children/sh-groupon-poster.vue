@@ -7,22 +7,22 @@
 					<!-- #ifdef MP-WEIXIN -->
 					<button class="share-item share-btn y-f" open-type="share">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-						<text class="share-title">微信好友</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.wxhy")}}</text>
 					</button>
 					<!-- #endif -->
 					<!-- #ifndef MP-WEIXIN || H5 -->
 					<view class="share-item y-f" @tap="share">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-						<text class="share-title">微信好友</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.wxhy")}}</text>
 					</view>
 					<!-- #endif -->
 					<view class="share-item y-f" @tap="saveImage">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/save_img.png" mode=""></image>
-						<text class="share-title">保存图片</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.bctp")}}</text>
 					</view>
 					<view class="share-item y-f" @tap="copyLink">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_link.png" mode=""></image>
-						<text class="share-title">复制链接</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.fzlj")}}</text>
 					</view>
 				</view>
 			</view>
@@ -159,7 +159,7 @@ export default {
 								{
 									type: 'text', //昵称
 									// fontStyle: 'italic',//倾斜
-									text: '发现一个好物，快来和我一起拼吧！',
+									text: `${this.$t("order.payment.shGoodsPoster.fxyghw")}！`,
 									size: fontSize * 0.9,
 									color: '#fff',
 									alpha: 1,
@@ -331,15 +331,15 @@ export default {
 			let that = this;
 			let platform = uni.getStorageSync('platform');
 			if (platform === 'wxOfficialAccount') {
-				that.$tools.toast('长按图片保存');
+				that.$tools.toast(that.$t("order.payment.shGoodsPoster.catpbc"));
 			} else {
 				uni.saveImageToPhotosAlbum({
 					filePath: that.poster.finalPath,
 					success: res => {
-						that.$tools.toast('保存成功');
+						that.$tools.toast(that.$t("order.payment.shGoodsPoster.bctp"));
 					},
 					fail: err => {
-						that.$tools.toast('保存失败');
+						that.$tools.toast(that.$t("order.payment.shGoodsPoster.bcxb"));
 					}
 				});
 			}
@@ -372,7 +372,7 @@ export default {
 					imageUrl: that.shareInfo.imageUrl
 				},
 				res => {
-					that.$tools.toast('分享成功');
+					that.$tools.toast(that.$t("order.payment.shGoodsPoster.fxcg"));
 				}
 			);
 			// #endif
@@ -383,7 +383,7 @@ export default {
 				data: that.shareInfo.copyLink,
 				success: () => {
 					//#ifdef H5
-					that.$tools.toast('已复制到剪切板');
+					that.$tools.toast(that.$t("order.payment.shGoodsPoster.yfzjqb"));
 					//#endif
 				}
 			});

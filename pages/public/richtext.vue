@@ -14,7 +14,7 @@ export default {
 	},
 	data() {
 		return {
-			richText: '<h3>一、总则</h3><h5>1.1 本站的所有权和运营权归本公司所有。<h5>'
+			richText: `<h3>一、${this.$t('public.richtext.zz')}</h3><h5>1.1 ${this.$t('public.richtext.zz.one')}。<h5>`
 		};
 	},
 	computed: {},

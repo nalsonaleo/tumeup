@@ -2,7 +2,7 @@
 	<view class="success-page">
 		<view class="success-box flex flex-direction align-center" v-if="orderDetail.total_fee">
 			<image class="pay-img" :src="pay ? 'http://shopro.7wpp.com/imgs/pay_success.png' : 'http://shopro.7wpp.com/imgs/pay_fail.png'" mode=""></image>
-			<text class="notice">{{ pay ? '支付成功' : '支付失败' }}</text>
+			<text class="notice">{{ pay ? $t("order.payment.method.zfcg") : $t("order.payment.method.zfsb") }}</text>
 			<text class="pay-money" v-if="pay && orderDetail.total_fee">￥{{ orderDetail.total_fee }}</text>
 			<view class="btn-box flex justify-between">
 				<block v-if="pay && orderDetail.activity_type === 'groupon' && orderDetail.ext_arr.buy_type === 'groupon'">
@@ -11,18 +11,18 @@
 						v-if="orderDetail.ext_arr.groupon_id > 0"
 						@tap="replace('/pages/activity/groupon/detail', { id: orderDetail.ext_arr.groupon_id })"
 					>
-						拼团详情
+						{{$t("order.payment.method.ptxq")}}
 					</button>
-					<button class="cu-btn base-btn" v-else @tap="replace('/pages/activity/groupon/my-groupon')">我的拼团</button>
+					<button class="cu-btn base-btn" v-else @tap="replace('/pages/activity/groupon/my-groupon')">{{$t("order.payment.method.wdpt")}}</button>
 				</block>
 
-				<button class="cu-btn base-btn" v-else @tap="routerTo.pushTab('/pages/index/index')">返回首页</button>
-				<button class="cu-btn base-btn" @tap="onOrder">查看订单</button>
-				<button class="again-pay cu-btn" v-if="!pay" @tap="onPay">重新支付</button>
+				<button class="cu-btn base-btn" v-else @tap="routerTo.pushTab('/pages/index/index')">{{$t("order.payment.method.fhsy")}}</button>
+				<button class="cu-btn base-btn" @tap="onOrder">{{$t("order.payment.method.ckdd")}}</button>
+				<button class="again-pay cu-btn" v-if="!pay" @tap="onPay">{{$t("order.payment.method.cxzf")}}</button>
 			</view>
 		</view>
 		<view class="hot-box" v-if="false">
-			<view class="hot-title flex align-center">为你推荐</view>
+			<view class="hot-title flex align-center">{{$t("order.payment.method.wntj")}}</view>
 			<view class="hot-wrap">
 				<block v-for="n in 6" :key="n"><shopro-goods></shopro-goods></block>
 			</view>

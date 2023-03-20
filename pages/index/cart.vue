@@ -11,11 +11,11 @@
 			</view> -->
 			<view class="tool-box x-bc">
 				<view class="count-box">
-					共
+					{{$t("index.cart.gong")}}
 					<text class="all-num">{{ cartList.length }}</text>
-					件商品
+					{{$t("index.cart.jsp")}}
 				</view>
-				<view class="cu-btn set-btn" @tap="onSet">{{ isTool ? '完成' : '编辑' }}</view>
+				<view class="cu-btn set-btn" @tap="onSet">{{ isTool ? $t("index.cart.wc") : $t("index.cart.bj") }}</view>
 			</view>
 		</view>
 		<view class="content_box">
@@ -53,13 +53,13 @@
 			<view class="tools-box x-bc">
 				<label class="check-all x-f" @tap="onAllSel">
 					<radio :checked="allSel" :class="{ checked: allSel }" class="check-all-radio orange"></radio>
-					<text>全选</text>
+					<text>{{$t("index.cart.all")}}</text>
 					<text>（{{ totalCount.totalNum }}）</text>
 				</label>
 				<view class="x-f">
 					<view class="price" v-if="!isTool">￥{{ totalCount.totalPrice.toFixed(2) }}</view>
-					<button class="cu-btn pay-btn" v-show="!isTool" @tap="onPay">结算</button>
-					<button class="cu-btn del-btn" v-show="isTool" @tap="goodsDelete">删除</button>
+					<button class="cu-btn pay-btn" v-show="!isTool" @tap="onPay">{{$t("index.cart.js")}}</button>
+					<button class="cu-btn del-btn" v-show="isTool" @tap="goodsDelete">{{$t("index.cart.sc")}}</button>
 				</view>
 			</view>
 		</view>
@@ -83,7 +83,7 @@ export default {
 			isTool: false,
 			emptyData: {
 				img: '/static/imgs/empty/emptyCart.png',
-				tip: '购物车空空如也,快去逛逛吧~'
+				tip: `${this.$t("index.cart.emptyData.tip")}~`
 			},
 			cartList: [],
 			allSel: false,
@@ -229,7 +229,7 @@ export default {
 				}
 			});
 			if (selectedIdsArray.length == 0) {
-				that.$msg('请先选择要结算的商品');
+				that.$msg(that.$t("index.cart.onPay.msg"));
 				return;
 			}
 			// console.log(selectedIdsArray);
@@ -274,7 +274,7 @@ export default {
 				}
 			});
 			if (selectedIdsArray.length == 0) {
-				that.$msg('请先选择要删除的商品');
+				that.$msg(that.$t("index.cart.goodsDelete.msg"));
 				return;
 			}
 			// console.log(selectedIdsArray)

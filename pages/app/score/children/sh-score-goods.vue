@@ -5,9 +5,9 @@
 		<view class="num-box x-bc">
 			<view class="beans-box x-f">
 				<image class="bean-img" src="../../../../static/imgs/score.png" mode=""></image>
-				{{ scoreData.g_integral3 }}金豆+￥{{ scoreData.g_price }}
+				{{ scoreData.g_integral3 }}{{$t("user.app.score.list.goods.fortunellaVenosa")}}+￥{{ scoreData.g_price }}
 			</view>
-			<view class="end-cash">已兑换{{ scoreData.g_sell }}件</view>
+			<view class="end-cash">{{$t("user.app.score.list.converted")}}{{ scoreData.g_sell }}{{$t("user.app.score.list.piece")}}</view>
 		</view>
 	</navigator>
 </template>

@@ -7,13 +7,13 @@
 						<!-- #ifdef MP-WEIXIN -->
 						<button class="share-item share-btn y-f" open-type="share">
 							<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-							<text class="share-title">微信好友</text>
+							<text class="share-title">{{$t("user.goods.detail.shoproShare.wxhy")}}</text>
 						</button>
 						<!-- #endif -->
 						<!-- #ifndef MP-WEIXIN  -->
 						<view class="share-item y-f" @tap="share">
 							<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-							<text class="share-title">微信好友</text>
+							<text class="share-title">{{$t("user.goods.detail.shoproShare.wxhy")}}</text>
 						</view>
 						<!-- #endif -->
 						<view
@@ -31,15 +31,15 @@
 							"
 						>
 							<image class="share-img" src="http://shopro.7wpp.com/imgs/share_poster.png" mode=""></image>
-							<text class="share-title">分享海报</text>
+							<text class="share-title">{{$t("user.goods.detail.shoproShare.fxhb")}}</text>
 						</view>
 
 						<view class="share-item y-f" @tap="copySharePath">
 							<image class="share-img" src="http://shopro.7wpp.com/imgs/share_link.png" mode=""></image>
-							<text class="share-title">复制链接</text>
+							<text class="share-title">{{$t("user.goods.detail.shoproShare.fzlj")}}</text>
 						</view>
 					</view>
-					<view class="share-foot x-c" @tap="hideModal">取消</view>
+					<view class="share-foot x-c" @tap="hideModal">{{$t("user.goods.detail.shoproShare.cancel")}}</view>
 				</view>
 			</view>
 		</view>

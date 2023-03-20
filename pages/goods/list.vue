@@ -6,7 +6,7 @@
 				<cu-custom :isBack="true">
 					<block slot="backText">
 						<view class="search-box flex align-center" @tap.stop>
-							<input @confirm="onSearch" @input="onInput" confirm-type="搜索" class="search flex-sub" type="text" v-model="searchVal" placeholder="商品搜索" />
+							<input @confirm="onSearch" @input="onInput" :confirm-type="$t('goods.list.ss')" class="search flex-sub" type="text" v-model="searchVal" :placeholder="$t('goods.list.spss')" />
 							<text v-show="searchVal" @tap="clearSearch" class="cuIcon-roundclosefill"></text>
 						</view>
 					</block>
@@ -49,7 +49,7 @@ export default {
 			scrollTop:0,
 			emptyData: {
 				img: '/static/imgs/empty/empty_goods.png',
-				tip: '暂无该商品，还有更多好货等着你噢~'
+				tip: `${this.$t('goods.list.emptyData.tip')}~`
 			},
 			goodsList: [],
 			searchVal: '',

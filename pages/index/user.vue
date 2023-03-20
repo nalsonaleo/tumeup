@@ -58,12 +58,12 @@
 		<view  style="position: relative;width: 90%;display: flex;flex-direction: column;left: 5%;top: -20px;color: #000000;background-color:white;justify-content: center;align-items:center;border-radius: 15px;">
 			<view style="display: flex;justify-content: center;padding-top: 10px;align-items: center;">
 				<navigator url="/pages/activity/groupon/my-groupon" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
-					<view>我的即拼</view>
+					<view>{{$t("user.groupon.mytitle")}}</view>
 				</navigator>
 				
 				<view style="display: flex;flex-direction: column;align-items: center;margin-left: 80px;">
 					<navigator url="/pages/order/ptOrder" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
-						<view>即拼订单</view>
+						<view>{{$t("user.groupon.order")}}</view>
 					</navigator>
 				</view>
 			</view>
@@ -73,7 +73,7 @@
 						{{userInfo.month_group}}
 					</view>
 					<view>
-						月成团
+						{{$t("user.mouthgroup.number")}}
 					</view>
 				</view>
 				<view style="display: flex;flex-direction: column;align-items: center;margin-left: 80px;justify-content: center;">
@@ -81,7 +81,7 @@
 						{{userInfo.fx_yj}}
 					</view>
 					<view>
-						分销佣金
+						{{$t("user.distribution.money")}}
 					</view>
 				</view>
 			</view>
@@ -105,7 +105,7 @@
 					<image class="cut-off--line" src="/static/imgs/user/cut_off_line.png" mode=""></image>
 					<view class="y-f item-box">
 						<image class="order-img" src="/static/imgs/user/all_order.png" mode="aspectFill"></image>
-						<text class="item-title">全部订单</text>
+						<text class="item-title">{{$t("user.index.order.all")}}</text>
 						<!-- <view class="cu-tag badge" v-if="orderNum[order.type]">{{ orderNum[order.type] }}</view> -->
 					</view>
 				</view>
@@ -116,21 +116,21 @@
 				<view class="x-f wallet-left">
 					<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/index')">
 						<view class="wallet-item__detail item-balance">{{userInfo.u_money1}} </view>
-						<text class="wallet-item__title">账户余额</text>
+						<text class="wallet-item__title">{{$t("user.index.accountbalance")}}</text>
 					</view>
 					<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/score-balance')">
 						<text class="wallet-item__detail item-score">{{userInfo.u_money2}} </text>
-						<text class="wallet-item__title">金豆</text>
+						<text class="wallet-item__title">{{$t("user.index.fortunella.venosa")}}</text>
 					</view>
 					<view class="wallet-item y-f" @tap="jump('/pages/app/coupon/list')">
 						<text class="wallet-item__detail item-coupon">{{ c_num || '0' }}</text>
-						<text class="wallet-item__title">优惠券</text>
+						<text class="wallet-item__title">{{$t("user.index.coupon")}}</text>
 					</view>
 				</view>
 				<view class="wallet-item y-f wallet-right" @tap="jump('/pages/user/wallet/index')">
 					<image class="cut-off--line" src="/static/imgs/user/cut_off_line.png" mode=""></image>
 					<image class="wallet-img" src="/static/imgs/user/wallet.png" mode="aspectFill"></image>
-					<text class="wallet-item__title">我的钱包</text>
+					<text class="wallet-item__title">{{$t("user.my.wallet")}}</text>
 				</view>
 			</view>
 			<!-- 功能卡片 -->
@@ -172,19 +172,19 @@ export default {
 			orderNav: [
 				{
 					id: 1,
-					title: '待付款',
+					title: this.$t("user.index.order.nopay"),
 					img: '/static/imgs/user/tab11.png',
 					type: 0
 				},
 				{
 					id: 2,
-					title: '待发货',
+					title: this.$t("user.index.order.payment"),
 					img: 'http://shopro.7wpp.com/imgs/user/tab22.png',
 					type: 1
 				},
 				{
 					id: 3,
-					title: '待收货',
+					title: this.$t("user.index.order.waitgoods"),
 					img: '/static/imgs/user/tab33.png',
 					type: 2
 				}
@@ -201,18 +201,17 @@ export default {
 				// 	url: '/pages/user/log'
 				// },
 				{
-					title: '金豆商城',
+					title: this.$t("user.index.fortunella.shopping"),
 					img: '/static/imgs/user/list12.png',
 					url: '/pages/app/score/list'
 				},
 				{
-					title: '拼团订单',
+					title: this.$t("user.index.grouping.order"),
 					img: '/static/imgs/user/cz.png',
 					url: '/pages/order/commonPtOrder'
 				},
-				
 				{
-					title: '金豆订单',
+					title: this.$t("user.index.fortunella.order"),
 					img: '/static/imgs/user/list13.png',
 					url: '/pages/user/jfOrder'
 				},
@@ -222,7 +221,7 @@ export default {
 				// 	url: '/pages/activity/groupon/my-groupon'
 				// },
 				{
-					title: '我的团队',
+					title: this.$t("user.index.my.team"),
 					img: '/static/imgs/team.png',
 					url: '/pages/user/team'
 				},
@@ -232,22 +231,22 @@ export default {
 				// 	url: '/pages/order/ptOrder'
 				// },
 				{
-					title: '邀请好友',
+					title: this.$t("user.index.inviteFriend"),
 					img: '/static/imgs/user/list11.png',
 					url: '/pages/public/poster/index',
 				},
 				{
-					title: '素材推广',
+					title: this.$t("user.index.material.promotion"),
 					img: '/static/imgs/user/list16.png',
 					url: '/pages/public/tuiguang'
 				},
 				{
-					title: '在线客服',
+					title: this.$t("user.index.online.service"),
 					img: '/static/imgs/kefu.png',
 					url: '/pages/user/kefu'
 				},
 				{
-					title: '常见问题',
+					title: this.$t("user.index.common.problem"),
 					img: '/static/imgs/user/list7.png',
 					url: '/pages/public/faq'
 				},

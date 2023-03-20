@@ -10,24 +10,24 @@
 				</shopro-mini-card>
 			</view>
 			<view class="goods-item x-bc" @tap="onSel(1)">
-				<text class="item-title">货物状态</text>
+				<text class="item-title">{{$t("order.refund.hwzt")}}</text>
 				<text class="cuIcon-right"></text>
 			</view>
 			<view class="goods-item x-bc" @tap="onSel(2)">
-				<text class="item-title">退款原因</text>
+				<text class="item-title">{{$t("order.refund.tkyy")}}</text>
 				<text class="cuIcon-right"></text>
 			</view>
 			<view class="goods-item x-f">
-				<text class="item-title">退款金额：</text>
+				<text class="item-title">{{$t("order.refund.tkje")}}：</text>
 				<text class="price">￥16.00</text>
 			</view>
 			<view class="explain goods-item x-f">
-				<text class="item-title">说明：</text>
-				<input class="flex-sub" value="" placeholder="选填" />
+				<text class="item-title">{{$t("order.refund.sm")}}：</text>
+				<input class="flex-sub" value="" :placeholder="$t('order.refund.xt')" />
 			</view>
 
 			<view class="upload-img">
-				<text class="upload-title">上传凭证</text>
+				<text class="upload-title">{{$t("order.refund.scpz")}}</text>
 				<view class="img-box">
 					<view class="preview-box" v-for="(item, index) in imgList" :key="index">
 						<image class="preview-img" :src="imgList[index]" mode="aspectFill"></image>
@@ -40,7 +40,7 @@
 
 		</view>
 		<view class="foot_box x-c">
-			<button class="cu-btn sub-btn">提交</button>
+			<button class="cu-btn sub-btn">{{$t("order.refund.tj")}}</button>
 		</view>
 		<shopro-modal v-model="showModal" :modalType="'bottom-modal'">
 			<block slot="modalContent">
@@ -57,7 +57,7 @@
 						</radio-group>
 					</view>
 					<view class="modal-foot foot_box x-c">
-						<button class="cu-btn close-btn" @tap="onClose">关闭</button>
+						<button class="cu-btn close-btn" @tap="onClose">{{$t("order.refund.gb")}}</button>
 					</view>
 				</view>
 			</block>
@@ -80,38 +80,38 @@
 				imgList: [],
 				modalDetail: {},
 				goodsState: {
-					title: '货物状态',
+					title: this.$t("order.refund.hwzt.list"),
 					list: [{
 							id: 1,
-							val: '已收到货'
+							val: this.$t("order.refund.ysdh.list")
 						},
 						{
 							id: 2,
-							val: '未收到货'
+							val: this.$t("order.refund.wsdh.list")
 						}
 					]
 				},
 				refundList: {
-					title: '退款原因',
+					title: this.$t("order.refund.tkyy"),
 					list: [{
 							id: 1,
-							val: '卖家发错货了'
+							val: this.$t("order.refund.mjfchl")
 						},
 						{
 							id: 2,
-							val: '退运费'
+							val: this.$t("order.refund.tyf")
 						},
 						{
 							id: 3,
-							val: '大小/重量于商品描述不符'
+							val: `${this.$t("order.refund.dx.id.three")}/${this.$t("order.refund.zlyspmsbf")}`
 						},
 						{
 							id: 4,
-							val: '生产日期、保质期与商品不符'
+							val: this.$t("order.refund.scrq")
 						},
 						{
 							id: 5,
-							val: '质量问题'
+							val: this.$t("order.refund.zlwt")
 						}
 					]
 				}
@@ -126,11 +126,12 @@
 				});
 			},
 			DelImg(index) {
+				let that = this;
 				uni.showModal({
-					title: '删除照片',
-					content: '确定要删除这张照片么？',
-					cancelText: '取消',
-					confirmText: '删除',
+					title: that.$t("order.refund.sczp"),
+					content: that.$t("order.refund.enquire.delpic"),
+					cancelText: that.$t("order.refund.cancel"),
+					confirmText: that.$t("order.refund.del.text"),
 					success: res => {
 						if (res.confirm) {
 							this.imgList.splice(index, 1);

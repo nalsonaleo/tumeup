@@ -44,16 +44,16 @@ export default {
 			let content = code; // 复制内容，必须字符串，数字需要转换为字符串
 			const result = h5Copy(content);
 			if (result === false) {
-				that.$msg('复制失败，请重试');
+				that.$msg(that.$t('public.tuiguan.onCopy.fzsb'));
 			} else {
-				that.$msg('复制成功');
+				that.$msg(that.$t('public.tuiguan.fzcg'));
 			}
 			// #endif
 
 			uni.setClipboardData({
 				data: code,
 				success: function(data) {
-					that.$msg('复制成功');
+					that.$msg(that.$t('public.tuiguan.fzcg":'));
 				},
 				fail: function(err) {},
 				complete: function(res) {}
@@ -68,7 +68,7 @@ export default {
 				indicator: 'default',
 				loop: true,
 				longPressActions: {
-					itemList: ['保存图片'],
+					itemList: [that.$t('public.tuiguan.bctp')],
 					success: function(data) {
 						uni.downloadFile({
 							url: urls[current],
@@ -77,11 +77,11 @@ export default {
 									uni.saveImageToPhotosAlbum({
 										filePath: res.tempFilePath,
 										success: function() {
-											that.$msg('图片已保存到相册');
+											that.$msg(that.$t('public.tuiguan.tpybcdxc'));
 										},
 										fail: function() {
 											uni.showToast({
-												title: '保存失败，请稍后重试',
+												title: that.$t('public.tuiguan.bcsb'),
 												icon: 'none'
 											});
 										}
@@ -109,9 +109,9 @@ export default {
 					res.data.forEach(function(item) {
 						item['checked'] = false;
 						item.m_detail1 = item.m_detail;
-						item.m_detail = item.m_detail + '   收起';
+						item.m_detail = item.m_detail + `   ${that.$t('public.tuiguan.sq')}`;
 						if (item.m_detail.length > 40) {
-							item.m_detail2 = item.m_detail.substring(0, 40) + '...  查看更多';
+							item.m_detail2 = item.m_detail.substring(0, 40) + `...  ${that.$t('public.tuiguan.ckgd')}`;
 						}
 					});
 					that.list = [...that.list, ...res.data];

@@ -5,11 +5,11 @@
 			<view class="left x-f">
 				<view class="tools-item y-f" @tap="goHome">
 					<image class="tool-img" src="http://shopro.7wpp.com/imgs/tabbar/tab_home_sel.png" mode=""></image>
-					<text class="tool-title">首页</text>
+					<text class="tool-title">{{$t("goods.detail.children.shFoot.sy")}}</text>
 				</view>
 			</view>
 			<view class="right">
-				<view class="btn-box x-ac"><button class="cu-btn  seckill-btn" @tap="goPay">立即兑换</button></view>
+				<view class="btn-box x-ac"><button class="cu-btn  seckill-btn" @tap="goPay">{{$t("goods.detail.children.shFoot.ljdh")}}</button></view>
 			</view>
 		</view>
 	</view>

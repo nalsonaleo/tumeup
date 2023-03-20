@@ -2,11 +2,11 @@
 	<view class="page_box">
 		<view class="head_box x-bc" v-if="favoriteList.length">
 			<view class="count-box">
-				共
+				{{$t('user.editPhone.gong')}}
 				<text class="all-num">{{ total }}</text>
-				件商品
+				{{$t('user.editPhone.jsp')}}
 			</view>
-			<button class="cu-btn set-btn" @tap="onSet">{{ isSel ? '完成' : '编辑' }}</button>
+			<button class="cu-btn set-btn" @tap="onSet">{{ isSel ? $t('user.editPhone.wc') : $t('user.editPhone.bj') }}</button>
 		</view>
 		<view class="content_box">
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
@@ -26,9 +26,9 @@
 			<view class="tools-box x-bc" v-if="isSel && favoriteList.length">
 				<label class="check-all" @tap="onAllSel">
 					<radio :checked="allSel" :class="{ checked: allSel }" class="check-all-radio orange"></radio>
-					<text>全选</text>
+					<text>{{$t('user.editPhone.qx')}}</text>
 				</label>
-				<button class="cu-btn close-btn" @tap="cancelFavorite">取消收藏</button>
+				<button class="cu-btn close-btn" @tap="cancelFavorite">{{$t('user.editPhone.qxsc')}}</button>
 			</view>
 		</view>
 	</view>
@@ -49,7 +49,7 @@ export default {
 			selList: [],
 			emptyData: {
 				img: '/static/imgs/empty/empty_goods.png',
-				tip: '暂无收藏商品，赶紧去收藏好货吧~'
+				tip: `${that.$t('user.editPhone.zwscsp')}~`
 			},
 			favoriteList: [],
 			total: 0,

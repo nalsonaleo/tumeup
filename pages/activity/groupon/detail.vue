@@ -4,7 +4,7 @@
 		<view class="now_con">
 		<div id="container" style="width: 100%;height: auto;"><div class="Rucian_NowBox">
 				<div class="Rucian_List">
-					<div>预计</div>
+					<div>{{$t("order.groupon.text.yj")}}</div>
 					<view class="BigZt">{{yuji}}</view>
 					<div class="Rucian_Id">ID:{{ num1_id }}</div>
 					<div class="Rucian_Number">1</div>
@@ -16,9 +16,9 @@
 						<img :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
 						<div>{{item1.u_name}}</div>
 						<div class="Rucian_2">
-							<div>用户ID：{{item1.uid>0?item1.uid:'?'}}</div>
-							<div>邀请人：{{item1.pid>0?item1.pid:'?'}}</div>
-							<div>预计：{{item1.uid>0?item1.yongjin:'?'}}</div>
+							<div>{{$t("order.groupon.text.yhid")}}：{{item1.uid>0?item1.uid:'?'}}</div>
+							<div>{{$t("order.groupon.text.yqr")}}：{{item1.pid>0?item1.pid:'?'}}</div>
+							<div>{{$t("order.groupon.text.yj.one")}}：{{item1.uid>0?item1.yongjin:'?'}}</div>
 						</div>
 						<div class="Rucian_Number">{{item1.num}}</div>
 					</div>
@@ -26,9 +26,9 @@
 						<img :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
 						<div>{{item1.u_name}}</div>
 						<div class="Rucian_2">
-							<div>用户ID：{{item1.uid>0?item1.uid:'?'}}</div>
-							<div>邀请人：{{item1.pid>0?item1.pid:'?'}}</div>
-							<div>预计：{{item1.uid>0?item1.yongjin:'?'}}</div>
+							<div>{{$t("order.groupon.text.yhid")}}：{{item1.uid>0?item1.uid:'?'}}</div>
+							<div>{{$t("order.groupon.text.yqr")}}：{{item1.pid>0?item1.pid:'?'}}</div>
+							<div>{{$t("order.groupon.text.yj.one")}}：{{item1.uid>0?item1.yongjin:'?'}}</div>
 						</div>
 						<div class="Rucian_Number">{{item1.num}}</div>
 					</div>
@@ -38,7 +38,7 @@
 						
 						
 						<div class="Rucian_2" style="display: flex;justify-content: center;align-items: center;">
-							待补位
+							{{$t("order.groupon.text.dbw")}}
 						</div>
 						<div class="Rucian_Number">{{item1.num}}</div>
 					

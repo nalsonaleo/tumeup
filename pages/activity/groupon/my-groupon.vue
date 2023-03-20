@@ -41,7 +41,7 @@
 	<view class="now_con" v-if="orderType == 'now'">
 	<div id="container" style="width: 100%;height: auto;"><div class="Rucian_NowBox">
 			<div v-if="num1_id>0" class="Rucian_List">
-				<div>预计</div>
+				<div>{{$t("order.groupon.myGroupon.yj")}}</div>
 				<view class="BigZt">{{yuji}}</view>
 				<div class="Rucian_Id">ID:{{ num1_id }}</div>
 				<div class="Rucian_Number">1</div>
@@ -53,9 +53,9 @@
 					<img :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
 					<div>{{item1.u_name}}</div>
 					<div class="Rucian_2">
-						<div>用户ID：{{item1.uid>0?item1.uid:'?'}}</div>
-						<div>邀请人：{{item1.pid>0?item1.pid:'?'}}</div>
-						<div>预计：{{item1.uid>0?item1.yongjin:'?'}}</div>
+						<div>{{$t("order.groupon.myGroupon.yjid")}}：{{item1.uid>0?item1.uid:'?'}}</div>
+						<div>{{$t("order.groupon.myGroupon.yqr")}}：{{item1.pid>0?item1.pid:'?'}}</div>
+						<div>{{$t("order.groupon.myGroupon.yj")}}：{{item1.uid>0?item1.yongjin:'?'}}</div>
 					</div>
 					<div class="Rucian_Number">{{item1.num}}</div>
 				</div>
@@ -63,9 +63,9 @@
 					<img :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
 					<div>{{item1.u_name}}</div>
 					<div class="Rucian_2">
-						<div>用户ID：{{item1.uid>0?item1.uid:'?'}}</div>
-						<div>邀请人：{{item1.pid>0?item1.pid:'?'}}</div>
-						<div>预计：{{item1.uid>0?item1.yongjin:'?'}}</div>
+						<div>{{$t("order.groupon.myGroupon.yjid")}}：{{item1.uid>0?item1.uid:'?'}}</div>
+						<div>{{$t("order.groupon.myGroupon.yqr")}}：{{item1.pid>0?item1.pid:'?'}}</div>
+						<div>{{$t("order.groupon.myGroupon.yj")}}：{{item1.uid>0?item1.yongjin:'?'}}</div>
 					</div>
 					<div class="Rucian_Number">{{item1.num}}</div>
 				</div>
@@ -75,7 +75,7 @@
 					
 					
 					<div class="Rucian_2" style="display: flex;justify-content: center;align-items: center;">
-						待补位
+						{{$t("order.groupon.muGroupon.dbw")}}
 					</div>
 					<div class="Rucian_Number">{{item1.num}}</div>
 				
@@ -95,7 +95,7 @@
 			<view class="order-list" v-for="order in orderList" :key="order.id" >
 				<view class="order-head x-bc">
 					<text class="no">{{ order.addtime }}</text>
-					<text class="state">{{ order.is_group == 0 ? '拼团中' : '已成团' }}</text>
+					<text class="state">{{ order.is_group == 0 ? $t("order.groupon.myGroupon.ptz") : $t("order.groupon.myGroupon.yct") }}</text>
 				</view>
 				<view class="goods-order">
 					<view class="order-content">
@@ -108,8 +108,8 @@
 									<view class="price">￥{{ order.p_price }}</view>
 								</slot>
 								<view class="x-f" style="margin-top: 30rpx;" v-if="order.order_id == 0 && order.goods_code">
-									<text style="font-size: 26rpx;">提货码:{{ order.goods_code }}</text>
-									<button class="cu-btn copy-btn" @tap="onCopy(order.goods_code)">复制</button>
+									<text style="font-size: 26rpx;">{{$t("order.groupon.myGroupon.thm")}}:{{ order.goods_code }}</text>
+									<button class="cu-btn copy-btn" @tap="onCopy(order.goods_code)">{{$t("order.groupon.myGroupon.fz")}}</button>
 								</view>
 							</view>
 						</view>
@@ -118,10 +118,10 @@
 				</view>
 				<view class="order-bottom x-f">
 					<view class="btn-box">
-						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/huiyuan')">去提货</button>
-						<button class="cu-btn obtn1" v-if="order.order_id != 0" @tap="jump('/pages/order/detail?order_id='+order.order_id)">订单详情</button>
+						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/huiyuan')">{{$t("order.groupon.myGroupon.qth")}}</button>
+						<button class="cu-btn obtn1" v-if="order.order_id != 0" @tap="jump('/pages/order/detail?order_id='+order.order_id)">{{$t("order.groupon.myGroupon.ddxq")}}</button>
 						<button  @tap.stop="jump('/pages/activity/groupon/detail?id='+order.id)" class="cu-btn obtn2">
-							拼团详情
+							{{$t("order.groupon.myGroupon.ptxq")}}
 						</button>
 					</view>
 				</view>
@@ -142,12 +142,12 @@ export default {
 			orderState: [
 				{
 					id: 0,
-					title: '当前拼团',
+					title: this.$t("order.groupon.myGroupon.dqpt"),
 					type: 'now'
 				},
 				{
 					id: 1,
-					title: '历史拼团',
+					title: this.$t("order.groupon.myGroupon.lspt"),
 					type: 'history'
 				}
 			],
@@ -175,16 +175,16 @@ export default {
 			 let content = code // 复制内容，必须字符串，数字需要转换为字符串
 			       const result = h5Copy(content)
 			       if (result === false) {
-			         that.$msg('复制失败，请重试');
+			         that.$msg(that.$t("order.groupon.myGroupon.fzsbqcs"));
 			       } else {
-			        that.$msg('复制成功');
+			        that.$msg(that.$t("order.groupon.myGroupon.fzcg"));
 			       }
 			// #endif
 			
 			uni.setClipboardData({
 				data: code,
 				success: function(data) {
-					that.$msg('复制成功');
+					that.$msg(that.$t("order.groupon.myGroupon.fzcg"));
 				},
 				fail: function(err) {},
 				complete: function(res) {}

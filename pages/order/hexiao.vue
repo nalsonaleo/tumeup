@@ -27,23 +27,23 @@
 			
 			<!-- 订单信息 -->
 			<view class="notice-box">
-				<view class="notice-box__head">订单信息</view>
+				<view class="notice-box__head">{{$t("order.hexiao.ddxx")}}</view>
 				<view class="notice-box__content">
 					<view class="notice-item--center x-f">
-						<text class="title">订单编号：</text>
+						<text class="title">{{$t("order.hexiao.ddbh")}}：</text>
 						<text class="detail">{{ info.o_no }}</text>
 						<!-- <button class="cu-btn copy-btn" @tap="onCopy(orderDetail.o_no)">复制</button> -->
 					</view>
 					<view class="notice-item x-f" v-if="info.o_yh_price > 0">
-						<text class="title">已优惠：</text>
+						<text class="title">{{$t("order.hexiao.yyh")}}：</text>
 						<text class="detail">{{ info.o_yh_price }}</text>
 					</view>
 					<view class="notice-item x-f">
-						<text class="title">核销码：</text>
+						<text class="title">{{$t("order.hexiao.hhm")}}：</text>
 						<text class="detail">{{ info.hx_code }}</text>
 					</view>
 					<view class="notice-item x-f">
-						<text class="title">下单时间：</text>
+						<text class="title">{{$t("order.hexiao.xdsj")}}：</text>
 						<text class="detail">{{ info.o_addtime }}</text>
 					</view>
 				</view>
@@ -53,15 +53,15 @@
 		
 		<view class="foot_box x-f">
 			<text class="num">
-				共
+				{{$t("order.hexiao.gong")}}
 				<text>{{ info.o_total_num }}</text>
-				件
+				{{$t("order.hexiao.jie")}}
 			</text>
 			<view class="all-money">
-				<text>合计：</text>
+				<text>{{$t("order.hexiao.heji")}}：</text>
 				<text class="price">￥{{ info.o_total_price }}</text>
 			</view>
-			<button class="cu-btn sub-btn" @tap="subOrder">确定核销</button>
+			<button class="cu-btn sub-btn" @tap="subOrder">{{$t("order.hexiao.qrhx")}}</button>
 		</view>
 	</view>
 </template>

@@ -3,24 +3,24 @@
 		<view class="form-box">
 			<label>
 				<view class="form-item flex align-center justify-between">
-					<view class="item-title">旧密码:</view>
-					<input class="item-input flex-sub" password type="text" v-model="old_psd" placeholder="请输入旧密码" placeholder-class="pl-input" />
+					<view class="item-title">{{$t('user.editPassword.jmm')}}:</view>
+					<input class="item-input flex-sub" password type="text" v-model="old_psd" :placeholder="$t('user.editPassword.jmm.placeholder')" placeholder-class="pl-input" />
 				</view>
 			</label>
 			<label>
 				<view class="form-item flex align-center justify-between">
-					<view class="item-title">新密码:</view>
-					<input class="item-input flex-sub" password type="text" v-model="new_psd" placeholder="请输入新密码" placeholder-class="pl-input" />
+					<view class="item-title">{{$t('user.editPassword.xmm')}}:</view>
+					<input class="item-input flex-sub" password type="text" v-model="new_psd" :placeholder="$t('user.editPassword.xmm.placeholder')" placeholder-class="pl-input" />
 				</view>
 			</label>
 			<label>
 				<view class="form-item flex align-center justify-between">
-					<view class="item-title">确认新密码:</view>
-					<input class="item-input flex-sub" password type="text" v-model="re_psd" placeholder="请再次输入新密码" placeholder-class="pl-input" />
+					<view class="item-title">{{$t('user.editPassword.qrxmm')}}:</view>
+					<input class="item-input flex-sub" password type="text" v-model="re_psd" :placeholder="$t('user.editPassword.qrxmm.placeholder')" placeholder-class="pl-input" />
 				</view>
 			</label>
 		</view>
-		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="editPassword">确认修改</button></view>
+		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="editPassword">{{$t('user.editPassword.qrxg')}}</button></view>
 	</view>
 </template>
 
@@ -40,15 +40,15 @@ export default {
 		editPassword() {
 			let that = this;
 			if (!that.old_psd) {
-				that.$msg('请填写原密码');
+				that.$msg(that.$t('user.editPassword.qtxymm'));
 				return false;
 			}
 			if (!that.new_psd) {
-				that.$msg('请设置新密码');
+				that.$msg(that.$t('user.editPassword.qszxmm'));
 				return false;
 			}
 			if (that.re_psd != that.new_psd) {
-				that.$msg('新密码不一致');
+				that.$msg(that.$t('user.editPassword.xmmbyz'));
 				return false;
 			}
 			var data = {

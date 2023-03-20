@@ -6,13 +6,13 @@
 				<view class="top x-f">
 					<text class="name">{{ address.a_name }}</text>
 					<text class="phone">{{ address.a_phone }}</text>
-					<text class="tag" v-if="address.a_default == '1'">默认</text>
+					<text class="tag" v-if="address.a_default == '1'">{{$t("user.address.default")}}</text>
 				</view>
 				<view class="detail">{{ address.a_province }}{{ address.a_city }}{{ address.a_area }}{{ address.a_address }}</view>
-				<button class="cu-btn set-btn" @tap.stop="jump('/pages/user/address/edit', { id: address.id, from: 'edit' })">编辑</button>
+				<button class="cu-btn set-btn" @tap.stop="jump('/pages/user/address/edit', { id: address.id, from: 'edit' })">{{$t("user.address.edit")}}</button>
 			</view>
 		</view>
-		<view class="foot_box"><button class="cu-btn add-btn" @tap="jump('/pages/user/address/edit', { id: 0, from: 'add' })">添加新的收货地址</button></view>
+		<view class="foot_box"><button class="cu-btn add-btn" @tap="jump('/pages/user/address/edit', { id: 0, from: 'add' })">{{$t("user.address.addnewAddress")}}</button></view>
 	</view>
 </template>
 

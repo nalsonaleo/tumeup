@@ -1,21 +1,21 @@
 <template>
 	<view class="container">
 		<view class="user-list x-bc">
-			<text class="list-name">头像</text>
+			<text class="list-name">{{$t('user.forgetPayPsd.tx')}}</text>
 			<view class="x-f" @tap="onChooseImg">
 				<image class="avatar" :src="userData.u_img" mode=""></image>
 				<text class="cuIcon-right"></text>
 			</view>
 		</view>
 		<view class="user-list x-bc">
-			<text class="list-name">昵称</text>
+			<text class="list-name">{{$t('user.forgetPayPsd.nc')}}</text>
 			<view class="x-f">
 				<input class="list-val" v-model="userData.u_name" />
 				<text class="cuIcon-right"></text>
 			</view>
 		</view>
 		<view class="user-list x-bc">
-			<text class="list-name">手机号</text>
+			<text class="list-name">{{$t('user.forgetPayPsd.sjh')}}</text>
 			<view class="x-f">
 				<text class="list-val">{{ userData.u_phone }}</text>
 				<!-- <text class="cuIcon-right"></text> -->
@@ -29,30 +29,30 @@
 			</view>
 		</view>
 		<view class="user-list x-bc">
-			<text class="list-name">等级</text>
+			<text class="list-name">{{$t('user.forgetPayPsd.dj')}}</text>
 			<view class="x-f">
 				<text class="list-val">{{ userData.level_name }}</text>
 			</view>
 		</view>
 		<view class="user-list x-bc">
-			<text class="list-name">邀请码</text>
+			<text class="list-name">{{$t('user.forgetPayPsd.yqm')}}</text>
 			<view class="x-f">
 				<text class="list-val">{{ userData.u_code }}</text>
 			</view>
 		</view>
 		<view class="user-list x-bc" v-if="userData.t_name">
-			<text class="list-name">邀请人</text>
+			<text class="list-name">{{$t('user.forgetPayPsd.yqr')}}</text>
 			<view class="x-f">
 				<text class="list-val">{{ userData.t_name }}</text>
 			</view>
 		</view>
 		<view class="user-list x-bc" v-if="userData.u_tid">
-			<text class="list-name">邀请人ID</text>
+			<text class="list-name">{{$t("user.forgetPayPsd.yqrId")}}</text>
 			<view class="x-f">
 				<text class="list-val">{{ userData.u_tid}}</text>
 			</view>
 		</view>
-		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="editUserInfo">保存</button></view>
+		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="editUserInfo">{{$t('user.forgetPayPsd.bc')}}</button></view>
 	</view>
 </template>
 

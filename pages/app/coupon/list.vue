@@ -31,9 +31,9 @@ export default {
 		return {
 			emptyData: {
 				img: '/static/imgs/empty/empty_goods.png',
-				tip: '还没有优惠券噢，去首页看看吧~',
+				tip: this.$t("user.coupon.list.tip"),
 				path: '/pages/index/index',
-				pathText: '去首页逛逛'
+				pathText: this.$t("user.coupon.list.button"),
 			},
 			stateCurrent: 0,
 			page:1,
@@ -42,19 +42,19 @@ export default {
 			couponsState: [
 				{
 					id: 0,
-					title: '领券中心'
+					title: this.$t("user.coupon.list.lqzx")
 				},
 				{
 					id: 1,
-					title: '可使用'
+					title: this.$t("user.coupon.list.ksy")
 				},
 				{
 					id: 2,
-					title: '已使用'
+					title: this.$t("user.coupon.list.ysy")
 				},
 				{
 					id: 3,
-					title: '已失效'
+					title: this.$t("user.coupon.list.ysx")
 				}
 			],
 			couponList: []

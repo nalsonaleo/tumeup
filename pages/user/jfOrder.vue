@@ -12,7 +12,7 @@
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
 			<view class="order-list" v-for="order in orderList" :key="order.id" @tap.stop="jump('/pages/order/detail?order_id='+order.id)">
 				<view class="order-head x-bc">
-					<text class="no">订单编号：{{ order.o_no }}</text>
+					<text class="no">{{$t('user.forgetPayPsd.ddbh')}}：{{ order.o_no }}</text>
 					<text class="state">{{orderStatus[order.o_status]}}</text>
 				</view>
 				<view class="goods-order">
@@ -29,16 +29,16 @@
 								再次购买
 							</button> -->
 							<button class="cu-btn btn2"  v-if="order.o_status == 0" @tap.stop="onPay(order.id, order.o_total_price)">
-								立即付款
+								{{$t('user.forgetPayPsd.ljfk')}}
 							</button>
 							<button class="cu-btn btn1"  v-if="order.o_status == 0" @tap.stop="onCancel(order.id)">
-								取消订单
+								{{$t('user.forgetPayPsd.qxdd')}}
 							</button>
 							<button class="cu-btn btn1"  v-if="order.o_status == 2" @tap.stop="checkExpress(order.id)">
-								查看物流
+								{{$t('user.forgetPayPsd.ckwl')}}
 							</button>
 							<button @tap.stop="onConfirm(order.id)" class="cu-btn btn2" v-if="order.o_status == 2">
-								确认收货
+								{{$t("user.forgetPayPsd.qrsh")}}
 							</button>
 							<!-- <button @tap.stop="onRefund(order.id)" class="cu-btn btn1" v-if="order.o_status == 2">
 								申请退款

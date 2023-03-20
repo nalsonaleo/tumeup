@@ -19,11 +19,11 @@
 					<!-- #endif -->
 					<view class="share-item y-f" @tap="saveImage">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_poster.png" mode=""></image>
-						<text class="share-title">保存图片</text>
+						<text class="share-title">{{$t("order.poster.children.shInvitePoster.bctp")}}</text>
 					</view>
 					<view class="share-item y-f" @tap="copyLink">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_link.png" mode=""></image>
-						<text class="share-title">复制链接</text>
+						<text class="share-title">{{$t("order.poster.children.shInvitePoster.fzlj")}}</text>
 					</view>
 				</view>
 			</view>

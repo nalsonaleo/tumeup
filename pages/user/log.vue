@@ -2,7 +2,7 @@
 	<view class="page_box">
 		<view class="head_box x-bc" v-if="browseList && browseList.length">
 			<view class="count-box"></view>
-			<button class="cu-btn set-btn" @tap="onSet">{{ isSel ? '完成' : '编辑' }}</button>
+			<button class="cu-btn set-btn" @tap="onSet">{{ isSel ? $t('user.forgetPayPsd.wc') : $t('user.forgetPayPsd.bj') }}</button>
 		</view>
 		<view class="content_box">
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
@@ -22,9 +22,9 @@
 			<view class="tools-box x-bc" v-if="isSel && browseList.length">
 				<label class="check-all" @tap="onAllSel">
 					<radio :checked="allSel" :class="{ checked: allSel }" class="check-all-radio orange"></radio>
-					<text>全选</text>
+					<text>{{$t('user.forgetPayPsd.qx')}}</text>
 				</label>
-				<button class="cu-btn close-btn" @tap="cancelFavorite">删除</button>
+				<button class="cu-btn close-btn" @tap="cancelFavorite">{{$t('user.forgetPayPsd.sc')}}</button>
 			</view>
 		</view>
 	</view>
@@ -46,9 +46,9 @@ export default {
 			selList: [],
 			emptyData: {
 				img: '/static/imgs/empty/empty_goods.png',
-				tip: '暂无浏览记录',
+				tip: that.$t('user.forgetPayPsd.zwlljl'),
 				path: '/pages/index/index',
-				pathText: '去首页逛逛'
+				pathText: that.$t('user.forgetPayPsd.qsygg')
 			},
 			browseList: [],
 			loadStatus: '', //loading,over

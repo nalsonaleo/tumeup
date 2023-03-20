@@ -3,8 +3,8 @@
 		<div :class="{ pickerMask: showPicker }" @click="maskClick" catchtouchmove="true"></div>
 		<div class="shopro-picker-content " :class="{ 'shopro-picker-view-show': showPicker }">
 			<div class="shopro-picker__hd" catchtouchmove="true">
-				<div class="shopro-picker__action" @click="pickerCancel">取消</div>
-				<div class="shopro-picker__action" :style="{ color: themeColor }" @click="pickerConfirm">确定</div>
+				<div class="shopro-picker__action" @click="pickerCancel">{{$t('public.tuiguan.qx')}}</div>
+				<div class="shopro-picker__action" :style="{ color: themeColor }" @click="pickerConfirm">{{$t('public.tuiguan.qd')}}</div>
 			</div>
 			<picker-view indicator-style="height: 40px;" class="shopro-picker-view" :value="pickerValue" @change="pickerChange">
 				<block>

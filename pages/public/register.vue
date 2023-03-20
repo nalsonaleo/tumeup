@@ -3,21 +3,21 @@
 		<!-- titleview -->
 		<view class="head-box"><cu-custom :isBack="true"></cu-custom></view>
 		<view class="wrapper">
-			<view style="font-size: 54upx;color: #333;margin-left: 60upx;font-weight: 500;margin-bottom: 40upx;">注册</view>
+			<view style="font-size: 54upx;color: #333;margin-left: 60upx;font-weight: 500;margin-bottom: 40upx;">{{$t("public.register.zc")}}</view>
 			<!-- 表单 -->
 			<view class="login-box y-f">
-				<view class="input-item x-c"><input class="inp" v-model="u_phone" type="number" placeholder="请输入手机号" placeholder-class="pl" /></view>
-				<view class="input-item x-c"><input class="inp" v-model="u_nickname" type="text" placeholder="请输入昵称" placeholder-class="pl" /></view>
+				<view class="input-item x-c"><input class="inp" v-model="u_phone" type="number" :placeholder="$t('public.register.qsrsjh')" placeholder-class="pl" /></view>
+				<view class="input-item x-c"><input class="inp" v-model="u_nickname" type="text" :placeholder="$t('public.register.qsrnc')" placeholder-class="pl" /></view>
 				<view class="input-item x-c">
-					<input class="inp" v-model="code.y_code" type="number" placeholder="请输入验证码" placeholder-class="pl" />
+					<input class="inp" v-model="code.y_code" type="number" :placeholder="$t('public.register.qsryzm')" placeholder-class="pl" />
 					<button class="cu-btn code-btn" :disabled="code.status" @tap="getCode">{{ code.text }}</button>
 				</view>
-				<view class="input-item x-c"><input class="inp" password v-model="u_psd" type="text" placeholder="请输入登录密码" placeholder-class="pl" /></view>
+				<view class="input-item x-c"><input class="inp" password v-model="u_psd" type="text" :placeholder="$t('public.register.qsrdlmm')" placeholder-class="pl" /></view>
 				<!-- <view class="input-item x-c">
 					<text class="inp-title">密&emsp;码</text>
 					<input class="inp" password v-model="password"  type="text" placeholder="请确认登录密码" placeholder-class="pl" />
 				</view> -->
-				<view class="input-item x-c"><input class="inp" v-model="u_code" type="text" placeholder="请输入邀请码" placeholder-class="pl" /></view>
+				<view class="input-item x-c"><input class="inp" v-model="u_code" type="text" :placeholder="$t('public.register.qsryqm')" placeholder-class="pl" /></view>
 				<!-- <view class="tip-box" @tap="onTcp">
 					<label class="x-f">
 						<radio class="tcp-radio brown" :class="{ checked: isTcp }" :checked="isTcp"></radio>
@@ -30,7 +30,7 @@
 				</view> -->
 			</view>
 			<!-- 登录按钮 -->
-			<view class="x-c y-f"><button class="cu-btn login-btn" @tap="register">立即注册</button></view>
+			<view class="x-c y-f"><button class="cu-btn login-btn" @tap="register">{{$t("public.register.ljzc")}}</button></view>
 		</view>
 	</view>
 </template>
@@ -41,7 +41,7 @@ export default {
 		return {
 			u_phone: '',
 			code: {
-				text: '获取验证码',
+				text: this.$t('public.register.hqyzm'),
 				status: false,
 				y_code: ''
 			},
@@ -65,7 +65,7 @@ export default {
 		getCode() {
 			let that = this;
 			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-				that.$msg('请填写正确手机号码');
+				that.$msg(that.$t('public.register.qtxzqsjhm'));
 				return false;
 			}
 			let countdown = 60;
@@ -73,15 +73,15 @@ export default {
 			var data = { phone: that.u_phone };
 			that.$api.getCode(data).then(res => {
 				if (res.code === 1) {
-					that.code.text = countdown + '秒';
+					that.code.text = countdown + that.$t('public.register.miao');
 					that.code.status = true;
 					let timer = setInterval(() => {
 						if (countdown > 0) {
-							that.code.text = countdown - 1 + '秒';
+							that.code.text = countdown - 1 + that.$t('public.register.miao');
 							countdown--;
 						} else {
 							clearInterval(timer);
-							that.code.text = '获取验证码';
+							that.code.text = that.$t('public.register.hqyzm');
 							that.code.status = false;
 						}
 					}, 1000);
@@ -95,19 +95,19 @@ export default {
 		
 			let that = this;
 			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-				that.$msg('请填写正确手机号码');
+				that.$msg(that.$t("public.register.qtxzqsjhm"));
 				return false;
 			}
 			if (!that.code.y_code) {
-				that.$msg('请填写验证码');
+				that.$msg(that.$t("public.register.qtxyzm"));
 				return false;
 			}
 			if (!that.u_nickname) {
-				that.$msg('请填写昵称');
+				that.$msg(that.$t('public.register.qtxnc'));
 				return false;
 			}
 			if (!that.u_psd) {
-				that.$msg('请设置登录密码');
+				that.$msg(that.$t("public.register.qszdlmm"));
 				return false;
 			}
 			// if (!that.u_code) {

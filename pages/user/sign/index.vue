@@ -18,11 +18,11 @@
 				<!-- 打卡日历页面 -->
 				<view class="calendar">
 					<view class="sign-everyday x-bc pad">
-						<text class="sign-everyday-title">每日签到</text>
+						<text class="sign-everyday-title">{{$t("user.sign.index.mrqd")}}</text>
 						<view class="sign-num-box">
-							已连续签到
+							{{$t("user.sign.index.ylxqd")}}
 							<text class="sign-num">{{ cuntinueDays }}</text>
-							天
+							{{$t("user.sign.index.tian")}}
 						</view>
 					</view>
 					<view class="bar x-c">
@@ -30,7 +30,7 @@
 						<view class="previous" @click="handleCalendar(0)">
 							<button class="cu-btn bar-btn"><text class="cuIcon-back"></text></button>
 						</view>
-						<view class="date">{{ cur_year || '--' }} 年 {{ cur_month || '--' }} 月</view>
+						<view class="date">{{ cur_year || '--' }} {{$t('user.sign.index.nian')}} {{ cur_month || '--' }} {{$t('user.sign.index.yue')}}</view>
 						<view class="next" @click="handleCalendar(1)">
 							<button class="cu-btn bar-btn"><text class="cuIcon-right"></text></button>
 						</view>
@@ -70,7 +70,7 @@
 						</view>
 						<!-- 签到按钮 -->
 						<view class="x-c sign-box">
-							<button :disabled="isPresentMonth || isSign" @tap="onSign" class="cu-btn sign-btn">{{ isSign ? '已签到' : '签到' }}</button>
+							<button :disabled="isPresentMonth || isSign" @tap="onSign" class="cu-btn sign-btn">{{ isSign ? $t("user.sign.index.yqd") : $t('user.sign.index.qd') }}</button>
 						</view>
 					</view>
 				</view>
@@ -84,16 +84,16 @@
 						<image class="modal-bg" src="http://shopro.7wpp.com/imgs/modal/sign_modal_bg.jpg" mode=""></image>
 						<image class="sign-tag" src="http://shopro.7wpp.com/imgs/modal/sign_modal_succeed.png" mode=""></image>
 						<view class="sign-num-box">
-							已连续打卡
+							{{$t('user.sign.index.ylxdk')}}
 							<text class="sign-num">{{ cuntinueDays }}</text>
-							天
+							{{$t("user.sign.index.tie")}}
 						</view>
 					</view>
 					<view class="modal-content y-f">
-						<text class="sign-success">签到成功</text>
-						<text class="sign-score">恭喜您获得{{ score }}金豆</text>
+						<text class="sign-success">{{$t('user.sign.index.qdcg')}}</text>
+						<text class="sign-score">{{$t('user.sign.index.gxnhd')}}{{ score }}{{$t('user.sign.index.jd')}}</text>
 					</view>
-					<view class="modal-bottom"><button class="cu-btn confirem-btn" @tap="onConfirem">确认</button></view>
+					<view class="modal-bottom"><button class="cu-btn confirem-btn" @tap="onConfirem">{{$t('user.sign.index.qr')}}</button></view>
 				</view>
 			</block>
 		</shopro-modal>
@@ -236,10 +236,10 @@ export default {
 		// 补签
 		clickSignUp(date, type) {
 			//0补签，1当日签到
-			var str = '签到';
+			var str = this.$t('user.sign.index.qd');
 			if (type == 0) {
 				//如果不需要补签功能直接在这阻止不执行后面的代码就行。
-				str = '补签';
+				str = this.$t('user.sign.index.bq');
 			}
 			this.$emit('clickChange', this.cur_year + '-' + this.cur_month + '-' + date); //传给调用模板页面
 		}

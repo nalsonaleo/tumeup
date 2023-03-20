@@ -17,11 +17,11 @@
 			</view>
 			<view class="form-item">
 				<view class="star-box x-f">
-					<view class="star-title">描述相符</view>
+					<view class="star-title">{{$t("order.addComment.msxf")}}</view>
 					<view class=""><sh-star @changeStar="changeStar" :maxStar="5"></sh-star></view>
 				</view>
 				<view class="area-box">
-					<textarea class="inp-area" v-model="info" placeholder="宝贝满足你的期待吗？说说你的使用心得，分享给想买的他们吧~" placeholder-class="pl-style" />
+					<textarea class="inp-area" v-model="info" :placeholder="$t('order.addComment.placeholder')" placeholder-class="pl-style" />
 					<view class="img-box">
 						<view class="preview-box" v-for="(item, index) in imgList" :key="index">
 							<image class="preview-img" :src="item" mode="aspectFill"></image>
@@ -32,7 +32,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="foot_box x-c"><button class="post-btn" @tap="subComment">发布</button></view>
+		<view class="foot_box x-c"><button class="post-btn" @tap="subComment">{{$t("order.addComment.fb")}}</button></view>
 	</view>
 </template>
 
@@ -106,11 +106,12 @@ export default {
 			});
 		},
 		DelImg(index) {
+			let that = this;
 			uni.showModal({
-				title: '删除照片',
-				content: '确定要删除这张照片么？',
-				cancelText: '取消',
-				confirmText: '删除',
+				title: that.$t("order.addComment.sczp"),
+				content: that.$t("order.addComment.confirm.del.pic"),
+				cancelText: that.$t("order.addComment.cancel"),
+				confirmText: that.$t("order.addComment.del"),
 				success: res => {
 					if (res.confirm) {
 						this.imgList.splice(index, 1);

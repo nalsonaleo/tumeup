@@ -12,7 +12,7 @@
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
 			<view class="order-list" v-for="order in orderList" :key="order.id" @tap.stop="jump('/pages/order/detail?order_id='+order.id)">
 				<view class="order-head x-bc">
-					<text class="no">订单编号：{{ order.o_no }}</text>
+					<text class="no">{{$t("order.ptOrder.ddbh")}}：{{ order.o_no }}</text>
 					<text class="state" v-if="orderType != 5">{{orderStatus[order.o_status]}}</text>
 					<!-- <text class="state" v-else>{{order.o_exchange == 1?'退款中':'已退款'}}</text> -->
 				</view>
@@ -22,10 +22,10 @@
 					<view class="goods-bottom  x-f"  v-if="order.o_status == 2">
 						<view class="btn-box" >
 							<button class="cu-btn btn1"  @tap.stop="checkExpress(order.id)">
-								查看物流
+								{{$t("order.ptOrder.ckwl")}}
 							</button>
 							<button @tap.stop="onConfirm(order.id)" class="cu-btn btn2">
-								确认收货
+								{{$t("order.ptOrder.qrsh")}}
 							</button>
 						</view>
 					</view>
@@ -56,15 +56,15 @@ export default {
 			isLoading: true,
 			orderType: -1,
 			orderList: [],
-			orderStatus:['','待发货','待收货','','已完成'],
+			orderStatus:['',this.$t("order.ptOrder.dfh"),this.$t("order.ptOrder.dsh"),'',this.$t("order.ptOrder.ywc")],
 			emptyData: {
 				img: '/static/imgs/empty/empty_groupon.png',
-				tip: '暂无订单，还有更多好货等着你噢~'
+				tip: this.$t("order.ptOrder.tip")
 			},
 			orderState: [
 				{
 					id: 0,
-					title: '全部',
+					title: this.$t("order.ptOrder.all"),
 					type: -1
 				},
 				// {
@@ -74,17 +74,17 @@ export default {
 				// },
 				{
 					id: 2,
-					title: '待发货',
+					title: this.$t("order.ptOrder.dfh"),
 					type: 1
 				},
 				{
 					id: 3,
-					title: '待收货',
+					title: this.$t("order.ptOrder.dsh"),
 					type: 2
 				},
 				{
 					id: 4,
-					title: '已收货',
+					title: this.$t("order.ptOrder.ywc"),
 					type: 3
 				},
 				// {

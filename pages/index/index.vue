@@ -28,7 +28,7 @@
 				
 				<view class="keyword">
 					<view class="hot" >Hot :</view>
-					<view class="hot-keyword" >鞋子 | 赚钱 </view>
+					<view class="hot-keyword" >{{$t("index.index.hot.xz")}} | {{$t("index.index.hot.zq")}} </view>
 				</view>
 			</view>
 			

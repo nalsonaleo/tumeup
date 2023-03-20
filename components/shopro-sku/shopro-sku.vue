@@ -21,14 +21,14 @@
 							<view class="goods-title more-t">{{ goodsInfo2.g_name }}</view>
 							<view class="x-bc goods-bottom">
 								<view class="price-box x-f">
-									<view><text v-if="goodsInfo2.g_type  == 3">{{currentSkuPrice.integral || goodsInfo2.g_integral3}}金豆+</text> ￥{{ currentSkuPrice.price ?currentSkuPrice.price: goodsInfo2.g_price}}</view>
+									<view><text v-if="goodsInfo2.g_type  == 3">{{currentSkuPrice.integral || goodsInfo2.g_integral3}}{{$t("user.goods.detail.shoproSku.jd")}}+</text> ￥{{ currentSkuPrice.price ?currentSkuPrice.price: goodsInfo2.g_price}}</view>
 									<!-- <view v-if="goodsType === 'score'">{{ currentSkuPrice.price_text || goodsInfo.price }}</view>
 									<view v-else-if="grouponBuyType === 'groupon'">
 										￥{{ currentSkuPrice.groupon_price || (goodsInfo.activity_type === 'groupon' ? goodsInfo.groupon_price : goodsInfo.price) }}
 									</view>
 									<view v-else>￥{{ currentSkuPrice.price || goodsInfo.price }}</view> -->
 								</view>
-								<text class="stock">库存{{ currentSkuPrice.stock ? currentSkuPrice.stock : goodsInfo2.g_stock }}件</text>
+								<text class="stock">{{$t("user.goods.detail.shoproSku.kc")}}{{ currentSkuPrice.stock ? currentSkuPrice.stock : goodsInfo2.g_stock }}{{$t("user.goods.detail.shoproSku.jie")}}</text>
 							</view>
 						</view>
 					</view>
@@ -51,7 +51,7 @@
 							</view>
 						</view>
 						<view class="buy-num-box x-bc">
-							<view class="num-title">购买数量</view>
+							<view class="num-title">{{$t("user.goods.detail.shoproSku.gmsl")}}</view>
 							<view class="uni-numbox x-f">
 								<view @tap.stop="changeCount(-1)" class="uni-numbox__minus">
 									<button class=" cu-btn uni-numbox--text">
@@ -77,10 +77,10 @@
 							</view> -->
 						</view>
 					</view>
-					<view class="btn-box foot_box x-bc" v-if="buyType == 'cart' || buyType == 'buy'"><button class="cu-btn  seckill-btn" @tap="confirm">确认</button></view>
+					<view class="btn-box foot_box x-bc" v-if="buyType == 'cart' || buyType == 'buy'"><button class="cu-btn  seckill-btn" @tap="confirm">{{$t("user.goods.detail.shoproSku.qr")}}</button></view>
 					<view class="btn-box foot_box x-bc" v-else>
-						<button class="cu-btn  cart-btn" @tap="confirmCart" v-if="goodsInfo.g_type ==2">加入购物车</button>
-						<button class="cu-btn  buy-btn" @tap="confirmBuy" :class="goodsInfo.g_type !=2 ? 'wid100':''">立即购买</button>
+						<button class="cu-btn  cart-btn" @tap="confirmCart" v-if="goodsInfo.g_type ==2">{{$t("user.goods.detail.shoproSku.jrgwc")}}</button>
+						<button class="cu-btn  buy-btn" @tap="confirmBuy" :class="goodsInfo.g_type !=2 ? 'wid100':''">{{$t("user.goods.detail.shoproSku.ljgm")}}</button>
 					</view>
 				</view>
 			</view>

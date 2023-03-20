@@ -3,22 +3,22 @@
 		<view class="form-box">
 			<label>
 				<view class="form-item flex align-center justify-between">
-					<view class="item-title">手机号:</view>
-					<input class="item-input flex-sub" type="number" v-model="phone" placeholder="请输入要绑定的新手机号" placeholder-class="pl-input" />
+					<view class="item-title">{{$t('user.editPhone.sjh')}}:</view>
+					<input class="item-input flex-sub" type="number" v-model="phone" :placeholder="$t('user.editPhone.sjh.placeholder')" placeholder-class="pl-input" />
 				</view>
 			</label>
 			<view class="form-item flex align-center justify-between">
 				<label>
 					<view class="x-f">
-						<view class="item-title">验证码:</view>
-						<input class="item-input flex-sub" type="text" v-model="code.value" placeholder="请输入验证码" placeholder-class="pl-input" />
+						<view class="item-title">{{$t('user.editPhone.yzm')}}:</view>
+						<input class="item-input flex-sub" type="text" v-model="code.value" :placeholder="$t('user.editPhone.yzm.placeholder')" placeholder-class="pl-input" />
 					</view>
 				</label>
 				<button class="cu-btn code-btn" :disabled="code.status" @tap.stop="getCode">{{ code.text }}</button>
 			</view>
 		</view>
 
-		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="editChangemobile">提交</button></view>
+		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="editChangemobile">{{$t('user.editPhone.tj')}}</button></view>
 	</view>
 </template>
 
@@ -29,7 +29,7 @@ export default {
 	data() {
 		return {
 			code: {
-				text: '获取验证码',
+				text: this.$t('user.editPhone.hqyzm'),
 				status: false,
 				value: ''
 			},
@@ -38,16 +38,17 @@ export default {
 	},
 	computed: {},
 	onLoad() {
+		let that = this;
 		const fromType = this.$Route.query.fromType;
 		switch (fromType) {
 			case 'bind':
 				uni.setNavigationBarTitle({
-					title: '绑定手机号'
+					title: that.$t('user.editPhone.bdsjh')
 				});
 				break;
 			default:
 				uni.setNavigationBarTitle({
-					title: '修改手机号'
+					title: that.$t('user.editPhone.xgsjh')
 				});
 		}
 	},
@@ -61,7 +62,7 @@ export default {
 				captcha: that.code.value
 			}).then(res => {
 				if (res.code === 1) {
-					that.$tools.toast('修改手机号成功');
+					that.$tools.toast(that.$t('user.editPhone.xgsjhcg'));
 					that.getUserInfo();
 					setTimeout(() => {
 						that.$Router.replace('pages/user/info');
@@ -80,15 +81,15 @@ export default {
 				event: 'changemobile'
 			}).then(res => {
 				if (res.code === 1) {
-					that.code.text = countdown + '秒';
+					that.code.text = countdown + that.$t('user.editPhone.miao');
 					that.code.status = true;
 					let timer = setInterval(() => {
 						if (countdown > 0) {
-							that.code.text = countdown - 1 + '秒';
+							that.code.text = countdown - 1 + that.$t('user.editPhone.miao');
 							countdown--;
 						} else {
 							clearInterval(timer);
-							that.code.text = '获取验证码';
+							that.code.text = that.$t('user.editPhone.hqyzm');
 							that.code.status = false;
 						}
 					}, 1000);

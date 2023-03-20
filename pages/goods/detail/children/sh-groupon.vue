@@ -2,7 +2,7 @@
 	<view class="group-people">
 		<block v-if="grouponTeamList.length">
 			<view class="into-title x-bc">
-				<text>已有{{ grouponData.sales }}人参与活动</text>
+				<text>{{$t("user.goods.detail.shprice.groupon.yy")}}{{ grouponData.sales }}{{$t("user.goods.detail.shprice.groupon.rcjhd")}}</text>
 				<text class="cuIcon-right" @tap="onMoreGrouponTeam"></text>
 			</view>
 			<view class="into-item x-bc" v-for="(g, index) in grouponTeamList" :key="g.id" v-if="index < 2">
@@ -13,13 +13,13 @@
 				<view class="x-f">
 					<view class="y-end">
 						<view class="num">
-							还差
-							<text class="num-color">{{ g.num - g.current_num }}人</text>
-							成团
+							{{$t("user.goods.detail.shprice.groupon.hc")}}
+							<text class="num-color">{{ g.num - g.current_num }}{{$t("user.goods.detail.shprice.groupon.people")}}</text>
+							{{$t("user.goods.detail.shprice.groupon.ct")}}
 						</view>
-						<view class="time" v-if="g.expiretime && g.time">剩余时间{{ g.time.h }}:{{ g.time.m }}:{{ g.time.s }}</view>
+						<view class="time" v-if="g.expiretime && g.time">{{$t("user.goods.detail.shprice.groupon.sysj")}}{{ g.time.h }}:{{ g.time.m }}:{{ g.time.s }}</view>
 					</view>
-					<button class="cu-btn join-btn" @tap="jump('/pages/activity/groupon/detail', { id: g.id })">去参团</button>
+					<button class="cu-btn join-btn" @tap="jump('/pages/activity/groupon/detail', { id: g.id })">{{$t("user.goods.detail.shprice.groupon.qct")}}</button>
 				</view>
 			</view>
 		</block>
@@ -28,7 +28,7 @@
 		<view v-if="parseInt(grouponData.activity.richtext_id)" class="groupon-play x-bc" @tap="jump('/pages/public/richtext', { id: grouponData.activity.richtext_id })">
 			<view class="x-f">
 				<text class="title">玩法</text>
-				<view class="description one-t">{{ grouponData.activity.richtext_title || '开团/参团·邀请好友·人满发货（不满退款' }}</view>
+				<view class="description one-t">{{ grouponData.activity.richtext_title || `${$t("user.goods.detail.shprice.groupon.kt")}/${$t("user.goods.detail.shprice.groupon.cant")}·${$t("user.goods.detail.shprice.groupon.yqhy")}·${$t("user.goods.detail.shprice.groupon.rmfh")}` }}</view>
 			</view>
 			<text class="cuIcon-right"></text>
 		</view>
@@ -38,7 +38,7 @@
 				<view class="modal-box page_box">
 					<view class="modal-head x-bc">
 						<text></text>
-						<text class="head-title">正在拼团</text>
+						<text class="head-title">{{$t("user.goods.detail.shprice.groupon.zzpt")}}</text>
 						<text class="cuIcon-roundclosefill" @tap="hideModal"></text>
 					</view>
 					<view class="modal-content content_box y-f">
@@ -50,17 +50,17 @@
 							<view class="x-f">
 								<view class="y-end">
 									<view class="num">
-										还差
-										<text class="num-color">{{ g.num - g.current_num }}人</text>
-										成团
+										{{$t("user.goods.detail.shprice.groupon.hc")}}
+										<text class="num-color">{{ g.num - g.current_num }}{{$t("user.goods.detail.shprice.groupon.people")}}</text>
+										{{$t("user.goods.detail.shprice.groupon.ct")}}
 									</view>
-									<view class="time" v-if="g.expiretime && g.time">剩余时间{{ g.time.h }}:{{ g.time.m }}:{{ g.time.s }}</view>
+									<view class="time" v-if="g.expiretime && g.time">{{$t("user.goods.detail.shprice.groupon.sysj")}}{{ g.time.h }}:{{ g.time.m }}:{{ g.time.s }}</view>
 								</view>
-								<button class="cu-btn join-btn" @tap="joinTeam('/pages/activity/groupon/detail', { id: g.id })">去参团</button>
+								<button class="cu-btn join-btn" @tap="joinTeam('/pages/activity/groupon/detail', { id: g.id })">{{$t("user.goods.detail.shprice.groupon.qct")}}</button>
 							</view>
 						</view>
 					</view>
-					<view class="modal-foot x-c">仅显示10个正在拼团的人</view>
+					<view class="modal-foot x-c">{{$t("user.goods.detail.shprice.groupon.tippt")}}</view>
 				</view>
 			</view>
 		</view>

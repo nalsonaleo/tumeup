@@ -14,7 +14,7 @@
 			</view> -->
 			<view class="nav-item y-f" :class="{ current: filterIndex === 1 }" @tap="tabClick(1)">
 				<view class="title-box x-f">
-					<text class="filter-title">销量</text>
+					<text class="filter-title">{{$t("goods.children.shFilter")}}</text>
 					<view class="p-box">
 						<text :class="{ active: salesOrder == 'sell_asc' && filterIndex === 1 }" class="yticon cuIcon-fold"></text>
 						<text :class="{ active: salesOrder == 'sell_desc' && filterIndex === 1 }" class="yticon cuIcon-fold xia"></text>
@@ -24,7 +24,7 @@
 			</view>
 			<view class="nav-item y-f" :class="{ current: filterIndex === 2 }" @tap="tabClick(2)">
 				<view class="title-box x-f">
-					<text class="filter-title">价格</text>
+					<text class="filter-title">{{$t("goods.children.jg")}}</text>
 					<view class="p-box">
 						<text :class="{ active: priceOrder == 'price_asc' && filterIndex === 2 }" class="yticon cuIcon-fold"></text>
 						<text :class="{ active: priceOrder == 'price_desc' && filterIndex === 2 }" class="yticon cuIcon-fold xia"></text>
@@ -33,7 +33,7 @@
 				<!-- <view class="line" :class="{ 'line-active': filterIndex === 2 }"></view> -->
 			</view>
 			<view class="nav-item y-f" :class="{ current: filterIndex === 3 }" @tap="tabClick(3)">
-				<view class="title-box"><text class="filter-title">筛选</text></view>
+				<view class="title-box"><text class="filter-title">{{$t("goods.children.sx")}}</text></view>
 				<!-- <view class="line" :class="{ 'line-active': filterIndex === 3 }"></view> -->
 			</view>
 		</view>
@@ -41,14 +41,14 @@
 		<view class="cate-mask" :class="cateMaskState==0 ? 'none' : cateMaskState==1 ? 'show' : ''" @click="toggleCateMask">
 			<view class="cate-content" @click.stop.prevent="stopPrevent" @touchmove.stop.prevent="stopPrevent">
 				<view class="top">
-					<view class="title">价格区间(元)</view>
+					<view class="title">{{$t("goods.children.jgqj")}}</view>
 					<view class="ipt">
-						<input type="number" v-model="pricemin" placeholder="最低价" placeholder-style="color:#333;">
+						<input type="number" v-model="pricemin" :placeholder="$t('goods.children.jdj')" placeholder-style="color:#333;">
 						<text>-</text>
-						<input type="number" placeholder-style="color:#333;" placeholder="最高价" v-model="pricemax">
+						<input type="number" placeholder-style="color:#333;" :placeholder="$t('goods.children.zgj')" v-model="pricemax">
 					</view>
 				</view>
-				<view class="btn"><view class="bg1" @click="toggleCateMask">重置</view><view class="bg2" @click="toggleCateMask">确定</view></view>
+				<view class="btn"><view class="bg1" @click="toggleCateMask">{{$t("goods.children.cz")}}</view><view class="bg2" @click="toggleCateMask">{{$t("goods.children.qd")}}</view></view>
 			</view>
 		</view>
 	</view>

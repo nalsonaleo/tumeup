@@ -7,22 +7,22 @@
 					<!-- #ifdef MP-WEIXIN -->
 					<button class="share-item share-btn y-f" open-type="share">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-						<text class="share-title">微信好友</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.wxhy")}}</text>
 					</button>
 					<!-- #endif -->
 					<!-- #ifndef MP-WEIXIN || H5 -->
 					<view class="share-item y-f" @tap="share">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-						<text class="share-title">微信好友</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.wxhy")}}</text>
 					</view>
 					<!-- #endif -->
 					<view class="share-item y-f" @tap="saveImage">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/save_img.png" mode=""></image>
-						<text class="share-title">保存图片</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.bctp")}}</text>
 					</view>
 					<view class="share-item y-f" @tap="copyLink">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_link.png" mode=""></image>
-						<text class="share-title">复制链接</text>
+						<text class="share-title">{{$t("order.payment.shGoodsPoster.fzlj")}}</text>
 					</view>
 				</view>
 			</view>

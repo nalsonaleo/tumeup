@@ -11,14 +11,14 @@
 						<text class="miso-font sum"  v-if="couponData.c_type == 2">{{ couponData.c_reduce }}</text>
 						<text class="sub">{{ couponData.c_name }}</text>
 					</view>
-					<view class="notice" v-if="couponData.c_type == 2">满{{ couponData.c_full }}元可用</view>
+					<view class="notice" v-if="couponData.c_type == 2">{{$t("user.coupon.list.ysy.text.man")}}{{ couponData.c_full }}{{$t("user.coupon.list.ysy.text.yuankeyong")}}</view>
 					<view class="notice" v-if="couponData.c_type == 3">{{ parseFloat(couponData.c_discount) }}折</view>
-					<view class="notice" v-if="state != 0">有效期：{{ couponData.c_start }} 至 {{ couponData.c_end }}</view>
+					<view class="notice" v-if="state != 0">{{$t("user.coupon.list.text.validityPeriod")}}：{{ couponData.c_start }} {{$t("user.coupon.list.text.zhi")}} {{ couponData.c_end }}</view>
 				</view>
 				<view class="coupon-right y-f">
-					<button class="cu-btn get-btn" v-if="state == 0" @tap="takeCoup(couponData.id)">立即领取</button>
-					<text class="" v-if="state == 2">已使用</text>
-					<button class="cu-btn get-btn" v-if="state == 1" @tap="jump('/pages/index/index')">去使用</button>
+					<button class="cu-btn get-btn" v-if="state == 0" @tap="takeCoup(couponData.id)">{{$t("user.coupon.list.button")}}</button>
+					<text class="" v-if="state == 2">{{$t("user.coupon.list.button.ysy")}}</text>
+					<button class="cu-btn get-btn" v-if="state == 1" @tap="jump('/pages/index/index')">{{$t("user.coupon.list.button.qsy")}}</button>
 					<!-- <button class="cu-btn get-btn" v-if="state == 1">查看详情</button> -->
 				</view>
 			</view>
@@ -33,12 +33,12 @@
 						<text class="miso-font sum"  v-if="couponData.c_type == 2">{{ couponData.c_reduce }}</text>
 						<text class="sub">{{ couponData.c_name }}</text>
 					</view>
-					<view class="notice" v-if="couponData.c_type == 2">满{{ couponData.c_full }}元可用</view>
-					<view class="notice" v-if="couponData.c_type == 3">{{ parseFloat(couponData.c_discount) }}折</view>
-					<view class="notice">有效期：{{ couponData.c_start }} 至 {{ couponData.c_end }}</view>
+					<view class="notice" v-if="couponData.c_type == 2">{{$t("user.coupon.list.ysy.text.man")}}{{ couponData.c_full }}{{$t("user.coupon.list.ysy.text.yuankeyong")}}</view>
+					<view class="notice" v-if="couponData.c_type == 3">{{ parseFloat(couponData.c_discount) }}{{$t("user.coupon.list.text.zhe")}}</view>
+					<view class="notice">{{$t("user.coupon.list.text.validityPeriod")}}：{{ couponData.c_start }} {{$t("user.coupon.list.text.zhi")}} {{ couponData.c_end }}</view>
 				</view>
 				<view class="coupon-right y-f">
-					<button class="cu-btn get-btn">已失效</button>
+					<button class="cu-btn get-btn">{{$t("user.coupon.list.ysx")}}</button>
 					<view class="surplus-num"></view>
 				</view>
 			</view>

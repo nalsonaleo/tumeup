@@ -10,7 +10,7 @@
 				<label class="x-bc pay-item" >
 					<view class="x-f">
 						<image class="pay-img" src="../../../static/imgs/wallet_pay.png" mode=""></image>
-						<text>余额支付</text>
+						<text>{{$t("order.payment.method.yezf")}}</text>
 					</view>
 					<radio value="1" :class="{ checked: pay_type == 1 }" class="pay-radio orange" :checked="pay_type == 1"></radio>
 				</label>
@@ -19,7 +19,7 @@
 				<label class="x-bc pay-item" v-if="g_type == 1">
 					<view class="x-f">
 						<image class="pay-img" src="../../../static/imgs/th.png" mode=""></image>
-						<text>提货码兑换</text>
+						<text>{{$t("order.payment.method.thmdh")}}</text>
 					</view>
 					<radio value="6" :class="{ checked: pay_type == 6 }" class="pay-radio orange" :checked="pay_type == 6"></radio>
 				</label>
@@ -28,7 +28,7 @@
 				<input placeholder-class="pl-input" class="item-input" type="text" placeholder="请输入提货码" v-model="goods_code">
 			</view>
 			<view class="x-c">
-				<button class="cu-btn pay-btn" @tap="confirmPay">确认支付 ￥{{ total_fee }}</button>
+				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t("order.payment.method.qrzf")}} ￥{{ total_fee }}</button>
 			</view>
 		</view>
 		<view class="foot_box"></view>
@@ -40,7 +40,7 @@
 			<view class="pwd-box">
 				<view class="tit">
 					<image src="@/static/imgs/back.png" @click="hide"></image>
-					<text>输入支付密码</text>
+					<text>{{$t("order.payment.method.srzfmm")}}</text>
 				</view>
 				<view class="pwd-list">
 					<view>{{ password.length >= 1 ? '●' : '' }}</view>
@@ -50,7 +50,7 @@
 					<view>{{ password.length >= 5 ? '●' : '' }}</view>
 					<view>{{ password.length >= 6 ? '●' : '' }}</view>
 				</view>
-				<view class="pwd-link"><navigator url="/pages/user/forgetPayPsd">忘记支付密码？</navigator></view>
+				<view class="pwd-link"><navigator url="/pages/user/forgetPayPsd">{{$t("order.payment.method.wjzfmm")}}？</navigator></view>
 				<view class="pwd-keys">
 					<view @click="keysOn(1)">1</view>
 					<view @click="keysOn(2)">2</view>
@@ -128,11 +128,11 @@ export default {
 			let timer = setInterval(() => {
 				if (t > 0) {
 					let time = that.$tools.format(t);
-					that.timeText = `支付剩余时间 ${time.m}:${time.s}`;
+					that.timeText = `${that.$t("order.payment.method.zfsysj")} ${time.m}:${time.s}`;
 					t--;
 				} else {
 					clearInterval(timer);
-					that.timeText = '订单已过期!';
+					that.timeText = `${that.$t("order.payment.method.ddygq")}!`;
 				}
 			}, 1000);
 		},
@@ -184,7 +184,7 @@ export default {
 			
 			if(that.pay_type == 6 && !that.goods_code){
 				// 提货码兑换
-				that.$msg('请填写提货码');
+				that.$msg(that.$t("order.payment.method.txthm"));
 				return;
 			}
 			if(that.pay_type == 1){

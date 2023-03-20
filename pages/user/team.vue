@@ -3,17 +3,17 @@
 		<view class="top">
 			<view>
 				<text>{{team_num}}</text>
-				<text>团队人数</text>
+				<text>{{$t('user.team.tdrs')}}</text>
 			</view>
 		</view>
 		<view @tap="jump('/pages/public/poster/index')" class="mid">
-			<view class="left"><image src="../../static/imgs/ewm.png"></image><text>邀请好友</text></view>
+			<view class="left"><image src="../../static/imgs/ewm.png"></image><text>{{$t('user.team.yqhy')}}</text></view>
 			<image class="right" src="../../static/imgs/next.png"></image>
 		</view>
 		<view class="content">
 			<view class="nav">
-				<text :class="layer == 1?'on':''" @click="changeLevel(1)">我的直推</text>
-				<text :class="layer == 2?'on':''" @click="changeLevel(2)">二级成员</text>
+				<text :class="layer == 1?'on':''" @click="changeLevel(1)">{{$t('user.team.wdzt')}}</text>
+				<text :class="layer == 2?'on':''" @click="changeLevel(2)">{{$t('user.team.ejcy')}}</text>
 				<!-- <text :class="layer == 3?'on':''" @click="changeLevel(3)">三级成员</text> -->
 			</view>
 			<view class="con">

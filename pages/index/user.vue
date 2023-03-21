@@ -57,13 +57,13 @@
 		</view> 
 		<view  style="position: relative;width: 90%;display: flex;flex-direction: column;left: 5%;top: -20px;color: #000000;background-color:white;justify-content: center;align-items:center;border-radius: 15px;">
 			<view style="display: flex;justify-content: center;padding-top: 10px;align-items: center;">
-				<navigator url="/pages/activity/groupon/my-groupon" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
+				<navigator url="/pages/activity/groupon/my-groupon" style="display: flex;flex-direction: column;align-items: center;justify-content: center;flex-wrap: wrap;">
 					<view>{{$t("user.groupon.mytitle")}}</view>
 				</navigator>
 				
 				<view style="display: flex;flex-direction: column;align-items: center;margin-left: 80px;">
 					<navigator url="/pages/order/ptOrder" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
-						<view>{{$t("user.groupon.order")}}</view>
+						<view style='text-align: center;'>{{$t("user.groupon.order")}}</view>
 					</navigator>
 				</view>
 			</view>
@@ -72,7 +72,7 @@
 					<view>
 						{{userInfo.month_group}}
 					</view>
-					<view>
+					<view  style='text-align: center;'>
 						{{$t("user.mouthgroup.number")}}
 					</view>
 				</view>
@@ -80,7 +80,7 @@
 					<view>
 						{{userInfo.fx_yj}}
 					</view>
-					<view>
+					<view   style='text-align: center;'>
 						{{$t("user.distribution.money")}}
 					</view>
 				</view>
@@ -115,15 +115,15 @@
 			<view class="wallet-box x-f">
 				<view class="x-f wallet-left">
 					<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/index')">
-						<view class="wallet-item__detail item-balance">{{userInfo.u_money1}} </view>
+						<view class="wallet-item__detail">{{userInfo.u_money1}} <text style='font-size: 16rpx;margin-left: 4rpx;'>{{$t('user.yuan')}}</text></view>
 						<text class="wallet-item__title">{{$t("user.index.accountbalance")}}</text>
 					</view>
 					<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/score-balance')">
-						<text class="wallet-item__detail item-score">{{userInfo.u_money2}} </text>
+						<text class="wallet-item__detail">{{userInfo.u_money2}}<text style='font-size: 16rpx;margin-left: 4rpx;'>{{$t('user.ge')}}</text> </text>
 						<text class="wallet-item__title">{{$t("user.index.fortunella.venosa")}}</text>
 					</view>
 					<view class="wallet-item y-f" @tap="jump('/pages/app/coupon/list')">
-						<text class="wallet-item__detail item-coupon">{{ c_num || '0' }}</text>
+						<text class="wallet-item__detail">{{ c_num || '0' }}<text style='font-size: 16rpx;margin-left: 4rpx;'>{{$t('user.zhang')}}</text></text>
 						<text class="wallet-item__title">{{$t("user.index.coupon")}}</text>
 					</view>
 				</view>
@@ -422,6 +422,7 @@ export default {
 </script>
 
 <style lang="scss">
+	
 .user-box {
 	overflow-x: hidden;
 }
@@ -697,6 +698,7 @@ export default {
 			color: rgba(153, 153, 153, 1);
 			line-height: 24rpx;
 			padding-top: 30rpx;
+			text-align:center;
 		}
 	}
 }

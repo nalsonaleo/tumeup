@@ -120,11 +120,13 @@ export default {
 	}
 
 	.type-list {
-		height: 84upx;
+		min-height: 84upx;
+		padding: 20upx;
 		position: relative;
 		width: 200upx;
 		font-size: 28upx;
 		font-family: PingFang SC;
+		box-sizing: border-box;
 		font-weight: 400;
 		color: rgba(102, 102, 102, 1);
 

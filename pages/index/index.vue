@@ -239,7 +239,7 @@
 			async loadData() {
 				this.isLoaded = true;
 			},
-
+			
 			showLanguage() {
 				//切换语言,android设备会提示重启
 				this.$refs.languagePopup.open()

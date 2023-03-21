@@ -75,40 +75,40 @@ export default {
 			isLoading: true,
 			orderType: -1,
 			orderList: [],
-			orderStatus:['待付款','待发货','待收货','待评价','已完成','售后中'],
+			orderStatus:[this.$t('pages.user.jfOrder.dfk'),this.$t('pages.user.jfOrder.dfh'),this.$t('pages.user.jfOrder.dsh'),this.$t('pages.user.jfOrder.dpj'),this.$t('pages.user.jfOrder.ywc'),this.$t('pages.user.jfOrder.shz')],
 			emptyData: {
 				img: '/static/imgs/empty/empty_groupon.png',
-				tip: '暂无商品，还有更多好货等着你噢~'
+				tip: this.$t('pages.user.jfOrder.zwsp.tip')
 			},
 			orderState: [
 				{
 					id: 0,
-					title: '全部',
+					title: this.$t('pages.user.jfOrder.qb'),
 					type: -1
 				},
 				{
 					id: 1,
-					title: '待付款',
+					title: this.$t('pages.user.jfOrder.dfk'),
 					type: 0
 				},
 				{
 					id: 2,
-					title: '待发货',
+					title: this.$t('pages.user.jfOrder.dfh'),
 					type: 1
 				},
 				{
 					id: 3,
-					title: '待收货',
+					title: this.$t('pages.user.jfOrder.dsh'),
 					type: 2
 				},
 				{
 					id: 4,
-					title: '待评价',
+					title: this.$t('pages.user.jfOrder.dpj'),
 					type: 3
 				},
 				{
 					id: 5,
-					title: '退换货',
+					title: this.$t('pages.user.jfOrder.thh'),
 					type: 5
 				}
 			],

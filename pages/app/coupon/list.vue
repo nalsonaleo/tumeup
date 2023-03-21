@@ -2,9 +2,9 @@
 	<view class="page_box">
 		<view class="head_box">
 			<view class="coupon-nav x-f">
-				<view class="nav-item y-f" v-for="nav in couponsState" :key="nav.id" @tap="onNav(nav.id)">
+				<view :class="{'nav-item': true, 'y-f':true, 'line-active': stateCurrent === nav.id }" v-for="nav in couponsState" :key="nav.id" @tap="onNav(nav.id)">
 					<view class="item-title">{{ nav.title }}</view>
-					<text class="nav-line" :class="{ 'line-active': stateCurrent === nav.id }"></text>
+					<!-- <text class="nav-line" :class="{ 'line-active': stateCurrent === nav.id }"></text> -->
 				</view>
 			</view>
 		</view>
@@ -113,17 +113,23 @@ export default {
 }
 .coupon-nav {
 	background: #fff;
-	height: 100rpx;
+	min-height: 80rpx;
 
 	.nav-item {
 		flex: 1;
-
+		min-height: 80rpx;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+			overflow:hidden;
 		.item-title {
 			font-size: 30rpx;
 			font-family: PingFang SC;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 1);
-			line-height: 76rpx;
+			text-overflow: ellipsis;
 		}
 
 		.nav-line {
@@ -132,10 +138,12 @@ export default {
 			background: #fff;
 		}
 
-		.line-active {
-			background: $zhuse;
-		}
 	}
+		.line-active {
+			// background: $zhuse;
+			
+			border-bottom: 4rpx solid $zhuse;
+		}
 }
 .coupon-list {
 	margin: 30rpx 20rpx;

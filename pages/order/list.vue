@@ -2,9 +2,9 @@
 	<view class="page_box">
 		<view class="head_box">
 			<view class="order-nav x-f">
-				<view class="nav-item y-f" v-for="nav in orderState" :key="nav.id" @tap="onNav(nav.type)">
+				<view :class="{'nav-item': true, 'y-f':true, 'line-active': orderType === nav.type }" v-for="nav in orderState" :key="nav.id" @tap="onNav(nav.type)">
 					<view class="item-title">{{ nav.title }}</view>
-					<text class="nav-line" :class="{ 'line-active': orderType == nav.type }"></text>
+					<!-- <text class="nav-line"></text> -->
 				</view>
 			</view>
 		</view>
@@ -220,25 +220,32 @@ export default {
 <style lang="scss">
 .order-nav {
 	background: #fff;
-	height: 80rpx;
+	min-height: 80rpx;
 	.nav-item {
 		flex: 1;
+		min-height: 80rpx;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+		// background: $zhuse;
 		.item-title {
 			font-size: 30rpx;
 			font-family: PingFang SC;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 1);
-			line-height: 76rpx;
 		}
 		.nav-line {
 			width: 100rpx;
 			height: 4rpx;
 			background: #fff;
 		}
-		.line-active {
-			background: $zhuse;
-		}
 	}
+		.line-active {
+			// background: $zhuse;
+			border-bottom: 4rpx solid $zhuse;
+		}
 }
 .order-list {
 	background: #fff;

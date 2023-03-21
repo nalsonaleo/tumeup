@@ -638,5 +638,13 @@ const apiList = {
 			data
 		})
 	},
+	// 语言翻译
+	langapiIndex:(data) => {
+		return http.request({
+			url: 'index.php/index/Langapi/index',
+			method: 'POST',
+			data
+		})
+	}
 }
 export default apiList

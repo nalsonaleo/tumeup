@@ -8,7 +8,7 @@
 				<view class="list" style="box-shadow:3px 3px 3px #C0C4CC;" :class="{'active':item.l_level==u_level}"  v-for="(item,index)  in list" :key='index'>
 					<image :src="item.img"></image>
 					<view class="right">
-						<view class="text" style="color: #333;">{{item.l_name}}会员 <text  style="font-size: 28upx;margin-left: 30upx;">{{item.level_name}}</text></view>
+						<view class="text" style="color: #333;">{{item.l_name}}{{$t('pages.user.upgrade.huiy')}} <text  style="font-size: 28upx;margin-left: 30upx;">{{item.level_name}}</text></view>
 						<view class="text" style="color: #666;font-size: 28upx;margin-top: 16upx;display: flex;justify-content: space-between;width: 15rem;">
 							<view>
 								<view style="color: #0081FF;">{{item.l_integral}} {{$t('user.upgrade.jd')}}</view>

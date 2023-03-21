@@ -36,7 +36,7 @@
 		{
 			"path": "pages/user/xianxia",
 			"style": {
-				"navigationBarTitleText": "线下充值"
+				"navigationBarTitleText": "%pages.user.xianxia%"
 			}
 		},
 		{
@@ -61,7 +61,7 @@
 		{
 			"path": "pages/huiyuan/huiyuan",
 			"style": {
-				"navigationBarTitleText": "即拼专区",
+				"navigationBarTitleText": "%pages.huiyuan.huiyuan%",
 				"navigationBarBackgroundColor":"#54B85D",
 				"navigationBarTextStyle": "white"
 			}
@@ -71,7 +71,7 @@
 		{
 			"path": "pages/huiyuan/pintuan",
 			"style": {
-				"navigationBarTitleText": "拼团专区",
+				"navigationBarTitleText": "%pages.huiyuan.pintuan%",
 				"navigationBarBackgroundColor":"#54B85D",
 				"navigationBarTextStyle": "white"
 			}
@@ -81,20 +81,20 @@
 		{
 			"path": "pages/goods/list",
 			"style": {
-				"navigationBarTitleText": "商品列表",
+				"navigationBarTitleText": "%pages.goods.list%",
 				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/goods/comment-list",
 			"style": {
-				"navigationBarTitleText": "商品评价"
+				"navigationBarTitleText": "%pages.goods.commentList%"
 			}
 		},
 		{
 			"path": "pages/goods/detail/index",
 			"style": {
-				"navigationBarTitleText": "商品详情"
+				"navigationBarTitleText": "%pages.goods.detail.index%"
 			}
 		},
 		// 商品goods------end
@@ -116,13 +116,13 @@
 		{
 			"path": "pages/activity/groupon/detail",
 			"style": {
-				"navigationBarTitleText": "拼团详情"
+				"navigationBarTitleText": "%pages.activity.groupon.detail%"
 			}
 		},
 		{
 			"path": "pages/activity/groupon/my-groupon",
 			"style": {
-				"navigationBarTitleText": "我的拼团"
+				"navigationBarTitleText": "%pages.activity.groupon.myGroupon%"
 			}
 		},
 		// 活动activity------end
@@ -144,20 +144,20 @@
 		{
 			"path": "pages/app/coupon/list",
 			"style": {
-				"navigationBarTitleText": "优惠券"
+				"navigationBarTitleText": "%pages.app.coupon.list%"
 			}
 		},
 		{
 			"path": "pages/app/coupon/detail",
 			"style": {
-				"navigationBarTitleText": "优惠劵详情",
+				"navigationBarTitleText": "%pages.app.coupon.detail%",
 				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/app/score/list",
 			"style": {
-				"navigationBarTitleText": "金豆商城"
+				"navigationBarTitleText": "%page.app.score.list%"
 			}
 		},
 		// 扩展extend------end
@@ -166,51 +166,51 @@
 		{
 			"path": "pages/order/confirm",
 			"style": {
-				"navigationBarTitleText": "确认订单"
+				"navigationBarTitleText": "%pages.order.confirm%"
 			}
 		},
 		{
 			"path": "pages/order/detail",
 			"style": {
-				"navigationBarTitleText": "订单详情"
+				"navigationBarTitleText": "%pages.order.detail%"
 			}
 		},
 		{
 			"path": "pages/order/list",
 			"name": "orderList",
 			"style": {
-				"navigationBarTitleText": "订单列表"
+				"navigationBarTitleText": "%pages.order.list%"
 			}
 		},
 		{
 			"path": "pages/order/add-comment",
 			"style": {
-				"navigationBarTitleText": "发表评论"
+				"navigationBarTitleText": "%pages.order.addComment%"
 			}
 		},
 		{
 			"path": "pages/order/express",
 			"name": "expressList",
 			"style": {
-				"navigationBarTitleText": "物流信息"
+				"navigationBarTitleText": "%pages.order.express%"
 			}
 		},
 		{
 			"path": "pages/order/refund",
 			"style": {
-				"navigationBarTitleText": "退款"
+				"navigationBarTitleText": "%pages.order.refund%"
 			}
 		},
 		{
 			"path": "pages/order/payment/method",
 			"style": {
-				"navigationBarTitleText": "支付方式"
+				"navigationBarTitleText": "%pages.order.payment.method%"
 			}
 		},
 		{
 			"path": "pages/order/payment/result",
 			"style": {
-				"navigationBarTitleText": "支付结果"
+				"navigationBarTitleText": "%pages.order.payment.result%"
 			}
 		},
 		{
@@ -224,13 +224,13 @@
 			"path": "pages/order/commonPtOrder",
 			"name": "orderList",
 			"style": {
-				"navigationBarTitleText": "拼团订单"
+				"navigationBarTitleText": "%pages.order.commonPtOrder%"
 			}
 		},
 		{
 			"path": "pages/order/hexiao",
 			"style": {
-				"navigationBarTitleText": "商家核销"
+				"navigationBarTitleText": "%pages.order.hexiao%"
 			}
 		},
 		// 订单order------end
@@ -244,19 +244,19 @@
 		{
 			"path": "pages/public/feedback",
 			"style": {
-				"navigationBarTitleText": "意见反馈"
+				"navigationBarTitleText": "%page.public.feedback%"
 			}
 		},
 		{
 			"path": "pages/public/my_feed",
 			"style": {
-				"navigationBarTitleText": "我的反馈"
+				"navigationBarTitleText": "%pages.public.myFeed%"
 			}
 		},
 		{
 			"path": "pages/public/forgot",
 			"style": {
-				"navigationBarTitleText": "忘记密码"
+				"navigationBarTitleText": "%pages.public.forgot%"
 				// "navigationBarBackgroundColor": "#fe4242",
 				// "navigationBarTextStyle": "white" //状态栏字体颜色
 				// "navigationStyle": "custom"
@@ -266,21 +266,21 @@
 			"path": "pages/public/login",
 			"name": "login",
 			"style": {
-				"navigationBarTitleText": "登录",
+				"navigationBarTitleText": "%pages.public.login%",
 				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/public/register",
 			"style": {
-				"navigationBarTitleText": "注册",
+				"navigationBarTitleText": "%pages.public.register%",
 				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/public/poster/index",
 			"style": {
-				"navigationBarTitleText": "邀请好友",
+				"navigationBarTitleText": "%pages.public.poster.index%",
 				"navigationBarBackgroundColor":"#54B85D",
 				"navigationBarTextStyle":"white"  //状态栏字体颜色
 			}
@@ -288,13 +288,13 @@
 		{
 			"path": "pages/public/faq",
 			"style": {
-				"navigationBarTitleText": "常见问题"
+				"navigationBarTitleText": "%pages.public.faq%"
 			}
 		},
 		{
 			"path": "pages/public/tuiguang",
 			"style": {
-				"navigationBarTitleText": "素材推广"
+				"navigationBarTitleText": "%pages.public.tuiguang%"
 			}
 		},
 		// 公共public ------ end
@@ -303,7 +303,7 @@
 		{
 			"path": "pages/user/log",
 			"style": {
-				"navigationBarTitleText": "浏览足迹"
+				"navigationBarTitleText": "%pages.user.log%"
 			}
 		},
 		{
@@ -315,31 +315,31 @@
 		{
 			"path": "pages/user/rule",
 			"style": {
-				"navigationBarTitleText": "即拼规则"
+				"navigationBarTitleText": "%pages.user.rule%"
 			}
 		},
 		{
 			"path": "pages/user/address/edit",
 			"style": {
-				"navigationBarTitleText": "编辑地址"
+				"navigationBarTitleText": "%pages.user.address.edit%"
 			}
 		},
 		{
 			"path": "pages/user/address/list",
 			"style": {
-				"navigationBarTitleText": "收货地址"
+				"navigationBarTitleText": "%pages.user.address.list%"
 			}
 		},
 		{
 			"path": "pages/user/jfOrder",
 			"style": {
-				"navigationBarTitleText": "金豆订单"
+				"navigationBarTitleText": "%pages.user.jfOrder%"
 			}
 		},
 		{
 			"path": "pages/user/about",
 			"style": {
-				"navigationBarTitleText": "关于我们"
+				"navigationBarTitleText": "%pages.user.about%"
 			}
 		},
 		{
@@ -357,19 +357,19 @@
 		{
 			"path": "pages/user/favorite",
 			"style": {
-				"navigationBarTitleText": "收藏"
+				"navigationBarTitleText": "%pages.user.favorite%"
 			}
 		},
 		{
 			"path": "pages/user/info",
 			"style": {
-				"navigationBarTitleText": "个人信息"
+				"navigationBarTitleText": "%pages.user.info%"
 			}
 		},
 		{
 			"path": "pages/user/edit-phone",
 			"style": {
-				"navigationBarTitleText": "修改手机号"
+				"navigationBarTitleText": "%pages.user.editPhone%"
 			}
 		},
 		
@@ -383,7 +383,7 @@
 		{
 			"path": "pages/user/upgrade",
 			"style": {
-				"navigationBarTitleText": "会员升级"
+				"navigationBarTitleText": "%pages.user.upgrade%"
 				// "navigationStyle": "custom"
 			}
 		},
@@ -397,19 +397,19 @@
 		{
 			"path": "pages/user/setPayPsd",
 			"style": {
-				"navigationBarTitleText": "设置支付密码"
+				"navigationBarTitleText": "%pages.user.setPayPsd%"
 			}
 		},
 		{
 			"path": "pages/user/changePayPsd",
 			"style": {
-				"navigationBarTitleText": "修改支付密码"
+				"navigationBarTitleText": "%pages.user.changePayPsd%"
 			}
 		},
 		{
 			"path": "pages/user/forgetPayPsd",
 			"style": {
-				"navigationBarTitleText": "忘记支付密码"
+				"navigationBarTitleText": "%pages.user.forgetPayPsd%"
 			}
 		},
 		{
@@ -427,13 +427,13 @@
 		{
 			"path": "pages/user/wallet/method",
 			"style": {
-				"navigationBarTitleText": "支付方式"
+				"navigationBarTitleText": "%pages.user.wallet.method%"
 			}
 		},
 		{
 			"path": "pages/user/wallet/log",
 			"style": {
-				"navigationBarTitleText": "钱包明细"
+				"navigationBarTitleText": "%pages.user.wallet.log%"
 			}
 		},
 		{

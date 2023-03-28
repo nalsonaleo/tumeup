@@ -31,6 +31,7 @@
 				oldPsd:'',
 				new_paypsd:'',
 				re_paypsd:'',
+				old_paypsd: undefined,
 				code: {
 					text: this.$t('user.changePayPsd.hqyzm'),
 					status: false,

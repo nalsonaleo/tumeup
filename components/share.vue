@@ -12,7 +12,7 @@
 		>
 			<scroll-view class="view-content" scroll-y>
 				<view class="share-header">
-					分享到
+					{{$t('components.share.fxd')}}
 				</view>
 				<view class="share-list">
 					<view 
@@ -25,7 +25,7 @@
 					</view>
 				</view>
 			</scroll-view>
-			<view class="bottom b-t" @click="toggleMask">取消</view>
+			<view class="bottom b-t" @click="toggleMask">{{$t('components.share.qx')}}</view>
 		</view>
 	</view>
 </template>
@@ -110,7 +110,7 @@
 			stopPrevent(){},
 			//分享操作
 			shareToFriend(type){
-				this.$api.msg(`分享给${type}`);
+				this.$api.msg(`${$t('components.share.fxg')}${type}`);
 				this.toggleMask();
 			},
 		}

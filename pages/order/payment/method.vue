@@ -28,7 +28,7 @@
 				<input placeholder-class="pl-input" class="item-input" type="text" placeholder="请输入提货码" v-model="goods_code">
 			</view>
 			<view class="x-c">
-				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t("order.payment.method.qrzf")}} ￥{{ total_fee }}</button>
+				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t("order.payment.method.qrzf")}} {{$t('money.symbol')}}{{ total_fee }}</button>
 			</view>
 		</view>
 		<view class="foot_box"></view>

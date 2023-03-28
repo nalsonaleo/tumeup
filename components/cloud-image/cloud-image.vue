@@ -164,6 +164,7 @@
 			},
 			upload() {
 				let dt = new Date();
+				let that = this;
 				uni.chooseImage({
 					count: this.imageNumber - this.srcList.length,
 					success: res => {
@@ -172,7 +173,7 @@
 						//this.uploadCallback(res.tempFilePaths);
 						let promises = [];
 						uni.showLoading({
-							title: "图片上传中"
+							title: that.$t('components.cloudImage.tpscz')
 						})
 						//循环上传
 						res.tempFilePaths.map((filePath, index) => {

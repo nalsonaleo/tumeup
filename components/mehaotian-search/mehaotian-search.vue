@@ -18,7 +18,7 @@
 				<!-- <view v-if="!active && mode === 2" class="input sub" @click="getFocus">请输入搜索内容</view> -->
 				<text v-if="isDelShow" class="taobaofont icon-delete" @click="clear"></text>
 			</view>
-			<view v-show="(active && show && button === 'inside') || (isDelShow && button === 'inside')" class="searchBtn" @click="search">搜索</view>
+			<view v-show="(active && show && button === 'inside') || (isDelShow && button === 'inside')" class="searchBtn" @click="search">{{$t('components.mehaotianSearch.ss')}}</view>
 		</view>
 		<view v-if="button === 'outside'" class="button" :class="{ active: show || active }" @click="search">
 			<view class="button-item">{{ searchName }}</view>
@@ -51,7 +51,7 @@ export default {
 		},
 		placeholder: {
 			type: String,
-			default: '请输入搜索内容'
+			default: () => this.$t('components.mehaotianSearch.qsrssnr'),
 		},
 		backgroundColor: {
 			type: String,
@@ -63,7 +63,7 @@ export default {
 		return {
 			active: false,
 			inputVal: '',
-			searchName: '取消',
+			searchName: this.$t("components.mehaotianSearch.qx"),
 			isDelShow: false,
 			isFocus: false
 		};
@@ -89,6 +89,7 @@ export default {
 		search() {
 			this.isFocus = false;
 			this.active = false;
+			let that = this;
 			uni.hideKeyboard();
 			if (!this.isDelShow) {
 				console.log('取消搜索');
@@ -99,7 +100,7 @@ export default {
 			if (val=="") {
 				uni.showToast({
 					icon:"none",
-					title:"关键字不能为空"
+					title:that.$t('components.mehaotianSearch.gjzbnwk')
 				});
 				setTimeout(()=>{
 					this.inputVal = "";
@@ -123,10 +124,10 @@ export default {
 	watch: {
 		inputVal(newVal) {
 			if (newVal) {
-				this.searchName = '搜索';
+				this.searchName = this.$t('components.mehaotianSearch.sswarch');
 				this.isDelShow = true;
 			} else {
-				this.searchName = '取消';
+				this.searchName = this.$t('components.mehaotianSearch.qxwarch');
 				this.isDelShow = false;
 			}
 		}

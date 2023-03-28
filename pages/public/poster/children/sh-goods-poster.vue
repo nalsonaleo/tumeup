@@ -159,7 +159,7 @@ export default {
 								{
 									type: 'text', //昵称
 									// fontStyle: 'italic',//倾斜
-									text: '推荐一个好物给你,请查收！',
+									text: that.$t('pages.public.poster.children.text'),
 									size: fontSize * 0.9,
 									color: 'black',
 									alpha: 1,
@@ -221,7 +221,7 @@ export default {
 								{
 									type: 'text', //价格
 									// fontStyle: 'italic',//倾斜
-									text: `￥${that.goodsInfo.price}`,
+									text: `${that.$t('money.symbol')}${that.goodsInfo.price}`,
 									size: fontSize * 1.1,
 									color: '#E1212B',
 									alpha: 1,
@@ -240,7 +240,7 @@ export default {
 								{
 									type: 'text', //价格
 									// fontStyle: 'italic',//倾斜
-									text: `￥${that.goodsInfo.original_price}`,
+									text: `${that.$t('money.symbol')}${that.goodsInfo.original_price}`,
 									size: fontSize * 0.9,
 									color: '#999999',
 									alpha: 1,
@@ -308,15 +308,15 @@ export default {
 			let that = this;
 			let platform = uni.getStorageSync('platform');
 			if (platform === 'wxOfficialAccount') {
-				that.$tools.toast('长按图片保存');
+				that.$tools.toast(that.$t('pages.public.poster.children.catpbc'));
 			} else {
 				uni.saveImageToPhotosAlbum({
 					filePath: that.poster.finalPath,
 					success: res => {
-						that.$tools.toast('保存成功');
+						that.$tools.toast(that.$t('pages.public.poster.children.bccg'));
 					},
 					fail: err => {
-						that.$tools.toast('保存失败');
+						that.$tools.toast(that.$t('pages.public.poster.children.bcsb'));
 					}
 				});
 			}
@@ -349,7 +349,7 @@ export default {
 					imageUrl: that.shareInfo.imageUrl
 				},
 				res => {
-					that.$tools.toast('分享成功');
+					that.$tools.toast(that.$t('pages.public.poster.children.fxcg'));
 				}
 			);
 			// #endif
@@ -360,7 +360,7 @@ export default {
 				data: that.shareInfo.copyLink,
 				success: () => {
 					//#ifdef H5
-					that.$tools.toast('已复制到剪切板');
+					that.$tools.toast(that.$t('pages.public.poster.children.yfzdjqb'));
 					//#endif
 				}
 			});

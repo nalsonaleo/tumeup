@@ -2,7 +2,7 @@
 	<view class="cu-load load-modal" v-if="loadModal">
 		<!-- <view class="cuIcon-emojifill text-orange"></view> -->
 		<!-- <image class="load-img" src="/static/imgs//logo/logo.gif" mode="aspectFit"></image> -->
-		<view class="locad-text">加载中...</view>
+		<view class="locad-text">{{$t('components.shoproload.zjz')}}...</view>
 	</view>
 </template>
 

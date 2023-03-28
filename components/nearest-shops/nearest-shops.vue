@@ -1,10 +1,10 @@
 <template>
 	<!-- 主分类下的店铺 -->
 	<view v-bind:class="{ fixed: nearbyHeaderPosition, 'nearby-func-section': 1 }">
-		<text v-bind:class="{ active: (nearByShopIndex & 1) == 1, 'fast-btn': 1 }" @click="getNearbyShops(1, 1)">满减优惠</text>
-		<text v-bind:class="{ active: (nearByShopIndex & 2) >> 1 == 1, 'fast-btn': 1 }" @click="getNearbyShops(2, 1)">30分钟内</text>
-		<text v-bind:class="{ active: (nearByShopIndex & 4) >> 2 == 1, 'fast-btn': 1 }" @click="getNearbyShops(4, 1)">减配送费</text>
-		<text v-bind:class="{ active: (nearByShopIndex & 8) >> 3 == 1, 'fast-btn': 1 }" @click="getNearbyShops(8, 1)">大众好评</text>
+		<text v-bind:class="{ active: (nearByShopIndex & 1) == 1, 'fast-btn': 1 }" @click="getNearbyShops(1, 1)">{{$t('components.nearestShops.mjyh')}}</text>
+		<text v-bind:class="{ active: (nearByShopIndex & 2) >> 1 == 1, 'fast-btn': 1 }" @click="getNearbyShops(2, 1)">{{$t('components.nearestShops.fzn')}}</text>
+		<text v-bind:class="{ active: (nearByShopIndex & 4) >> 2 == 1, 'fast-btn': 1 }" @click="getNearbyShops(4, 1)">{{$t('components.nearestShops.jpsf')}}</text>
+		<text v-bind:class="{ active: (nearByShopIndex & 8) >> 3 == 1, 'fast-btn': 1 }" @click="getNearbyShops(8, 1)">{{$t('components.nearestShops.dzhp')}}</text>
 	</view>
 	<view class="nearby-section">
 		<view v-for="(item, index) in shopList" :key="index" class="shop-item" @click="navToShopPage(item)">
@@ -14,13 +14,13 @@
 					<text class="title clamp">{{ item.name }}</text>
 				</view>
 				<view>
-					<text class="ops">评分{{ item.score }}</text>
-					<text class="ops">月售{{ item.monthSale }}</text>
+					<text class="ops">{{$t('components.nearestShops.pf')}}{{ item.score }}</text>
+					<text class="ops">{{$t('components.nearestShops.ys')}}{{ item.monthSale }}</text>
 				</view>
 				<view class="">
-					<text class="ops">起送￥{{ item.delivery.minPrice }}</text>
-					<text class="ops">配送￥{{ item.delivery.money }}</text>
-					<text class="ops">人均￥{{ item.perCapita }}</text>
+					<text class="ops">{{$t('components.nearestShops.qs')}}{{$t('money.symbol')}}{{ item.delivery.minPrice }}</text>
+					<text class="ops">{{$t('components.nearestShops.ps')}}{{$t('money.symbol')}}{{ item.delivery.money }}</text>
+					<text class="ops">{{$t('components.nearestShops.rj')}}{{$t('money.symbol')}}{{ item.perCapita }}</text>
 				</view>
 				<view class="youhui" v-if="item.hasManjian">
 					<text class="yh" v-for="(cou, ind) in item.manjians" :key="ind">{{ cou.name }}</text>

@@ -78,7 +78,7 @@
 			},
 			loadingText: {
 				type: String,
-				default: '二维码生成中'
+				default: () => this.$t('components.tkiQrcode.ewmscz')
 			},
 		},
 		data() {
@@ -110,7 +110,7 @@
 					});
 				} else {
 					uni.showToast({
-						title: '二维码内容不能为空',
+						title: that.$t('components.tkiQrcode.ewmnrbnwk'),
 						icon: 'none',
 						duration: 2000
 					});
@@ -127,7 +127,7 @@
 						filePath: that.result,
 						success: function() {
 							uni.showToast({
-								title: '二维码保存成功',
+								title: that.$t('components.tkiQrcode.ewmbccg'),
 								icon: 'success',
 								duration: 2000
 							});

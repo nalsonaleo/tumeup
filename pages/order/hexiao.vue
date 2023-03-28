@@ -59,7 +59,7 @@
 			</text>
 			<view class="all-money">
 				<text>{{$t("order.hexiao.heji")}}：</text>
-				<text class="price">￥{{ info.o_total_price }}</text>
+				<text class="price">{{$t('money.symbol')}}{{ info.o_total_price }}</text>
 			</view>
 			<button class="cu-btn sub-btn" @tap="subOrder">{{$t("order.hexiao.qrhx")}}</button>
 		</view>

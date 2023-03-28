@@ -185,9 +185,9 @@
 				dataList: [],
 				range: [],
 				contentText: {
-					contentdown: '查看更多',
-					contentrefresh: '加载中',
-					contentnomore: '没有更多'
+					contentdown: this.$t('components.uniDataCheckBox.ckgd'),
+					contentrefresh: this.$t('components.uniDataCheckBox.jzz'),
+					contentnomore: this.$t('components.uniDataCheckBox.mygd'),
 				},
 				styles: {
 					selectedColor: '#007aff',

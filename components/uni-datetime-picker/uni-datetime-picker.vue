@@ -3,7 +3,7 @@
 		<view @click="tiggerTimePicker">
 			<slot>
 				<view class="uni-datetime-picker-timebox uni-datetime-picker-flex">
-					{{time}}<view v-if="!time" class="uni-datetime-picker-time">选择日期时间</view>
+					{{time}}<view v-if="!time" class="uni-datetime-picker-time">{{$t('components.uniDateTimePicker.qzrqsj')}}</view>
 					<view class="uni-datetime-picker-down-arrow"></view>
 				</view>
 			</slot>
@@ -11,7 +11,7 @@
 		<view v-if="visible" class="uni-datetime-picker-mask" @click="initTimePicker"></view>
 		<view v-if="visible" class="uni-datetime-picker-popup">
 			<view class="uni-title">
-				设置日期和时间
+				{{$t('components.uniDateTimePicker.szrqhsj')}}
 			</view>
 			<picker-view class="uni-datetime-picker-view" :indicator-style="indicatorStyle" :value="ymd" @change="bindDateChange">
 				<picker-view-column class="uni-datetime-picker-hyphen">
@@ -36,10 +36,10 @@
 				</picker-view-column>
 			</picker-view>
 			<view class="uni-datetime-picker-btn">
-				<view class="" @click="clearTime">重置</view>
+				<view class="" @click="clearTime">{{$t('components.uniDateTimePicker.cz')}}</view>
 				<view class="uni-datetime-picker-btn-group">
-					<view class="uni-datetime-picker-cancel" @click="tiggerTimePicker">取消</view>
-					<view class="" @click="setTime">确定</view>
+					<view class="uni-datetime-picker-cancel" @click="tiggerTimePicker">{{$t('components.uniDateTimePicker.qx')}}</view>
+					<view class="" @click="setTime">{{$t('components.uniDateTimePicker.qd')}}</view>
 				</view>
 			</view>
 		</view>

@@ -2,10 +2,10 @@
 	<view class="cu-modal" :class="[{ show: showModal }, modalType]" cathctouchmove @tap="hideModal">
 		<view class="cu-dialog" @tap.stop style="background: none;overflow: visible;">
 			<view class="follow-wechat__wrap y-bc">
-				<view class="follow-wechat__head">关注微信公众号</view>
+				<view class="follow-wechat__head">{{$t('user.children.shFollowWechat.gzwxgzh')}}</view>
 				<image class="follow-wechat__code" src="/static/imgs/logo/logo.png" mode="aspectFill"></image>
-				<view class="follow-wechat__notice">长按识别二维码，或保存添加</view>
-				<button class="cu-btn save-btn" @tap="saveImage">保存二维码</button>
+				<view class="follow-wechat__notice">{{$t('user.children.shFollowWechat.casbewm')}}</view>
+				<button class="cu-btn save-btn" @tap="saveImage">{{$t('user.children.shFollowWechat.bcewm')}}</button>
 			</view>
 		</view>
 	</view>
@@ -44,15 +44,15 @@ export default {
 			let that = this;
 			let platform = uni.getStorageSync('platform');
 			if (platform === 'wxOfficialAccount') {
-				that.$tools.toast('长按图片保存');
+				that.$tools.toast(that.$t('user.children.shFollowWechat.catpbc'));
 			} else {
 				uni.saveImageToPhotosAlbum({
 					filePath: '/static/imgs/logo/logo.png',
 					success: res => {
-						that.$tools.toast('保存成功');
+						that.$tools.toast(that.$t('user.children.shFollowWechat.bccg'));
 					},
 					fail: err => {
-						that.$tools.toast('保存失败');
+						that.$tools.toast(that.$t('user.children.shFollowWechat.bcsb'));
 					}
 				});
 			}

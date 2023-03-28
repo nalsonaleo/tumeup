@@ -4,12 +4,12 @@
 			<view class="modal-box">
 				<image class="head-bg" src="../../static/imgs/tit_bg.png" mode=""></image>
 				<view class="detail">
-					<view class="title1">您还没有登录</view>
-					<view class="title2">登录即刻开启品质生活</view>
+					<view class="title1">{{$t('components.shoproLoginModal.nhmydl')}}</view>
+					<view class="title2">{{$t("components.shoproLoginModal.dljkkqpzsh")}}</view>
 				</view>
 				<view class="btn-box y-f">
-					<button class="cu-btn login-btn" @tap="onLogin">立即登录</button>
-					<button class="cu-btn close-btn" @tap="hideModal">取消</button>
+					<button class="cu-btn login-btn" @tap="onLogin">{{$t('components.shoproLoginModal.ljdl')}}</button>
+					<button class="cu-btn close-btn" @tap="hideModal">{{$t('components.shoproLoginModal.qx')}}</button>
 				</view>
 			</view>
 		</view>

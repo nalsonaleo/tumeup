@@ -42,12 +42,12 @@
 					<view class="goods-title more-t">{{ item.g_name }}</view>
 					<view class="size-tip">{{ item.sku_name }}</view>
 					<view class="order-goods flex align-center justify-between">
-						<text class="order-price"><text v-if="item.o_type==3">{{item.o_t_integral3}}金豆+</text> ￥{{parseFloat(item.o_unit_price)}}</text>
+						<text class="order-price"><text v-if="item.o_type==3">{{item.o_t_integral3}}{{$t('components.shoproMiniCard.jd')}}+</text> {{$t('money.symbol')}}{{parseFloat(item.o_unit_price)}}</text>
 						<text class="order-num">x{{ item.o_num }}</text>
 					</view>
 					<view class="sub-tip more-t" v-if="item.o_type==4" style="margin-top: 10px;display: flex;justify-content: space-between;">
-					<view>{{ item.c_num }}人团</view>
-					<view class="sss" v-if="item.back_money>0">返佣:{{item.back_money}}</view>
+					<view>{{ item.c_num }}{{$t('components.shoproMiniCard.rt')}}</view>
+					<view class="sss" v-if="item.back_money>0">{{$t('components.shoproMiniCard.fy')}}:{{item.back_money}}</view>
 					</view>
 				</view>
 			</view>

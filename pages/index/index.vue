@@ -65,7 +65,7 @@
 					<view class="menu-tab-box">
 						<view class="tab-list y-f" :style="{ width: 690 / 4 + 'rpx' }" v-for="item in itemList" :key="item.c_name" @tap="toList(item.id)">
 							<image class="tab-img" :style="{ width:'88rpx', height: '88rpx' }" :src="item.c_img"></image>
-							<text>{{ item.c_name }}</text>
+							<text class='tab-text'>{{ item.c_name }}</text>
 						</view>
 					</view>
 				</swiper-item>
@@ -122,7 +122,7 @@
 								<view class="t">{{item.g_name}}</view>
 								<view class="b">
 									<view>
-										<text style="font-weight: 600;">￥{{item.g_price}}</text>
+										<text style="font-weight: 600;">{{$t('money.symbol')}}{{item.g_price}}</text>
 										<!-- <text>￥{{item.g_price1}}</text> -->
 									</view>
 									<image src="../../static/imgs/go.png"></image>
@@ -148,7 +148,7 @@
 							<view class="t">{{item.g_name}}</view>
 							<view class="b">
 								<view>
-									<text style="font-weight: 600;">￥{{item.g_price}}</text>
+									<text style="font-weight: 600;">{{$t('money.symbol')}}{{item.g_price}}</text>
 									<!-- <text>￥{{item.g_price1}}</text> -->
 								</view>
 								<image src="../../static/imgs/go.png"></image>
@@ -363,6 +363,15 @@
 				.tab-img {
 					border-radius: 100%;
 					margin-bottom: 10rpx;
+				}
+				.tab-text {
+					text-align: center;
+					word-break:break-all;
+					overflow:hidden;
+					text-overflow:ellipsis;
+					display:-webkit-box;
+					-webkit-line-clamp:2;
+					-webkit-box-orient:vertical;
 				}
 			}
 		}

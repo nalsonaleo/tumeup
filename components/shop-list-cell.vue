@@ -1,10 +1,10 @@
 <template>
 	<view class="shop-list-cell">
 		<view v-bind:class="{ fixed: nearbyHeaderPosition, 'nearby-func-section': 1 }">
-			<text v-bind:class="{ active: (nearByShopIndex & 1) == 1, 'fast-btn': 1 }" @click="getNearbyShops(1)">满减优惠</text>
-			<text v-bind:class="{ active: (nearByShopIndex & 2) == 2, 'fast-btn': 1 }" @click="getNearbyShops(2)">30分钟内</text>
-			<text v-bind:class="{ active: (nearByShopIndex & 4) == 4, 'fast-btn': 1 }" @click="getNearbyShops(4)">免配送费</text>
-			<text v-bind:class="{ active: (nearByShopIndex & 8) == 8, 'fast-btn': 1 }" @click="getNearbyShops(8)">大众好评</text>
+			<text v-bind:class="{ active: (nearByShopIndex & 1) == 1, 'fast-btn': 1 }" @click="getNearbyShops(1)">{{$t("components.shopListCell.mjyh")}}</text>
+			<text v-bind:class="{ active: (nearByShopIndex & 2) == 2, 'fast-btn': 1 }" @click="getNearbyShops(2)">{{$t("components.shopListCell.fzn")}}</text>
+			<text v-bind:class="{ active: (nearByShopIndex & 4) == 4, 'fast-btn': 1 }" @click="getNearbyShops(4)">{{$t("components.shopListCell.mpsf")}}</text>
+			<text v-bind:class="{ active: (nearByShopIndex & 8) == 8, 'fast-btn': 1 }" @click="getNearbyShops(8)">{{$t("components.shopListCell.dzhp")}}</text>
 		</view>
 		<view class="nearby-section">
 			<view v-for="(item, index) in shopList" :key="index" class="shop-item" @click="navToShopPage(item)">
@@ -14,16 +14,16 @@
 						<text class="title clamp">{{ item.name }}</text>
 					</view>
 					<view>
-						<text class="ops">评分{{ item.score }}</text>
-						<text class="ops">月售{{ item.monthSale }}</text>
+						<text class="ops">{{$t('components.shopListCell.pf')}}{{ item.score }}</text>
+						<text class="ops">{{$t('components.shopListCell.ys')}}{{ item.monthSale }}</text>
 					</view>
 					<view class="">
-						<text class="ops">起送￥{{ item.delivery.minPrice }}</text>
-						<text v-if="item.delivery.money == 0" class="ops ops1">免配送费</text>
+						<text class="ops">{{$t('components.shopListCell.qs')}}{{$t('money.symbol')}}{{ item.delivery.minPrice }}</text>
+						<text v-if="item.delivery.money == 0" class="ops ops1">{{$t('components.shopListCell.mpsftwo')}}</text>
 						<text v-else>
-							<text class="ops">配送￥{{ item.delivery.money }}</text>
+							<text class="ops">{{$t('components.shopListCell.ps')}}{{$t('money.symbol')}}{{ item.delivery.money }}</text>
 						</text>
-						<text class="ops">人均￥{{ item.perCapita }}</text>
+						<text class="ops">{{$t('components.shopListCell.rj')}}{{$t('money.symbol')}}{{ item.perCapita }}</text>
 					</view>
 					<view class="youhui" v-if="item.hasManjian">
 						<text class="yh" v-for="(cou, ind) in item.manjians" :key="ind">{{ cou.name }}</text>

@@ -12,7 +12,7 @@
 						<text class="sub">{{ couponData.c_name }}</text>
 					</view>
 					<view class="notice" v-if="couponData.c_type == 2">{{$t("user.coupon.list.ysy.text.man")}}{{ couponData.c_full }}{{$t("user.coupon.list.ysy.text.yuankeyong")}}</view>
-					<view class="notice" v-if="couponData.c_type == 3">{{ parseFloat(couponData.c_discount) }}折</view>
+					<view class="notice" v-if="couponData.c_type == 3">{{ parseFloat(couponData.c_discount) }}{{$t('components.shoproCoupon.zhe')}}</view>
 					<view class="notice" v-if="state != 0">{{$t("user.coupon.list.text.validityPeriod")}}：{{ couponData.c_start }} {{$t("user.coupon.list.text.zhi")}} {{ couponData.c_end }}</view>
 				</view>
 				<view class="coupon-right y-f">
@@ -28,7 +28,7 @@
 			<view class="coupon-item x-f">
 				<view class="coupon-left y-start ">
 					<view class="sum-box">
-						<text class="unit">￥</text>
+						<text class="unit">{{$t('money.symbol')}}</text>
 						<text class="miso-font sum"  v-if="couponData.c_type == 1">{{ couponData.c_price }}</text>
 						<text class="miso-font sum"  v-if="couponData.c_type == 2">{{ couponData.c_reduce }}</text>
 						<text class="sub">{{ couponData.c_name }}</text>

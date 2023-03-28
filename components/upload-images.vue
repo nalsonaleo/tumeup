@@ -56,12 +56,13 @@ export default {
 		},
 		//上传图片
 		async uploadFiles(images){
+			let that = this;
 			this.imageList.push({
 				filePath: images[0],
 				progress: 0
 			});
 			uni.showLoading({
-				title: '请稍后..',
+				title: that.$t('components.uploadImages.qsh'),
 				mask: true,
 			})
 			try{
@@ -86,7 +87,7 @@ export default {
 				this.imageList.pop();
 				uni.hideLoading();
 				uni.showToast({
-					title: '上传中出现问题，已终止上传',
+					title: that.$t('components.uploadImages.sczcxwt'),
 					icon: 'none',
 					mask: true,
 					duration: 2000
@@ -124,8 +125,9 @@ export default {
 		},
 		//删除图片
 		delImage: function(index){
+			let that = this;
 			uni.showModal({
-				content: '确定要放弃这张图片么？',
+				content: `${that.$t('components.uploadImages.qdyfqzztpm')}？`,
 				success: (confirmRes)=> {
 					if (confirmRes.confirm) {
 						this.imageList.splice(index, 1);

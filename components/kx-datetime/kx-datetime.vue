@@ -1,10 +1,10 @@
 <template>
 	<view name='KXDateTime'>
-		<text @click="open">{{time?time:'请选择'}}</text>
+		<text @click="open">{{time?time:$t('components.kxDetatime.qxz')}}</text>
 		<uni-popup ref="popup" type="bottom">
 			<view class="but">
-				<text @click="close">取消</text>
-				<text @click="ok">确定</text>
+				<text @click="close">{{$t('components.kxDetatime.qx')}}</text>
+				<text @click="ok">{{$t('components.kxDetatime.qd')}}</text>
 			</view>
 			<picker-view v-if="visible" :indicator-style="indicatorStyle" :value="value" @change="bindChange">
 				<picker-view-column>
@@ -100,6 +100,7 @@
 		methods: {
 			open() {
 				let start;
+				let that = this;
 				if (this.start) {
 					start = this.start.replace(/-/g, "/")
 					start = new Date(start);
@@ -116,7 +117,7 @@
 				}
 				if (start > end) {
 					uni.showToast({
-						title: '时间范围错误！',
+						title: that.$t('components.kxDetatime.sjfwcw'),
 						icon: 'none',
 						duration: 2000
 					});

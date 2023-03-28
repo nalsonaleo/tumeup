@@ -46,7 +46,7 @@
 					</view>
 					<view style="text-align: center;display: none;" v-if="info.s_out == 2">
 						<switch class="olive switch" @tap="onSwitch" :class="{ checked: is_default }" :checked="is_default"></switch>
-						<text style="display: block;font-size: 24upx;color: #fff;">成团后自动拼团</text>
+						<text style="display: block;font-size: 24upx;color: #fff;">{{$t('pages.index.cthzdpt')}}</text>
 					</view>
 					
 					<button  v-if="info.s_out != 2 && userInfo.u_img" class="cu-btn code-btn" @tap="jump('/pages/public/poster/index')">
@@ -141,7 +141,7 @@
 				</view>
 				<view class="tool-item y-f" @tap="scan()" v-if="u_type == 1">
 					<image class="tool-img" src="../../static/imgs/user/list2.png" mode=""></image>
-					<text class="item-title">核销</text>
+					<text class="item-title">{{$t("pages.index.hx")}}</text>
 				</view>
 			</view>
 		</view>

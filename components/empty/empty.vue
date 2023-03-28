@@ -12,7 +12,7 @@
 		props: {
 			content:{
 				type: String,
-				default: '暂无数据'
+				default: () => this.$t('components.empty.zwsj')
 			},
 			src: {
 				type: String,

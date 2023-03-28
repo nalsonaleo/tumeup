@@ -74,7 +74,7 @@ export default {
 		submit(){
 			var that = this;
 			if(!that.id){
-				that.$msg('请选择充值金额');
+				that.$msg(that.$t('user.wallet.chongzhi.confirm.qxzczje'));
 				return false
 			}
 			uni.navigateTo({

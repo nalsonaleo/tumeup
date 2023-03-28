@@ -15,22 +15,22 @@
 			</view>
 			<picker-view class="picker-view" :indicator-style="indicatorStyleString" :value="dateTime" @change="dateTimePickerChange">
 				<picker-view-column data-id='year' v-if='isShowYear'>
-					<view class="item" v-for="(item,index) in years" :key="index">{{item}}年</view>
+					<view class="item" v-for="(item,index) in years" :key="index">{{item}}{{$t('components.boryDateTimePicker.nian')}}</view>
 				</picker-view-column>
 				<picker-view-column data-id='month' v-if='isShowMonth'>
-					<view class="item" v-for="(item,index) in months" :key="index">{{item}}月</view>
+					<view class="item" v-for="(item,index) in months" :key="index">{{item}}{{$t("components.boryDateTimePicker.yue")}}</view>
 				</picker-view-column>
 				<picker-view-column data-id='day' v-if='isShowDay'>
-					<view class="item" v-for="(item,index) in days" :key="index">{{item}}日</view>
+					<view class="item" v-for="(item,index) in days" :key="index">{{item}}{{$t('components.boryDateTimePicker.ri')}}</view>
 				</picker-view-column>
 				<picker-view-column data-id='hour' v-if='isShowHour'>
-					<view class="item" v-for="(item,index) in hours" :key="index">{{item}}时</view>
+					<view class="item" v-for="(item,index) in hours" :key="index">{{item}}{{$t('components.boryDateTimePicker.shi')}}</view>
 				</picker-view-column>
 				<picker-view-column data-id='minute' v-if='isShowMinute'>
-					<view class="item" v-for="(item,index) in minutes" :key="index">{{item}}分</view>
+					<view class="item" v-for="(item,index) in minutes" :key="index">{{item}}{{$t('components.boryDateTimePicker.fen')}}</view>
 				</picker-view-column>
 				<picker-view-column data-id='second' v-if='isShowSecond'>
-					<view class="item" v-for="(item,index) in seconds" :key="index">{{item}}秒</view>
+					<view class="item" v-for="(item,index) in seconds" :key="index">{{item}}{{$t('components.boryDateTimePicker.miao')}}</view>
 				</picker-view-column>
 			</picker-view>
 		</view>
@@ -61,7 +61,7 @@
 			},
 			cancelButtonText: {
 				type: String,
-				default: '取消'
+				default: () => this.$t('components.boryDateTimePicker.qx')
 			},
 			cancelButtonClass: {
 				type: String,
@@ -69,7 +69,7 @@
 			},
 			toolBarTitle: {
 				type: String,
-				default: '请选择'
+				default: () => this.$t('components.boryDateTimePicker.qxz')
 			},
 			toolBarTitleClass: {
 				type: String,
@@ -77,7 +77,7 @@
 			},
 			confirmButtonText: {
 				type: String,
-				default: '确定'
+				default: () => this.$t('components.boryDateTimePicker.qd')
 			},
 			confirmButtonClass: {
 				type: String,

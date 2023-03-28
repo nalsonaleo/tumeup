@@ -34,7 +34,7 @@
 			},
 			title: {
 				type: String,
-				default: '标题'
+				default: () => this.$t('components.mixlistcell.bt')
 			},
 			tips: {
 				type: [String, Number],

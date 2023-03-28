@@ -23,11 +23,11 @@
 			value: [Number, String, Array],
 			tips: {
 				type: String,
-				default: "请选择时间"
+				default: () => this.$t('components.cloudDate.qxzsj')
 			},
 			btn: {
 				type: String,
-				default: "选择"
+				default: () => this.$t('components.cloudDate.xz')
 			}
 		},
 		watch: {

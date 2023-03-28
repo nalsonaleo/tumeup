@@ -49,11 +49,11 @@
 				var data = { uid: uni.getStorageSync('p_uid') };
 				that.$api.getCode(data).then(res => {
 					if (res.code === 1) {
-						that.code.text = countdown + '秒';
+						that.code.text = countdown + that.$t('user.wallet.setPayPsd.m');
 						that.code.status = true;
 						let timer = setInterval(() => {
 							if (countdown > 0) {
-								that.code.text = countdown - 1 + '秒';
+								that.code.text = countdown - 1 + that.$t('user.wallet.setPayPsd.m');
 								countdown--;
 							} else {
 								clearInterval(timer);

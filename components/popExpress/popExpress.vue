@@ -14,7 +14,7 @@
 								<text class="expState">{{express.state}}</text>
 							</view>
 						</view>
-						<text class="number">运单号：{{express.number}}</text>
+						<text class="number">{{$t('components.popExpress.ydh')}}：{{express.number}}</text>
 					</view>
 					<uni-icons @click="closeMe" class="closeIcon" type="close" size="28" color="#999999"></uni-icons>
 				</view>
@@ -75,9 +75,10 @@
 				this.$refs.popup.close()
 			},
 			open() {
+				let that = this;
 				if (!this.express.company || !this.express.code || !this.express.number) {
 					uni.showToast({
-						title: '暂无物流信息',
+						title: that.$t('components.popExpress.zwwlxx'),
 						icon: 'none'
 					});
 					return false
@@ -119,43 +120,43 @@
 				//对应物流状态
 				switch (data.state / 1) {
 					case 0:
-						this.express.state = '在途';
+						this.express.state = this.$t('components.popExpress.zt');
 						break;
 					case 1:
-						this.express.state = '揽收';
+						this.express.state = this.$t('components.popExpress.ls');
 						break;
 					case 2:
-						this.express.state = '疑难';
+						this.express.state = this.$t('components.popExpress.yn');
 						break;
 					case 3:
-						this.express.state = '签收';
+						this.express.state = this.$t('components.popExpress.qs');
 						break;
 					case 4:
-						this.express.state = '退签';
+						this.express.state = this.$t('components.popExpress.yq');
 						break;
 					case 5:
-						this.express.state = '派件';
+						this.express.state = this.$t('components.popExpress.pj');
 						break;
 					case 6:
-						this.express.state = '退回';
+						this.express.state = this.$t('components.popExpress.th');
 						break;
 					case 7:
-						this.express.state = '转投';
+						this.express.state = this.$t('components.popExpress.ztou');
 						break;
 					case 10:
-						this.express.state = '待清关';
+						this.express.state = this.$t('components.popExpress.dqg');
 						break;
 					case 11:
-						this.express.state = '清关中';
+						this.express.state = this.$t('components.popExpress.qgz');
 						break;
 					case 12:
-						this.express.state = '已清关';
+						this.express.state = this.$t('components.popExpress.yjg');
 						break;
 					case 13:
-						this.express.state = '清关异常';
+						this.express.state = this.$t('components.popExpress.qgyc');
 						break;
 					case 14:
-						this.express.state = '拒签';
+						this.express.state = this.$t('components.popExpress.jq');
 						break;
 					default:
 						break;

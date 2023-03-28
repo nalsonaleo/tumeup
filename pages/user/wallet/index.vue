@@ -3,7 +3,7 @@
 		<view class="head_box">
 			<cu-custom :isBack="true" style="color: #fff;position: fixed;top: 0;z-index: 999;">
 				<block slot="backText"></block>
-				<block slot="content">我的钱包</block>
+				<block slot="content">{{$t('user.wallet.wdqb')}}</block>
 			</cu-custom>
 			<image class="user-bg" src="../../../static/imgs/user/user_bg.png" mode=""></image>
 			<view class="card-box" style="text-align: center;">

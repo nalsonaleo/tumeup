@@ -82,19 +82,19 @@
 				<view class="x-f">
 					<view class="item-title">{{$t("user.order.confirm.yf")}}</view>
 				</view>
-				<view class="item-title">￥{{ freight }}</view>	
+				<view class="item-title">{{$t('money.symbol')}}{{ freight }}</view>	
 			</view>
 			
 			<view class=" x-bc item-list">
 				<view class="item-title">{{$t("user.order.confirm.spje")}}</view>
 				<view class="x-f">
-					<text class="price">￥{{ total_fee || '0.00' }}</text>
+					<text class="price">{{$t('money.symbol')}}{{ total_fee || '0.00' }}</text>
 				</view>
 			</view>
 			<view class="price-box x-bc item-list" v-if="yh_price > 0">
 				<view class="item-title">{{$t("user.order.confirm.yyh")}}</view>
 				<view class="x-f">
-					<text class="price">￥{{ yh_price }}</text>
+					<text class="price">{{$t('money.symbol')}}{{ yh_price }}</text>
 				</view>
 			</view>
 			<view class="remark-box" style="display: none;">
@@ -113,8 +113,8 @@
 			</text>
 			<view class="all-money">
 				<text>{{$t("user.order.confirm.total")}}：</text>
-				<text class="price" v-if="syType==1">￥{{ total_fee + parseFloat(freight) || '0.00' }}</text>
-				<text class="price" v-else-if="syType==2">￥{{ total_fee || '0.00' }}</text>
+				<text class="price" v-if="syType==1">{{$t('money.symbol')}}{{ total_fee + parseFloat(freight) || '0.00' }}</text>
+				<text class="price" v-else-if="syType==2">{{$t('money.symbol')}}{{ total_fee || '0.00' }}</text>
 			</view>
 			<button class="cu-btn sub-btn" @tap="subOrder" :disabled="isSubOrder">
 				<text v-if="isSubOrder" class="cuIcon-loading2 cuIconfont-spin"></text>

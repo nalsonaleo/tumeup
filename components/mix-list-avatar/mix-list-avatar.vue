@@ -24,7 +24,7 @@
 		props: {
 			title: {
 				type: String,
-				default: '标题'
+				default: () => this.$t('components.mixlistavatar.bt')
 			},
 			field: {
 				type: String,

@@ -3,7 +3,7 @@
 		<!-- 正常商品 -->
 		<view class="normal-price-box" v-if="detail.g_type == 2">
 			<view class="">
-				<text class="unit">￥</text>
+				<text class="unit">{{$t('money.symbol')}}</text>
 				<text class="price">{{detail.g_price}}</text>
 				<text class="notice">{{$t("user.goods.detail.shprice.yhj")}}</text>
 			</view>
@@ -20,11 +20,11 @@
 		<view class="score-price-card" v-if="detail.g_type == 3">
 			<view class="x-f">
 				<image class="score-img" src="../../../../static/imgs/score.png" mode=""></image>
-				<text class="price">{{ detail.g_integral3 }}{{$t("user.goods.detail.shprice.jd")}}+￥{{ detail.g_price }}</text>
+				<text class="price">{{ detail.g_integral3 }}{{$t("user.goods.detail.shprice.jd")}}+{{$t('money.symbol')}}{{ detail.g_price }}</text>
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">{{$t("user.goods.detail.shprice.jd")}}：￥{{ detail.g_price1 }}</view>
+					<view class="original-price">{{$t("user.goods.detail.shprice.jd")}}：{{$t('money.symbol')}}{{ detail.g_price1 }}</view>
 					<text class="line"></text>
 					<view class="sold">{{$t("user.goods.detail.shprice.ydh")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
 				</view>
@@ -33,13 +33,13 @@
 		<!-- 团购商品 -->
 		<view class="groupon-price-box" v-if="detail.g_type == 1">
 			<view class="">
-				<text class="unit">￥</text>
+				<text class="unit">{{$t('money.symbol')}}</text>
 				<text class="price">{{detail.g_price}}</text>
 				<text class="notice">{{detail.p_num}}{{$t("user.goods.detail.shprice.rt")}}</text>
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">{{$t("user.goods.detail.shprice.yj")}}：<text style="text-decoration: line-through;">￥{{ detail.g_price1 }}</text></view>
+					<view class="original-price">{{$t("user.goods.detail.shprice.yj")}}：<text style="text-decoration: line-through;">{{$t('money.symbol')}}{{ detail.g_price1 }}</text></view>
 					<text class="line"></text>
 					<view class="sold">{{$t("user.goods.detail.shprice.yp")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
 				</view>
@@ -54,7 +54,7 @@
 		</view>
 		<view class="groupon-price-box" v-if="detail.g_type == 4" style="display: flex;justify-content: space-between;align-items: center;">
 			<view class="">
-				<text class="unit">￥</text>
+				<text class="unit">{{$t('money.symbol')}}</text>
 				<text class="price">{{detail.g_price}}</text>
 				<text class="notice">{{detail.p_num}}{{$t("user.goods.detail.shprice.rt")}}</text>
 			</view>

@@ -13,7 +13,7 @@
 		<view class="price-box">
 			<view class="flex x-bc align-end">
 				<view class="current">{{ detail.g_price }}</view>
-				<view class="sales miso-font">销量{{ zhuan(detail.g_sell) }}件</view>
+				<view class="sales miso-font">{{$t('components.shoproGoods.xl')}}{{ zhuan(detail.g_sell) }}{{$t('components.shoproGoods.jie')}}</view>
 			</view>
 		</view>
 	</navigator>

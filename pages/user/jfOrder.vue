@@ -187,7 +187,7 @@ export default {
 				order_item_id: itemId
 			}).then(res => {
 				if (res.code === 1) {
-					that.$tools.toast('申请退款成功');
+					that.$tools.toast(that.$t('user.wallet.jfOrder.sqtkcg'));
 					that.getOrderList();
 				}
 			});

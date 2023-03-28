@@ -31,7 +31,7 @@
 				new_paypsd:'',
 				re_paypsd:'',
 				code: {
-					text: '获取验证码',
+					text: this.$t('user.wallet.forgetPayPsd'),
 					status: false,
 					y_code: ''
 				},
@@ -49,15 +49,15 @@
 				var data = { uid: uni.getStorageSync('p_uid') };
 				that.$api.getCode(data).then(res => {
 					if (res.code === 1) {
-						that.code.text = countdown + '秒';
+						that.code.text = countdown + that.$t('user.wallet.forgetPayPsd.m');
 						that.code.status = true;
 						let timer = setInterval(() => {
 							if (countdown > 0) {
-								that.code.text = countdown - 1 + '秒';
+								that.code.text = countdown - 1 + that.$t('user.wallet.forgetPayPsd.m');
 								countdown--;
 							} else {
 								clearInterval(timer);
-								that.code.text = '获取验证码';
+								that.code.text = that.$t('user.wallet.forgetPayPsd');
 								that.code.status = false;
 							}
 						}, 1000);
@@ -74,19 +74,19 @@
 				// }
 				var reg = new RegExp(/^\d{6}$/);
 				if(!$this.code.y_code){
-					$this.$msg('请输入验证码');
+					$this.$msg($this.$t('user.wallet.forgetPayPsd.qsryzm'));
 					return;
 				}
 				if(!reg.test($this.new_paypsd)){
-					$this.$msg('请输入6位纯数字支付密码');
+					$this.$msg($this.$t('user.wallet.forgetPayPsd.qsrwcsjzfmm'));
 					return;
 				}
 				if(!$this.re_paypsd){
-					$this.$msg('请确认支付密码');
+					$this.$msg($this.$t('user.wallet.forgetPayPsd.qqrzfmm'));
 					return;
 				}
 				if($this.re_paypsd != $this.new_paypsd){
-					$this.$msg('两次输入密码不同');
+					$this.$msg($this.$t('user.wallet.forgetPayPsd.lcsrmmbt'));
 					return;
 				}
 				var data = {

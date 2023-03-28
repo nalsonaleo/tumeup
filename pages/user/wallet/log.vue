@@ -33,15 +33,15 @@
 			return {
 				emptyData: {
 					img: '/static/imgs/empty/empty_groupon.png',
-					tip: '还没有钱包明细~'
+					tip: `${this.$t('user.wallet.log.hmyqbmx')}~`
 				},
 				isBottom: false,
 				walletList: [],
 				type: {
-					income: '收入',
-					withdraw: '提现',
-					consume: '消费',
-					transfer: '余额互转'
+					income: this.$t('user.wallet.log.sr'),
+					withdraw: this.$t('user.wallet.log.tx'),
+					consume: this.$t('user.wallet.log.xf'),
+					transfer: this.$t('user.wallet.log.yehz')
 				},
 				loadStatus: '', //loading,over
 				page: 1,

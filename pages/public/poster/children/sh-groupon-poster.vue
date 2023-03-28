@@ -221,7 +221,7 @@ export default {
 								{
 									type: 'text', //价格
 									// fontStyle: 'italic',//倾斜
-									text: '拼团价：￥',
+									text: `${this.$t('pages.public.poster.children.shGrouponPoster')}：${this.$t('money.symbol')}`,
 									size: fontSize * 0.8,
 									color: '#E1212B',
 									alpha: 1,

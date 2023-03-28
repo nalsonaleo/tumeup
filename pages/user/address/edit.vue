@@ -5,7 +5,7 @@
 			<view class="address-item x-f">
 				<label class="x-f flex-sub">
 					<text class="item-title">{{$t("user.address.edit.shr")}}：</text>
-					<input class="inp flex-sub" placeholder="请填写收货人姓名" type="text" v-model="a_name" />
+					<input class="inp flex-sub" :placeholder="$t('user.address.edit.shr.qtxshrxm')" type="text" v-model="a_name" />
 				</label>
 			</view>
 			<view class="address-item x-f">

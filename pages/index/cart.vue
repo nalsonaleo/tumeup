@@ -27,7 +27,7 @@
 					<shopro-mini-card :detail="g" :sku="g.s_price" :type="'sku'">
 						<block slot="goodsBottom">
 							<view class="x-bc price-box">
-								<view class="price">￥{{ g.s_price ? g.s_price : g.g_price }}</view>
+								<view class="price">{{$t('money.symbol')}}{{ g.s_price ? g.s_price : g.g_price }}</view>
 								<view class="uni-numbox x-f">
 									<view @tap.stop="changeCount(g, -1)" class="uni-numbox__minus">
 										<button class=" cu-btn uni-numbox--text">
@@ -57,7 +57,7 @@
 					<text>（{{ totalCount.totalNum }}）</text>
 				</label>
 				<view class="x-f">
-					<view class="price" v-if="!isTool">￥{{ totalCount.totalPrice.toFixed(2) }}</view>
+					<view class="price" v-if="!isTool">{{$t('money.symbol')}}{{ totalCount.totalPrice.toFixed(2) }}</view>
 					<button class="cu-btn pay-btn" v-show="!isTool" @tap="onPay">{{$t("index.cart.js")}}</button>
 					<button class="cu-btn del-btn" v-show="isTool" @tap="goodsDelete">{{$t("index.cart.sc")}}</button>
 				</view>

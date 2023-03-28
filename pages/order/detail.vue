@@ -137,7 +137,7 @@
 				<text class="money-title">{{$t("order.commomPtOrder.detail.gong")}}{{ orderDetail.o_total_num }}{{$t("order.commomPtOrder.detail.jsp")}} {{$t("order.commomPtOrder.detail.hj")}}:</text>
 				<!-- <text class="all-price" v-if="orderDetail.o_type == 2">￥{{ orderDetail.o_total_price }}</text> -->
 				<text class="all-price" v-if="orderDetail.o_type == 3">{{ orderDetail.data[0].o_t_integral3 }}{{$t("order.commomPtOrder.detail.jd3")}}+￥{{ orderDetail.o_total_price }}</text>
-				<text class="all-price" v-else>￥{{ orderDetail.o_total_price }}</text>
+				<text class="all-price" v-else>{{$t('money.symbol')}}{{ orderDetail.o_total_price }}</text>
 			</view>
 		</view>
 	</view>

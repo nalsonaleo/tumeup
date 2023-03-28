@@ -9,10 +9,10 @@
 		</view>
 		<view class="uni-dialog-button-group">
 			<view class="uni-dialog-button" @click="close">
-				<text class="uni-dialog-button-text">取消</text>
+				<text class="uni-dialog-button-text">{{$t('components.unipopupDialog.qx')}}</text>
 			</view>
 			<view class="uni-dialog-button uni-border-left" @click="onOk">
-				<text class="uni-dialog-button-text uni-button-color">确定</text>
+				<text class="uni-dialog-button-text uni-button-color">{{$t('components.unipopupDialog.qd')}}</text>
 			</view>
 		</view>
 
@@ -49,7 +49,7 @@
 			},
 			placeholder: {
 				type: [String, Number],
-				default: '请输入内容'
+				default: () => this.$t('components.unipopupDialog.qsrnr')
 			},
 			/**
 			 * 对话框主题 success/warning/info/error	  默认 success

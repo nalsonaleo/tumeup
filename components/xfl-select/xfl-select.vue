@@ -41,7 +41,7 @@
 				>
 					<div>{{item.value}}</div>
 				</div>
-				<div v-show="innerList.length==0" class="data-state item">无数据</div>
+				<div v-show="innerList.length==0" class="data-state item">{{$t('components.xflSelect.wsj')}}</div>
 				<!-- <slot></slot> -->
 			</scroll-view>
 		</div>
@@ -80,7 +80,7 @@
 			},
 			placeholder: {     // 选择框的placeholder
 			  type: String,  
-			  default: '请选择',
+			  default: () => this.$t('components.xflSelect.qsz'),
 			},
 			style_Container: { // 最外层的样式
 			  type: String,  

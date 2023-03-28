@@ -77,19 +77,19 @@ export default {
 		submit(){
 			var that = this;
 			if(!that.money){
-				that.$msg('请填写提现金额');
+				that.$msg(that.$t('user.wallet.tixian.qtxtxje'));
 				return
 			}
 			if(parseFloat(that.money) > parseFloat(that.max)){
-				that.$msg('最多可提现'+that.max);
+				that.$msg(that.$t('user.wallet.tixian.zdktx')+that.max);
 				return
 			}
 			if(!that.account){
-				that.$msg('请填写账号信息');
+				that.$msg(that.$t('user.wallet.tixian.qtxzhxx'));
 				return
 			}
 			if(that.pay_type == 3 && !that.name){
-				that.$msg('请填写开户名');
+				that.$msg(that.$t('user.wallet.tixian.qtxkhm'));
 				return
 			}
 			var data = {

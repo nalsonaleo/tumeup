@@ -226,12 +226,12 @@ export default {
 			tabCurrent: 'tab0',
 			emptyData: {
 				img: '/static/imgs/empty/comment_empty.png',
-				tip: '暂无评价~'
+				tip: `${this.$t('goods.detail.emptyData.tip')}~`
 			},
 			tabList: [
 				{
 					id: 'tab0',
-					title: '商品详情'
+					title: this.$t('goods.detail.emptyData.spqx')
 				},
 				// {
 				// 	id: 'tab1',
@@ -269,9 +269,10 @@ export default {
 			})
 		},
 		rules(){
+			let that = this;
 			uni.showModal({
-			    title: '拼团规则',
-			    content: '警告：开团规定的时间内，并达到指定开团的人数，即开团成功。拼团商品为定制类商品，不支持退货，请考虑后在下单！                                       拼中得商品，末拼中退回预付款加返利补贴（金牌返商品价3-15%，钻石返4-25%，黑钻返6-45%）                                                     拒绝刷单业务，如果发现顾客存在刷单行为（信用卡，花呗套现，多次购买一件商品等），则商城将对其进行封号处理，恶意刷单属于违法行为，详情请咨询在先客服。商品放心够所有商品皆为正规商品入驻 国家3C认证注意：参团商品为特价商品，如有质量问题，请在7日内联系客服',
+			    title: that.$t('goods.detail.emptyData.ptgz'),
+			    content: that.$t('goods.detail.emptyData.ptgz.content'),
 			    success: function (res) {
 			        if (res.confirm) {
 						
@@ -316,7 +317,7 @@ export default {
 					res.data.g_detail = res.data.g_detail.replace(regex, 'img style="width:100%;height:auto"');
 					that.goodsInfo = res.data;
 					if(res.data.g_type == 2){
-						that.tabList = [{id: 'tab0',title: '商品详情'},{id: 'tab2',title: '用户评价'}];
+						that.tabList = [{id: 'tab0',title: that.$t('goods.detail.emptyData.spxq')},{id: 'tab2',title: that.$t('goods.detail.emptyData.yhpj')}];
 						that.couponsCan = res.coupon;
 						that.comment();
 					}
@@ -397,7 +398,7 @@ export default {
 					that.showSku = true;
 				// }
 			} else {
-				that.$msg('请先登录');
+				that.$msg(that.$t('goods.detail.emptyData.qxdl'));
 				setTimeout(function(){
 					uni.redirectTo({
 						url:'../../public/login'
@@ -412,7 +413,7 @@ export default {
 				that.buyType = 'buy';
 				that.showSku = true;
 			} else {
-				that.$msg('请先登录');
+				that.$msg(that.$t('goods.detail.emptyData.qxdl'));
 				setTimeout(function(){
 					uni.redirectTo({
 						url:'../../public/login'
@@ -443,7 +444,7 @@ export default {
 		onFavorite(goodsId) {
 			let that = this;
 			if(!uni.getStorageSync('p_token')){
-				that.$msg('请先登录');
+				that.$msg(that.$t('goods.detail.emptyData.qxdl'));
 				setTimeout(function(){
 					uni.redirectTo({
 						url:'../../public/login'
@@ -459,7 +460,7 @@ export default {
 			that.$api.toCollect(data).then(res => {
 				if(res.code == 1){
 					that.$msg(res.msg);
-					if(res.msg == '收藏成功'){
+					if(res.status  == 1){
 						that.goodsInfo.collect = 1
 					}else{
 						that.goodsInfo.collect = 0

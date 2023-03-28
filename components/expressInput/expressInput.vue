@@ -1,23 +1,23 @@
 <template>
 	<view class="root">
 		<view class="row center">
-			<text>请录入快递信息</text>
+			<text>{{$t('components.expressInput.qlrkdxx')}}</text>
 		</view>
 		<view class="row">
-			<text class="expressTitle">快递公司</text>
+			<text class="expressTitle">{{$t('components.expressInput.kdgs')}}</text>
 			<picker class="picker" mode="selector" :value="expressIndex" @change="pickerChange" :range="expressList"
 				range-key="com">
 				<view class="flex">
-					<text v-if="expressIndex === null" class="comText">请选择</text>
+					<text v-if="expressIndex === null" class="comText">{{$t('components.expressInput.qxz')}}</text>
 					<text v-else class="comText">{{expressList[expressIndex]['com']}}</text>
 					<uni-icons class="pickerIcon" type="arrowdown" color="#999999"></uni-icons>
 				</view>
 			</picker>
 		</view>
 		<view class="row" v-if="showNumber">
-			<text class="expressTitle">快递单号</text>
+			<text class="expressTitle">{{$t('components.expressInput.kddh')}}</text>
 			<view class="inputBox flex">
-				<input @blur="getCom" v-model="express.number" placeholder="请输入快递单号" class="expressNumber" type="text"
+				<input @blur="getCom" v-model="express.number" :placeholder="$t('components.expressInput.kddh.placeholder')" class="expressNumber" type="text"
 					maxlength="32" />
 				<uni-icons v-if="express.number" @click="deteleNumber" class="closeIcon" type="close" color="#999999">
 				</uni-icons>
@@ -25,8 +25,8 @@
 			<uni-icons @click="scanCode" class="scanIcon" type="scan"></uni-icons>
 		</view>
 		<view class="row">
-			<button class="action-btn recom" @click="close()" type="default">取消录入</button>
-			<button class="action-btn recom" @click="submit()" type="primary">确定录入</button>
+			<button class="action-btn recom" @click="close()" type="default">{{$t('components.expressInput.qxlr')}}</button>
+			<button class="action-btn recom" @click="submit()" type="primary">{{$t('components.expressInput.qdlr')}}</button>
 		</view>
 	</view>
 </template>

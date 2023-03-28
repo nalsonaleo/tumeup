@@ -25,7 +25,7 @@
 export default {
 	data() {
 		return {
-			title: '请选择',
+			title: this.$t('components.selectOptions.qsz'),
 			def: '',
 			typeList: {
 				left: 'icon-zuo',

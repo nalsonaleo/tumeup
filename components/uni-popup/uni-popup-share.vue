@@ -11,7 +11,7 @@
 			</view>
 		</view>
 		<view class="uni-share-button-box">
-			<button class="uni-share-button" @click="close">取消</button>
+			<button class="uni-share-button" @click="close">{{$t('components.uniPopupShare.qx')}}</button>
 		</view>
 	</view>
 </template>
@@ -22,39 +22,39 @@
 		props: {
 			title: {
 				type: String,
-				default: '分享到'
+				default: () => this.$t('components.uniPopupShare.fxd')
 			}
 		},
 		inject: ['popup'],
 		data() {
 			return {
 				bottomData: [{
-						text: '微信',
+						text: this.$t('components.uniPopupShare.wx'),
 						icon: 'https://img-cdn-qiniu.dcloud.net.cn/uni-ui/grid-2.png',
 						name: 'wx'
 					},
 					{
-						text: '支付宝',
+						text: this.$t('components.uniPopupShare.zfb'),
 						icon: 'https://img-cdn-qiniu.dcloud.net.cn/uni-ui/grid-8.png',
 						name: 'wx'
 					},
 					{
-						text: 'QQ',
+						text: this.$t('components.uniPopupShare.qq'),
 						icon: 'https://img-cdn-qiniu.dcloud.net.cn/uni-ui/gird-3.png',
 						name: 'qq'
 					},
 					{
-						text: '新浪',
+						text: this.$t('components.uniPopupShare.xl'),
 						icon: 'https://img-cdn-qiniu.dcloud.net.cn/uni-ui/grid-1.png',
 						name: 'sina'
 					},
 					{
-						text: '百度',
+						text: this.$t('components.uniPopupShare.bd'),
 						icon: 'https://img-cdn-qiniu.dcloud.net.cn/uni-ui/grid-7.png',
 						name: 'copy'
 					},
 					{
-						text: '其他',
+						text: this.$t('components.uniPopupShare.qt'),
 						icon: 'https://img-cdn-qiniu.dcloud.net.cn/uni-ui/grid-5.png',
 						name: 'more'
 					}

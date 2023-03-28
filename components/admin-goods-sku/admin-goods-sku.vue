@@ -6,19 +6,19 @@
 			<text class="yticon icon-iconfontshanchu1" v-if="ismultiple" @click="delSku()"></text>
 		</view>
 		<view class="mix-list-cell b-b">
-			<text class="cell-tit clamp">*库存总量</text>
-			<input type="number" class="cell-content" v-model="stock" placeholder="请输入库存总量" />
+			<text class="cell-tit clamp">*{{$t('components.adminGoodssku.kczl')}}</text>
+			<input type="number" class="cell-content" v-model="stock" :placeholder="$t('components.adminGoodssku.kczl.placeholder')" />
 			<text class="yticon icon-shanchu4" @click="cleanInput('stock')"></text>
 		</view>
 		<view class="mix-list-cell b-b">
-			<text class="cell-tit clamp">市场价格</text>
-			<input type="digit" class="cell-content" v-model="originPrice" placeholder="请输入市场价" />
-			<text class="cell-tip">留空或0不显示</text>
+			<text class="cell-tit clamp">{{$t('components.adminGoodssku.kczl.scjg')}}</text>
+			<input type="digit" class="cell-content" v-model="originPrice" :placeholder="$t('components.adminGoodssku.scjg.placehoder')" />
+			<text class="cell-tip">{{$t('components.adminGoodssku.lkhbxs')}}</text>
 			<text class="yticon icon-shanchu4" @click="cleanInput('originPrice')"></text>
 		</view>
 		<view class="mix-list-cell">
-			<text class="cell-tit clamp">*销售价格</text>
-			<input type="digit" class="cell-content" v-model="price" placeholder="请输入销售价" />
+			<text class="cell-tit clamp">*{{$t('components.adminGoodssku.xsjg')}}</text>
+			<input type="digit" class="cell-content" v-model="price" :placeholder="$t('components.adminGoodssku.xajg.placeholder')" />
 			<text class="yticon icon-shanchu4" @click="cleanInput('price')"></text>
 		</view>
 	</view>
@@ -44,7 +44,7 @@
 			},
 			title: {
 				type: String,
-				default: '标题'
+				default: this.$t('components.adminGoodssku.bt')
 			},
 			ismultiple: {
 				type: Boolean,

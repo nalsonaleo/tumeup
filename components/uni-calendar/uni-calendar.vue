@@ -4,10 +4,10 @@
 		<view v-if="insert || show" class="uni-calendar__content" :class="{'uni-calendar--fixed':!insert,'uni-calendar--ani-show':aniMaskShow}">
 			<view v-if="!insert" class="uni-calendar__header uni-calendar--fixed-top">
 				<view class="uni-calendar__header-btn-box" @click="close">
-					<text class="uni-calendar__header-text uni-calendar--fixed-width">取消</text>
+					<text class="uni-calendar__header-text uni-calendar--fixed-width">{{$t('components.uniCalendar.qx')}}</text>
 				</view>
 				<view class="uni-calendar__header-btn-box" @click="confirm">
-					<text class="uni-calendar__header-text uni-calendar--fixed-width">确定</text>
+					<text class="uni-calendar__header-text uni-calendar--fixed-width">{{$t('components.uniCalendar.qd')}}</text>
 				</view>
 			</view>
 			<view class="uni-calendar__header">
@@ -15,12 +15,12 @@
 					<view class="uni-calendar__header-btn uni-calendar--left"></view>
 				</view>
 				<picker mode="date" :value="date" fields="month" @change="bindDateChange">
-					<text class="uni-calendar__header-text">{{ (nowDate.year||'') +'年'+( nowDate.month||'') +'月'}}</text>
+					<text class="uni-calendar__header-text">{{ (nowDate.year||'') +$t('components.uniCalendar.nian')+( nowDate.month||'') +$t('components.uniCalendar.yue')}}</text>
 				</picker>
 				<view class="uni-calendar__header-btn-box" @click.stop="next">
 					<view class="uni-calendar__header-btn uni-calendar--right"></view>
 				</view>
-				<text class="uni-calendar__backtoday" @click="backtoday">回到今天</text>
+				<text class="uni-calendar__backtoday" @click="backtoday">{{$t('components.uniCalendar.hdjt')}}</text>
 
 			</view>
 			<view class="uni-calendar__box">
@@ -29,25 +29,25 @@
 				</view>
 				<view class="uni-calendar__weeks">
 					<view class="uni-calendar__weeks-day">
-						<text class="uni-calendar__weeks-day-text">日</text>
+						<text class="uni-calendar__weeks-day-text">{{$t('components.uniCalendar.ri')}}</text>
 					</view>
 					<view class="uni-calendar__weeks-day">
-						<text class="uni-calendar__weeks-day-text">一</text>
+						<text class="uni-calendar__weeks-day-text">{{$t('components.uniCalendar.yi')}}</text>
 					</view>
 					<view class="uni-calendar__weeks-day">
-						<text class="uni-calendar__weeks-day-text">二</text>
+						<text class="uni-calendar__weeks-day-text">{{$t('components.uniCalendar.er')}}</text>
 					</view>
 					<view class="uni-calendar__weeks-day">
-						<text class="uni-calendar__weeks-day-text">三</text>
+						<text class="uni-calendar__weeks-day-text">{{$t('components.uniCalendar.san')}}</text>
 					</view>
 					<view class="uni-calendar__weeks-day">
-						<text class="uni-calendar__weeks-day-text">四</text>
+						<text class="uni-calendar__weeks-day-text">{{$t('components.uniCalendar.si')}}</text>
 					</view>
 					<view class="uni-calendar__weeks-day">
-						<text class="uni-calendar__weeks-day-text">五</text>
+						<text class="uni-calendar__weeks-day-text">{{$t('components.uniCalendar.wu')}}</text>
 					</view>
 					<view class="uni-calendar__weeks-day">
-						<text class="uni-calendar__weeks-day-text">六</text>
+						<text class="uni-calendar__weeks-day-text">{{$t('components.uniCalendar.liu')}}</text>
 					</view>
 				</view>
 				<view class="uni-calendar__weeks" v-for="(item,weekIndex) in weeks" :key="weekIndex">

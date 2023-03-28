@@ -8,13 +8,13 @@
 					<!-- #ifdef MP-WEIXIN -->
 					<button class="share-btn share-item y-f" open-type="share">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-						<text class="share-title">微信好友</text>
+						<text class="share-title">{{$t('pages.public.poster.children.shInvitePoster.wxhy')}}</text>
 					</button>
 					<!-- #endif -->
 					<!-- #ifndef MP-WEIXIN -->
 					<view class="share-item y-f" @tap="share">
 						<image class="share-img" src="http://shopro.7wpp.com/imgs/share_wx.png" mode=""></image>
-						<text class="share-title">微信好友</text>
+						<text class="share-title">{{$t('pages.public.poster.children.shInvitePoster.wxhy')}}</text>
 					</view>
 					<!-- #endif -->
 					<view class="share-item y-f" @tap="saveImage">
@@ -203,15 +203,15 @@ export default {
 			let that = this;
 			let platform = uni.getStorageSync('platform');
 			if (platform === 'wxOfficialAccount') {
-				that.$tools.toast('长按图片保存');
+				that.$tools.toast(that.$t('pages.public.poster.children.shInvitePoster.catpbc'));
 			} else {
 				uni.saveImageToPhotosAlbum({
 					filePath: that.poster.finalPath,
 					success: res => {
-						that.$tools.toast('保存成功');
+						that.$tools.toast(that.$t('pages.public.poster.children.shInvitePoster.bccg'));
 					},
 					fail: err => {
-						that.$tools.toast('保存失败');
+						that.$tools.toast(that.$t('pages.public.poster.children.shInvitePoster.bcsb'));
 					}
 				});
 			}
@@ -246,7 +246,7 @@ export default {
 				data: that.shareInfo.copyLink,
 				success: () => {
 					//#ifdef H5
-					that.$tools.toast('已复制到剪贴板');
+					that.$tools.toast(that.$t('pages.public.poster.children.shInvitePoster.yfzdjqb'));
 					//#endif
 				}
 			});

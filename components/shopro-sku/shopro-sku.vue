@@ -275,7 +275,7 @@ export default {
 			var that = this;
 			if(num > 0){
 				if(that.goodsNum >= that.currentSkuPrice.stock){
-					that.$msg('库存不足');
+					that.$msg(that.$t('components.shoproSku.kcbz'));
 					return;
 				}
 				that.goodsNum ++;
@@ -412,7 +412,7 @@ export default {
 					sku_id.push(item)
 				})
 				if(sku_id.length != that.goodsInfo2.sku.length){
-					that.$msg('请选择商品规格');
+					that.$msg(that.$t('components.shoproSku.qszspgg'));
 					return;
 				}
 			}else{
@@ -449,7 +449,7 @@ export default {
 					sku_id.push(item)
 				})
 				if(sku_id.length != that.goodsInfo2.sku.length){
-					that.$msg('请选择商品规格');
+					that.$msg(that.$t('components.shoproSku.qszspgg'));
 					return;
 				}
 			}else{
@@ -492,7 +492,7 @@ export default {
 		confirmSku() {
 			let that = this;
 			if (that.currentSkuPrice.stock < that.goodsNum) {
-				that.$tools.toast('库存不足');
+				that.$tools.toast(that.$t('components.shoproSku.kcbz'));
 				return false;
 			} else {
 				that.currentSkuPrice.goods_num = that.goodsNum;
@@ -503,7 +503,7 @@ export default {
 					goods_price: that.currentSkuPrice.price
 				};
 				if (!that.confirmGoodsInfo.sku_price_id) {
-					that.$tools.toast('请选择规格');
+					that.$tools.toast(that.$t('components.shoproSku.qszspgg'));
 					return false;
 				} else {
 					that.showModal = false;

@@ -22,7 +22,7 @@
 					<textarea maxlength="9999" v-model="content" class="cell-content" :class="[textAlign]" @input="changeContent"
 					 :placeholder="placeholder" />
 					<view class="desc" v-if="markdown">
-						<text>支持markdown语法，最多输入9999字符</text>
+						<text>{{$t('components.mixlistInput.zcmarkdownyf')}}</text>
 					</view>
 				</view>
 			</block>
@@ -43,7 +43,7 @@ export default {
 	props: {
 		title: {
 			type: String,
-			default: '标题'
+			default: () => this.$t('components.mixlistinput.bt')
 		},
 		field: {
 			type: String,

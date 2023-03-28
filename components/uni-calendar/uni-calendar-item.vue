@@ -26,7 +26,7 @@
 				'uni-calendar-item--before-checked':weeks.beforeMultiple,
 				'uni-calendar-item--multiple': weeks.multiple,
 				'uni-calendar-item--after-checked':weeks.afterMultiple,
-				}">今天</text>
+				}">{{$t('components.uniCalendarItem.jt')}}</text>
 			<text v-if="lunar&&!weeks.extraInfo" class="uni-calendar-item__weeks-lunar-text" :class="{
 				'uni-calendar-item--isDay-text':weeks.isDay,
 				'uni-calendar-item--isDay':calendar.fullDate === weeks.fullDate && weeks.isDay,
@@ -35,7 +35,7 @@
 				'uni-calendar-item--multiple': weeks.multiple,
 				'uni-calendar-item--after-checked':weeks.afterMultiple,
 				'uni-calendar-item--disable':weeks.disable,
-				}">{{weeks.isDay?'今天': (weeks.lunar.IDayCn === '初一'?weeks.lunar.IMonthCn:weeks.lunar.IDayCn)}}</text>
+				}">{{weeks.isDay?$t('components.uniCalendarItem.jt'): (weeks.lunar.IDayCn === '初一'?weeks.lunar.IMonthCn:weeks.lunar.IDayCn)}}</text>
 			<text v-if="weeks.extraInfo&&weeks.extraInfo.info" class="uni-calendar-item__weeks-lunar-text" :class="{
 				'uni-calendar-item--extra':weeks.extraInfo.info,
 				'uni-calendar-item--isDay-text':weeks.isDay,

@@ -26,11 +26,11 @@
       <slot name="loading">
         <view v-if="isCustomLoading == 'c1'" class="custom_loading">
           <loading></loading>
-          <view class="title" v-if="iscustomTitle">加载中</view>
+          <view class="title" v-if="iscustomTitle">{{$t('components.mysLazyImg.jzz')}}</view>
         </view>
         <view v-if="isCustomLoading == 'c2'" class="custom_loading">
           <image class="custom_img" src="/static/images/loading.gif"></image>
-          <view class="title" v-if="iscustomTitle">加载中</view>
+          <view class="title" v-if="iscustomTitle">{{$t('components.mysLazyImg.jzz')}}</view>
         </view>
       </slot>
     </view>

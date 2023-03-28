@@ -213,7 +213,7 @@
 			 * 校验所有或者部分表单
 			 */
 			async validateAll(invalidFields, type, callback) {
-
+				let that = this;
 				this.childrens.forEach(item => {
 					item.errMsg = ''
 				})
@@ -275,14 +275,14 @@
 							} else {
 								if (this.errShowType === 'toast') {
 									uni.showToast({
-										title: resultData.errorMessage || '校验错误',
+										title: resultData.errorMessage || that.$t("components.uniForms.xycw"),
 										icon: 'none'
 									})
 									break
 								} else if (this.errShowType === 'modal') {
 									uni.showModal({
-										title: '提示',
-										content: resultData.errorMessage || '校验错误'
+										title: that.$t('components.uniForms.ts'),
+										content: resultData.errorMessage || that.$t("components.uniForms.xycw")
 									})
 									break
 								} else {

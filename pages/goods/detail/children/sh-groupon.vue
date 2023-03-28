@@ -27,7 +27,7 @@
 		<!-- 拼团玩法 -->
 		<view v-if="parseInt(grouponData.activity.richtext_id)" class="groupon-play x-bc" @tap="jump('/pages/public/richtext', { id: grouponData.activity.richtext_id })">
 			<view class="x-f">
-				<text class="title">玩法</text>
+				<text class="title">{{$t('user.goods.detail.wanfa')}}</text>
 				<view class="description one-t">{{ grouponData.activity.richtext_title || `${$t("user.goods.detail.shprice.groupon.kt")}/${$t("user.goods.detail.shprice.groupon.cant")}·${$t("user.goods.detail.shprice.groupon.yqhy")}·${$t("user.goods.detail.shprice.groupon.rmfh")}` }}</view>
 			</view>
 			<text class="cuIcon-right"></text>

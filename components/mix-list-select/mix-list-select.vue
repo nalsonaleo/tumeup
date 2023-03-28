@@ -18,7 +18,7 @@
 					</checkbox-group>
 					<view class="flex justify-center">
 						<button class="cu-btn bg-white margin-right-xs" @click="canceled">取消</button>
-						<button class="cu-btn bg-green" @click="next">确定</button>
+						<button class="cu-btn bg-green" @click="next">{{$t('components.mixlistselect.qd')}}</button>
 					</view>
 				</block>
 			</view>
@@ -42,11 +42,11 @@ export default {
 	props: {
 		title: {
 			type: String,
-			default: '标题'
+			default: ()=> this.$t('components.mixlistselect.bt')
 		},
 		tips: {
 			type: String,
-			default: '请选择'
+			default: () => this.$t('components.mixlistselect.qxz')
 		},
 		navigateType: {
 			type: String,

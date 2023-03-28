@@ -4,9 +4,9 @@
 		<view class="force-login__content y-f">
 			<open-data class="user-avatar" type="userAvatarUrl"></open-data>
 			<open-data class="user-name" type="userNickName"></open-data>
-			<view class="login-notice">为了提供更优质的服务，需要获取您的头像昵称</view>
-			<button class="cu-btn author-btn" @getuserinfo="getuserinfo" open-type="getUserInfo">授权并查看</button>
-			<button class="cu-btn close-btn" @tap="closeAuth">暂不授权</button>
+			<view class="login-notice">{{$t('components.shoproForceLogin.wltggyz')}}</view>
+			<button class="cu-btn author-btn" @getuserinfo="getuserinfo" open-type="getUserInfo">{{$t('components.shoproForceLogin.sqbck')}}</button>
+			<button class="cu-btn close-btn" @tap="closeAuth">{{$t('components.shoproForceLogin.zbsq')}}</button>
 		</view>
 	</view>
 </template>

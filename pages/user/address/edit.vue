@@ -126,10 +126,10 @@ export default {
 				that.$msg(that.$t("user.address.edit.phoneNumber.placeholder"));
 				return;
 			}
-			if(!(/^1[3456789]\d{9}$/.test(that.a_phone))){
-				that.$msg(that.$t("user.address.edit.phonecorrect"));
-				return;
-			}
+			// if(!(/^1[3456789]\d{9}$/.test(that.a_phone))){
+			// 	that.$msg(that.$t("user.address.edit.phonecorrect"));
+			// 	return;
+			// }
 			if(!that.area_text){
 				that.$msg(that.$t("user.address.edit.select.harvestAddress"));
 				return;

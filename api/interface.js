@@ -11,7 +11,7 @@ export default {
 		header: {
 			// 'Content-Type': 'application/json;charset=UTF-8'
 			'Content-Type': 'application/x-www-form-urlencoded',
-			'Accept-Language': uni.getLocale(),
+			'Accept-Language': uni.getLocale() === "zh-Hans" ? '' : uni.getLocale(),
 		},
 		data: {},
 		method: "GET",

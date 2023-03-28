@@ -222,11 +222,11 @@ export default {
 	background: #fff;
 	min-height: 80rpx;
 	.nav-item {
-		flex: 1;		
+		min-width: 30rpx;
 		min-height: 80rpx;
+		padding: 0 10px;
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		justify-content: space-around;
 		align-items: center;
 		box-sizing: border-box;
 		.item-title {
@@ -234,6 +234,11 @@ export default {
 			font-family: PingFang SC;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 1);
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			text-overflow: ellipsis;
+			-webkit-box-orient: vertical;
+			word-break: break-all;
 		}
 		.nav-line {
 			width: 100rpx;

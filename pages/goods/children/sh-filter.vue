@@ -16,8 +16,8 @@
 				<view class="title-box x-f">
 					<text class="filter-title">{{$t("goods.children.shFilter")}}</text>
 					<view class="p-box">
-						<text :class="{ active: salesOrder == 'sell_asc' && filterIndex === 1 }" class="yticon cuIcon-fold"></text>
-						<text :class="{ active: salesOrder == 'sell_desc' && filterIndex === 1 }" class="yticon cuIcon-fold xia"></text>
+						<text :class="{ active: salesOrder == 'sell_asc' && filterIndex === 1 }" class="iconfont icon-up"></text>
+						<text :class="{ active: salesOrder == 'sell_desc' && filterIndex === 1 }" class="iconfont icon-descend"></text>
 					</view>
 				</view>
 				<!-- <view class="line" :class="{ 'line-active': filterIndex === 1 }"></view> -->
@@ -26,8 +26,8 @@
 				<view class="title-box x-f">
 					<text class="filter-title">{{$t("goods.children.jg")}}</text>
 					<view class="p-box">
-						<text :class="{ active: priceOrder == 'price_asc' && filterIndex === 2 }" class="yticon cuIcon-fold"></text>
-						<text :class="{ active: priceOrder == 'price_desc' && filterIndex === 2 }" class="yticon cuIcon-fold xia"></text>
+						<text :class="{ active: priceOrder == 'price_asc' && filterIndex === 2 }" class="iconfont icon-up"></text>
+						<text :class="{ active: priceOrder == 'price_desc' && filterIndex === 2 }" class="iconfont icon-descend"></text>
 					</view>
 				</view>
 				<!-- <view class="line" :class="{ 'line-active': filterIndex === 2 }"></view> -->

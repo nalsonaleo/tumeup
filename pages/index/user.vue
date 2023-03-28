@@ -115,7 +115,7 @@
 			<view class="wallet-box x-f">
 				<view class="x-f wallet-left">
 					<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/index')">
-						<view class="wallet-item__detail">{{userInfo.u_money1}} <text style='font-size: 16rpx;margin-left: 4rpx;'>{{$t('user.yuan')}}</text></view>
+						<view class="wallet-item__detail">{{$t('money.symbol')}}{{userInfo.u_money1}} <text style='font-size: 16rpx;margin-left: 4rpx;'></text></view>
 						<text class="wallet-item__title">{{$t("user.index.accountbalance")}}</text>
 					</view>
 					<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/score-balance')">
@@ -588,6 +588,7 @@ export default {
 			color: rgba(153, 153, 153, 1);
 			line-height: 24rpx;
 			padding-top: 10rpx;
+			text-align: center;
 		}
 	}
 }

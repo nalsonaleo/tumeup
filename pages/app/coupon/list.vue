@@ -116,20 +116,27 @@ export default {
 	min-height: 80rpx;
 
 	.nav-item {
+		// min-width: 30rpx;
 		flex: 1;
 		min-height: 80rpx;
+		
+		padding: 0 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		box-sizing: border-box;
-			overflow:hidden;
 		.item-title {
 			font-size: 30rpx;
 			font-family: PingFang SC;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 1);
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
 			text-overflow: ellipsis;
+			-webkit-box-orient: vertical;
+			word-break: break-all;
 		}
 
 		.nav-line {

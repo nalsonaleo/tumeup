@@ -51,7 +51,7 @@
 				<view class="coupon x-bc item-list" v-if="g_type == 2" style="height: 70upx;">
 					<view class="item-title">{{$t("user.order.confirm.yhj")}}</view>
 					<view class="x-f" v-if="g.coupon" @tap="selCoupon(g.coupon, index)">
-						<text class="price" v-if="g.pickerData">{{ g.pickerData.title }}</text>
+						<text class="price" v-if="g.pickerData">{{$t('money.symbol')}}{{ g.pickerData.title }}</text>
 						<text class="sel-coupon" v-else>{{$t("user.order.confirm.xzyhq")}}</text>
 						<text class="cuIcon-right"></text>
 					</view>
@@ -347,7 +347,7 @@ export default {
 			that.$api.getCoupon(data).then(res => {
 				if (res.code == 1) {
 					that.$set(that.goodsList[index], 'coupon', res.data);
-					that.$set(that.goodsList[index], 'pickerData', { title: '选择优惠券', couponList: [] });
+					that.$set(that.goodsList[index], 'pickerData', { title: that.$t('pages.order.confirm.xzyhq'), couponList: [] });
 					// that.goodsList[index]['coupon'] = res.data;
 					// that.goodsList[index]['pickerData'] = {
 					// 	title: '选择优惠券',
@@ -404,7 +404,7 @@ export default {
 				this.goodsList[index].pickerData.couponList = this.goodsList[index].coupon;
 				this.pickerData.couponList = this.goodsList[index].coupon;
 			} else {
-				this.$msg('暂无优惠券');
+				this.$msg(that.$t('pages.order.confirm.zwyhq'));
 			}
 		},
 		// 1代金券   2满减券  3折扣券  4兑换券
@@ -430,19 +430,19 @@ export default {
 				setTimeout(function() {
 					if (that.canUse == 1) {
 						if (that.goodsList[that.goodsIndex].pickerData.couponList[index].c_type == 1) {
-							that.goodsList[that.goodsIndex].pickerData.title = '-￥' + that.goodsList[that.goodsIndex].pickerData.couponList[index].c_price;
+							that.goodsList[that.goodsIndex].pickerData.title = '-'+ that.$t('money.symbol') + that.goodsList[that.goodsIndex].pickerData.couponList[index].c_price;
 						} else if (that.goodsList[that.goodsIndex].pickerData.couponList[index].c_type == 2) {
-							that.goodsList[that.goodsIndex].pickerData.title = '-￥' + that.goodsList[that.goodsIndex].pickerData.couponList[index].c_reduce;
+							that.goodsList[that.goodsIndex].pickerData.title = '-'+ that.$t('money.symbol')  + that.goodsList[that.goodsIndex].pickerData.couponList[index].c_reduce;
 						} else if (that.goodsList[that.goodsIndex].pickerData.couponList[index].c_type == 3) {
-							that.goodsList[that.goodsIndex].pickerData.title = parseFloat(that.goodsList[that.goodsIndex].pickerData.couponList[index].c_discount) + '折';
+							that.goodsList[that.goodsIndex].pickerData.title = parseFloat(that.goodsList[that.goodsIndex].pickerData.couponList[index].c_discount) + that.$t('pages.order.confirm.zhe');
 						} else {
-							that.goodsList[that.goodsIndex].pickerData.title = '兑换券';
+							that.goodsList[that.goodsIndex].pickerData.title = that.$t('pages.order.confirm.dhq');
 						}
 					}
 				}, 500);
 			} else {
 				that.couponId = 0;
-				that.goodsList[that.goodsIndex].pickerData.title = '选择优惠券';
+				that.goodsList[that.goodsIndex].pickerData.title = that.$t('pages.order.confirm.xzyhq');
 			}
 		}
 	}
@@ -573,6 +573,9 @@ export default {
 		color: $zhuse;
 		margin-right: 20rpx;
 	}
+	.price::before {
+		content: "";
+	}
 	.sel-coupon {
 		font-size: 26rpx;
 		color: #c4c4c4;
@@ -622,6 +625,9 @@ export default {
 		.price {
 			color: $zhuse;
 			font-weight: 500;
+		}
+		.price::before {
+			content: "";
 		}
 	}
 	.sub-btn {

@@ -10,35 +10,37 @@
 					<view class="l" @tap="jump('/pages/index/news')">
 						<image src="../../static/imgs/logo/logo.png"></image>
 					</view>
-					<view class="lang" >
-						<mix-list-cell icon="icon-shouhuodizhi" iconColor="#00aa7f" :title="$t('user.title.language')" @eventClick="showLanguage"></mix-list-cell>
-					</view> 
+					<view class="lang">
+						<mix-list-cell icon="icon-shouhuodizhi" iconColor="#00aa7f" :title="$t('user.title.language')"
+							@eventClick="showLanguage"></mix-list-cell>
+					</view>
 					<view class="r" @tap="jump('/pages/index/news')">
 						<image src="../../static/imgs/news.png"></image>
 					</view>
 				</view>
 				<view class="search">
-					  
+
 					<view class="l">
 						<image src="../../static/imgs/search.png"></image>
-						<input type="text" placeholder-class="pl-input" :placeholder="$t('pages.pages.search')" v-model="searchVal" @confirm="onSearch" confirm-type="搜索">
+						<input type="text" placeholder-class="pl-input" :placeholder="$t('pages.pages.search')"
+							v-model="searchVal" @confirm="onSearch" confirm-type="搜索">
 					</view>
-			
+
 				</view>
-				
+
 				<view class="keyword">
-					<view class="hot" >Hot :</view>
-					<view class="hot-keyword" >{{$t("index.index.hot.xz")}} | {{$t("index.index.hot.zq")}} </view>
+					<view class="hot">Hot :</view>
+					<view class="hot-keyword">{{$t("index.index.hot.xz")}} | {{$t("index.index.hot.zq")}} </view>
 				</view>
 			</view>
-			
+
 			<view class="bot">
 				<!-- 标题栏和状态栏占位符 -->
 				<view class="titleNview-placing"></view>
 				<!-- 背景色区域 -->
 				<!-- <view class="titleNview-background" :style="{backgroundColor:titleNViewBackground}"></view> -->
 				<swiper class="carousel" autoplay circular @change="swiperChange">
-					<swiper-item v-for="(item, index) in banner" :key="index" class="carousel-item" >
+					<swiper-item v-for="(item, index) in banner" :key="index" class="carousel-item">
 						<image :src="item.cover" />
 					</swiper-item>
 				</swiper>
@@ -49,22 +51,21 @@
 					<text class="num">{{swiperLength}}</text>
 				</view>
 			</view>
-			
+
 		</view>
 		<!-- 分类 -->
-		<view class="menu-category-box" v-if="cate" :style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`">
-			<swiper
-				class="menu-swiper-box"
-				:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`"
-				@change="onSwiper"
-				:autoplay="false"
-				:interval="3000"
-				:duration="1000"
-			>
-				<swiper-item class="menu-swiper-item" v-for="(itemList, index) in cate" :key="index" :style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:340rpx`">
+		<view class="menu-category-box" v-if="cate"
+			:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`">
+			<swiper class="menu-swiper-box"
+				:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`" @change="onSwiper"
+				:autoplay="false" :interval="3000" :duration="1000">
+				<swiper-item class="menu-swiper-item" v-for="(itemList, index) in cate" :key="index"
+					:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:340rpx`">
 					<view class="menu-tab-box">
-						<view class="tab-list y-f" :style="{ width: 690 / 4 + 'rpx' }" v-for="item in itemList" :key="item.c_name" @tap="toList(item.id)">
-							<image class="tab-img" :style="{ width:'88rpx', height: '88rpx' }" :src="item.c_img"></image>
+						<view class="tab-list y-f" :style="{ width: 690 / 4 + 'rpx' }" v-for="item in itemList"
+							:key="item.c_name" @tap="toList(item.id)">
+							<image class="tab-img" :style="{ width:'88rpx', height: '88rpx' }" :src="item.c_img">
+							</image>
 							<text class='tab-text'>{{ item.c_name }}</text>
 						</view>
 					</view>
@@ -83,20 +84,30 @@
 			</view>
 		</view> -->
 		<!-- 分类end -->
-		
+
 		<!-- 广告图 -->
-		   <div class="top2_wrap" style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:120px;width:100%;border-radius:10px;">
-		        
-		        <navigator url="/pages/huiyuan/huiyuan" class="on"><img style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey" src="../../static/imgs/cat2.jpg"></navigator>
-		<navigator url="/pages/user/team" class="on"><img style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey" src="../../static/imgs/cat3.jpg"></navigator>
-		
-		    </div>
-			<div class="top2_wrap" style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:90px;width:100%;border-radius:10px;">
-			     <navigator url="/pages/huiyuan/pintuan" class="on"><img style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey" src="../../static/imgs/cat4.jpg"></navigator>
-			     <navigator url="/pages/app/score/list" class="on"><img style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey" src="../../static/imgs/cat1.jpg"></navigator>
-			     
-					
-			 </div>
+		<div class="top2_wrap"
+			style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:120px;width:100%;border-radius:10px;">
+
+			<navigator url="/pages/huiyuan/huiyuan" class="on"><img
+					style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
+					src="../../static/imgs/cat2.jpg"></navigator>
+			<navigator url="/pages/user/team" class="on"><img
+					style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
+					src="../../static/imgs/cat3.jpg"></navigator>
+
+		</div>
+		<div class="top2_wrap"
+			style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:90px;width:100%;border-radius:10px;">
+			<navigator url="/pages/huiyuan/pintuan" class="on"><img
+					style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
+					src="../../static/imgs/cat4.jpg"></navigator>
+			<navigator url="/pages/app/score/list" class="on"><img
+					style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
+					src="../../static/imgs/cat1.jpg"></navigator>
+
+
+		</div>
 		<!-- <navigator url="/pages/huiyuan/huiyuan"  class="index_gg" ><image :src="gg1"></image></navigator> -->
 		<!-- 399专区 -->
 		<!-- <view class="mid_con">
@@ -111,38 +122,13 @@
 				</view>
 			</navigator>
 		</view> -->
-		
-		<view class="bot_con">
-				<view class="con">
-					<image class="gg" :src="gg1"></image>
-					<view class="goodsCon">
-						<navigator class="list" :url="'/pages/goods/detail/index?id='+item.id" v-for="(item,index) in group" :key='index'>
-							<image :src="item.g_img" class="goodsImg"></image>
-							<view class="info">
-								<view class="t">{{item.g_name}}</view>
-								<view class="b">
-									<view>
-										<text style="font-weight: 600;">{{$t('money.symbol')}}{{item.g_price}}</text>
-										<!-- <text>￥{{item.g_price1}}</text> -->
-									</view>
-									<image src="../../static/imgs/go.png"></image>
-								</view>
-							</view>
-						</navigator>
-						
-					</view>
-				</view>
-			</view>
-		
-		
-		
-		
-		<!-- 普通产品区 -->
+
 		<view class="bot_con">
 			<view class="con">
-				<image class="gg" :src="gg2"></image>
+				<image class="gg" :src="gg1"></image>
 				<view class="goodsCon">
-					<navigator class="list" :url="'/pages/goods/detail/index?id='+item.id" v-for="(item,index) in goods" :key='index'>
+					<navigator class="list" :url="'/pages/goods/detail/index?id='+item.id" v-for="(item,index) in group"
+						:key='index'>
 						<image :src="item.g_img" class="goodsImg"></image>
 						<view class="info">
 							<view class="t">{{item.g_name}}</view>
@@ -155,7 +141,34 @@
 							</view>
 						</view>
 					</navigator>
-					
+
+				</view>
+			</view>
+		</view>
+
+
+
+
+		<!-- 普通产品区 -->
+		<view class="bot_con">
+			<view class="con">
+				<image class="gg" :src="gg2"></image>
+				<view class="goodsCon">
+					<navigator class="list" :url="'/pages/goods/detail/index?id='+item.id" v-for="(item,index) in goods"
+						:key='index'>
+						<image :src="item.g_img" class="goodsImg"></image>
+						<view class="info">
+							<view class="t">{{item.g_name}}</view>
+							<view class="b">
+								<view>
+									<text style="font-weight: 600;">{{$t('money.symbol')}}{{item.g_price}}</text>
+									<!-- <text>￥{{item.g_price1}}</text> -->
+								</view>
+								<image src="../../static/imgs/go.png"></image>
+							</view>
+						</view>
+					</navigator>
+
 				</view>
 			</view>
 		</view>
@@ -175,8 +188,6 @@
 </template>
 
 <script>
-
-	
 	import localeList from '@/locale/locales.js'
 	import {
 		mapState,
@@ -190,17 +201,17 @@
 			return {
 				lang: "",
 				isLoaded: false,
-				
+
 				titleNViewBackground: '',
 				swiperCurrent: 0,
 				swiperLength: 0,
 				banner: [],
-				cate:[],
-				group:[],
-				goods:[],
-				gg1:'',
-				gg2:"",
-				searchVal:"",
+				cate: [],
+				group: [],
+				goods: [],
+				gg1: '',
+				gg2: "",
+				searchVal: "",
 				categoryCurrent: 0
 			};
 		},
@@ -214,32 +225,33 @@
 
 		onShow() {
 			this.getList()
-			
-			
+
+
 		},
 		getUrlParam(name) {
-		     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-		     var r = window.location.search.substr(1).match(reg); //匹配目标参数
-		     if (r != null) return unescape(r[2]); return null; //返回参数值
-		   },
-		   computed: {
-		   	...mapState(['hasLogin', 'shopId', 'userInfo']),
-		   
-		   	locales() {
-		   		return Object.keys(localeList).map(e=>{
-		   			return {
-		   				text: this.$t('locale.'+e),
-		   				value: e
-		   			}
-		   		})
-		   	}
-		   },
-		methods:{
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+			var r = window.location.search.substr(1).match(reg); //匹配目标参数
+			if (r != null) return unescape(r[2]);
+			return null; //返回参数值
+		},
+		computed: {
+			...mapState(['hasLogin', 'shopId', 'userInfo']),
+
+			locales() {
+				return Object.keys(localeList).map(e => {
+					return {
+						text: this.$t('locale.' + e),
+						value: e
+					}
+				})
+			}
+		},
+		methods: {
 			...mapMutations(['login', 'logout', 'changeShopId']),
 			async loadData() {
 				this.isLoaded = true;
 			},
-			
+
 			showLanguage() {
 				//切换语言,android设备会提示重启
 				this.$refs.languagePopup.open()
@@ -281,17 +293,17 @@
 					}
 					minArr.push(c);
 				});
-			
+
 				return arr;
 			},
-			getList(){
+			getList() {
 				var that = this;
 				that.$api.getIndex().then(res => {
-					if(res.code == 1){
-						that.banner= res.banner;
+					if (res.code == 1) {
+						that.banner = res.banner;
 						that.swiperLength = res.banner.length;
 						// that.cate = res.class;
-						that.cate = that.sortData( res.class, 4 * 2);
+						that.cate = that.sortData(res.class, 4 * 2);
 						that.group = res.group;
 						that.goods = res.goods;
 						that.gg1 = res.img2;
@@ -314,13 +326,13 @@
 			onSearch() {
 				let that = this;
 				uni.navigateTo({
-					url: '/pages/goods/list?keyword='+that.searchVal+'&type=2'
+					url: '/pages/goods/list?keyword=' + that.searchVal + '&type=2'
 				})
 			},
 			// 分类进商品列表
-			toList(id){
+			toList(id) {
 				uni.navigateTo({
-					url: '/pages/goods/list?class_id='+id+'&type=2'
+					url: '/pages/goods/list?class_id=' + id + '&type=2'
 				})
 			}
 		}
@@ -328,7 +340,12 @@
 </script>
 
 <style lang="scss" scoped>
-	.topPlace{width: 100%;height: var(--status-bar-height);background: $zhuse;}
+	.topPlace {
+		width: 100%;
+		height: var(--status-bar-height);
+		background: $zhuse;
+	}
+
 	// 产品分类
 	.menu-category-box {
 		// margin-bottom: 20rpx;
@@ -337,59 +354,66 @@
 		// padding: 36rpx 30rpx 0 30rpx;
 		// background: #fff;
 	}
-	.menu-swiper-box{background: #fff;
-		border-radius: 12upx;}
+
+	.menu-swiper-box {
+		background: #fff;
+		border-radius: 12upx;
+	}
+
 	.menu-category-box,
 	.menu-swiper-box {
 		position: relative;
 		// height: 340rpx!important;
-		
+
 		.menu-swiper-item {
 			// background: #fff;
 			height: 100%;
 			width: 100%;
 		}
+
 		.menu-tab-box {
 			display: flex;
 			flex-wrap: wrap;
 			margin-top: 30upx;
+
 			.tab-list {
 				font-size: 22rpx;
 				font-family: PingFang SC;
 				font-weight: 500;
 				color: rgba(51, 51, 51, 1);
 				padding-bottom: 30rpx;
-	
+
 				.tab-img {
 					border-radius: 100%;
 					margin-bottom: 10rpx;
 				}
+
 				.tab-text {
 					text-align: center;
-					word-break:break-all;
-					overflow:hidden;
-					text-overflow:ellipsis;
-					display:-webkit-box;
-					-webkit-line-clamp:2;
-					-webkit-box-orient:vertical;
+					word-break: break-all;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
 				}
 			}
 		}
-	
+
 		.menu-category-dots {
 			display: flex;
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
 			bottom: 8rpx;
-	
+
 			.category-dot {
 				width: 40rpx;
 				height: 3rpx;
 				background: #eeeeee;
 				margin-right: 10rpx;
 			}
-	
+
 			.category-dot-active {
 				width: 40rpx;
 				height: 3rpx;
@@ -398,138 +422,198 @@
 			}
 		}
 	}
+
 	page {
 		background: #f5f5f5;
 	}
+
 	/* 头部 轮播图 */
 	.carousel-section {
 		position: relative;
-		.top{
-			width: 100%;padding:14upx 20upx;background: $zhuse;
+
+		.top {
+			width: 100%;
+			padding: 14upx 20upx;
+			background: $zhuse;
 			// #ifdef MP-WEIXIN
 			padding-top: 50upx;
 			padding-right: 28%;
 			// #endif
 		}
-		.top-logo{
+
+		.top-logo {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			.lang{
+
+			.lang {
 				display: flex;
 				margin-right: 20upx;
 				font-size: 26upx;
 				color: #fff;
 				display: block;
-				image{
+
+				image {
 					width: 50upx;
 					height: 70upx;
 					display: block;
 					// margin-bottom: 6upx;
 				}
 			}
-			.l{
+
+			.l {
 				flex: 1;
 				margin-right: 20upx;
 				padding: 0 10upx;
 				height: 80upx;
 				display: flex;
 				align-items: center;
-				image{
+
+				image {
 					width: 140upx;
 					height: 50upx;
 					display: block;
-					}
-				text{font-size: 26upx;color: #fff;margin-left: 10upx;}
-				input{height: 100%;color: #fff;font-size: 26upx;margin-left: 10upx;flex: 1;}
-				.input-placeholder,.pl-input{color: #fff;}
+				}
+
+				text {
+					font-size: 26upx;
+					color: #fff;
+					margin-left: 10upx;
+				}
+
+				input {
+					height: 100%;
+					color: #fff;
+					font-size: 26upx;
+					margin-left: 10upx;
+					flex: 1;
+				}
+
+				.input-placeholder,
+				.pl-input {
+					color: #fff;
+				}
 			}
-			.r{
+
+			.r {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				text-align: center;
-				image{
+
+				image {
 					width: 50upx;
 					height: 50upx;
 					display: block;
 					// margin-bottom: 6upx;
 				}
-				text{
+
+				text {
 					font-size: 16upx;
 					color: #fff;
 					display: block;
 				}
 			}
 		}
-		.search{
+
+		.search {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			.lang{
+
+			.lang {
 				display: flex;
 				margin-right: 20upx;
 				font-size: 26upx;
 				color: #fff;
 				display: block;
-				image{
+
+				image {
 					width: 50upx;
 					height: 50upx;
 					display: block;
 					// margin-bottom: 6upx;
 				}
 			}
-			.l{
+
+			.l {
 				flex: 1;
 				margin-right: 0upx;
 				border-radius: 10upx;
 				padding: 0 30upx;
 				height: 60upx;
-				background: rgba(255,255,255,0.1);
+				background: rgba(255, 255, 255, 0.1);
 				display: flex;
 				align-items: center;
-				image{width: 28upx;height: 28upx;}
-				text{font-size: 26upx;color: #fff;margin-left: 10upx;}
-				input{height: 100%;color: #fff;font-size: 26upx;margin-left: 10upx;flex: 1;}
-				.input-placeholder,.pl-input{color: #fff;}
+
+				image {
+					width: 28upx;
+					height: 28upx;
+				}
+
+				text {
+					font-size: 26upx;
+					color: #fff;
+					margin-left: 10upx;
+				}
+
+				input {
+					height: 100%;
+					color: #fff;
+					font-size: 26upx;
+					margin-left: 10upx;
+					flex: 1;
+				}
+
+				.input-placeholder,
+				.pl-input {
+					color: #fff;
+				}
 			}
-			.r{
+
+			.r {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				text-align: center;
-				image{
+
+				image {
 					width: 50upx;
 					height: 50upx;
 					display: block;
 					// margin-bottom: 6upx;
 				}
-				text{
+
+				text {
 					font-size: 16upx;
 					color: #fff;
 					display: block;
 				}
 			}
 		}
-		.keyword{
+
+		.keyword {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			.hot{
+
+			.hot {
 				display: flex;
 				margin-right: 1upx;
 				margin-top: 10upx;
 				font-size: 26upx;
 				color: #fff;
 				display: block;
-				image{
+
+				image {
 					width: 50upx;
 					height: 50upx;
 					display: block;
 					// margin-bottom: 6upx;
 				}
 			}
-			.hot-keyword{
+
+			.hot-keyword {
 				flex: 1;
 				margin-top: 10upx;
 				color: #fff;
@@ -538,23 +622,48 @@
 				height: 30upx;
 				display: flex;
 				align-items: center;
-				image{width: 28upx;height: 28upx;}
-				text{font-size: 26upx;color: #fff;margin-left: 10upx;}
-				input{height: 100%;color: #fff;font-size: 26upx;margin-left: 1upx;flex: 1;}
-				.input-placeholder,.pl-input{color: #fff;}
+
+				image {
+					width: 28upx;
+					height: 28upx;
+				}
+
+				text {
+					font-size: 26upx;
+					color: #fff;
+					margin-left: 10upx;
+				}
+
+				input {
+					height: 100%;
+					color: #fff;
+					font-size: 26upx;
+					margin-left: 1upx;
+					flex: 1;
+				}
+
+				.input-placeholder,
+				.pl-input {
+					color: #fff;
+				}
 			}
-			
+
 		}
+
 		position: relative;
+
 		// padding-top: 10px;
-		.bot{position: relative;}
+		.bot {
+			position: relative;
+		}
+
 		.titleNview-placing {
 			position: absolute;
 			height: 40%;
 			background: $zhuse;
 			width: 100%;
 		}
-	
+
 		.titleNview-background {
 			position: absolute;
 			top: 0;
@@ -564,25 +673,28 @@
 			transition: .4s;
 		}
 	}
+
 	.carousel {
 		width: 100%;
 		height: 350upx;
 		padding: 0 20upx;
 		position: relative;
 		z-index: 9;
+
 		.carousel-item {
 			width: 100%;
 			height: 100%;
 			// padding: 0 28upx;
 			overflow: hidden;
 		}
-	
+
 		image {
 			width: 100%;
 			height: 100%;
 			border-radius: 10upx;
 		}
 	}
+
 	.swiper-dots {
 		display: flex;
 		position: absolute;
@@ -592,7 +704,7 @@
 		height: 36upx;
 		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABkCAYAAADDhn8LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTk4MzlBNjE0NjU1MTFFOUExNjRFQ0I3RTQ0NEExQjMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTk4MzlBNjA0NjU1MTFFOUExNjRFQ0I3RTQ0NEExQjMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0E3RUNERkE0NjExMTFFOTg5NzI4MTM2Rjg0OUQwOEUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0E3RUNERkI0NjExMTFFOTg5NzI4MTM2Rjg0OUQwOEUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4Gh5BPAAACTUlEQVR42uzcQW7jQAwFUdN306l1uWwNww5kqdsmm6/2MwtVCp8CosQtP9vg/2+/gY+DRAMBgqnjIp2PaCxCLLldpPARRIiFj1yBbMV+cHZh9PURRLQNhY8kgWyL/WDtwujjI8hoE8rKLqb5CDJaRMJHokC6yKgSCR9JAukmokIknCQJpLOIrJFwMsBJELFcKHwM9BFkLBMKFxNcBCHlQ+FhoocgpVwwnv0Xn30QBJGMC0QcaBVJiAMiec/dcwKuL4j1QMsVCXFAJE4s4NQA3K/8Y6DzO4g40P7UcmIBJxbEesCKWBDg8wWxHrAiFgT4fEGsB/CwIhYE+AeBAAdPLOcV8HRmWRDAiQVcO7GcV8CLM8uCAE4sQCDAlHcQ7x+ABQEEAggEEAggEEAggEAAgQACASAQQCCAQACBAAIBBAIIBBAIIBBAIABe4e9iAe/xd7EAJxYgEGDeO4j3EODp/cOCAE4sYMyJ5cwCHs4rCwI4sYBxJ5YzC84rCwKcXxArAuthQYDzC2JF0H49LAhwYUGsCFqvx5EF2T07dMaJBetx4cRyaqFtHJ8EIhK0i8OJBQxcECuCVutxJhCRoE0cZwMRyRcFefa/ffZBVPogePihhyCnbBhcfMFFEFM+DD4m+ghSlgmDkwlOgpAl4+BkkJMgZdk4+EgaSCcpVX7bmY9kgXQQU+1TgE0c+QJZUUz1b2T4SBbIKmJW+3iMj2SBVBWz+leVfCQLpIqYbp8b85EskIxyfIOfK5Sf+wiCRJEsllQ+oqEkQfBxmD8BBgA5hVjXyrBNUQAAAABJRU5ErkJggg==);
 		background-size: 100% 100%;
-	
+
 		.num {
 			width: 36upx;
 			height: 36upx;
@@ -602,7 +714,7 @@
 			text-align: center;
 			line-height: 36upx;
 		}
-	
+
 		.sign {
 			position: absolute;
 			top: 0;
@@ -613,18 +725,21 @@
 			transform: translateX(-50%);
 		}
 	}
+
 	/* 分类 */
 	.cate-section {
-		padding: 24upx 20upx 0; 
-		.con{
+		padding: 24upx 20upx 0;
+
+		.con {
 			display: flex;
 			// justify-content: space-around;
 			align-items: center;
-			flex-wrap:wrap;
+			flex-wrap: wrap;
 			background: #fff;
 			padding: 24upx 20upx 0;
 			border-radius: 12upx;
 		}
+
 		.cate-item {
 			width: 25%;
 			margin-bottom: 24upx;
@@ -635,6 +750,7 @@
 			font-size: $font-sm + 2upx;
 			color: $font-color-dark;
 		}
+
 		/* 原图标颜色太深,不想改图了,所以加了透明度 */
 		image {
 			width: 100upx;
@@ -645,56 +761,147 @@
 			// box-shadow: 4upx 4upx 20upx rgba(250, 67, 106, 0.3);
 		}
 	}
-	.index_gg{
-		padding:40upx 20upx 0;
-		image{width: 100%;height: 220upx;}
+
+	.index_gg {
+		padding: 40upx 20upx 0;
+
+		image {
+			width: 100%;
+			height: 220upx;
+		}
 	}
-	.mid_con{width: 100%;padding: 30upx 40upx 6upx;background: #fff;
-		.list{
+
+	.mid_con {
+		width: 100%;
+		padding: 30upx 40upx 6upx;
+		background: #fff;
+
+		.list {
 			width: 100%;
 			margin-bottom: 30upx;
-			.goodsImg{
+
+			.goodsImg {
 				width: 100%;
 				height: 300upx;
 				border-radius: 8upx;
 			}
-			.info{
+
+			.info {
 				margin-top: 8upx;
-				.top{font-size: 28upx;color: #434343;width: 100%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
-				.bot{
+
+				.top {
+					font-size: 28upx;
+					color: #434343;
+					width: 100%;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+
+				.bot {
 					display: flex;
 					align-items: flex-end;
 					justify-content: space-between;
 					margin-top: 8upx;
-					.l{font-size: 34upx;color: $zhuse; text:nth-child(2){font-size: 24upx;color: #999; text-decoration: line-through;margin-left: 20upx;}}
-					.r{font-size: 24upx;color: #fff;border-radius: 8upx;padding: 10upx 20upx;background: $zhuse;}
+
+					.l {
+						font-size: 34upx;
+						color: $zhuse;
+
+						text:nth-child(2) {
+							font-size: 24upx;
+							color: #999;
+							text-decoration: line-through;
+							margin-left: 20upx;
+						}
+					}
+
+					.r {
+						font-size: 24upx;
+						color: #fff;
+						border-radius: 8upx;
+						padding: 10upx 20upx;
+						background: $zhuse;
+					}
 				}
 			}
 		}
 	}
-	.bot_con{width: 100%;padding: 30upx;
-		.con{
-			.gg{width: 100%;height: 260upx;border-radius: 20upx;margin-bottom: 30upx;}
-			.goodsCon{
-				display: flex;flex-wrap: wrap;
+
+	.bot_con {
+		width: 100%;
+		padding: 30upx;
+
+		.con {
+			.gg {
+				width: 100%;
+				height: 260upx;
+				border-radius: 20upx;
+				margin-bottom: 30upx;
+			}
+
+			.goodsCon {
+				display: flex;
+				flex-wrap: wrap;
+
 				// justify-content: space-between;
-				.list{width: 48%;margin-right: 4%;background: #fff;border-radius: 12upx;margin-bottom: 20upx;
-					.goodsImg{
+				.list {
+					width: 48%;
+					margin-right: 4%;
+					background: #fff;
+					border-radius: 12upx;
+					margin-bottom: 20upx;
+
+					.goodsImg {
 						width: 100%;
 						height: 330upx;
 						border-top-left-radius: 12upx;
 						border-top-right-radius: 12upx;
 					}
-					.info{
+
+					.info {
 						padding: 16upx;
-						.t{font-size: 28upx;color: #434343;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
-						.b{display: flex;align-items: flex-end;justify-content: space-between;margin-top: 10upx;
-							view{font-size: 32upx;color: $zhuse; text:nth-child(2){font-size: 24upx;color: #999; text-decoration: line-through;margin-left: 20upx;}}
-							image{width: 54upx;height: 54upx;}
+
+						.t {
+							font-size: 28upx;
+							color: #434343;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							-webkit-line-clamp: 2;
+							-webkit-box-orient:vertical;
+							word-break: break-all;
+							overflow: hidden;
+						}
+
+						.b {
+							display: flex;
+							align-items: flex-end;
+							justify-content: space-between;
+							margin-top: 10upx;
+
+							view {
+								font-size: 32upx;
+								color: $zhuse;
+
+								text:nth-child(2) {
+									font-size: 24upx;
+									color: #999;
+									text-decoration: line-through;
+									margin-left: 20upx;
+								}
+							}
+
+							image {
+								width: 54upx;
+								height: 54upx;
+							}
 						}
 					}
 				}
-				.list:nth-child(2n+2){margin-right: 0;}
+
+				.list:nth-child(2n+2) {
+					margin-right: 0;
+				}
 			}
 		}
 	}
@@ -757,9 +964,7 @@
 			}
 		}
 
-		.account {
-
-		}
+		.account {}
 
 		.invite {
 
@@ -817,7 +1022,7 @@
 		}
 
 		.tit {
-	
+
 			color: #f7d680;
 			margin-bottom: 16upx;
 
@@ -924,7 +1129,7 @@
 				position: absolute;
 				top: -20upx;
 				right: -18upx;
-	
+
 				color: #fff;
 				background: #fa436a;
 				border-radius: 50%;
@@ -1034,9 +1239,7 @@
 			margin-right: 20upx;
 		}
 
-		.title {
-
-		}
+		.title {}
 
 		.content {
 			flex: 1;

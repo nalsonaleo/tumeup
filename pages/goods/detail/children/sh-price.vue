@@ -9,7 +9,7 @@
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">{{$t("user.goods.detail.shprice.originalPrice")}}：<text style="text-decoration: line-through;">￥{{ detail.g_price1 }}</text></view>
+					<view class="original-price">{{$t("user.goods.detail.shprice.originalPrice")}}：<text style="text-decoration: line-through;">{{$t('money.symbol')}}{{ detail.g_price1 }}</text></view>
 					<text class="line"></text>
 					<view class="sold">{{$t("user.goods.detail.shprice.ys")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
 				</view>
@@ -238,6 +238,9 @@ export default {
 		color: #fff;
 		font-weight: bold;
 		margin: 0 10rpx;
+	}
+	.price::before{
+		content: '';
 	}
 
 	.price-bottom-box {

@@ -6,13 +6,13 @@
 			:style="{
 				paddingRight: headerPaddingRight + 'px',
 				paddingTop: statusBarHeight + 'px',
-				height: navigationBarHeight + statusBarHeight + 'px',
+				minHeight: navigationBarHeight + statusBarHeight + 'px',
 				backgroundColor: bgColor
 			}"
 		>
 			<view :class="[bgImage != '' ? 'none-bg text-white bg-img' : '', bgColor]">
-				<view class="action" @tap="BackPage" v-if="isBack">
-					<text class="cuIcon-back"></text>
+				<view class="action"  v-if="isBack">
+					<text class="cuIcon-back cuIcon-style" @tap="BackPage"></text>
 					<slot name="backText"></slot>
 				</view>
 				<scroll-view scroll-x class="nav text-center" v-if="tabs && tabs.length > 0" :style="[{ top: barHeight + 'px' }]">
@@ -102,6 +102,8 @@ export default {
 <style lang="scss" scoped>
 .cu-custom {
 	width: 100%;
+	display: flex;
+	align-items: center;
 	.cu-item{
 		color: #e2e2e2;
 		position: relative;
@@ -120,6 +122,14 @@ export default {
 	&.fixed {
 		z-index: 90;
 		position: fixed;
+	}
+	.action {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		.cuIcon-style {
+			font-size: 40rpx;
+		}
 	}
 }
 </style>

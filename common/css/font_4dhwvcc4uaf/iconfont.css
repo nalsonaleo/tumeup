@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "iconfontUp"; /* Project id  */
+  src: url('common/css/font_4dhwvcc4uaf/iconfont.ttf?t=1679989413461') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfontUp" !important;
+  font-size: 12px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-up:before {
+  content: "\e605";
+}
+
+.icon-descend:before {
+  content: "\e606";
+}
+

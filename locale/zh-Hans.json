@@ -1378,6 +1378,13 @@
 	"user.wallet.forgetPayPsd.lcsrmmbt": "两次输入密码不同",
 	"user.wallet.jfOrder.sqtkcg": "申请退款成功",
 	"user.wallet.setPayPsd.m": "秒",
+	"pages.order.confirm.xzyhq": "选择优惠券",
+	"pages.order.confirm.zwyhq": "暂无优惠券",
+	"pages.order.confirm.zhe": "折",
+	"pages.order.confirm.dhq": "兑换券",
+	"components.uniLoadMore.slxsgd": "上拉显示更多",
+	"components.uniLoadMore.zzjz": "正在加载",
+	"components.uniLoadMore.mygdsjl": "没有更多数据了",
 	
 	"locale.en": "英语",
 	"locale.zh-Hans": "简体中文",

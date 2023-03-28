@@ -9,7 +9,7 @@
 						{{ item.c_name }}
 					</view>
 				</scroll-view>
-				<scroll-view scroll-y class="scroll-box" enable-back-to-top scroll-with-animation>
+				<scroll-view scroll-y class="scroll-box" enable-back-to-top scroll-with-animation @scrolltolower='scrolltolower'>
 					<view class="right" v-if="cateGoods.length">
 						<!-- <image class="type-img" v-show="categoryData[listId].image" :src="categoryData[listId].image" mode=""></image> -->
 						<view class="item-list" >
@@ -19,9 +19,10 @@
 							<view class="item-box x-f">
 								<navigator class="y-f goods-item" :url="'/pages/goods/detail/index?id='+item.id"  v-for="(item, index) in cateGoods" :key="index">
 									<image class="item-img" lazy-load :src="item.g_img" mode="aspectFill"></image>
-									<text class="item-title one-t ">{{ item.g_name }}</text>
+									<text class="item-title">{{ item.g_name }}</text>
 								</navigator>
 							</view>
+							<uni-load-more :status='status'></uni-load-more>
 						</view>
 					</view>
 				</scroll-view>
@@ -32,13 +33,23 @@
 </template>
 
 <script>
+import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
 export default {
-	components: {},
+	components: {
+		uniLoadMore
+	},
 	data() {
 		return {
 			listId: 0,
 			categoryData: [],
-			cateGoods:[]
+			cateGoods:[],
+			pagination: {
+				total: 0,
+				pageSize: 20,
+				page: 1,
+			},
+			cateId: undefined,
+			status: 'more',
 		};
 	},
 	computed: {},
@@ -46,6 +57,14 @@ export default {
 		this.init();
 	},
 	methods: {
+		scrolltolower() {
+			console.log("到底了");
+			if(this.cateGoods.length < this.pagination.total) {
+				this.pagination.page += 1;
+				this.status = 'loading';
+				this.getGoods(this.cateId);
+			}
+		},
 		init() {
 			return Promise.all([this.getCategory()]);
 		},
@@ -61,10 +80,17 @@ export default {
 		},
 		getGoods(cateId){
 			var that = this;
-			var data = {class_id:cateId}
+			this.cateId = cateId;
+			var data = {class_id:cateId,...this.pagination}
 			that.$api.getClassGoods(data).then(res => {
 				if(res.code == 1){
-					that.cateGoods = res.data;
+					that.cateGoods = [...that.cateGoods, ...res.data.data];
+					this.pagination.total = res.data.total;
+					if(that.cateGoods.length < this.pagination.total) {
+						this.status = 'more';
+					} else {
+						this.status = 'noMore';
+					}
 				}
 			});
 		},
@@ -72,6 +98,8 @@ export default {
 			var that = this;
 			that.listId = id;
 			that.cateGoods = [];
+			this.pagination.page = 1;
+			this.pagination.total = 0;
 			that.getGoods(id);
 		},
 		// 路由跳转
@@ -128,6 +156,7 @@ export default {
 		font-family: PingFang SC;
 		box-sizing: border-box;
 		font-weight: 400;
+		justify-content: start;
 		color: rgba(102, 102, 102, 1);
 
 		.line {
@@ -189,6 +218,11 @@ export default {
 					margin-top: 10rpx;
 					width: 150rpx;
 					text-align: center;
+					overflow: hidden;
+					-webkit-line-clamp: 2;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-box-orient: vertical;
 				}
 			}
 		}

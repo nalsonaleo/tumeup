@@ -40,6 +40,8 @@
 				</view>
 			
 			</view>
+			<!-- 数据加载 -->
+			<uni-load-more :status='dataStatus' v-if="orderList.length"></uni-load-more>
 			<!-- 空白页 -->
 			<shopro-empty v-if="!orderList.length && !isLoading" :emptyData="emptyData"></shopro-empty>
 			<!-- load -->
@@ -54,10 +56,12 @@
 <script>
 import shoproLoad from '@/components/shopro-load/shopro-load.vue';
 import shoproMiniCard from '@/components/goods/shopro-mini-card.vue';
+import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
 export default {
 	components: {
 		shoproMiniCard,
-		shoproLoad
+		shoproLoad,
+		uniLoadMore,
 	},
 	data() {
 		return {
@@ -96,8 +100,14 @@ export default {
 					type: 3
 				}
 			],
+			pagination: {
+				total: 0,
+				pageSize: 10,
+				page: 1,
+			},
 			page:1,
 			hasMore:true,
+			dataStatus: 'more',
 		};
 	},
 	onLoad(options) {
@@ -118,6 +128,7 @@ export default {
 			this.orderType = id;
 			this.page = 1;
 			this.orderList = [];
+			this.pagination.page = 1;
 			this.getOrderList();
 		},
 		getOrderList() {
@@ -127,13 +138,18 @@ export default {
 				uid:uni.getStorageSync('p_uid'),
 				token:uni.getStorageSync('p_token'),
 				status:that.orderType,
-				page:that.page,
+				page:that.pagination.page,
+				pageSize: that.pagination.pageSize,
 				type:2,//2普通商品 3金豆商品
 			}
 			that.$api.orderList(data).then(res => {
 				if(res.code == 1){
 					that.isLoading = false;
-					that.orderList = [...that.orderList, ...res.data];
+					that.orderList = [...that.orderList, ...res.data.data];
+					that.pagination.total = res.data.total;
+					if(that.orderList.length >= that.pagination.total) {
+						that.dataStatus = 'noMore';
+					}
 					if (res.data.length != 0) {
 						that.hasMore = true;
 						// that.loadStatus = '';
@@ -146,8 +162,10 @@ export default {
 		},
 		// 加载更多
 		loadMore() {
-			if (this.hasMore) {
-				this.page += 1;
+			console.log("到底了");
+			if (this.orderList.length < this.pagination.total) {
+				this.pagination.page += 1;
+				this.dataStatus = 'loading';
 				this.getOrderList();
 			}
 		},
@@ -224,6 +242,8 @@ export default {
 	.nav-item {
 		flex: 1;
 		min-height: 80rpx;
+		
+		padding: 0 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -235,6 +255,12 @@ export default {
 			font-family: PingFang SC;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 1);
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-webkit-box-orient: vertical;
+			word-break: break-all;
 		}
 		.nav-line {
 			width: 100rpx;

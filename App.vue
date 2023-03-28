@@ -249,6 +249,7 @@ export default {
 @import 'static/colorui/main.css';
 @import 'static/colorui/icon.css';
 @import 'static/font/shopro-icon.css';
+@import 'common/css/font_4dhwvcc4uaf/iconfont.css';
 
 // 其他scss集成在uni.scss,(变量,class,minix)
 

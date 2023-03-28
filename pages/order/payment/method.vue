@@ -4,7 +4,7 @@
 		<view class="content_box">
 			<view class="y-f money-box">
 				<!-- <text class="time" v-if="isPast">{{ timeText }}</text> -->
-				<view class="money">{{ total_fee }}</view>
+				<view class="money">{{$t('money.symbol')}}{{ total_fee }}</view>
 			</view>
 			<radio-group @change="selPay" class="pay-box">
 				<label class="x-bc pay-item" >
@@ -348,10 +348,10 @@ export default {
 		font-size: 60rpx;
 		margin-top: 60rpx;
 
-		&::before {
-			content: '￥';
-			font-size: 46rpx;
-		}
+		// &::before {
+		// 	content: '￥';
+		// 	font-size: 46rpx;
+		// }
 	}
 }
 

@@ -12,7 +12,7 @@
 		<view class="title more-t">{{ detail.g_name }}</view>
 		<view class="price-box">
 			<view class="flex x-bc align-end">
-				<view class="current">{{ detail.g_price }}</view>
+				<view class="current"><text>{{$t('money.symbol')}}</text>{{ detail.g_price }}</view>
 				<view class="sales miso-font">{{$t('components.shoproGoods.xl')}}{{ zhuan(detail.g_sell) }}{{$t('components.shoproGoods.jie')}}</view>
 			</view>
 		</view>
@@ -137,10 +137,10 @@ export default {
 			color: rgba(225, 33, 43, 1);
 			line-height: 30rpx;
 			margin-bottom: 20rpx;
-			&:before {
-				content: '￥';
-				font-size: 26rpx;
-			}
+			// &:before {
+			// 	content: '￥';
+			// 	font-size: 26rpx;
+			// }
 		}
 
 		.original {

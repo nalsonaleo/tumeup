@@ -1385,6 +1385,11 @@
 	"components.uniLoadMore.slxsgd": "上拉显示更多",
 	"components.uniLoadMore.zzjz": "正在加载",
 	"components.uniLoadMore.mygdsjl": "没有更多数据了",
+	"components.selectAreaCode.qxzqh": "请选择区号",
+	"components.selectAreaCode.qsrdqhqh": "请输入地区或区号",
+	"components.selectAreaCode.ss": "请选择区号",
+	"components.selectAreaCode.zwsj": "暂无数据",
+	"components.selectAreaCode.qszqh": "请选择区号",
 	
 	"locale.en": "英语",
 	"locale.zh-Hans": "简体中文",

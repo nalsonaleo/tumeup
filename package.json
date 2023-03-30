@@ -4,6 +4,9 @@
 		"miniapp-color-thief": "^1.0.5",
 		"uni-read-pages": "^1.0.4",
 		"uni-simple-router": "^1.5.2",
+		"uview-ui": "^1.8.4",
+		"node-sass": "^6.0.1",
+		"sass-loader": "^10.1.0",
 		"dev": {
 			"mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch --minimize"
 		}

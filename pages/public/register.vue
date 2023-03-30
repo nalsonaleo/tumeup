@@ -6,7 +6,7 @@
 			<view style="font-size: 54upx;color: #333;margin-left: 60upx;font-weight: 500;margin-bottom: 40upx;">{{$t("public.register.zc")}}</view>
 			<!-- 表单 -->
 			<view class="login-box y-f">
-				<view class="input-item x-c"><input class="inp" v-model="u_phone" type="number" :placeholder="$t('public.register.qsrsjh')" placeholder-class="pl" /></view>
+				<view class="input-item x-c"><selectAreaCode v-model="areaCodeData"></selectAreaCode><input class="inp" v-model="u_phone" type="number" :placeholder="$t('public.register.qsrsjh')" placeholder-class="pl" /></view>
 				<view class="input-item x-c"><input class="inp" v-model="u_nickname" type="text" :placeholder="$t('public.register.qsrnc')" placeholder-class="pl" /></view>
 				<view class="input-item x-c">
 					<input class="inp" v-model="code.y_code" type="number" :placeholder="$t('public.register.qsryzm')" placeholder-class="pl" />
@@ -36,9 +36,11 @@
 </template>
 
 <script>
+	import selectAreaCode from '@/components/selectAreaCode.vue';
 export default {
 	data() {
 		return {
+			areaCodeData: {},
 			u_phone: '',
 			code: {
 				text: this.$t('public.register.hqyzm'),
@@ -52,7 +54,9 @@ export default {
 			sysInfo: uni.getStorageSync('sysInfo')
 		};
 	},
-
+	components: {
+		selectAreaCode
+	},
 	onLoad() {},
 	methods: {
 		jump(path, parmas) {
@@ -64,13 +68,17 @@ export default {
 		},
 		getCode() {
 			let that = this;
-			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
+			// if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
+			// 	that.$msg(that.$t('public.register.qtxzqsjhm'));
+			// 	return false;
+			// }
+			if(that.u_phone.length <= 0) {
 				that.$msg(that.$t('public.register.qtxzqsjhm'));
-				return false;
+				return;
 			}
 			let countdown = 60;
 			that.code.status = true;
-			var data = { phone: that.u_phone };
+			var data = { phone: that.u_phone, type: 1, phonecode: that.areaCodeData.code};
 			that.$api.getCode(data).then(res => {
 				if (res.code === 1) {
 					that.code.text = countdown + that.$t('public.register.miao');
@@ -94,8 +102,12 @@ export default {
 		register() {
 		
 			let that = this;
-			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-				that.$msg(that.$t("public.register.qtxzqsjhm"));
+			// if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
+			// 	that.$msg(that.$t("public.register.qtxzqsjhm"));
+			// 	return false;
+			// }
+			if(!that.areaCodeData.code) {
+				that.$msg(that.$t('components.selectAreaCode.qszqh'))
 				return false;
 			}
 			if (!that.code.y_code) {
@@ -114,7 +126,7 @@ export default {
 			// 	that.$msg('请填写邀请码');
 			// 	return false;
 			// }
-			var data = { u_phone: that.u_phone, y_code: that.code.y_code, u_psd: that.u_psd, u_code: that.u_code,u_nickname:that.u_nickname };
+			var data = { u_phone: that.u_phone, y_code: that.code.y_code, u_psd: that.u_psd, u_code: that.u_code,u_nickname:that.u_nickname, phonecode: that.areaCodeData.code,type: 1};
 			that.$api.register(data).then(res => {
 				if (res.code == 1) {
 					that.$msg(res.msg);

@@ -522,9 +522,8 @@ export default {
 		.title {
 			font-size: 28rpx;
 			color: #999;
-			text-align: justify;
-			text-align-last: justify;
-			text-justify: distribute-all-lines;
+			text-align: center;
+			text-align-last: right;
 			width: 200rpx;
 		}
 

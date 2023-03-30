@@ -157,7 +157,7 @@
 				<view class="detail-right" style="flex: 2;">
 					<view class="detail-btn-box x-ac"  v-if="goodsInfo.g_type == 2" style="justify-content: flex-end;">
 						<button class="cu-btn tool-btn add-btn" @tap="addCart">{{$t("user.goods.detail.footer.addgwc")}}</button>
-						<button class="cu-btn tool-btn pay-btn" @tap="goPay">{{$t("user.goods.detail.footer.addgwc")}}</button>
+						<button class="cu-btn tool-btn pay-btn" @tap="goPay">{{$t("user.goods.detail.footer.ljgh")}}</button>
 					</view>
 					
 					<!-- 拼团foot -->

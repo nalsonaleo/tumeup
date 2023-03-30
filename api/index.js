@@ -645,6 +645,14 @@ const apiList = {
 			method: 'POST',
 			data
 		})
+	},
+	// 获取区号列表
+	getAreaCode: (data) => {
+		return http.request({
+			url: 'index.php/index/index/getquhao',
+			method: 'POST',
+			data
+		})
 	}
 }
 export default apiList

@@ -9,8 +9,9 @@ import global from './api/global.js'
 import config from './config'
 import store from './store'
 import messages from './locale/index'
-import VueI18n from 'vue-i18n'
-
+import VueI18n from 'vue-i18n';
+import uView from "uview-ui";
+Vue.use(uView);
 Vue.use(VueI18n)
 let i18nConfig = {
 	locale: uni.getLocale(),

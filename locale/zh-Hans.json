@@ -1390,6 +1390,9 @@
 	"components.selectAreaCode.ss": "请选择区号",
 	"components.selectAreaCode.zwsj": "暂无数据",
 	"components.selectAreaCode.qszqh": "请选择区号",
+	"user.wallet.method.fzcg": "复制成功",
+	"user.wallet.method.fzsb": "复制失败",
+	"user.wallet.method.fzqbdz": "复制钱包地址",
 	
 	"locale.en": "英语",
 	"locale.zh-Hans": "简体中文",

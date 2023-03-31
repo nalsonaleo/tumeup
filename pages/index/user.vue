@@ -152,7 +152,7 @@
 <script>
 import shoproGoods from '@/components/goods/shopro-goods.vue';
 import shoproPopupModal from '@/components/modal/shopro-popup-modal.vue';
-import jweixin from '@/common/jweixin/index.js';
+// import jweixin from '@/common/jweixin/index.js';
 export default {
 	components: {
 		shoproGoods,
@@ -291,24 +291,28 @@ export default {
 						that.is_default = true
 					}
 					// #ifdef H5
-					// 检测是否为微信环境
-					let ua = window.navigator.userAgent.toLowerCase();
-				
-					if (ua.indexOf('micromessenger') != -1) {
-							
-						let s = res.config;
-						jweixin.config({
-							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-							appId: s.appId, // 必填，公众号的唯一标识
-							timestamp: s.timestamp, // 必填，生成签名的时间戳
-							nonceStr: s.nonceStr, // 必填，生成签名的随机串
-							signature: s.signature, // 必填，签名
-							jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表
-						});
+					console.log(ua);
 					
+					// #ifdef MP-WEIXIN
 						
+						// 检测是否为微信环境
+						let ua = window.navigator.userAgent.toLowerCase();
+						if (ua.indexOf('micromessenger') != -1) {
+								
+							let s = res.config;
+							jweixin.config({
+								debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+								appId: s.appId, // 必填，公众号的唯一标识
+								timestamp: s.timestamp, // 必填，生成签名的时间戳
+								nonceStr: s.nonceStr, // 必填，生成签名的随机串
+								signature: s.signature, // 必填，签名
+								jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表
+							});
 						
-					}
+							
+							
+						}
+					// #endif
 					
 					
 			//获取用户头像
@@ -352,27 +356,31 @@ export default {
 			});
 			// #endif
 			// #ifdef H5
-			// 检测是否为微信环境
-			let ua = window.navigator.userAgent.toLowerCase();
-			if (ua.indexOf('micromessenger') != -1) {
-				// 微信扫一扫
-				jweixin.scanQRCode({
-					needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-					scanType: ['qrCode', 'barCode'], // 可以指定扫二维码还是一维码
-					success: function(res) {
-						let str = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-						var hx_code = str.split('=')[1];
-						uni.navigateTo({
-							url:'/pages/order/hexiao?hx_code='+hx_code
-						})
-					},
-					fail: function(res) {
-						// uni.showToast({
-						// 	title:JSON.stringify( 'error:------' + res)
-						// })
-					},
-				});
-			}
+			// #ifdef MP-WEIXIN
+							// 检测是否为微信环境
+				let ua = window.navigator.userAgent.toLowerCase();
+				console.log(ua);
+				if (ua.indexOf('micromessenger') != -1) {
+					// 微信扫一扫
+					jweixin.scanQRCode({
+						needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+						scanType: ['qrCode', 'barCode'], // 可以指定扫二维码还是一维码
+						success: function(res) {
+							let str = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+							var hx_code = str.split('=')[1];
+							uni.navigateTo({
+								url:'/pages/order/hexiao?hx_code='+hx_code
+							})
+						},
+						fail: function(res) {
+							// uni.showToast({
+							// 	title:JSON.stringify( 'error:------' + res)
+							// })
+						},
+					});
+				}
+			// #endif
+
 			// #endif
 			
 		},

@@ -1,5 +1,5 @@
 <script>
-	//import checkUpdate from "@/uni_modules/uni-upgrade-center-app/utils/check-update"
+	// import checkUpdate from "@/uni_modules/uni-upgrade-center-app/utils/check-update"
 	import {
 		mapState,
 		mapMutations
@@ -215,14 +215,14 @@ export default {
 			}
 			this.checkLogin();
 			//#ifdef APP-PLUS
-			//检测更新
-			checkUpdate().then(res => {
-				console.log("检查更新结果", res)
-			});
-			//初始化一键登录
-			this.initUniverify();
-			//初始化推送
-			this.initPush();
+			// //检测更新
+			// checkUpdate().then(res => {
+			// 	console.log("检查更新结果", res)
+			// });
+			// //初始化一键登录
+			// this.initUniverify();
+			// //初始化推送
+			// this.initPush();
 			//#endif
 		},
 		onShow: function() {
@@ -327,7 +327,7 @@ page {
 			top: 0;
 			width: 100%;
 			height: 100%;
-			background-image: url('/static/loadingbg.jpg');
+			// background-image: url('/static/loadingbg.jpg');
 			background-size: 100% 100%;
 			opacity: 0.3;
 		}
@@ -362,7 +362,7 @@ page {
 				top: 0;
 				width: 100%;
 				height: 100%;
-				background-image: url('/static/loadingbg.jpg');
+				// background-image: url('/static/loadingbg.jpg');
 				background-size: 100% 100%;
 				opacity: 0.3;
 			}

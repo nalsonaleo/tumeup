@@ -8,31 +8,44 @@
 			<radio-group @change="selPay" class="pay-box">
 				
 				
-				
-				
-				<label class="x-bc pay-item" >
+<!-- 				<label class="x-bc pay-item" >
 					<view class="x-f">
 						<image class="pay-img" src="../../../static/imgs/wx_pay.png" mode=""></image>
 						<text>{{$t("user.wallet.wxzf")}}</text>
 					</view>
 					<radio value="8" :class="{ checked: pay_type == 8  }" class="pay-radio orange" :checked="pay_type == 8"></radio>
-				</label>
+				</label> -->
 				
-				<label class="x-bc pay-item" >
+				<label class="x-bc pay-item" v-for='item in payTypeList' :key='item.id'>
 					<view class="x-f">
-						<image class="pay-img" src="../../../static/imgs/ali_pay.png" mode=""></image>
-						<text>{{$t('user.wallet.zfbzf')}}</text>
+						<image class="pay-img" :src="item.logo" mode=""></image>
+						<!-- <text>{{$t('user.wallet.zfbzf')}}</text> -->
+						<text>{{item.title}}</text>
 					</view>
-					<radio value="7" :class="{ checked: pay_type == 7  }" class="pay-radio orange" :checked="pay_type == 7"></radio>
+					<radio :value="item.type_number" :class="{ checked: pay_type == item.type_number  }" class="pay-radio orange" :checked="pay_type == item.type_number"></radio>
 				</label>
 				
 				
 			</radio-group>
 			<view class="x-c">
-				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t('user.wallet.qrzf')}} ￥{{ total_fee }}</button>
+				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t('user.wallet.qrzf')}} ${{ total_fee }}</button>
 			</view>
 		</view>
-		<view class="foot_box"></view>
+		<view class='maskBox' v-show='maskShow' @click='maskShow = false'>
+			
+		</view>
+		<view :class='{"foot_box":true, "foot_box_active": maskShow}'>
+			<view class='header'>
+				<text class='header-title'>USDT$ PAY (TRC20)</text>
+			</view>
+			<view class='content-image'>
+				<image :src="xnbData.pic" mode=""></image>
+			</view>
+			<view class='input-text'>
+				<view class='text-style'>{{xnbData.wallet}}</view>
+			</view>
+			<button class='btn' @click="copyText(xnbData.wallet)">{{$t('user.wallet.method.fzqbdz')}}</button>
+		</view>
 	</view>
 </template>
 
@@ -46,6 +59,12 @@ export default {
 			pay_type: 8,//1余额 2APP微信 3APP支付宝 4公众号小程序微信
 			isXcx:false,
 			isWx:false,
+			maskShow:false,
+			payTypeList: [],
+			xnbData:  {
+				pic: undefined,
+				wallet: undefined,
+			}
 		};
 	},
 
@@ -67,15 +86,56 @@ export default {
 		this.order_id = options.orderId;
 		
 	},
+	created() {
+		this.loadPayTypelist();
+	},
 	methods: {
+		loadPayTypelist() {
+			this.$api.payType().then((res) => {
+				this.payTypeList = res.data;
+			});
+		},
+		copyText(val) {
+			let that = this;
+			uni.setClipboardData({
+				data: val,
+				success() {
+					uni.showToast({
+						title: that.$t('user.wallet.method.fzcg'),
+						duration: 2000,
+						icon: "none",
+						position: "center"
+					})
+				},
+				fail: () => {
+					uni.showToast({
+						title: that.$t('user.wallet.method.fzsb'),
+						duration: 2000,
+						icon: "none",
+						position: "bottom"
+					})
+				}
+			})
+		},
 		selPay(e) {
 			this.pay_type = e.detail.value;
 		},
 		// 发起支付
 		confirmPay() {
 			let that = this;
+			if(that.pay_type == 9) {
+				let data = {
+					uid:uni.getStorageSync('p_uid'),
+					token:uni.getStorageSync('p_token')
+				}
+				that.$api.getAddressVirtual(data).then((res) => {
+					console.log(res);
+					this.xnbData = res.data;
+					this.maskShow = true;
+				})
+				return;
+			}
 			if(that.pay_type == 6){
-				
 				uni.redirectTo({
 					url: '/pages/user/xianxia'
 				});
@@ -168,6 +228,72 @@ export default {
 </script>
 
 <style lang="scss">
+	.maskBox {
+		width:100vw;
+		height:100vh;
+		position: fixed;
+		background:rgba(0,0,0,0.8)
+	}
+.foot_box {
+	width:100%;
+	position: fixed;
+	bottom:-1000rpx;
+	background: white;
+	height: 1000rpx;
+	border-radius:20rpx 20rpx 0 0;
+	overflow: hidden;
+	.header {
+		width:100%;
+		height: 100rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.header-title{
+			font-size: 48rpx;
+			color: #333;
+		}
+	}
+	.content-image {
+		width: 100%;
+		margin-top: 20rpx;
+		display: flex;
+		justify-content: center;
+		
+		&>image {
+			width: 600rpx;
+			height: 600rpx;
+		}
+	}
+	
+	.input-text {
+		width: 100%;
+		position:relative;
+		margin-top: 20rpx;
+		.text-style {
+			max-width: 600rpx;
+			background: #f7faff;
+			word-wrap: break-word;
+			margin: 0 auto;
+			padding: 0 10rpx;
+		}
+	}
+	
+	.btn {
+		width: 500rpx;
+		min-height: 60rpx;
+		margin-top: 20rpx;
+		background: #ecf5ff !important;
+		color: #2979ff !important;
+		border:2rpx solid #a0cfff !important;
+		font-size: 28rpx;
+		line-height: 60rpx;
+		border-radius: 60rpx;
+	}
+}
+.foot_box_active {
+	transition: bottom linear 0.4s;
+	bottom: 0;
+}
 .money-box {
 	background: #fff;
 	height: 250rpx;
@@ -185,7 +311,7 @@ export default {
 		margin-top: 60rpx;
 
 		&::before {
-			content: '￥';
+			content: '$';
 			font-size: 46rpx;
 		}
 	}

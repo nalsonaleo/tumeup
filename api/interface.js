@@ -82,6 +82,7 @@ export default {
 				} else if (code == 0) {
 					tool.msg(msg)
 					// setTimeout(() => {
+						
 					// 	uni.reLaunch({
 					// 		url: '/pages/login/login'
 					// 	})

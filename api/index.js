@@ -653,6 +653,19 @@ const apiList = {
 			method: 'POST',
 			data
 		})
+	},
+	getAddressVirtual: (data) => {
+		return http.request({
+			url: 'index.php/index/virtual/getAddress',
+			method: 'POST',
+			data,
+		})
+	},
+	payType: () => {
+		return http.request({
+			url: 'index.php/index/index/pay_type',
+			method: 'POST',
+		})
 	}
 }
 export default apiList

@@ -771,7 +771,7 @@
 	"user.address.edit.szdq": "所在地区",
 	"user.address.edit.szdq.placeholder": "点击选择所在地区",
 	"user.address.edit.detailAddress": "详细地址",
-	"user.address.edit.textarea.placeholder": "如道路、门牌号、小区、楼栋号、单元室等",
+	"user.address.edit.textarea.placeholder": "请输入地址",
 	"user.address.edit.defaultAddress": "设为默认地址",
 	"user.address.edit.delAddress": "删除收货地址",
 	"user.address.edit.saveAddress": "保存收获地址",

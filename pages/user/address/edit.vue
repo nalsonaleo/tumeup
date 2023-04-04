@@ -14,12 +14,12 @@
 					<input class="inp flex-sub" :placeholder="$t('user.address.edit.phone.placeholder')" type="number" v-model="a_phone" />
 				</label>
 			</view>
-			<view class="address-item x-f" @tap="chooseCity">
+<!-- 			<view class="address-item x-f">
 				<label class="x-f flex-sub">
 					<text class="item-title">{{$t("user.address.edit.szdq")}}：</text>
-					<input class="inp flex-sub" disabled type="text" :placeholder="$t('user.address.edit.szdq.placeholder')" v-model="area_text" />
+					<input class="inp flex-sub" type="text" :placeholder="$t('user.address.edit.szdq.placeholder')" v-model="area_text" />
 				</label>
-			</view>
+			</view> -->
 			<view class="area-box x-f">
 				<label class="x-f x-start">
 					<view class="area-item"><text class="item-title">{{$t("user.address.edit.detailAddress")}}：</text></view>
@@ -130,10 +130,10 @@ export default {
 			// 	that.$msg(that.$t("user.address.edit.phonecorrect"));
 			// 	return;
 			// }
-			if(!that.area_text){
-				that.$msg(that.$t("user.address.edit.select.harvestAddress"));
-				return;
-			}
+			// if(!that.area_text){
+			// 	that.$msg(that.$t("user.address.edit.select.harvestAddress"));
+			// 	return;
+			// }
 			if(!that.a_address){
 				that.$msg(that.$t("user.address.edit.inputHarvestAddress"));
 				return;

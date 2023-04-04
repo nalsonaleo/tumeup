@@ -16,7 +16,7 @@
 						<view class="info-box">
 							<view class="x-f">
 								<view class="head-img-wrap" @tap.stop="jump('/pages/user/info')">
-									<image class="head-img"  :src="userInfo.u_img || '/static/imgs/base_avatar.png'" mode="aspectFill"></image>
+									<image class="head-img"  :src="userInfo.u_img || '/static/imgs/base_avatar.png'"></image>
 								</view>
 								<view>
 									<view class="grade-tag tag-box x-f"  style="display: flex;float: right;padding-right: 10px;">
@@ -291,7 +291,7 @@ export default {
 						that.is_default = true
 					}
 					// #ifdef H5
-					console.log(ua);
+					// console.log(ua);
 					
 					// #ifdef MP-WEIXIN
 						

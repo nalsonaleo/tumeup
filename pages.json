@@ -220,7 +220,7 @@
 			"path": "pages/order/ptOrder",
 			"name": "orderList",
 			"style": {
-				"navigationBarTitleText": "%locale.teamuporder%"
+				"navigationBarTitleText": "%pages.order.payment.teamuporder%"
 			}
 		},
 		{

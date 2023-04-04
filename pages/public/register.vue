@@ -57,7 +57,11 @@ export default {
 	components: {
 		selectAreaCode
 	},
-	onLoad() {},
+	onLoad(params) {
+		if(params.t) {
+			this.u_code = params.t;
+		}
+	},
 	methods: {
 		jump(path, parmas) {
 			

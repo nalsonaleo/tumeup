@@ -666,6 +666,11 @@ const apiList = {
 			url: 'index.php/index/index/pay_type',
 			method: 'POST',
 		})
+	},
+	getKeywords: () => {
+		return http.request({
+			url: 'index.php/index/index/getKeywords'
+		})
 	}
 }
 export default apiList

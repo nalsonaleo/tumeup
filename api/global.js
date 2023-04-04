@@ -7,8 +7,8 @@ if(process.env.NODE_ENV === 'production'){
 	// baseUrl = "http://192.168.0.94:7079/"
 }else{
 	/* 开发环境 */
-	// baseUrl = "http://7.lazygirlshop.com/"
-	baseUrl = "http://192.168.0.94:7079/"
+	baseUrl = "http://7.lazygirlshop.com/"
+	// baseUrl = "http://192.168.0.94:7079/"
 }
 
 export default {

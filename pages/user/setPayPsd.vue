@@ -31,7 +31,7 @@
 				u_paypsd:'',
 				re_paypsd:'',
 				code: {
-					text: that.$t('user.setPayPsd.hqyzm'),
+					text: this.$t('user.setPayPsd.hqyzm'),
 					status: false,
 					y_code: ''
 				},

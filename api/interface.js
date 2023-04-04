@@ -6,8 +6,8 @@ import tool from '../tool/tool'
 export default {
 	config: {
 		// baseUrl: "http://192.168.1.192:807/",
-		baseUrl: "http://192.168.0.94:7079/",
-		// baseUrl: "http://7.lazygirlshop.com/",
+		// baseUrl: "http://192.168.0.94:7079/",
+		baseUrl: "http://7.lazygirlshop.com/",
 		header: {
 			// 'Content-Type': 'application/json;charset=UTF-8'
 			'Content-Type': 'application/x-www-form-urlencoded',

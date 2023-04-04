@@ -30,7 +30,12 @@
 
 				<view class="keyword">
 					<view class="hot">Hot :</view>
-					<view class="hot-keyword">{{$t("index.index.hot.xz")}} | {{$t("index.index.hot.zq")}} </view>
+					<view class="hot-keyword">
+						<text v-for='(item, index) in keywordsList' :key='item.id' @click='keyWordsSearch(item.keyword)'>
+							{{item.keyword}} 
+							<text v-if='index !== keywordsList.length - 1'> | </text> 
+						</text>
+					</view>
 				</view>
 			</view>
 
@@ -212,7 +217,8 @@
 				gg1: '',
 				gg2: "",
 				searchVal: "",
-				categoryCurrent: 0
+				categoryCurrent: 0,
+				keywordsList: [],
 			};
 		},
 		onLoad() {
@@ -225,7 +231,7 @@
 
 		onShow() {
 			this.getList()
-
+			this.getKeywords();
 
 		},
 		getUrlParam(name) {
@@ -248,6 +254,11 @@
 		},
 		methods: {
 			...mapMutations(['login', 'logout', 'changeShopId']),
+			getKeywords() {
+				this.$api.getKeywords().then((res) => {
+					this.keywordsList = res.data;
+				})
+			},
 			async loadData() {
 				this.isLoaded = true;
 			},
@@ -327,6 +338,13 @@
 				let that = this;
 				uni.navigateTo({
 					url: '/pages/goods/list?keyword=' + that.searchVal + '&type=2'
+				})
+			},
+			// 关键字
+			keyWordsSearch(value) {
+				let that = this;
+				uni.navigateTo({
+					url: '/pages/goods/list?keyword=' + value + '&type=2'
 				})
 			},
 			// 分类进商品列表

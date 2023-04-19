@@ -671,6 +671,13 @@ const apiList = {
 		return http.request({
 			url: 'index.php/index/index/getKeywords'
 		})
-	}
+	},
+	// app版本更新接口
+	getVersion(data) {
+		return http.request({
+			url: 'index.php/index/index/getVersionInfo',
+			data
+		})
+	},
 }
 export default apiList

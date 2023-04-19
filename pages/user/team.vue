@@ -60,12 +60,13 @@ export default {
 			var data = {
 				uid:uni.getStorageSync('p_uid'),
 				token:uni.getStorageSync('p_token'),
-				layer:that.layer
+				layer:that.layer,
+				pageSize: 9999999999999,
 			}
 			that.$api.team(data).then(res => {
 				if(res.code == 1){
 					that.team_num = res.team_num;
-					that.list = res.data;
+					that.list = res.data.data;
 				}
 			});
 		},

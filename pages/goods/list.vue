@@ -1,16 +1,12 @@
 <template>
-	
 	<view class="list-box">
 		<view class="head_box">
-			<view class="" style="position:relative;z-index: 10; background: #fff;">
-				<cu-custom :isBack="true">
-					<block slot="backText">
-						<view class="search-box flex align-center" @tap.stop>
-							<input @confirm="onSearch" @input="onInput" :confirm-type="$t('goods.list.ss')" class="search flex-sub" type="text" v-model="searchVal" :placeholder="$t('goods.list.spss')" />
-							<text v-show="searchVal" @tap="clearSearch" class="cuIcon-roundclosefill"></text>
-						</view>
-					</block>
-				</cu-custom>
+			<view class="nav" style="background: #fff;">
+				<text class="cuIcon-back cuIcon-style" @tap="BackPage"></text>
+				<view class="search-box flex align-center" @tap.stop>
+					<input @confirm="onSearch" @input="onInput" :confirm-type="$t('goods.list.ss')" class="search flex-sub" type="text" v-model="searchVal" :placeholder="$t('goods.list.spss')" />
+					<text v-show="searchVal" @tap="clearSearch" class="cuIcon-roundclosefill"></text>
+				</view>
 			</view>
 			<view class="filter-item"><sh-filter @change="onFilter"></sh-filter></view>
 		</view>
@@ -84,7 +80,11 @@ export default {
 			
 	        },
 	methods: {
-
+		BackPage() {
+			uni.navigateBack({
+				delta:1
+			})
+		},
 		onFilter(e) {
 			// console.log(e)
 			var that = this;
@@ -186,12 +186,20 @@ export default {
 	page{
 		height:auto;
 	}
+	
 .head_box {
-	position: -webkit-sticky;
-	position: sticky;
+	width: 100vw;
 	top: 0;
 	z-index: 998;
 	background: #fff;
+	padding-top: var(--status-bar-height);
+
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	padding-bottom: 10rpx;
 }
 
 .search-box {

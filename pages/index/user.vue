@@ -1,6 +1,20 @@
 <template>
 	<view class="user-box">
-		
+<!-- 		<view class='navbar'>
+			<view class='navbar-left'>
+				<image class='back-style' src="../../static/imgs/back.png" alt="" />
+				<view class="head-img-wrap-two" @tap.stop="jump('/pages/user/info')">
+					<image class="head-img"  :src="userInfo.u_img || '/static/imgs/base_avatar.png'"></image>
+					<text class="tag-title" style="color: #fff;">{{userInfo.u_name ? userInfo.u_name : userInfo.u_phone}}</text>
+				</view>
+				<button  v-if="info.s_out != 2 && userInfo.u_img" class="cu-btn code-btn" @tap="jump('/pages/public/poster/index')">
+					<text class="cuIcon-qr_code" style="color: #fff;"></text>
+				</button>
+			</view>
+			<view class='navbar-right'>
+				<navigator url="/pages/user/set"><image class='set-style' src="/static/imgs/set.png" style="width:30px" alt=""></navigator>
+			</view>
+		</view> -->
 		<view class="head_box">
 			<image class="user-bg" src="../../static/imgs/user/user_bg.png" mode=""></image>
 			<view class="head-wrap pad">
@@ -8,7 +22,7 @@
 					<view class="status-bar"></view>
 					<view class="nav-title x-f" style="color: #fff;display: flex;justify-content: space-between;">
 						<text></text>
-						<navigator url="/pages/user/set"><img src="/static/imgs/set.png" style="width:30px" alt=""></navigator>
+						<!-- <navigator url="/pages/user/set"><img src="/static/imgs/set.png" style="width:30px" alt=""></navigator> -->
 					</view>
 				</view>
 				<view class="user-head x-bc">
@@ -27,14 +41,9 @@
 										<text @tap.stop="jump('/pages/user/info')" class="user-name one-t" style="color: #fff;display: block;margin-bottom: 10upx;">
 											{{ userInfo.u_name ? userInfo.u_name : userInfo.u_phone }}
 										</text>
-										<!-- <navigator url="/pages/user/upgrade" class="grade-tag tag-box x-f">
-											<image class="tag-img" src="../../static/imgs/user/level.png" mode=""></image>
-											<text class="tag-title" style="color: #fff;">{{ userInfo.level_name }}</text>
-										</navigator> -->
 										
 									</view>
 									
-									<!-- <text  @tap.stop="jump('/pages/user/info')" class="user-name one-t" style="color: #fff;display: block;margin-bottom: 10upx;">{{ userInfo.u_name?userInfo.u_name:userInfo.u_phone}}</text> -->
 									<text  class="user-name one-t" style="color: #fff;display: block;font-size: 24upx;width: 200upx;">ID: {{userInfo.id}}</text>
 								</view>
 							</view>
@@ -52,10 +61,11 @@
 					<button  v-if="info.s_out != 2 && userInfo.u_img" class="cu-btn code-btn" @tap="jump('/pages/public/poster/index')">
 						<text class="cuIcon-qr_code" style="color: #fff;"></text>
 					</button>
+					<navigator url="/pages/user/set"><image src="/static/imgs/set.png" style="width:30px;height: 30px" alt=""></navigator>
 				</view>
 			</view>
 		</view> 
-		<view  style="position: relative;width: 90%;display: flex;flex-direction: column;left: 5%;top: -20px;color: #000000;background-color:white;justify-content: center;align-items:center;border-radius: 15px;">
+		<view  style="position: relative;width: 90%;display: flex;flex-direction: column;left: 5%;top: 0;color: #000000;background-color:white;justify-content: center;align-items:center;border-radius: 15px;margin-top: 280rpx;z-index: 99999">
 			<view style="display: flex;justify-content: center;padding-top: 10px;align-items: center;">
 				<navigator url="/pages/activity/groupon/my-groupon" style="display: flex;flex-direction: column;align-items: center;justify-content: center;flex-wrap: wrap;">
 					<view>{{$t("user.groupon.mytitle")}}</view>
@@ -87,7 +97,7 @@
 			</view>
 		</view>
 		<navigator url="/pages/user/upgrade" style="margin-top:-10px">
-			<img style="width:100%" src="/static/imgs/tovip.png" alt=""/>
+			<image style='width: 100%;height: 200rpx' src="/static/imgs/tovip.png" mode='scaleToFill' alt=""></image>
 		</navigator>
 		<view class="content_box" style="">
 			<!-- 订单卡片 -->
@@ -430,7 +440,62 @@ export default {
 </script>
 
 <style lang="scss">
+.navbar {
+	width: 100vw;
+	padding: 0 10rpx;
+	box-sizing: border-box;
+	padding-top: var(--status-bar-height);
+	background: #209423;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	.navbar-left {
+		width: 50%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		.back-style {
+			width: 50rpx;
+			height: 50rpx;
+		}
+		.head-img-wrap-two {
+			// width: 200rpx;
+			display: flex;
+			align-items: center;
+			.head-img {
+				width: 60rpx;
+				height: 60rpx;
+				border-radius: 50%;
+				overflow:hidden;
+				background: white;
+			}
+			.tag-title {
+				margin-left: 10rpx;
+				width: 100rpx;
+				overflow:hidden;
+				text-overflow: ellipsis;
+			}
+		}
+		.code-btn {
+			width: 56rpx;
+			height: 56rpx;
+			background: none;
+			.cuIcon-qr_code {
+				font-size: 50rpx;
+			}
+		}
+	}
 	
+	.navbar-right {
+		.set-style {
+			width: 60rpx;
+			height: 60rpx;
+		}
+	}
+}
 .user-box {
 	overflow-x: hidden;
 }
@@ -444,11 +509,12 @@ export default {
 }
 
 .head_box {
-	position: relative;
-	height: 320rpx;
+	position: fixed;
+    height: 140px;
+    width: 100vw;
 	.user-bg {
 		width: 100%;
-		height: 320rpx;
+		height: 140px;
 	}
 	.head-wrap {
 		position: absolute;

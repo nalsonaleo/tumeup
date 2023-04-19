@@ -1,23 +1,24 @@
 <template>
-	<view class="container">
+	<view class="container">				
+		<view class="top-logo">
+			<view class="l" @tap="jump('/pages/index/news')">
+				<image src="../../static/imgs/logo/logo.png"></image>
+			</view>
+			<view class="lang">
+				<mix-list-cell icon="icon-shouhuodizhi" iconColor="#00aa7f" :title="$t('user.title.language')"
+					@eventClick="showLanguage"></mix-list-cell>
+			</view>
+			<view class="r" @tap="jump('/pages/index/news')">
+				<image src="../../static/imgs/news.png"></image>
+			</view>
+		</view>
 		<!-- 头部轮播 -->
 		<view class="carousel-section">
 			<!-- #ifdef APP-PLUS -->
 			<view class="topPlace"></view>
 			<!-- #endif -->
 			<view class="top">
-				<view class="top-logo">
-					<view class="l" @tap="jump('/pages/index/news')">
-						<image src="../../static/imgs/logo/logo.png"></image>
-					</view>
-					<view class="lang">
-						<mix-list-cell icon="icon-shouhuodizhi" iconColor="#00aa7f" :title="$t('user.title.language')"
-							@eventClick="showLanguage"></mix-list-cell>
-					</view>
-					<view class="r" @tap="jump('/pages/index/news')">
-						<image src="../../static/imgs/news.png"></image>
-					</view>
-				</view>
+
 				<view class="search">
 
 					<view class="l">
@@ -96,20 +97,20 @@
 
 			<navigator url="/pages/huiyuan/huiyuan" class="on"><img
 					style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="../../static/imgs/cat2.jpg"></navigator>
+					src="https://7.lazygirlshop.com/static/cat1.jpg" /></navigator>
 			<navigator url="/pages/user/team" class="on"><img
 					style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="../../static/imgs/cat3.jpg"></navigator>
+					src="https://7.lazygirlshop.com/static/cat4.jpg"></navigator>
 
 		</div>
 		<div class="top2_wrap"
 			style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:90px;width:100%;border-radius:10px;">
 			<navigator url="/pages/huiyuan/pintuan" class="on"><img
 					style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="../../static/imgs/cat4.jpg"></navigator>
+					src="https://7.lazygirlshop.com/static/cat2.jpg"></navigator>
 			<navigator url="/pages/app/score/list" class="on"><img
 					style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="../../static/imgs/cat1.jpg"></navigator>
+					src="https://7.lazygirlshop.com/static/cat3.jpg"></navigator>
 
 
 		</div>
@@ -193,7 +194,10 @@
 </template>
 
 <script>
-	import localeList from '@/locale/locales.js'
+	import localeList from '@/locale/locales.js';
+	// #ifdef APP-PLUS
+	import AppUpdate from '@/uni_modules/zhouWei-APPUpdate/js_sdk/appUpdate.js'
+	// #endif
 	import {
 		mapState,
 		mapMutations
@@ -232,7 +236,9 @@
 		onShow() {
 			this.getList()
 			this.getKeywords();
-
+			// #ifdef APP-PLUS
+			AppUpdate();
+			// #endif
 		},
 		getUrlParam(name) {
 			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -358,6 +364,86 @@
 </script>
 
 <style lang="scss" scoped>
+	.top-logo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: fixed;
+		width: 100vw;
+		background: $zhuse;
+		padding-top: var(--status-bar-height);
+		top: 0;
+		z-index: 9999;
+		.lang {
+			display: flex;
+			margin-right: 20upx;
+			font-size: 26upx;
+			color: #fff;
+			display: block;
+	
+			image {
+				width: 50upx;
+				height: 70upx;
+				display: block;
+				// margin-bottom: 6upx;
+			}
+		}
+	
+		.l {
+			flex: 1;
+			margin-right: 20upx;
+			padding: 0 10upx;
+			height: 80upx;
+			display: flex;
+			align-items: center;
+	
+			image {
+				width: 140upx;
+				height: 50upx;
+				display: block;
+			}
+	
+			text {
+				font-size: 26upx;
+				color: #fff;
+				margin-left: 10upx;
+			}
+	
+			input {
+				height: 100%;
+				color: #fff;
+				font-size: 26upx;
+				margin-left: 10upx;
+				flex: 1;
+			}
+	
+			.input-placeholder,
+			.pl-input {
+				color: #fff;
+			}
+		}
+	
+		.r {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+	
+			image {
+				width: 50upx;
+				height: 50upx;
+				display: block;
+				// margin-bottom: 6upx;
+			}
+	
+			text {
+				font-size: 16upx;
+				color: #fff;
+				display: block;
+			}
+		}
+	}
+	
 	.topPlace {
 		width: 100%;
 		height: var(--status-bar-height);
@@ -453,86 +539,14 @@
 			width: 100%;
 			padding: 14upx 20upx;
 			background: $zhuse;
+			padding-top: 40rpx;
 			// #ifdef MP-WEIXIN
 			padding-top: 50upx;
 			padding-right: 28%;
 			// #endif
 		}
 
-		.top-logo {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
 
-			.lang {
-				display: flex;
-				margin-right: 20upx;
-				font-size: 26upx;
-				color: #fff;
-				display: block;
-
-				image {
-					width: 50upx;
-					height: 70upx;
-					display: block;
-					// margin-bottom: 6upx;
-				}
-			}
-
-			.l {
-				flex: 1;
-				margin-right: 20upx;
-				padding: 0 10upx;
-				height: 80upx;
-				display: flex;
-				align-items: center;
-
-				image {
-					width: 140upx;
-					height: 50upx;
-					display: block;
-				}
-
-				text {
-					font-size: 26upx;
-					color: #fff;
-					margin-left: 10upx;
-				}
-
-				input {
-					height: 100%;
-					color: #fff;
-					font-size: 26upx;
-					margin-left: 10upx;
-					flex: 1;
-				}
-
-				.input-placeholder,
-				.pl-input {
-					color: #fff;
-				}
-			}
-
-			.r {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				text-align: center;
-
-				image {
-					width: 50upx;
-					height: 50upx;
-					display: block;
-					// margin-bottom: 6upx;
-				}
-
-				text {
-					font-size: 16upx;
-					color: #fff;
-					display: block;
-				}
-			}
-		}
 
 		.search {
 			display: flex;

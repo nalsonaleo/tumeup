@@ -65,7 +65,7 @@
 				</view>
 			</view>
 		</view> 
-		<view  style="position: relative;width: 90%;display: flex;flex-direction: column;left: 5%;top: 0;color: #000000;background-color:white;justify-content: center;align-items:center;border-radius: 15px;margin-top: 280rpx;z-index: 99999">
+		<view  style="position: relative;width: 90%;display: flex;flex-direction: column;left: 5%;top: 0;color: #000000;background-color:white;justify-content: center;align-items:center;border-radius: 15px;margin-top: 280rpx;z-index: 99">
 			<view style="display: flex;justify-content: center;padding-top: 10px;align-items: center;">
 				<navigator url="/pages/activity/groupon/my-groupon" style="display: flex;flex-direction: column;align-items: center;justify-content: center;flex-wrap: wrap;">
 					<view>{{$t("user.groupon.mytitle")}}</view>
@@ -512,9 +512,10 @@ export default {
 	position: fixed;
     height: 140px;
     width: 100vw;
+	z-index:99999;
 	.user-bg {
 		width: 100%;
-		height: 140px;
+		height: 280rpx;
 	}
 	.head-wrap {
 		position: absolute;

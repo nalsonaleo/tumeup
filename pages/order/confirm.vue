@@ -42,7 +42,7 @@
 						<view class="goods-price x-bc">
 							<view class="">
 								<text v-if="g.g_type == 3">{{ g.g_integral3 }}{{$t("user.order.confirm.jd")}}+</text>
-								<text>￥{{ g.sku_price ? g.sku_price : g.g_price }}</text>
+								<text>{{$t('money.symbol')}} {{ g.sku_price ? g.sku_price : g.g_price }}</text>
 							</view>
 							<text class="goods-num">x{{ g.num }}</text>
 						</view>

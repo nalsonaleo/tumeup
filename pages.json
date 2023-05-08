@@ -63,11 +63,14 @@
 		},
 		{
 			"path": "pages/huiyuan/huiyuan",
+			"aliasPath": "/", //对于h5端你必须在首页加上aliasPath并设置为/
 			"style": {
 				"navigationBarTitleText": "%pages.huiyuan.huiyuan%",
 				"navigationBarBackgroundColor":"#54B85D",
-				"navigationBarTextStyle": "white"
+				"navigationBarTextStyle": "white",
+				"navigationStyle": "custom"
 			}
+			
 		},
 		
 		
@@ -474,6 +477,12 @@
 				"text": "%pages.tabBar.category%",
 				"iconPath": "static/imgs/tabbar/tab-cate.png",
 				"selectedIconPath": "static/imgs/tabbar/tab-cate-current.png"
+			},
+			{
+				"pagePath": "pages/huiyuan/huiyuan",
+				"text": "%pages.tabBar.teamup%",
+				"iconPath": "static/imgs/tabbar/teamup_index.png",
+				"selectedIconPath": "static/imgs/tabbar/teamup_index1.png"
 			},
 			{
 				"pagePath": "pages/index/cart",

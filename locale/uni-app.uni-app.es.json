@@ -1,1 +1,36 @@
-{"common":{"uni.app.quit":"Al presionar la aplicación saldrá de la aplicación","uni.async.error":"La conexión al servidor timeout. Haga clic en la pantalla para intentarlo de nuevo","uni.showActionSheet.cancel":"cancelar","uni.showToast.unpaired":"Tenga en cuenta que debe empareshowtoast y hidetoast para usar","uni.showLoading.unpaired":"Tenga en cuenta que debe empareshowloading y angioloading para usar","uni.showModal.cancel":"cancelar","uni.showModal.confirm":"Confirmar confirmación","uni.chooseImage.cancel":"cancelar","uni.chooseImage.sourceType.album":"Álbum álbum","uni.chooseImage.sourceType.camera":"Cámara de fotos","uni.chooseVideo.cancel":"cancelar","uni.chooseVideo.sourceType.album":"Álbum álbum","uni.chooseVideo.sourceType.camera":"Cámara de fotos","uni.previewImage.cancel":"cancelar","uni.previewImage.button.save":"ahorrar","uni.previewImage.save.success":"Guarde la imagen en el álbum correctamente","uni.previewImage.save.fail":"No se ha podido guardar la imagen en el álbum","uni.setClipboardData.success":"El contenido ha sido copiado","uni.scanCode.title":"Código de escaneo","uni.scanCode.album":"Álbum álbum","uni.scanCode.fail":"El presidente","uni.scanCode.flash.on":"Tocar y tocar","uni.scanCode.flash.off":"Cerrar y cerrar","uni.startSoterAuthentication.authContent":"Reconocimiento de huellas digitales","uni.picker.done":"hecho","uni.picker.cancel":"cancelar","uni.video.danmu":"","uni.video.volume":"volumen","uni.button.feedback.title":"Respuesta a las preguntas","uni.button.feedback.send":"enviar"},"ios":{},"android":{}}
+{
+	"common": {
+		"uni.app.quit": "Al presionar la aplicación saldrá de la aplicación",
+		"uni.async.error": "La conexión al servidor timeout. Haga clic en la pantalla para intentarlo de nuevo",
+		"uni.showActionSheet.cancel": "cancelar",
+		"uni.showToast.unpaired": "Tenga en cuenta que debe empareshowtoast y hidetoast para usar",
+		"uni.showLoading.unpaired": "Tenga en cuenta que debe empareshowloading y angioloading para usar",
+		"uni.showModal.cancel": "cancelar",
+		"uni.showModal.confirm": "Confirmar confirmación",
+		"uni.chooseImage.cancel": "cancelar",
+		"uni.chooseImage.sourceType.album": "Álbum álbum",
+		"uni.chooseImage.sourceType.camera": "Cámara de fotos",
+		"uni.chooseVideo.cancel": "cancelar",
+		"uni.chooseVideo.sourceType.album": "Álbum álbum",
+		"uni.chooseVideo.sourceType.camera": "Cámara de fotos",
+		"uni.previewImage.cancel": "cancelar",
+		"uni.previewImage.button.save": "ahorrar",
+		"uni.previewImage.save.success": "Guarde la imagen en el álbum correctamente",
+		"uni.previewImage.save.fail": "No se ha podido guardar la imagen en el álbum",
+		"uni.setClipboardData.success": "El contenido ha sido copiado",
+		"uni.scanCode.title": "Código de escaneo",
+		"uni.scanCode.album": "Álbum álbum",
+		"uni.scanCode.fail": "El presidente",
+		"uni.scanCode.flash.on": "Tocar y tocar",
+		"uni.scanCode.flash.off": "Cerrar y cerrar",
+		"uni.startSoterAuthentication.authContent": "Reconocimiento de huellas digitales",
+		"uni.picker.done": "hecho",
+		"uni.picker.cancel": "cancelar",
+		"uni.video.danmu": "",
+		"uni.video.volume": "volumen",
+		"uni.button.feedback.title": "Respuesta a las preguntas",
+		"uni.button.feedback.send": "enviar"
+	},
+	"ios": {},
+	"android": {}
+}

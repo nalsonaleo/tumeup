@@ -1,10 +1,10 @@
 <template>
 	<view class="page_box">
 		<view class="head_box">
-			<cu-custom :isBack="true" style="color: #fff;">
+<!-- 			<cu-custom :isBack="true" style="color: #fff;">
 				<block slot="backText">{{$t("user.wallet.scoreBalance.jindou")}}</block>
 				<block slot="content"></block>
-			</cu-custom>
+			</cu-custom> -->
 			<image class="bg" src="../../../static/imgs/integral_bg.png" mode=""></image>
 			<view class="all-box x-c">
 				<text class="all-num">{{ score }}</text>
@@ -116,21 +116,22 @@ export default {
 	.head_box {
 		width: 750rpx;
 		height: 480rpx;
-		background: linear-gradient(180deg, #e84949 0%, #e84949 57%, white 100%);
-		// background: linear-gradient(180deg, rgba(239, 196, 128, 1) 0%, rgba(248, 220, 165, 1) 56.99999999999999%, rgba(255, 255, 255, 1) 100%);
+		//background: linear-gradient(180deg, #99CC00	 0%, #99CC66 57%, white 100%);
+		 background: linear-gradient(180deg, rgba(239, 196, 128, 1) 0%, rgba(248, 220, 165, 1) 56.99999999999999%, rgba(255, 255, 255, 1) 100%);
 		position: relative;
 		.bg {
 			position: absolute;
 			left: 50%;
-			top: 50%;
+			top: 40%;
 			transform: translate(-50%, -50%);
 			width: 310rpx;
 			height: 310rpx;
+			
 		}
 		.all-box {
 			position: absolute;
 			left: 50%;
-			top: 50%;
+			top: 40%;
 			transform: translate(-50%, -50%);
 			width: 180rpx;
 			height: 180rpx;
@@ -149,10 +150,10 @@ export default {
 				color: rgba(255, 255, 255, 0.8);
 				line-height: 54rpx;
 				text-align: center;
-				width: 154rpx;
+				width: 200rpx;
 				height: 53rpx;
-				background: linear-gradient(90deg, #ec5252, #f96666);
-				// background: linear-gradient(90deg, rgba(233, 180, 97, 1), rgba(238, 204, 137, 1));
+				//background: linear-gradient(90deg, #FFCC99, #FFCC00);
+				background: linear-gradient(90deg, rgba(233, 180, 97, 1), rgba(238, 204, 137, 1));
 				border-radius: 27rpx;
 				bottom: -16rpx;
 			}

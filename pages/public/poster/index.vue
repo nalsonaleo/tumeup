@@ -134,12 +134,12 @@ export default {
 </script>
 
 <style lang="scss">
-	.bg{width: 100%;min-height: 133.7vh;position: relative;}
+	.bg{width: 100%;min-height: 100vh;position: relative;}
 	.con{
 		
-		width: 100%;min-height: 133.7vh;position: absolute;z-index: 999;top: 0;left: 0;
+		width: 100%;position: absolute;top: 0;left: 0;
 		.codeCon{
-			width: 58%;padding: 70upx 0 60upx;background: #fff;border-radius: 10upx;box-shadow: 0 0 10px #b58484;margin: 340upx auto 50upx;text-align: center;
+			width: 58%;padding: 50upx 0 60upx;background: #fff;border-radius: 10upx;box-shadow: 0 0 10px #b58484;margin: 340upx auto 50upx;text-align: center;
 			image{width: 270upx;height: 270upx;margin: 0 auto;display: block;}
 			.code{font-size: 44upx;color: $zhuse;font-weight: 600;margin-top: 30upx;}
 			.txt{color: #808080;}
@@ -148,7 +148,7 @@ export default {
 	}
 	uni-page-body{
 		overflow: hidden;
-		min-height: 940px;
-		background-color: red;
+		//min-height: 940px;
+		background-color: #f5f5f5;
 	}
 </style>

@@ -21,7 +21,7 @@
 							<view class="goods-title more-t">{{ goodsInfo2.g_name }}</view>
 							<view class="x-bc goods-bottom">
 								<view class="price-box x-f">
-									<view><text v-if="goodsInfo2.g_type  == 3">{{currentSkuPrice.integral || goodsInfo2.g_integral3}}{{$t("user.goods.detail.shoproSku.jd")}}+</text> ￥{{ currentSkuPrice.price ?currentSkuPrice.price: goodsInfo2.g_price}}</view>
+									<view><text v-if="goodsInfo2.g_type  == 3">{{currentSkuPrice.integral || goodsInfo2.g_integral3}}{{$t("user.goods.detail.shoproSku.jd")}}+</text> {{$t('money.symbol')}}{{ currentSkuPrice.price ?currentSkuPrice.price: goodsInfo2.g_price}}</view>
 									<!-- <view v-if="goodsType === 'score'">{{ currentSkuPrice.price_text || goodsInfo.price }}</view>
 									<view v-else-if="grouponBuyType === 'groupon'">
 										￥{{ currentSkuPrice.groupon_price || (goodsInfo.activity_type === 'groupon' ? goodsInfo.groupon_price : goodsInfo.price) }}

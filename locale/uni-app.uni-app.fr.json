@@ -1,1 +1,36 @@
-{"common":{"uni.app.quit":"Appuyez sur l’application pour retirer l’application","uni.async.error":"La connexion au temps mort du serveur. Cliquez sur l’écran pour réessayer","uni.showActionSheet.cancel":"Annulez.","uni.showToast.unpaired":"Notez que vous devez associer showtoast et hidetoast à utiliser","uni.showLoading.unpaired":"Notez que vous devez utiliser la combinaison showloading et angioloading","uni.showModal.cancel":"Annulez.","uni.showModal.confirm":"Confirmez.","uni.chooseImage.cancel":"Annulez.","uni.chooseImage.sourceType.album":"Album","uni.chooseImage.sourceType.camera":"caméra","uni.chooseVideo.cancel":"Annulez.","uni.chooseVideo.sourceType.album":"Album","uni.chooseVideo.sourceType.camera":"caméra","uni.previewImage.cancel":"Annulez.","uni.previewImage.button.save":"Save","uni.previewImage.save.success":"Gardez l’image sur l’album avec succès","uni.previewImage.save.fail":"Tu ne pouvais pas garder l’image pour l’album","uni.setClipboardData.success":"Le contenu a été copié","uni.scanCode.title":"Code du Scan","uni.scanCode.album":"Album","uni.scanCode.fail":"Ne pas reconnaître","uni.scanCode.flash.on":"Toucher et toucher","uni.scanCode.flash.off":"Taper et fermer","uni.startSoterAuthentication.authContent":"Reconnaissance des empreintes digitales","uni.picker.done":"fait","uni.picker.cancel":"Annulez.","uni.video.danmu":"","uni.video.volume":"Volume","uni.button.feedback.title":"Réactions aux questions","uni.button.feedback.send":"envoyer"},"ios":{},"android":{}}
+{
+	"common": {
+		"uni.app.quit": "Appuyez sur l’application pour retirer l’application",
+		"uni.async.error": "La connexion au temps mort du serveur. Cliquez sur l’écran pour réessayer",
+		"uni.showActionSheet.cancel": "Annulez.",
+		"uni.showToast.unpaired": "Notez que vous devez associer showtoast et hidetoast à utiliser",
+		"uni.showLoading.unpaired": "Notez que vous devez utiliser la combinaison showloading et angioloading",
+		"uni.showModal.cancel": "Annulez.",
+		"uni.showModal.confirm": "Confirmez.",
+		"uni.chooseImage.cancel": "Annulez.",
+		"uni.chooseImage.sourceType.album": "Album",
+		"uni.chooseImage.sourceType.camera": "caméra",
+		"uni.chooseVideo.cancel": "Annulez.",
+		"uni.chooseVideo.sourceType.album": "Album",
+		"uni.chooseVideo.sourceType.camera": "caméra",
+		"uni.previewImage.cancel": "Annulez.",
+		"uni.previewImage.button.save": "Save",
+		"uni.previewImage.save.success": "Gardez l’image sur l’album avec succès",
+		"uni.previewImage.save.fail": "Tu ne pouvais pas garder l’image pour l’album",
+		"uni.setClipboardData.success": "Le contenu a été copié",
+		"uni.scanCode.title": "Code du Scan",
+		"uni.scanCode.album": "Album",
+		"uni.scanCode.fail": "Ne pas reconnaître",
+		"uni.scanCode.flash.on": "Toucher et toucher",
+		"uni.scanCode.flash.off": "Taper et fermer",
+		"uni.startSoterAuthentication.authContent": "Reconnaissance des empreintes digitales",
+		"uni.picker.done": "fait",
+		"uni.picker.cancel": "Annulez.",
+		"uni.video.danmu": "",
+		"uni.video.volume": "Volume",
+		"uni.button.feedback.title": "Réactions aux questions",
+		"uni.button.feedback.send": "envoyer"
+	},
+	"ios": {},
+	"android": {}
+}

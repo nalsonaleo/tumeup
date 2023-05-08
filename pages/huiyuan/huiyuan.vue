@@ -1,5 +1,16 @@
 <template>
 	<view class="container">
+		<view class="top-logo">
+			<view class="l" @tap="jump('/pages/index/index')">
+				<image src="../../static/imgs/logo/logo.png"></image>
+			</view>
+			<view class="lang">
+			{{$t("pages.huiyuan.huiyuan")}}
+			</view>
+			<view class="r" @tap="jump('/pages/index/news')">
+				<image src="../../static/imgs/news.png"></image>
+			</view>
+		</view>
 		
 		<!-- 头部轮播 -->
 		<view class="carousel-section">
@@ -23,6 +34,7 @@
 			</view>
 			
 		</view>
+		
 		<!-- 分类 -->
 		<view class="menu-category-box" v-if="cate" :style="cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`">
 			<swiper
@@ -66,7 +78,7 @@
 							<view class="t">{{item.g_name}}</view>
 							<view class="b">
 								<view>
-									<text style="font-weight: 600;">￥{{item.g_price}}</text>
+									<text style="font-weight: 600;">{{$t('money.symbol')}}{{item.g_price}}</text>
 								</view>
 								<image src="../../static/imgs/go.png"></image>
 							</view>
@@ -125,6 +137,11 @@
 			
 				return arr;
 			},
+			jump(path, query) {
+				uni.navigateTo({
+					url: path
+				});
+			},
 			//轮播图切换修改背景色
 			swiperChange(e) {
 				const index = e.detail.current;
@@ -142,6 +159,89 @@
 </script>
 
 <style lang="scss" scoped>
+	.top-logo {
+		position: relative;
+		
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		//position: fixed;
+		width: 100vw;
+		background: $zhuse;
+		padding-top: var(--status-bar-height);
+		top: 0;
+		z-index: 9999;
+		.lang {
+			display: flex;
+			margin-right: 25%;
+			font-size:1rem;font-weight:bold;
+			color: #fff;
+			display: block;
+	
+			image {
+				width: 50upx;
+				height: 80upx;
+				display: block;
+				// margin-bottom: 6upx;
+			}
+		}
+	
+		.l {
+			flex: 1;
+			margin-right: 20upx;
+			margin-left: 20upx;
+			padding: 0 10upx;
+			height: 70upx;
+			display: flex;
+			align-items: center;
+	
+			image {
+				width: 140upx;
+				height: 50upx;
+				display: block;
+			}
+	
+			text {
+				font-size: 26upx;
+				color: #fff;
+				margin-left: 10upx;
+			}
+	
+			input {
+				height: 100%;
+				color: #fff;
+				font-size: 26upx;
+				margin-left: 10upx;
+				flex: 1;
+			}
+	
+			.input-placeholder,
+			.pl-input {
+				color: #fff;
+			}
+		}
+	
+		.r {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			margin-right: 20upx;
+	
+			image {
+				width: 50upx;
+				height: 50upx;
+				display: block;
+				// margin-bottom: 6upx;
+			}
+	
+			text {
+				font-size: 16upx;
+				color: #fff;
+				display: block;
+			}
+		}
+	}
 	// 产品分类
 	.menu-category-box {
 		margin-bottom: 20rpx;
@@ -207,8 +307,10 @@
 	}
 	/* 头部 轮播图 */
 	.carousel-section {
-		position: relative;
-		.top{width: 100%;padding:14upx 20upx;background: $zhuse;}
+		//padding-top: 70upx;
+		//position: relative;
+		
+		.top{width: 100%;padding:30upx 20upx;background: $zhuse;}
 		.search{
 			display: flex;
 			align-items: center;
@@ -244,7 +346,7 @@
 				}
 			}
 		}
-		position: relative;
+		//position: relative;
 		// padding-top: 10px;
 		.bot{position: relative;}
 		.titleNview-placing {
@@ -252,6 +354,8 @@
 			height: 40%;
 			background: $zhuse;
 			width: 100%;
+			
+			
 		}
 	
 		.titleNview-background {
@@ -265,7 +369,7 @@
 	}
 	.carousel {
 		width: 100%;
-		height: 400upx;
+		height: 280upx;
 		padding: 30upx 20upx 0;
 		position: relative;
 		z-index: 9;

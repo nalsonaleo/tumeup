@@ -1,9 +1,9 @@
 {
-    "name" : "SeverUp Shop",
-    "appid" : "__UNI__8D18B75",
+    "name" : "Sever Up",
+    "appid" : "__UNI__5AEB7BB",
     "description" : "SeverUp Shop",
-    "versionName" : "10",
-    "versionCode" : 10,
+    "versionName" : "23050628",
+    "versionCode" : 23050628,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -91,6 +91,10 @@
                         "spotlight@3x" : "unpackage/res/icons/120x120.png"
                     }
                 }
+            },
+            "splashscreen" : {
+                "iosStyle" : "common",
+                "androidStyle" : "common"
             }
         }
     },
@@ -124,7 +128,8 @@
         "router" : {
             "mode" : "hash"
         }
-    }
+    },
+    "locale" : "en"
 }
 // "h5" : {
 //     "title" : "即拼",

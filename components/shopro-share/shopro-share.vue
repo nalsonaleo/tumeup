@@ -30,12 +30,12 @@
 								})
 							"
 						>
-							<image class="share-img" src="http://shopro.7wpp.com/imgs/share_poster.png" mode=""></image>
+							<image class="share-img" src="/imgs/share_poster.png" mode=""></image>
 							<text class="share-title">{{$t("user.goods.detail.shoproShare.fxhb")}}</text>
 						</view>
 
 						<view class="share-item y-f" @tap="copySharePath">
-							<image class="share-img" src="http://shopro.7wpp.com/imgs/share_link.png" mode=""></image>
+							<image class="share-img" src="/imgs/share_link.png" mode=""></image>
 							<text class="share-title">{{$t("user.goods.detail.shoproShare.fzlj")}}</text>
 						</view>
 					</view>

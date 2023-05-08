@@ -2,11 +2,13 @@
 	<view class="list-box">
 		<view class="head_box">
 			<view class="nav" style="background: #fff;">
-				<text class="cuIcon-back cuIcon-style" @tap="BackPage"></text>
+				 <!-- <text class="cuIcon-back cuIcon-style" @tap="BackPage"></text> -->
+				<image @tap="BackPage" src="/static/imgs/back.png" style="width: 40upx;height: 40upx;margin-left: 10rpx;"></image>
 				<view class="search-box flex align-center" @tap.stop>
 					<input @confirm="onSearch" @input="onInput" :confirm-type="$t('goods.list.ss')" class="search flex-sub" type="text" v-model="searchVal" :placeholder="$t('goods.list.spss')" />
 					<text v-show="searchVal" @tap="clearSearch" class="cuIcon-roundclosefill"></text>
 				</view>
+				<image src="/static/imgs/favorite_end.png" style="width: 50upx;height: 50upx;margin-left: 10rpx;margin-right: 10rpx;"></image>
 			</view>
 			<view class="filter-item"><sh-filter @change="onFilter"></sh-filter></view>
 		</view>
@@ -200,6 +202,7 @@ export default {
 	display: flex;
 	align-items: center;
 	padding-bottom: 10rpx;
+	padding-top: 15rpx;
 }
 
 .search-box {

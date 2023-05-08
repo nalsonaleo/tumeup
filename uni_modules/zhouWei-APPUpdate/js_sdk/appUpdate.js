@@ -35,23 +35,23 @@ const getDownload = function(data) {
 			if (status == 200) {
 				popupObj.change({
 					progressValue: 100,
-					progressTip:"正在安装文件...",
+					progressTip:"Installing Application...",
 					progress: true,
 					buttonNum: 0
 				});
 				plus.runtime.install(download.filename, {}, function() {
 					popupObj.change({
-						contentText: "应用资源更新完成！",
+						contentText: "App Update Completed！",
 						buttonNum: 1,
 						progress: false
 					});
 				}, function(e) {
 					popupObj.cancel();
-					plus.nativeUI.alert("安装文件失败[" + e.code + "]：" + e.message);
+					plus.nativeUI.alert("Failed To Install App[" + e.code + "]：" + e.message);
 				});
 			} else {
 				popupObj.change({
-					contentText: "文件下载失败...",
+					contentText: "File Download Failed...",
 					buttonNum: 1,
 					progress: false
 				});
@@ -63,14 +63,14 @@ const getDownload = function(data) {
 				case 1: // 开始
 					popupObj.change({
 						progressValue:0,
-						progressTip:"准备下载...",
+						progressTip:"Preparing To Download...",
 						progress: true
 					});
 					break;
 				case 2: // 已连接到服务器  
 					popupObj.change({
 						progressValue:0,
-						progressTip:"开始下载...",
+						progressTip:"Start Downloading...",
 						progress: true
 					});
 					break;
@@ -80,7 +80,7 @@ const getDownload = function(data) {
 						lastProgressValue = progress;
 						popupObj.change({
 							progressValue:progress,
-							progressTip: "已下载" + progress + "%",
+							progressTip: "Completed" + progress + "%",
 							progress: true
 						});
 					}
@@ -91,7 +91,7 @@ const getDownload = function(data) {
 		popupObj.cancelDownload = function(){
 			dtask && dtask.abort();
 			uni.showToast({
-				title: "已取消下载",
+				title: "Download Canceled",
 				icon:"none"
 			});
 		}
@@ -105,12 +105,12 @@ const getDownload = function(data) {
 		}, function(download, status) {
 			if (status == 200) {
 				plus.runtime.install(download.filename, {}, function() {
-					console.log("应用资源更新完成");
+					console.log("App Update Completed");
 				}, function(e) {
-					plus.nativeUI.alert("安装文件失败[" + e.code + "]：" + e.message);
+					plus.nativeUI.alert("Installation File Failed[" + e.code + "]：" + e.message);
 				});
 			} else {
-				plus.nativeUI.alert("文件下载失败...");
+				plus.nativeUI.alert("File Download Failed...");
 			}
 		});
 		dtask.start();
@@ -248,7 +248,7 @@ function updatePopup(data, callback) {
 		{
 			tag: 'font',
 			id: 'title',
-			text: "发现新版本" + data.versionName,
+			text: "New Version:" + data.versionName,
 			textStyles: {
 				size: '18px',
 				color: "#333",
@@ -309,7 +309,7 @@ function updatePopup(data, callback) {
 		popupViewContentList.push({
 			tag: 'font',
 			id: 'confirmText',
-			text: "立即升级",
+			text: "Upgrade App Now",
 			textStyles: {
 				size: '14px',
 				color: "#FFF",
@@ -356,7 +356,7 @@ function updatePopup(data, callback) {
 		popupViewContentList.push({
 			tag: 'font',
 			id: 'cancelText',
-			text: "暂不升级",
+			text: "Do Not Upgrade",
 			textStyles: {
 				size: '14px',
 				color: "#666",
@@ -373,7 +373,7 @@ function updatePopup(data, callback) {
 		popupViewContentList.push({
 			tag: 'font',
 			id: 'confirmText',
-			text: "立即升级",
+			text: "Upgrade App Now",
 			textStyles: {
 				size: '14px',
 				color: "#FFF",
@@ -457,8 +457,8 @@ function downloadPopupDrawing(data){
 	const viewContentWidth = popupViewWidth - (viewContentPadding * 2);
 	// 弹窗容器高度
 	let popupViewHeight = viewContentPadding * 3 + 60;
-	let progressTip = data.progressTip || "准备下载...";
-	let contentText = data.contentText || "正在为您更新，请耐心等待";
+	let progressTip = data.progressTip || "Preparing To Download...";
+	let contentText = data.contentText || "Updating, Please Wait!";
 	let elementList = [
 		{
 			tag: 'rect', //背景色
@@ -470,7 +470,7 @@ function downloadPopupDrawing(data){
 		{
 			tag: 'font',
 			id: 'title',
-			text: "升级APP",
+			text: "Upgradation APP",
 			textStyles: {
 				size: '16px',
 				color: "#333",
@@ -567,7 +567,7 @@ function downloadPopupDrawing(data){
 			{
 				tag: 'font',
 				id: 'cancelText',
-				text: "取消下载",
+				text: "Cancel Download",
 				textStyles: {
 					size: '14px',
 					color: "#666",
@@ -584,7 +584,7 @@ function downloadPopupDrawing(data){
 			{
 				tag: 'font',
 				id: 'confirmText',
-				text: "后台下载",
+				text: "Background Download",
 				textStyles: {
 					size: '14px',
 					color: "#FFF",
@@ -619,7 +619,7 @@ function downloadPopupDrawing(data){
 			{
 				tag: 'font',
 				id: 'confirmText',
-				text: "关闭",
+				text: "Close",
 				textStyles: {
 					size: '14px',
 					color: "#FFF",
@@ -795,7 +795,7 @@ function downloadPopup(data) {
 	return callbackData;
 }
 export default function(isPrompt = false) {
-	console.log('检查版本更新');
+	console.log('Check Version Updates');
 	getCurrentNo(versionInfo => {
 		componentConfig.getServerNo(versionInfo, isPrompt, res => {
 			if (res.updateType == "forcibly" || res.updateType == "silent") {

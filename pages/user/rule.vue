@@ -1,7 +1,7 @@
 <template>
 	<view class="con">
 		
-		<image style="width: 100%;min-height: 600px;" src="/static/imgs/jprule.jpg"></image>
+		<image style="width: 100%;min-height: 600px;" src="/static/imgs/jprule.jpg"> </image>
 	</view>
 </template>
 

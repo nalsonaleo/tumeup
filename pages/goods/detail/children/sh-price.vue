@@ -3,8 +3,8 @@
 		<!-- 正常商品 -->
 		<view class="normal-price-box" v-if="detail.g_type == 2">
 			<view class="">
-				<text class="unit">{{$t('money.symbol')}}</text>
-				<text class="price">{{detail.g_price}}</text>
+				<!-- <text class="unit">{{$t('money.symbol')}}</text> -->
+				<text class="price">{{$t('money.symbol')}}{{detail.g_price}}</text>
 				<text class="notice">{{$t("user.goods.detail.shprice.yhj")}}</text>
 			</view>
 			<view class="x-bc price-bottom-box">
@@ -33,13 +33,13 @@
 		<!-- 团购商品 -->
 		<view class="groupon-price-box" v-if="detail.g_type == 1">
 			<view class="">
-				<text class="unit">{{$t('money.symbol')}}</text>
-				<text class="price">{{detail.g_price}}</text>
+				<!-- <text class="unit">{{$t('money.symbol')}}</text> -->
+				<text class="unit price1">{{$t('money.symbol')}}{{detail.g_price}}</text>
 				<text class="notice">{{detail.p_num}}{{$t("user.goods.detail.shprice.rt")}}</text>
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">{{$t("user.goods.detail.shprice.yj")}}：<text style="text-decoration: line-through;">{{$t('money.symbol')}}{{ detail.g_price1 }}</text></view>
+					<view class="original-price">{{$t("user.goods.detail.shprice.yj")}}：<text style="text-decoration: line-through;">{{$t('money.symbol')}}{{ detail.g_price1 }}</text></view> 
 					<text class="line"></text>
 					<view class="sold">{{$t("user.goods.detail.shprice.yp")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
 				</view>
@@ -277,7 +277,7 @@ export default {
 		border-radius: 6rpx;
 		padding: 0 10rpx;
 	}
-	.price {
+	.price1 {
 		font-size: 36rpx;
 		color: rgba(#fff, 0.9);
 		font-weight: bold;

@@ -5,8 +5,8 @@
 				<image src="../../static/imgs/logo/logo.png"></image>
 			</view>
 			<view class="lang">
-				<mix-list-cell icon="icon-shouhuodizhi" iconColor="#00aa7f" :title="$t('user.title.language')"
-					@eventClick="showLanguage"></mix-list-cell>
+				<mix-list-cell icon="icon-shouhuodizhi" iconColor="#00aa7f" :title="$t('user.title.language')" @eventClick="showLanguage" src="../../static/imgs/news.png">
+				</mix-list-cell>
 			</view>
 			<view class="r" @tap="jump('/pages/index/news')">
 				<image src="../../static/imgs/news.png"></image>
@@ -39,7 +39,61 @@
 					</view>
 				</view>
 			</view>
-
+        <!--TOP BANNER START-->
+		<view class="bot1">
+			<!-- 标题栏和状态栏占位符 -->
+			<view class="titleNview-placing1">
+				
+			</view>
+			<!-- 背景色区域 -->
+			<!-- <view class="titleNview-background" :style="{backgroundColor:titleNViewBackground}"></view> -->
+			<swiper class="carousel" >
+				<swiper-item v-for="(item, index) in banner" :key="index" class="carousel-item">
+					<image class="gg" src="../../static/imgs/index_banner.gif" style="height: 160rpx;">
+					</image>	
+				</swiper-item>
+			</swiper>			
+		</view>
+		<!--TOP BANNER END-->
+		<!--team up login start-->
+		<view style="top:0;left:0;position: relative;display:flex;background-color: white;width: 100% !important;height:370rpx;justify-content: center;align-items:center;flex-direction: column;">
+			<view style="width: 95%;background-color: beige;border-top-left-radius:10rpx;border-top-right-radius:10rpx;height:80rpx;align-items:center;display: flex;">
+			  <text style="width:47%  ;padding-left: 40rpx;">Team up Shopping</text>
+			  <text style="width: 1%;">|</text>
+			  <text style="width:47%  ;padding-left: 40rpx;">Free Returns</text>
+			</view>
+			
+            <!-- 广告图 -->
+            <view class="top2_wrap" style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:90px;width:95%;border-radius:15px;">
+            	<navigator url="/pages/activity/groupon/my-groupon" class="on">
+					<image style="width:110rpx;height:110rpx;margin:20px 0px 5px 5px;float:left;border-radius:15px;"  :src="teamup_tag1"></image>
+				</navigator>
+            	<navigator url="/pages/user/team" class="on">
+					<image style="width:110rpx;height:110rpx;margin:20px 0px 5px 40px;float:left;border-radius:15px;"  :src="teamup_tag2"></image>
+				</navigator>
+            <navigator url="/pages/app/score/list" class="on">
+				<image style="width:110rpx;height:110rpx;margin:20px 0px 5px 40px;float:left;border-radius:15px;"  :src="teamup_tag3"></image>
+				</navigator>
+            <navigator url="/pages/public/tuiguang" class="on">
+			<image style="width:110rpx;height:110rpx;margin:20px 0px 5px 40px;float:left;border-radius:15px;"  :src="teamup_tag4"></image>
+			</navigator>
+			</view>
+			
+			  <view style="width: 100%;padding-left: 25rpx;justify-content: center;align-items:center;flex-direction: column;position: relative;">
+				<navigator url="/pages/public/faq">
+				<image src="../../static/imgs/secunity.png" style="width:30rpx;height: 35rpx;
+				position: absolute;"></image>
+				<text style="font-size: 0.7rem;height:35rpx;color: #666666;padding-left: 10rpx;align-items: center;">
+					<text style="margin-left: 30rpx;">Safe payment | Security privacy | Purchase protection </text>
+					<image src="../../static/imgs/next.png" style="width:50rpx;height:30rpx;float:right;padding-right: 25rpx;"></image>
+					
+				</text>
+				</navigator>
+			  </view>
+			<text style="padding-bottom: 15rpx;border-bottom: 1.8px solid #f1f1ea;height: 1rpx;width: 95%;"></text>
+		</view>
+		<!--team up login end-->
+		<!--INDEX BANNER START-->
 			<view class="bot">
 				<!-- 标题栏和状态栏占位符 -->
 				<view class="titleNview-placing"></view>
@@ -57,18 +111,31 @@
 					<text class="num">{{swiperLength}}</text>
 				</view>
 			</view>
-
+            <!--INDEX BANNER END-->
 		</view>
 		<!-- 分类 -->
+		<view  style="position: relative;width: 100%;display: flex;flex-direction: column;left:0;top: 0;color: #000000;background-color:white;margin-top:15rpx;">
+		<view style="width: 100%;padding-left: 25rpx;margin-top: 10rpx;">
+				
+				<text style="font-size: 0.7rem;align-items: center;height: 10rpx;">
+					<text style="font-size: 1rem; ">{{$t("pages.tabBar.category")}} </text>
+					<image src="../../static/imgs/next.png" style="width:50rpx;height:35rpx;padding-left: 25rpx;position: absolute;"></image>
+					
+				</text>
+				
+		</view>	 
+
 		<view class="menu-category-box" v-if="cate"
 			:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`">
+				
+			
 			<swiper class="menu-swiper-box"
 				:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`" @change="onSwiper"
 				:autoplay="false" :interval="3000" :duration="1000">
 				<swiper-item class="menu-swiper-item" v-for="(itemList, index) in cate" :key="index"
 					:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:340rpx`">
 					<view class="menu-tab-box">
-						<view class="tab-list y-f" :style="{ width: 690 / 4 + 'rpx' }" v-for="item in itemList"
+						<view class="tab-list y-f" :style="{ width: 700 / 4 + 'rpx' }" v-for="item in itemList"
 							:key="item.c_name" @tap="toList(item.id)">
 							<image class="tab-img" :style="{ width:'88rpx', height: '88rpx' }" :src="item.c_img">
 							</image>
@@ -77,59 +144,12 @@
 					</view>
 				</swiper-item>
 			</swiper>
-			<!-- <view class="menu-category-dots" v-if="cate.length > 1">
-				<text :class="categoryCurrent == index ? 'category-dot-active' : 'category-dot'" v-for="(dot, index) in cate.length" :key="index"></text>
-			</view> -->
 		</view>
-		<!-- <view class="cate-section">
-			<view class="con">
-				<view class="cate-item" v-for="(item,index) in cate" :key='index' @tap="toList(item.id)">
-					<image :src="item.c_img"></image>
-					<text>{{item.c_name}}</text>
-				</view>
-			</view>
-		</view> -->
+		</view>
 		<!-- 分类end -->
 
-		<!-- 广告图 -->
-		<div class="top2_wrap"
-			style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:120px;width:100%;border-radius:10px;">
-
-			<navigator url="/pages/huiyuan/huiyuan" class="on"><img
-					style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="https://7.lazygirlshop.com/static/cat1.jpg" /></navigator>
-			<navigator url="/pages/user/team" class="on"><img
-					style="width:45%;height:55%;margin:20px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="https://7.lazygirlshop.com/static/cat4.jpg"></navigator>
-
-		</div>
-		<div class="top2_wrap"
-			style="background-repeat:no-repeat;background-position:center;background-size:cover;display:block;height:90px;width:100%;border-radius:10px;">
-			<navigator url="/pages/huiyuan/pintuan" class="on"><img
-					style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="https://7.lazygirlshop.com/static/cat2.jpg"></navigator>
-			<navigator url="/pages/app/score/list" class="on"><img
-					style="width:45%;height:55%;margin:0px 0px 5px 10px;float:left;border-radius:5px;background-color: grey"
-					src="https://7.lazygirlshop.com/static/cat3.jpg"></navigator>
-
-
-		</div>
-		<!-- <navigator url="/pages/huiyuan/huiyuan"  class="index_gg" ><image :src="gg1"></image></navigator> -->
-		<!-- 399专区 -->
-		<!-- <view class="mid_con">
-			<navigator  :url="'/pages/goods/detail/index?id='+item.id" class="list" v-for="(item,index) in group" :key='index' >
-				<image :src="item.g_img" class="goodsImg"></image>
-				<view class="info">
-					<view class="top">{{item.g_name}}</view>
-					<view class="bot">
-						<view class="l"><text style="font-weight: 600;">￥{{item.g_price}}</text><text>￥{{item.g_price1}}</text></view>
-						<view class="r">立即拼团</view>
-					</view>
-				</view>
-			</navigator>
-		</view> -->
-
-		<view class="bot_con">
+        <!--team up index-start -->
+		<view class="bot_con" style="margin-top: 30upx;">
 			<view class="con">
 				<image class="gg" :src="gg1"></image>
 				<view class="goodsCon">
@@ -140,7 +160,9 @@
 							<view class="t">{{item.g_name}}</view>
 							<view class="b">
 								<view>
-									<text style="font-weight: 600;">{{$t('money.symbol')}}{{item.g_price}}</text>
+									<text style="font-weight: 600;">
+									{{$t('money.symbol')}}{{item.g_price}}
+									</text>
 									<!-- <text>￥{{item.g_price1}}</text> -->
 								</view>
 								<image src="../../static/imgs/go.png"></image>
@@ -151,11 +173,8 @@
 				</view>
 			</view>
 		</view>
-
-
-
-
-		<!-- 普通产品区 -->
+        <!--team up index-End -->
+		<!-- INDEX SHOPPING START -->
 		<view class="bot_con">
 			<view class="con">
 				<image class="gg" :src="gg2"></image>
@@ -167,8 +186,10 @@
 							<view class="t">{{item.g_name}}</view>
 							<view class="b">
 								<view>
-									<text style="font-weight: 600;">{{$t('money.symbol')}}{{item.g_price}}</text>
-									<!-- <text>￥{{item.g_price1}}</text> -->
+									<text style="font-weight: 600;">
+									{{$t('money.symbol')}}{{item.g_price}}
+									</text>
+									<text>{{$t('money.symbol')}}{{item.g_price1}}</text> 
 								</view>
 								<image src="../../static/imgs/go.png"></image>
 							</view>
@@ -178,6 +199,8 @@
 				</view>
 			</view>
 		</view>
+		<!-- INDEX SHOPPING END -->
+		<!--Language Start-->
 		<uni-popup ref="languagePopup" type="center">
 			<view class="vipPopup " style="padding-top: 32rpx;">
 				<radio-group name="" @change="changeLanguage">
@@ -190,6 +213,7 @@
 				</radio-group>
 			</view>
 		</uni-popup>
+		<!--Language End-->
 	</view>
 </template>
 
@@ -220,6 +244,10 @@
 				goods: [],
 				gg1: '',
 				gg2: "",
+				teamup_tag1: '',
+				teamup_tag2: '',
+				teamup_tag3: '',
+				teamup_tag4: '',
 				searchVal: "",
 				categoryCurrent: 0,
 				keywordsList: [],
@@ -325,6 +353,10 @@
 						that.goods = res.goods;
 						that.gg1 = res.img2;
 						that.gg2 = res.img3;
+						that.teamup_tag1 = res.img4;
+						that.teamup_tag2 = res.img5;
+						that.teamup_tag3 = res.img6;
+						that.teamup_tag4 = res.img7;
 					}
 				});
 			},
@@ -376,7 +408,7 @@
 		z-index: 9999;
 		.lang {
 			display: flex;
-			margin-right: 20upx;
+			margin-right: 10upx;
 			font-size: 26upx;
 			color: #fff;
 			display: block;
@@ -392,6 +424,7 @@
 		.l {
 			flex: 1;
 			margin-right: 20upx;
+			margin-left: 20upx;
 			padding: 0 10upx;
 			height: 80upx;
 			display: flex;
@@ -428,6 +461,7 @@
 			flex-direction: column;
 			align-items: center;
 			text-align: center;
+			margin-right: 20upx;
 	
 			image {
 				width: 50upx;
@@ -453,7 +487,7 @@
 	// 产品分类
 	.menu-category-box {
 		// margin-bottom: 20rpx;
-		padding: 24upx 20upx 0;
+		padding: 24upx 0upx 0;
 		border-radius: 12upx;
 		// padding: 36rpx 30rpx 0 30rpx;
 		// background: #fff;
@@ -461,7 +495,8 @@
 
 	.menu-swiper-box {
 		background: #fff;
-		border-radius: 12upx;
+		//border-radius: 12upx;
+		width: 100%;
 	}
 
 	.menu-category-box,
@@ -479,6 +514,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			margin-top: 30upx;
+			margin-left: 20upx;
 
 			.tab-list {
 				font-size: 22rpx;
@@ -552,6 +588,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			margin-top: 60rpx;
 
 			.lang {
 				display: flex;
@@ -633,7 +670,7 @@
 				display: flex;
 				margin-right: 1upx;
 				margin-top: 10upx;
-				font-size: 26upx;
+				font-size: 26rpx;
 				color: #fff;
 				display: block;
 
@@ -688,11 +725,21 @@
 		.bot {
 			position: relative;
 		}
+		.bot1 {
+			
+			height: 180rpx;
+		}
 
+		.titleNview-placing1 {
+			position: absolute;
+			height: 50%;
+			background: $zhuse;
+			width: 100%;
+		}
 		.titleNview-placing {
 			position: absolute;
-			height: 40%;
-			background: $zhuse;
+			height: 50%;
+			background:white;
 			width: 100%;
 		}
 
@@ -708,7 +755,7 @@
 
 	.carousel {
 		width: 100%;
-		height: 350upx;
+		height: 280upx;
 		padding: 0 20upx;
 		position: relative;
 		z-index: 9;
@@ -862,24 +909,29 @@
 
 	.bot_con {
 		width: 100%;
-		padding: 30upx;
+		//padding:15upx;
 
 		.con {
 			.gg {
 				width: 100%;
 				height: 260upx;
-				border-radius: 20upx;
-				margin-bottom: 30upx;
+				//border-radius: 10upx;
+				margin-bottom: 10upx;
+				margin-top: 10upx;
 			}
 
 			.goodsCon {
 				display: flex;
 				flex-wrap: wrap;
+				width: 100%;
+				justify-content: center;
+				align-items:center;
+				
 
 				// justify-content: space-between;
 				.list {
 					width: 48%;
-					margin-right: 4%;
+					margin-right: 2%;
 					background: #fff;
 					border-radius: 12upx;
 					margin-bottom: 20upx;

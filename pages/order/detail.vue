@@ -4,7 +4,7 @@
 		<view class="content_box">
 			<view class="detail-head">
 				<view class="state-box x-f">
-					<image class="state-img" src="http://shopro.7wpp.com/imgs/order_state1.png" mode=""></image>
+					<image class="state-img" src="/static/imgs/order_state1.png" mode=""></image>
 					<text v-if="orderDetail.o_exchange == 0 && orderDetail.o_type !=4">{{ orderStatus[orderDetail.o_status] }}</text>
 					<text v-if="orderDetail.o_exchange == 0 && orderDetail.o_type ==4">{{ orderStatus1[orderDetail.o_status] }}</text>
 					<!-- <text v-else>{{ orderDetail.o_exchange == 1 ? '退款中':'已退款' }}</text> -->
@@ -20,7 +20,7 @@
 								<view class="goods-title more-t">{{ item.g_name }}</view>
 								<view class="size-tip">{{ item.sku_name }}</view>
 								<view class="order-goods flex align-center justify-between">
-									<text class="order-price"><text v-if="item.o_type==3">{{item.o_t_integral3}}{{$t("order.commomPtOrder.detail.jd")}}+</text> ￥{{parseFloat(item.o_unit_price)}}</text>
+									<text class="order-price"><text v-if="item.o_type==3">{{item.o_t_integral3}}{{$t("order.commomPtOrder.detail.jd")}}+</text> {{$t('money.symbol')}} {{parseFloat(item.o_unit_price)}}</text>
 									<text class="order-num">x{{ item.o_num }}</text>
 								</view>
 							</view>
@@ -50,9 +50,9 @@
 							<button @tap.stop="onConfirm(orderDetail.id)" class="cu-btn btn2" v-if="orderDetail.o_status == 2">
 								{{$t("order.commomPtOrder.detail.qrsh")}}
 							</button>
-							<!-- <button @tap.stop="onRefund(orderDetail.id)" class="cu-btn btn1" v-if="orderDetail.o_status == 2">
-								申请退款
-							</button>-->
+							<button @tap.stop="onRefund(orderDetail.id)" class="cu-btn btn1" v-if="orderDetail.o_status == 2">
+								{{$t("order.commomPtOrder.detail.Request.refund")}}
+							</button>
 						</view>
 					</view>
 				</view>
@@ -93,7 +93,7 @@
 					<view class="notice-item--center x-f">
 						<text class="title">{{$t("order.commomPtOrder.detail.ddbh")}}：</text>
 						<text class="detail">{{ orderDetail.o_no }}</text>
-						<!-- <button class="cu-btn copy-btn" @tap="onCopy(orderDetail.o_no)">复制</button> -->
+						<button class="cu-btn copy-btn" @tap="onCopy(orderDetail.o_no)">{{$t("order.commomPtOrder.detail.copy")}}</button>
 					</view>
 					<view class="notice-item--center x-f" v-if="orderDetail.hx_code && orderDetail.is_express == 2">
 						<text class="title">{{$t("order.commomPtOrder.detail.hxm")}}：</text>
@@ -136,7 +136,7 @@
 			<view class="money-box x-f justify-end">
 				<text class="money-title">{{$t("order.commomPtOrder.detail.gong")}}{{ orderDetail.o_total_num }}{{$t("order.commomPtOrder.detail.jsp")}} {{$t("order.commomPtOrder.detail.hj")}}:</text>
 				<!-- <text class="all-price" v-if="orderDetail.o_type == 2">￥{{ orderDetail.o_total_price }}</text> -->
-				<text class="all-price" v-if="orderDetail.o_type == 3">{{ orderDetail.data[0].o_t_integral3 }}{{$t("order.commomPtOrder.detail.jd3")}}+￥{{ orderDetail.o_total_price }}</text>
+				<text class="all-price" v-if="orderDetail.o_type == 3">{{ orderDetail.data[0].o_t_integral3 }}{{$t("order.commomPtOrder.detail.jd3")}}+{{$t('money.symbol')}} {{ orderDetail.o_total_price }}</text>
 				<text class="all-price" v-else>{{$t('money.symbol')}}{{ orderDetail.o_total_price }}</text>
 			</view>
 		</view>
@@ -362,7 +362,7 @@ export default {
 		}
 	}
 .detail-head {
-	background: linear-gradient(0deg, #f98f8f 0%, $zhuse 100%) no-repeat;
+	background: linear-gradient(0deg, #66CC66 0%, $zhuse 100%) no-repeat;
 	background-size: 100% 134rpx;
 
 	.state-box {

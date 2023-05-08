@@ -1,1 +1,36 @@
-{"common":{"uni.app.quit":"按下应用程序将退出应用程序","uni.async.error":"连接服务器超时。单击屏幕再试一次","uni.showActionSheet.cancel":"取消","uni.showToast.unpaired":"注意，你需要搭配showtoast和hidetoast来使用","uni.showLoading.unpaired":"注意，需要将showloading和angioloading配对使用","uni.showModal.cancel":"取消","uni.showModal.confirm":"确认","uni.chooseImage.cancel":"取消","uni.chooseImage.sourceType.album":"专辑","uni.chooseImage.sourceType.camera":"相机","uni.chooseVideo.cancel":"取消","uni.chooseVideo.sourceType.album":"专辑","uni.chooseVideo.sourceType.camera":"相机","uni.previewImage.cancel":"取消","uni.previewImage.button.save":"保存","uni.previewImage.save.success":"将图像成功保存到相册","uni.previewImage.save.fail":"无法将图像保存到相册","uni.setClipboardData.success":"已复制内容","uni.scanCode.title":"扫描码","uni.scanCode.album":"专辑","uni.scanCode.fail":"未能识别","uni.scanCode.flash.on":"触摸和接触","uni.scanCode.flash.off":"利用并关闭","uni.startSoterAuthentication.authContent":"指纹识别","uni.picker.done":"完成","uni.picker.cancel":"取消","uni.video.danmu":"","uni.video.volume":"体积","uni.button.feedback.title":"反馈的问题","uni.button.feedback.send":"发送"},"ios":{},"android":{}}
+{
+	"common": {
+		"uni.app.quit": "按下应用程序将退出应用程序",
+		"uni.async.error": "连接服务器超时。单击屏幕再试一次",
+		"uni.showActionSheet.cancel": "取消",
+		"uni.showToast.unpaired": "注意，你需要搭配showtoast和hidetoast来使用",
+		"uni.showLoading.unpaired": "注意，需要将showloading和angioloading配对使用",
+		"uni.showModal.cancel": "取消",
+		"uni.showModal.confirm": "确认",
+		"uni.chooseImage.cancel": "取消",
+		"uni.chooseImage.sourceType.album": "专辑",
+		"uni.chooseImage.sourceType.camera": "相机",
+		"uni.chooseVideo.cancel": "取消",
+		"uni.chooseVideo.sourceType.album": "专辑",
+		"uni.chooseVideo.sourceType.camera": "相机",
+		"uni.previewImage.cancel": "取消",
+		"uni.previewImage.button.save": "保存",
+		"uni.previewImage.save.success": "将图像成功保存到相册",
+		"uni.previewImage.save.fail": "无法将图像保存到相册",
+		"uni.setClipboardData.success": "已复制内容",
+		"uni.scanCode.title": "扫描码",
+		"uni.scanCode.album": "专辑",
+		"uni.scanCode.fail": "未能识别",
+		"uni.scanCode.flash.on": "触摸和接触",
+		"uni.scanCode.flash.off": "利用并关闭",
+		"uni.startSoterAuthentication.authContent": "指纹识别",
+		"uni.picker.done": "完成",
+		"uni.picker.cancel": "取消",
+		"uni.video.danmu": "",
+		"uni.video.volume": "体积",
+		"uni.button.feedback.title": "反馈的问题",
+		"uni.button.feedback.send": "发送"
+	},
+	"ios": {},
+	"android": {}
+}

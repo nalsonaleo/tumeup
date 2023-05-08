@@ -8,11 +8,15 @@
 3.将来支持自动翻译成其他语言
 */
 import en from './en.json'
+import In from './in.json'
+import ca from './ca.json'
 import es from './es.json'
 import fr from './fr.json'
 import zh_Hans from './zh-Hans.json'
 export default {
 	en,
+    "in": In ,
+    "ca": ca,	
 	"es": es,
 	"fr": fr,
 	"zh-Hans": zh_Hans,

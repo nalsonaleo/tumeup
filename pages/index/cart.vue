@@ -1,14 +1,7 @@
 <template>
 	<view class="page_box">
 		<view class="head_box" v-if="cartList.length">
-			<!-- <view class="safety-box x-f" v-if="false">
-				<text class="cuIcon-safe"></text>
-				<text>无忧退换，让你的购物体验简单省心</text>
-			</view>
-			<view class="tip-box x-f" v-if="false">
-				<text class="tag">全场满额减</text>
-				再购154.10元立享每满400元减20元 >
-			</view> -->
+
 			<view class="tool-box x-bc">
 				<view class="count-box">
 					{{$t("index.cart.gong")}}
@@ -27,7 +20,7 @@
 					<shopro-mini-card :detail="g" :sku="g.s_price" :type="'sku'">
 						<block slot="goodsBottom">
 							<view class="x-bc price-box">
-								<view class="price">{{$t('money.symbol')}}{{ g.s_price ? g.s_price : g.g_price }}</view>
+								<view class="price1">{{$t('money.symbol')}} {{ g.s_price ? g.s_price : g.g_price }}</view>
 								<view class="uni-numbox x-f">
 									<view @tap.stop="changeCount(g, -1)" class="uni-numbox__minus">
 										<button class=" cu-btn uni-numbox--text">
@@ -57,7 +50,7 @@
 					<text>（{{ totalCount.totalNum }}）</text>
 				</label>
 				<view class="x-f">
-					<view class="price" v-if="!isTool">{{$t('money.symbol')}}{{ totalCount.totalPrice.toFixed(2) }}</view>
+					<view class="price1" v-if="!isTool">{{$t('money.symbol')}}{{ totalCount.totalPrice.toFixed(2) }}</view>
 					<button class="cu-btn pay-btn" v-show="!isTool" @tap="onPay">{{$t("index.cart.js")}}</button>
 					<button class="cu-btn del-btn" v-show="isTool" @tap="goodsDelete">{{$t("index.cart.sc")}}</button>
 				</view>
@@ -464,7 +457,7 @@ export default {
 	.price-box {
 		width: 420rpx;
 
-		.price {
+		.price1 {
 			color: $zhuse;
 		}
 	}
@@ -485,7 +478,7 @@ export default {
 		}
 	}
 
-	.price {
+	.price1 {
 		color: $zhuse;
 		font-size: 36upx;
 		font-size: 500;

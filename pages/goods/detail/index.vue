@@ -57,7 +57,7 @@
 							<view class="coupon-item x-bc">
 								<view class="coupon-left y-start ">
 									<view class="sum-box">
-										<text class="unit">￥</text>
+										<text class="unit">{{$t('money.symbol')}}</text>
 										<!-- 1代金券   2满减券  3折扣券  4兑换券 -->
 										<text class="miso-font sum"  v-if="c.coupon_type == 1 || c.c_type == 1">{{ c.coupon_price || c.c_price}}</text>
 										<text class="miso-font sum"  v-if="c.coupon_type == 2 || c.c_type == 2">{{ c.coupon_reduce || c.c_reduce}}</text>

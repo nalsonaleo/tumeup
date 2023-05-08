@@ -9,7 +9,7 @@
 						<view class="goods-title more-t">{{ item.g_name }}</view>
 						<view class="size-tip">{{ item.sku_name }}</view>
 						<view class="order-goods flex align-center justify-between">
-							<text class="order-price">￥{{parseFloat(item.o_sum_price)}}</text>
+							<text class="order-price">{{$t('money.symbol')}} {{parseFloat(item.o_sum_price)}}</text>
 							<text class="order-num">x{{ item.o_num }}</text>
 						</view>
 					</view>

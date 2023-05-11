@@ -1,8 +1,9 @@
 <template>
-	<view class="con">
+<!-- 	<view class="con">
 		<view class="tit">{{info.kf_name}}{{info.kf_tel}}</view>
 		<image :src="info.kf_img"></image>
-	</view>
+	</view> -->
+	<web-view  :webview-styles="webviewStyles" src="https://chat.lazygirlshop.com/chat/index?noCanClose=1&token=570d97ebea88e719d1ba2be92d1a6b5e"></web-view> 
 </template>
 
 <script>

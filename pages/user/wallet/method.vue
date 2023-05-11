@@ -3,7 +3,7 @@
 		<view class="head_box"></view>
 		<view class="content_box">
 			<view class="y-f money-box">
-				<view class="money">{{ total_fee }}</view>
+				<view class="money">{{$t('money.symbol')}}{{ total_fee }}</view>
 			</view>
 			<radio-group @change="selPay" class="pay-box">
 				
@@ -28,7 +28,7 @@
 				
 			</radio-group>
 			<view class="x-c">
-				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t('user.wallet.qrzf')}} ${{ total_fee }}</button>
+				<button class="cu-btn pay-btn" @tap="confirmPay">{{$t('user.wallet.qrzf')}} {{$t('money.symbol')}}{{ total_fee }}</button>
 			</view>
 		</view>
 		<view class='maskBox' v-show='maskShow' @click='maskShow = false'>
@@ -36,7 +36,7 @@
 		</view>
 		<view :class='{"foot_box":true, "foot_box_active": maskShow}'>
 			<view class='header'>
-				<text class='header-title'>USDT$ PAY (TRC20)</text>
+				<text class='header-title'>USDT PAY (TRC20)</text>
 			</view>
 			<view class='content-image'>
 				<image :src="xnbData.pic" mode=""></image>
@@ -56,7 +56,7 @@ export default {
 		return {
 			total_fee:0,
 			order_id:0,
-			pay_type: 8,//1余额 2APP微信 3APP支付宝 4公众号小程序微信
+			pay_type: 0,//1余额 2APP微信 3APP支付宝 4公众号小程序微信
 			isXcx:false,
 			isWx:false,
 			maskShow:false,
@@ -149,6 +149,19 @@ export default {
 			};
 			that.$api.recharge(data).then(res => {
 				if (res.code == 1) {
+					if (that.pay_type==0){
+						var url = res.data;
+						
+						if (uni.getSystemInfoSync().platform == 'h5') {
+						    // 在浏览器环境中新开一个窗口
+						    window.open(url);
+						} else {
+							plus.runtime.openURL( url, );  
+
+						}
+
+						return;
+					}
 					if (that.pay_type == 4) {
 							var info = res.data;
 							uni.requestPayment({
@@ -310,10 +323,7 @@ export default {
 		font-size: 60rpx;
 		margin-top: 60rpx;
 
-		&::before {
-			content: '$';
-			font-size: 46rpx;
-		}
+		
 	}
 }
 

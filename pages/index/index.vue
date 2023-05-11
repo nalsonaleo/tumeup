@@ -299,7 +299,10 @@
 
 			showLanguage() {
 				//切换语言,android设备会提示重启
+			
 				this.$refs.languagePopup.open()
+				
+
 			},
 			changeLanguage(e) {
 				console.log(e)
@@ -315,8 +318,13 @@
 						}
 					})
 				} else {
+				
 					uni.setLocale(e.detail.value);
 					this.$i18n.locale = e.detail.value;
+					this.$forceUpdate();
+					uni.redirectTo({
+					    url: '/pages/index//index'
+					});
 				}
 				this.$refs.languagePopup.close()
 			},

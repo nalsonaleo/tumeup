@@ -18,27 +18,16 @@
 				</view>
 			</label>
 			<radio-group @change="selPay" class="pay-box">
-				<label class="x-bc pay-item" style="display: none;">
+				
+				<label class="x-bc pay-item" v-for='item in payTypeList' :key='item.id' >
 					<view class="x-f">
-						<image class="pay-img" src="../../../static/imgs/wx_pay.png" mode=""></image>
-						<text>{{$t("user.wallet.tixian.wx")}}</text>
-					</view>
-					<radio value="1" :class="{ checked: pay_type == 1 }" class=" pay-radio orange" :checked="pay_type == 1"></radio>
-				</label>
-				<label class="x-bc pay-item" >
-					<view class="x-f">
-						<image class="pay-img" src="../../../static/imgs/ali_pay.png" mode=""></image>
-						<text>{{$t("user.wallet.tixian.zfb")}}</text>
+						<image class="pay-img" :src="item.logo" mode=""></image>
+						
+						<text>{{item.title}}</text>
 					</view>
 					<radio value="2" :class="{ checked: pay_type == 2 }" class="pay-radio orange" :checked="pay_type == 2"></radio>
 				</label>
-				<label class="x-bc pay-item" >
-					<view class="x-f">
-						<image class="pay-img" src="../../../static/imgs/yinlian.png" mode=""></image>
-						<text>{{$t("user.wallet.tixian.yl")}}</text>
-					</view>
-					<radio value="3" :class="{ checked: pay_type == 3 }" class="pay-radio orange" :checked="pay_type == 3"></radio>
-				</label>
+				
 				
 			</radio-group>
 			<label>
@@ -46,8 +35,9 @@
 					<view class="item-title">{{$t("user.wallet.tixian.accountInfo")}}:</view>
 					<input class="item-input flex-sub" type="text" v-if="pay_type == 1" v-model="account"  :placeholder="$t('user.wallet.tixian.wx.placeholder')" placeholder-class="pl-input" />
 					<input class="item-input flex-sub" type="text" v-if="pay_type == 2"  v-model="account" :placeholder="$t('user.wallet.tixian.zfb.placeholder')" placeholder-class="pl-input" />
+					
 					<input class="item-input flex-sub" style="margin-bottom: 30upx;" v-model="account"  type="text" v-if="pay_type == 3"  :placeholder="$t('user.wallet.tixian.yl.placeholder')" placeholder-class="pl-input" />
-					<input class="item-input flex-sub" type="text" v-if="pay_type == 3" v-model="name"  :placeholder="$t('user.wallet.tixian.ylkhm.placeholder')" placeholder-class="pl-input" />
+					<input class="item-input flex-sub" type="text" v-if="pay_type == 2" v-model="name"  :placeholder="$t('user.wallet.tixian.ylkhm.placeholder')" placeholder-class="pl-input" />
 				</view>
 			</label>
 		</view>
@@ -63,11 +53,15 @@ export default {
 			max:0,
 			account:'',
 			name:'',
-			money:''
+			money:'',
+			payTypeList:"",
 		};
 	},
 	onLoad(options) {
 		this.max = options.max
+		this.$api.payType().then((res) => {
+			this.payTypeList = res.data;
+		});
 	},
 	methods: {
 		// tixian

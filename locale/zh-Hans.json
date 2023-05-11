@@ -640,7 +640,7 @@
 	"user.wallet.tixian.wx": "微信",
 	"user.wallet.tixian.wx.placeholder": "请输入微信账号",
 	"user.wallet.tixian.zfb": "支付宝",
-	"user.wallet.tixian.zfb.placeholder": "请输入支付宝账号",
+	"user.wallet.tixian.zfb.placeholder": "请输入账号",
 	"user.wallet.tixian.yl": "银联",
 	"user.wallet.tixian.yl.placeholder": "请输入银行账号",
 	"user.wallet.tixian.ylkhm.placeholder": "请输入开户名",

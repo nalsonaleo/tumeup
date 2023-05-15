@@ -1,6 +1,6 @@
 <template>
 	<view class="select-area-code">
-		<view class="area-code-text" :class="{'notData': !areaCode.title}" @click="showPop()">{{areaCode.title||$t('请选择区号')}}
+		<view class="area-code-text" :class="{'notData': !areaCode.title}" @click="showPop()">{{areaCode.title||$t('components.selectAreaCode.qxzqh')}}
 			<uni-icons type="bottom"></uni-icons>
 		</view>
 		<u-popup 
@@ -42,7 +42,7 @@
 					</view>
 				</scroll-view>
 				<view v-else class="area-code-scroll">
-					<view class="empty-data">{{$t('暂无数据')}}</view>
+					<view class="empty-data">{{$t('components.selectAreaCode.zwsj')}}</view>
 				</view>
 			</view>
 		</u-popup>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+	import localeList from '@/locale/locales.js';
 	export default {
 		data() {
 			return {

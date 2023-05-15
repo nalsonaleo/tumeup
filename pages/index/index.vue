@@ -56,11 +56,19 @@
 		</view>
 		<!--TOP BANNER END-->
 		<!--team up login start-->
-		<view style="top:0;left:0;position: relative;display:flex;background-color: white;width: 100% !important;height:370rpx;justify-content: center;align-items:center;flex-direction: column;">
-			<view style="width: 95%;background-color: beige;border-top-left-radius:10rpx;border-top-right-radius:10rpx;height:80rpx;align-items:center;display: flex;">
-			  <text style="width:47%  ;padding-left: 40rpx;">Team up Shopping</text>
-			  <text style="width: 1%;">|</text>
-			  <text style="width:47%  ;padding-left: 40rpx;">Free Returns</text>
+		<view style="top:0;left:0;position: relative;display:flex;background-color: white;width: 100% !important;height:340rpx;justify-content: center;align-items:center;flex-direction: column;">
+			<view style="width: 95%;background-color: #FFFACD;border-top-left-radius:10rpx;border-top-right-radius:10rpx;height:70rpx;align-items:center;display: flex;">
+			  <view style="width:47%  ;padding-left: 30rpx;">
+				<image src="../../static/imgs/secunity.png" style="width:30rpx;height: 35rpx; position: absolute;"></image>
+				  <view style="margin-left: 40rpx;">{{$t("Team up Shopping")}}</view>
+			  </view>
+			  
+			  <view style="width: 1%;">|</view>
+			  <view style="width:47%  ;padding-left: 70rpx;">
+				  <image src="../../static/imgs/secunity.png" style="width:30rpx;height: 35rpx; position: absolute;"></image>
+				  <view style="margin-left: 50rpx;"> {{$t("Rebate")}} 30%</view>
+				
+			  </view>
 			</view>
 			
             <!-- 广告图 -->
@@ -79,18 +87,19 @@
 			</navigator>
 			</view>
 			
-			  <view style="width: 100%;padding-left: 25rpx;justify-content: center;align-items:center;flex-direction: column;position: relative;">
+			  <view style="width: 100%;padding-left: 25rpx;display: flex;align-items: center;">
 				<navigator url="/pages/public/faq">
-				<image src="../../static/imgs/secunity.png" style="width:30rpx;height: 35rpx;
+				   <image src="../../static/imgs/secunity.png" style="width:30rpx;height: 35rpx;
 				position: absolute;"></image>
-				<text style="font-size: 0.7rem;height:35rpx;color: #666666;padding-left: 10rpx;align-items: center;">
-					<text style="margin-left: 30rpx;">Safe payment | Security privacy | Purchase protection </text>
-					<image src="../../static/imgs/next.png" style="width:50rpx;height:30rpx;float:right;padding-right: 25rpx;"></image>
-					
-				</text>
+				   <view style=" font-size: 0.7rem;padding-left: 50rpx;float:left; ">
+					  Safe payment | Security privacy | Purchase protection
+					  <image src="../../static/imgs/next.png" style="width:30rpx;height:30rpx;position: absolute;float:left;margin-left: 50rpx;"></image>
+				   </view>
+				   
+
 				</navigator>
 			  </view>
-			<text style="padding-bottom: 15rpx;border-bottom: 1.8px solid #f1f1ea;height: 1rpx;width: 95%;"></text>
+			<view style="padding-bottom: 15rpx;border-bottom: 1.8px solid #f1f1ea;height: 1rpx;width: 95%;"></view>
 		</view>
 		<!--team up login end-->
 		<!--INDEX BANNER START-->
@@ -106,22 +115,24 @@
 				</swiper>
 				<!-- 自定义swiper指示器 -->
 				<view class="swiper-dots">
-					<text class="num">{{swiperCurrent+1}}</text>
-					<text class="sign">/</text>
-					<text class="num">{{swiperLength}}</text>
+					<view class="num">{{swiperCurrent+1}}</view>
+					<view class="sign">/</view>
+					<view class="num">{{swiperLength}}</view>
 				</view>
 			</view>
             <!--INDEX BANNER END-->
 		</view>
 		<!-- 分类 -->
 		<view  style="position: relative;width: 100%;display: flex;flex-direction: column;left:0;top: 0;color: #000000;background-color:white;margin-top:15rpx;">
-		<view style="width: 100%;padding-left: 25rpx;margin-top: 10rpx;">
+		<view style="width: 100%;padding-left: 25rpx;margin-top: 10rpx;"> 
 				
-				<text style="font-size: 0.7rem;align-items: center;height: 10rpx;">
-					<text style="font-size: 1rem; ">{{$t("pages.tabBar.category")}} </text>
-					<image src="../../static/imgs/next.png" style="width:50rpx;height:35rpx;padding-left: 25rpx;position: absolute;"></image>
+				
+					<view style="font-size: 1rem;display: flex;align-items: center; ">{{$t("pages.tabBar.category")}} 
+					<image src="../../static/imgs/next.png" style="width:50rpx;height:35rpx;padding-left: 25rpx;position: relative;"></image>
+					</view>
 					
-				</text>
+					
+				
 				
 		</view>	 
 
@@ -139,7 +150,7 @@
 							:key="item.c_name" @tap="toList(item.id)">
 							<image class="tab-img" :style="{ width:'88rpx', height: '88rpx' }" :src="item.c_img">
 							</image>
-							<text class='tab-text'>{{ item.c_name }}</text>
+							<view class='tab-text'>{{ item.c_name }}</view>
 						</view>
 					</view>
 				</swiper-item>
@@ -323,7 +334,7 @@
 					this.$i18n.locale = e.detail.value;
 					this.$forceUpdate();
 					uni.redirectTo({
-					    url: '/pages/index//index'
+					    url: '/pages/index/index'
 					});
 				}
 				this.$refs.languagePopup.close()
@@ -694,11 +705,14 @@
 				flex: 1;
 				margin-top: 10upx;
 				color: #fff;
-				font-size: 26upx;
+				font-size: 0.8rem;
 				padding: 0 10upx;
 				height: 30upx;
-				display: flex;
+				display:flex;
 				align-items: center;
+				position: absolute;
+				width: 100%;
+				margin-left: 50rpx;
 
 				image {
 					width: 28upx;
@@ -706,7 +720,7 @@
 				}
 
 				text {
-					font-size: 26upx;
+					font-size: 0.8rem;
 					color: #fff;
 					margin-left: 10upx;
 				}

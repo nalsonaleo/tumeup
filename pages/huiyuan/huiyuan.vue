@@ -11,7 +11,7 @@
 				<image src="../../static/imgs/news.png"></image>
 			</view>
 		</view>
-		
+		<view style="margin-top: 70rpx;position: relative;">
 		<!-- 头部轮播 -->
 		<view class="carousel-section">
 			
@@ -36,9 +36,10 @@
 		</view>
 		
 		<!-- 分类 -->
-		<view class="menu-category-box" v-if="cate" :style="cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`">
+		<view class="menu-category-box" v-for="(itemList, index) in cate" :key="index" v-if="cate" :style="cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`">
 			<swiper
 				class="menu-swiper-box"
+				v-for="(itemList, index) in cate" :key="index"
 				:style="cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`"
 				@change="onSwiper"
 				:autoplay="false"
@@ -89,6 +90,7 @@
 			</view>
 		</view>
 	</view>
+	</view>
 </template>
 
 <script>
@@ -103,6 +105,14 @@
 				goods1:[],
 				goods2:[]
 			};
+		},
+		onPageScroll(e) {
+			//兼容iOS端下拉时顶部漂移
+			if (e.scrollTop >= 0) {
+				this.headerPosition = 'fixed';
+			} else {
+				this.headerPosition = 'absolute';
+			}
 		},
 		onLoad() {
 			this.getList()
@@ -165,7 +175,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		//position: fixed;
+		position: fixed;
 		width: 100vw;
 		background: $zhuse;
 		padding-top: var(--status-bar-height);

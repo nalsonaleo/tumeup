@@ -212,7 +212,7 @@ export default {
 		align-items: center;
 		box-sizing: border-box;
 		.item-title {
-			font-size: 30rpx;
+			font-size: 0.8rem;
 			font-family: PingFang SC;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 1);

@@ -22,7 +22,7 @@
 			</view>
 		</view>
 		<view class="user-list x-bc">
-			<text class="list-name">ID</text>
+			<text class="list-name">{{$t('pages.user.info.id')}}</text>
 			<view class="x-f">
 				<text class="list-val">{{ userData.id }}</text>
 				<!-- <text class="cuIcon-right"></text> -->
@@ -46,12 +46,12 @@
 				<text class="list-val">{{ userData.t_name }}</text>
 			</view>
 		</view>
-		<view class="user-list x-bc" v-if="userData.u_tid">
+<!-- 		<view class="user-list x-bc" v-if="userData.u_tid">
 			<text class="list-name">{{$t("user.forgetPayPsd.yqrId")}}</text>
 			<view class="x-f">
 				<text class="list-val">{{ userData.u_tid}}</text>
 			</view>
-		</view>
+		</view> -->
 		<view class="btn-box flex align-center justify-center"><button class="cu-btn confirem-btn" @tap="editUserInfo">{{$t('user.forgetPayPsd.bc')}}</button></view>
 	</view>
 </template>

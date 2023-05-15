@@ -665,5 +665,6 @@ module.exports.locale = {
 	"en": "English",
 	"zh-Hans": "Chinese",
 	"es": "Spanish",
-	"fr": "French"
+	"fr": "French",
+	"in": "India"
 }

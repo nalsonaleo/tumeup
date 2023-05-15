@@ -6,9 +6,11 @@
 				<view class="title-box x-bc">
 					<text class="title one-t">{{item.m_detail}}</text>
 					<view class="money">
-						<text v-if="item.m_style == 1" class="add">+{{ item.m_money }}</text>
-						<text v-else class="minus">-{{ item.m_money }}</text>
+						<text v-if="item.m_style == 1" class="add">+{{$t('money.symbol')}} {{ item.m_money }}</text>
+						<text v-else class="minus">-{{$t('money.symbol')}} {{ item.m_money }}</text>
+						
 					</view>
+					
 				</view>
 				<view class="tip-box x-bc">
 					<text class="time">{{ item.m_addtime }}</text>
@@ -126,13 +128,17 @@
 		}
 
 		.title {
+			width: 80%;
 			font-size: 30rpx;
-			width: 400rpx;
+			width: 500rpx;
+			position: relative;
+			z-index: 999;
 		}
 
 		.money {
-			font-size: 34rpx;
+			font-size: 28rpx;
 			font-weight: bold;
+			//width: 20%;
 
 			.add {
 				color: $zhuse;

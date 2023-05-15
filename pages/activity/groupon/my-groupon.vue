@@ -97,6 +97,7 @@
 					<text class="no">{{ order.addtime }}</text>
 					<text class="state">{{ order.is_group == 0 ? $t("order.groupon.myGroupon.ptz") : $t("order.groupon.myGroupon.yct") }}</text>
 				</view>
+				
 				<view class="goods-order">
 					<view class="order-content">
 						<view class="goods-box x-start">
@@ -104,11 +105,19 @@
 							<view class="y-start">
 								<view class="goods-title more-t">{{ order.g_name }}</view>
 								<slot name="tipTag"></slot>
-								<slot name="goodsBottom">
-									<view class="price">￥{{ order.p_price }}</view>
-								</slot>
-								<view class="x-f" style="margin-top: 30rpx;" v-if="order.order_id == 0 && order.goods_code">
-									<text style="font-size: 26rpx;">{{$t("order.groupon.myGroupon.thm")}}:{{ order.goods_code }}</text>
+								<view style="display: inline;text-align:right; width: 100%;margin-top: 20rpx;">
+									<view class="price1" >
+									<text>{{$t("order.detail.actually")}} : {{$t('money.symbol')}} {{ order.p_price }}
+									 </text> 
+									</view>
+									<view class="price2" >										
+										<view >
+											<text class="state">{{ order.is_group == 0 ? $t("order.groupon.myGroupon.yj") : $t("pages.pages.Teamup.bonus") }} : + {{$t('money.symbol')}} {{yuji}}</text>
+										</view>	
+									</view>									
+								</view>
+								<view class="x-f" style="margin-top: 30rpx;border: 1rpx #54B85D solid;display: inline;text-align:center; " v-if="order.order_id == 0 && order.goods_code">
+									<text style="font-size: 26rpx;padding-left: 6rpx;">{{$t("order.groupon.myGroupon.thm")}} : {{ order.goods_code }}</text>
 									<button class="cu-btn copy-btn" @tap="onCopy(order.goods_code)">{{$t("order.groupon.myGroupon.fz")}}</button>
 								</view>
 							</view>
@@ -118,7 +127,7 @@
 				</view>
 				<view class="order-bottom x-f">
 					<view class="btn-box">
-						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/huiyuan')">{{$t("order.groupon.myGroupon.qth")}}</button>
+						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/huiyuan/')">{{$t("order.groupon.myGroupon.qth")}}</button>
 						<button class="cu-btn obtn1" v-if="order.order_id != 0" @tap="jump('/pages/order/detail?order_id='+order.order_id)">{{$t("order.groupon.myGroupon.ddxq")}}</button>
 						<button  @tap.stop="jump('/pages/activity/groupon/detail?id='+order.id)" class="cu-btn obtn2">
 							{{$t("order.groupon.myGroupon.ptxq")}}
@@ -333,7 +342,7 @@ page {
 		.nav-line {
 			width: 100rpx;
 			height: 4rpx;
-			background: #fff;
+			//background: #f6f6f6;
 		}
 
 		.line-active {
@@ -415,8 +424,8 @@ page {
 		.obtn2 {
 			width: 160rpx;
 			height: 60rpx;
-			background: rgba(239, 58, 58, 0.8);
-			// background: linear-gradient(90deg, rgba(233, 180, 97, 1), rgba(238, 204, 137, 1));
+			//background: rgba(239, 58, 58, 0.8);
+			background: rgba(233, 180, 97, 1);
 			box-shadow: 0px 7rpx 6rpx 0px rgba(239, 58, 58, 0.22);
 			border-radius: 30rpx;
 			margin-right: 20rpx;
@@ -478,14 +487,18 @@ page {
 }
 .goods-box {
 	position: relative;
+	width: 100%;
 	.goods-img {
 		width: 200rpx;
 		height: 200rpx;
 		background-color: #ccc;
 		margin-right: 25rpx;
+		float: left;
+		
+		
 	}
 	.order-goods__tag {
-		position: absolute;
+		//position: absolute;
 		top: 0;
 		left: 0;
 		z-index: 3;
@@ -497,8 +510,10 @@ page {
 		font-family: PingFang SC;
 		font-weight: 500;
 		color: rgba(51, 51, 51, 1);
-		width: 450rpx;
+		width:85%;
+		width: 480rpx;
 		line-height: 40rpx;
+		float: right;
 	}
 
 	.size-tip {
@@ -518,8 +533,14 @@ page {
 		margin: 10rpx 0;
 	}
 
-	.price {
-		color: #e1212b;
+	.price1 {
+		color:back;	
+		
+	}
+	.price2 {
+		color: #e1212b;	
+		margin-top: 10rpx;
 	}
 }
+
 </style>

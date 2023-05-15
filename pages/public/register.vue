@@ -37,6 +37,7 @@
 
 <script>
 	import selectAreaCode from '@/components/selectAreaCode.vue';
+	import localeList from '@/locale/locales.js';
 export default {
 	data() {
 		return {

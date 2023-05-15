@@ -48,7 +48,7 @@
 			<view
 				style="width: 95%;height: 65rpx;color: white;background-color:#696969;border-radius: 5px;align-items:center;display: flex;">
 				<text style="float: left;font-size: 0.8rem;padding-left: 20rpx;width: 85%;">
-					Turn On Automatic Team up &nbsp;| &nbsp; 30% Return
+					{{$t("pages.user.switch")}} &nbsp;| &nbsp; 30% {{$t("pages.user.return")}} 
 				</text>
 				<view style="align-items: center;text-align: center;" v-if="info.s_out == 1">
 					<switch class="olive switch" @tap="onSwitch" :class="{ checked: is_default }" :checked="is_default">

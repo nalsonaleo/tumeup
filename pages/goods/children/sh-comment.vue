@@ -5,8 +5,8 @@
 				<image class="avatar" :src="comment.u_img" mode="aspectFill"></image>
 				<view class="user-name">{{ comment.u_name }}</view>
 				<view class="x-f star-box">
-					<text class="cuIcon-favorfill star-active" v-for="s in comment.c_star"  ></text>
-					<text class="cuIcon-favorfill" v-for="z in (5 - comment.c_star)" ></text>
+					<u-icon class="cuIcon-favorfill star-active" v-for="s in comment.c_star" :key="index"  ></u-icon>
+					<u-icon class="cuIcon-favorfill" v-for="z in (5 - comment.c_star)" :key="index" ></u-icon>
 				</view>
 			</view>
 			<text class="time">{{ comment.c_time }}</text>

@@ -15,7 +15,7 @@ import fr from './fr.json'
 import zh_Hans from './zh-Hans.json'
 export default {
 	en,
-    "in": In ,
+    "in": In,
     "ca": ca,	
 	"es": es,
 	"fr": fr,

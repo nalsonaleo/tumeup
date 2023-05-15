@@ -1,9 +1,9 @@
 <template>
 	<view class="page_box">
-		<view class="head_box"></view>
+		<view class="head_box"></view> 
 		<view class="content_box">
 			<view class="goods-card">
-				<view class="goods-box x-start" v-for="item in goodsDetail.data" v-if="item.id == id" style="padding: 30upx 0;" >
+				<view class="goods-box x-start" v-for="item in goodsDetail.data" :key="index" v-if="item.id == id" style="padding: 30upx 0;" >
 					<image class="goods-img" :src="item.g_img" mode=""></image>
 					<view class="y-start">
 						<view class="goods-title more-t">{{ item.g_name }}</view>

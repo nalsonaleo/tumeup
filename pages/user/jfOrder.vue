@@ -105,14 +105,14 @@ export default {
 					title: this.$t('pages.user.jfOrder.dsh'),
 					type: 2
 				},
-				{
-					id: 4,
-					title: this.$t('pages.user.jfOrder.dpj'),
-					type: 3
-				},
+				// {
+				// 	id: 4,
+				// 	title: this.$t('pages.user.jfOrder.dpj'),
+				// 	type: 3
+				// },
 				{
 					id: 5,
-					title: this.$t('pages.user.jfOrder.thh'),
+					title: this.$t('pages.user.jfOrder.ywc'),
 					type: 5
 				}
 			],
@@ -292,14 +292,14 @@ export default {
 		flex: 1;
 		min-width: 30rpx;
 		min-height: 80rpx;
-		padding: 0 10px;
+		padding: 0 5px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		box-sizing: border-box;
 		.item-title {
-			font-size: 30rpx;
+			font-size: 0.8rem;
 			font-family: PingFang SC;
 			font-weight: 400;
 			color: rgba(51, 51, 51, 1);

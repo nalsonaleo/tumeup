@@ -1,9 +1,9 @@
 {
-    "name" : "Sever Up",
+    "name" : "Seven Up",
     "appid" : "__UNI__5AEB7BB",
-    "description" : "SeverUp Shop",
-    "versionName" : "23051101",
-    "versionCode" : 23051101,
+    "description" : "SevenUp - Team Up Shopping",
+    "versionName" : "23051107",
+    "versionCode" : 23051107,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -123,7 +123,7 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "SeverUp Shop",
+        "title" : "SevenUp -TeamUp Shopping",
         "domain" : "http://a.fondfell.com",
         "router" : {
             "mode" : "hash"

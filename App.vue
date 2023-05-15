@@ -187,12 +187,12 @@ export default {
 			}
 		},
 		onLaunch: function(options) {
-			console.log('App.vue 启动');
+			console.log('App.vue start');
 			//console.log(options);
 			//邀请者
 			if (options.query.u) {
 				this.setStateAttr({
-					inviteCode: options.query.u
+					inviteCode: options.query.u 
 				})
 			}
 			//分享过来的店铺id，正常访问是没有的，这里可以防止分类页面没有店铺id的尴尬

@@ -55,13 +55,13 @@
 							<view class="uni-numbox x-f">
 								<view @tap.stop="changeCount(-1)" class="uni-numbox__minus">
 									<button class=" cu-btn uni-numbox--text">
-										<text class="iconfont icon-reduce-fill"></text>
+										<text class="iconfont icon-reduce-fill">-</text>
 									</button>
 								</view>
 								<input :disabled="true"  class="uni-numbox__value" type="number" v-model="goodsNum" />
 								<view @tap.stop="changeCount(1)" class="uni-numbox__plus">
 									<button class=" cu-btn uni-numbox--text">
-										<text class="iconfont icon-add-fill"></text>
+										<text class="iconfont icon-add-fill">+</text>
 									</button>
 								</view>
 							</view>
@@ -533,17 +533,23 @@ export default {
 		flex-direction: row;
 		height: $box-height;
 		line-height: $box-height;
+		align-items: center;
+		justify-content: center;
 		.cu-btn {
-			background: none;
+			//background: #e7e7e7;
 			padding: 0;
+			
+			
 		}
 	}
 	
 	.uni-numbox__value {
 		background-color: none;
-		width: 40px;
+		width: 50px;
 		height: $box-height;
 		text-align: center;
+		align-items: center;
+		justify-content: center;
 		font-size: 28rpx;
 	}
 	
@@ -555,7 +561,8 @@ export default {
 		align-items: center;
 		justify-content: center;
 		.icon-reduce-fill {
-			color: #e7e7e7;
+			color:$zhuse;
+			
 		}
 	}
 	
@@ -568,6 +575,7 @@ export default {
 		justify-content: center;
 		.icon-add-fill {
 			color: $zhuse;
+			
 		}
 	}
 	

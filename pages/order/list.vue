@@ -13,7 +13,7 @@
 			<view class="order-list" v-for="order in orderList" :key="order.id" @tap.stop="jump('/pages/order/detail?order_id='+order.id)">
 				<view class="order-head x-bc">
 					<text class="no">{{$t("user.order.list.orderNumber")}}：{{ order.o_no }}</text>
-					<text class="state" v-if="orderType != 5">{{orderStatus[order.o_status]}}</text>
+					<text class="state" v-if="order.o_exchange == 0 && orderType != 5">{{orderStatus[order.o_status]}}</text>
 					<text class="state" v-else>{{order.o_exchange == 1?$t("user.order.list.refund"):$t("user.order.list.refunded")}}</text>
 				</view>
 				<view class="goods-order">
@@ -27,9 +27,15 @@
 							<button class="cu-btn btn1"  v-if="order.o_status == 0" @tap.stop="onCancel(order.id)">
 								{{$t("user.order.list.cancellationOfOrder")}}
 							</button>
-							<!-- <button class="cu-btn btn1"  v-if="order.o_status >= 2 && order.o_status !=6 && order.o_status != 7" @tap.stop="checkExpress(order.id)">
-								查看物流
-							</button> -->
+							<button class="cu-btn btn1"  v-if="order.o_status >= 2 && order.o_status !=6 && order.o_status != 7" @tap.stop="checkExpress(order.id)">
+								{{$t("order.commomPtOrder.detail.ckwl")}}
+							</button>
+							<!--申请退款-->
+							<button @tap.stop="onRefund(order.id)" class="cu-btn btn1" v-if="order.o_status == 1">
+					{{order.o_exchange == 0 ? $t("order.commomPtOrder.detail.Request.refund"):$t("user.order.list.refund")}}
+						
+							</button>
+							<!--end-->
 							<button @tap.stop="onConfirm(order.id)" class="cu-btn btn2" v-if="order.o_status == 2">
 								{{$t("user.order.list.confirmReceipt")}}
 							</button>
@@ -68,7 +74,7 @@ export default {
 			isLoading: true,
 			orderType: -1,
 			orderList: [],
-			orderStatus:['',this.$t("user.order.list.status.obligation"),this.$t("user.order.list.status.goodsToBeShipped"),this.$t("user.order.list.status.waitForReceiving"),this.$t("user.order.list.status.finished"),this.$t("user.order.list.status.finished"),this.$t("user.order.list.status.afterSale")],
+			orderStatus:[this.$t("user.order.list.status.obligation"),this.$t("user.order.list.status.goodsToBeShipped"),this.$t("user.order.list.status.waitForReceiving"),this.$t("user.order.list.status.finished"),this.$t("user.order.list.status.finished"),this.$t("user.order.list.status.afterSale"),this.$t("user.order.list.status.clocse")],
 	
 			emptyData: {
 				img: '/static/imgs/empty/empty_groupon.png',
@@ -186,16 +192,23 @@ export default {
 				}
 			});
 		},
+
 		// 申请退款
-		onRefund(id, itemId) {
+		onRefund(id) {
 			let that = this;
-			that.$api('order.refund', {
-				id: id,
-				order_item_id: itemId
-			}).then(res => {
-				if (res.code === 1) {
-					that.$tools.toast('申请退款成功');
-					that.getOrderList();
+			var data = {
+				uid:uni.getStorageSync('p_uid'),
+				token:uni.getStorageSync('p_token'),
+				d_id:id,
+			}
+			that.$api.refund(data).then(res => {
+				if(res.code == 1){
+					that.page = 1;
+					that.orderList = [];					
+					that.$msg(res.msg);
+					setTimeout(function(){
+						that.getOrderList();
+					},800)
 				}
 			});
 		},

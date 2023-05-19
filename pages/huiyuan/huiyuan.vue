@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+	   
 		<view class="top-logo">
 			<view class="l" @tap="jump('/pages/index/index')">
 				<image src="../../static/imgs/logo/logo.png"></image>
@@ -11,11 +12,13 @@
 				<image src="../../static/imgs/news.png"></image>
 			</view>
 		</view>
-		<view style="margin-top: 70rpx;position: relative;">
+	
 		<!-- 头部轮播 -->
 		<view class="carousel-section">
-			
-			<view class="bot">
+			<!-- #ifdef APP-PLUS -->
+			<view class="topPlace"></view>
+			<!-- #endif -->	
+			<view class="top">
 				<!-- 标题栏和状态栏占位符 -->
 				<view class="titleNview-placing"></view>
 				<!-- 背景色区域 -->
@@ -94,6 +97,7 @@
 </template>
 
 <script>
+	
 	export default {
 		data() {
 			return {
@@ -169,38 +173,43 @@
 </script>
 
 <style lang="scss" scoped>
+	.topnav{top:0;left:0;position: relative;display:flex;width: 100% !important;justify-content: center;align-items:center;flex-direction: column;}
 	.top-logo {
-		position: relative;
-		
+		//position: relative;	
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		position: fixed;
 		width: 100vw;
+		width: 100% !important;
 		background: $zhuse;
 		padding-top: var(--status-bar-height);
 		top: 0;
 		z-index: 9999;
 		.lang {
-			display: flex;
-			margin-right: 25%;
-			font-size:1rem;font-weight:bold;
+			display: flex;			
+			//float: left;
+			font-size:0.8rem;font-weight:bold;
 			color: #fff;
 			display: block;
-	
+			width: 	50% !important;
+			justify-content: center;align-items:center;flex-direction: column;
+			
 			image {
 				width: 50upx;
 				height: 80upx;
 				display: block;
+				width: 	33.3% !important;
 				// margin-bottom: 6upx;
 			}
 		}
 	
 		.l {
 			flex: 1;
-			margin-right: 20upx;
+			//margin-right: 20upx;
 			margin-left: 20upx;
-			padding: 0 10upx;
+			width: 	33.3% !important;
+			//padding: 0 10upx;
 			height: 70upx;
 			display: flex;
 			align-items: center;
@@ -315,12 +324,26 @@
 	page {
 		background: #f5f5f5;
 	}
+	.topPlace {
+		width: 100%;
+		height: var(--status-bar-height);
+		background: $zhuse;
+	}
 	/* 头部 轮播图 */
 	.carousel-section {
-		//padding-top: 70upx;
-		//position: relative;
+		padding-top: 50upx;
+		position: relative;
 		
-		.top{width: 100%;padding:30upx 20upx;background: $zhuse;}
+		.top{	
+			width: 100%;
+			padding: 14upx 20upx;
+			background: $zhuse;
+			padding-top: 40rpx;
+			// #ifdef MP-WEIXIN
+			padding-top: 50upx;
+			padding-right: 28%;
+			
+			// #endif}
 		.search{
 			display: flex;
 			align-items: center;
@@ -363,9 +386,7 @@
 			position: absolute;
 			height: 40%;
 			background: $zhuse;
-			width: 100%;
-			
-			
+			width: 100%;		
 		}
 	
 		.titleNview-background {

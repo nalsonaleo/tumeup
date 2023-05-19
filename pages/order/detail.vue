@@ -6,8 +6,7 @@
 				<view class="state-box x-f">
 					<image class="state-img" src="/static/imgs/order_state1.png" mode=""></image>
 					<text v-if="orderDetail.o_exchange == 0 && orderDetail.o_type !=4">{{ orderStatus[orderDetail.o_status] }}</text>
-					<text v-if="orderDetail.o_exchange == 0 && orderDetail.o_type ==4">{{ orderStatus1[orderDetail.o_status] }}</text>
-					<!-- <text v-else>{{ orderDetail.o_exchange == 1 ? '退款中':'已退款' }}</text> -->
+					<text class="state" v-else>{{orderDetail.o_exchange == 1?$t("user.order.list.refund"):$t("user.order.list.refunded")}}</text>
 				</view>
 			</view>
 			<view class="detail-goods">
@@ -36,7 +35,7 @@
 						</view>
 					</view>
 				
-					<view class="order-bottom  x-f" style="margin-top: -20upx;margin-bottom: 20upx;"  v-if="orderDetail.o_status == 0 || orderDetail.o_status == 2">
+					<view class="order-bottom  x-f" style="margin-top: -20upx;margin-bottom: 20upx;" >
 						<view class="btn-box" >
 							<button class="cu-btn btn2"  v-if="orderDetail.o_status == 0" @tap.stop="onPay(orderDetail.id, orderDetail.o_total_price)">
 								{{$t("order.commomPtOrder.detail.ljfk")}}
@@ -50,8 +49,9 @@
 							<button @tap.stop="onConfirm(orderDetail.id)" class="cu-btn btn2" v-if="orderDetail.o_status == 2">
 								{{$t("order.commomPtOrder.detail.qrsh")}}
 							</button>
-							<button @tap.stop="onRefund(orderDetail.id)" class="cu-btn btn1" v-if="orderDetail.o_status == 2">
-								{{$t("order.commomPtOrder.detail.Request.refund")}}
+							<button @tap.stop="onRefund(orderDetail.id)" class="cu-btn btn2" v-if="orderDetail.o_status == 1">
+							{{orderDetail.o_exchange == 0 ? $t("order.commomPtOrder.detail.Request.refund"):$t("user.order.list.refund")}}
+								
 							</button>
 						</view>
 					</view>

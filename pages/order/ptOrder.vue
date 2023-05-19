@@ -10,7 +10,7 @@
 		</view>
 		<view class="content_box">
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
-			<view class="order-list" v-for="order in orderList" :key="order.id" @tap.stop="jump('/pages/order/detail?order_id='+order.id)">
+			<view class="order-list" v-for="order in orderList" :key="order.id" @tap.stop="jump('/pages/order/ptdetail?order_id='+order.id)">
 				<view class="order-head x-bc">
 					<text class="no">{{$t("order.ptOrder.ddbh")}}：{{ order.o_no }}</text>
 					<text class="state" v-if="orderType != 5">{{orderStatus[order.o_status]}}</text>

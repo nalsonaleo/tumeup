@@ -70,6 +70,8 @@
 				"navigationBarBackgroundColor":"#54B85D",
 				"navigationBarTextStyle": "white",
 				"navigationStyle": "custom"
+				
+				
 			}
 			
 		},
@@ -176,8 +178,16 @@
 				"navigationBarTitleText": "%pages.order.confirm%"
 			}
 		},
+		
 		{
 			"path": "pages/order/detail",
+			"style": {
+				"navigationBarTitleText": "%pages.order.detail%"
+			}
+		},
+		// teamup
+		{
+			"path": "pages/order/ptdetail",
 			"style": {
 				"navigationBarTitleText": "%pages.order.detail%"
 			}
@@ -187,6 +197,7 @@
 			"name": "orderList",
 			"style": {
 				"navigationBarTitleText": "%pages.order.list%"
+				//"enablePullDownRefresh": true,
 			}
 		},
 		{
@@ -483,7 +494,9 @@
 				"pagePath": "pages/huiyuan/huiyuan",
 				"text": "%pages.tabBar.teamup%",
 				"iconPath": "static/imgs/tabbar/teamup_index.png",
-				"selectedIconPath": "static/imgs/tabbar/teamup_index1.png"
+				"selectedIconPath": "static/imgs/tabbar/teamup_index1.png",
+				"enablePullDownRefresh": true
+				
 			},
 			{
 				"pagePath": "pages/index/cart",

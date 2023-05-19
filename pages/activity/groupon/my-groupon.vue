@@ -38,7 +38,9 @@
 				</view>
 			</view>
 		</view> -->
+	
 	<view class="now_con" v-if="orderType == 'now'">
+		<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
 	<div id="container" style="width: 100%;height: auto;"><div class="Rucian_NowBox">
 			<div v-if="num1_id>0" class="Rucian_List">
 				<div>{{$t("order.groupon.myGroupon.yj")}}</div>
@@ -85,19 +87,18 @@
 			
 			
 		</div></div>
-	
+	</scroll-view >
 	</view>
 		<!-- 当前拼团end -->
 
 		<!-- 历史拼团 -->
 		<view class="history_con" v-if="orderType == 'history'">
-
+<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
 			<view class="order-list" v-for="order in orderList" :key="order.id" >
 				<view class="order-head x-bc">
 					<text class="no">{{ order.addtime }}</text>
 					<text class="state">{{ order.is_group == 0 ? $t("order.groupon.myGroupon.ptz") : $t("order.groupon.myGroupon.yct") }}</text>
 				</view>
-				
 				<view class="goods-order">
 					<view class="order-content">
 						<view class="goods-box x-start">
@@ -105,19 +106,11 @@
 							<view class="y-start">
 								<view class="goods-title more-t">{{ order.g_name }}</view>
 								<slot name="tipTag"></slot>
-								<view style="display: inline;text-align:right; width: 100%;margin-top: 20rpx;">
-									<view class="price1" >
-									<text>{{$t("order.detail.actually")}} : {{$t('money.symbol')}} {{ order.p_price }}
-									 </text> 
-									</view>
-									<view class="price2" >										
-										<view >
-											<text class="state">{{ order.is_group == 0 ? $t("order.groupon.myGroupon.yj") : $t("pages.pages.Teamup.bonus") }} : + {{$t('money.symbol')}} {{yuji}}</text>
-										</view>	
-									</view>									
-								</view>
-								<view class="x-f" style="margin-top: 30rpx;border: 1rpx #54B85D solid;display: inline;text-align:center; " v-if="order.order_id == 0 && order.goods_code">
-									<text style="font-size: 26rpx;padding-left: 6rpx;">{{$t("order.groupon.myGroupon.thm")}} : {{ order.goods_code }}</text>
+								<slot name="goodsBottom">
+									<view class="price">￥{{ order.p_price }}</view>
+								</slot>
+								<view class="x-f" style="margin-top: 30rpx;" v-if="order.order_id == 0 && order.goods_code">
+									<text style="font-size: 26rpx;">{{$t("order.groupon.myGroupon.thm")}}:{{ order.goods_code }}</text>
 									<button class="cu-btn copy-btn" @tap="onCopy(order.goods_code)">{{$t("order.groupon.myGroupon.fz")}}</button>
 								</view>
 							</view>
@@ -127,27 +120,52 @@
 				</view>
 				<view class="order-bottom x-f">
 					<view class="btn-box">
-						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/huiyuan/')">{{$t("order.groupon.myGroupon.qth")}}</button>
-						<button class="cu-btn obtn1" v-if="order.order_id != 0" @tap="jump('/pages/order/detail?order_id='+order.order_id)">{{$t("order.groupon.myGroupon.ddxq")}}</button>
+						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/huiyuan')">{{$t("order.groupon.myGroupon.qth")}}</button>
+						<button class="cu-btn obtn1" v-if="order.order_id != 0" @tap="jump('/pages/order/ptdetail?order_id='+order.order_id)">{{$t("order.groupon.myGroupon.ddxq")}}</button>
 						<button  @tap.stop="jump('/pages/activity/groupon/detail?id='+order.id)" class="cu-btn obtn2">
 							{{$t("order.groupon.myGroupon.ptxq")}}
 						</button>
+						<button @tap.stop="onRefund(order.order_id)" class="cu-btn obtn1" v-if="order.is_group != 0">
+			{{$t("order.commomPtOrder.detail.Request.refund")}}
+						</button>						
 					</view>
 				</view>
 				<view style="width: 100%;height: 20upx;background: #f6f6f6;"></view>
 			</view>
+			<!-- 数据加载 -->
+			<uni-load-more :status='dataStatus' v-if="orderList.length"></uni-load-more>
+			<!-- 空白页 -->
+			<shopro-empty v-if="!orderList.length && !isLoading" :emptyData="emptyData"></shopro-empty>
+			<!-- load -->
+			<!-- <shoproLoad v-model="isLoading"></shoproLoad> -->
+			</scroll-view>
 		</view>
+		
 		<!-- 历史拼团end -->
 	</view>
+
 </template>
 
 
 <script>
 import h5Copy from '@/common/junyi-h5-copy/junyi-h5-copy.js'
+import shoproLoad from '@/components/shopro-load/shopro-load.vue';
+import shoproMiniCard from '@/components/goods/shopro-mini-card.vue';
+import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
 export default {
+	components: {
+		shoproMiniCard,
+		shoproLoad,
+		uniLoadMore,
+	},
 	data() {
 		return {
+			isLoading: true,
 			orderType: 'now',
+			emptyData: {
+				img: '/static/imgs/empty/empty_groupon.png',
+				tip: this.$t("user.order.list.tip"),
+			},
 			orderState: [
 				{
 					id: 0,
@@ -160,6 +178,15 @@ export default {
 					type: 'history'
 				}
 			],
+			pagination: {
+				total: 0,
+				pageSize: 10,
+				page: 1,
+			},
+			page:1,
+			hasMore:true,
+			dataStatus: 'more',
+			
 			list: [],
 			orderList: [],
 			num1_img: '',
@@ -175,6 +202,25 @@ export default {
 		jump(path, query) {
 			uni.navigateTo({
 				url: path
+			});
+		},
+		// 申请退款
+		onRefund(id) {
+			let that = this;
+			var data = {
+				uid:uni.getStorageSync('p_uid'),
+				token:uni.getStorageSync('p_token'),
+				d_id:id,
+			}
+			that.$api.refund(data).then(res => {
+				if(res.code == 1){
+					that.page = 1;
+					that.orderList = [];					
+					that.$msg(res.msg);
+					setTimeout(function(){
+						that.gethistoryGroup();
+					},800)
+				}
 			});
 		},
 		// 复制
@@ -225,9 +271,30 @@ export default {
 			};
 			that.$api.historyGroup(data).then(res => {
 				if (res.code == 1) {
+					that.isLoading = false;					
 					that.orderList = res.data;
+					that.pagination.total = res.data.total;
+					if(that.orderList.length >= that.pagination.total) {
+						that.dataStatus = 'noMore';
+					}
+					if (res.data.length != 0) {
+						that.hasMore = true;
+						// that.loadStatus = '';
+					} else {
+						that.hasMore = false;
+						// that.loadStatus = 'over';
+					}
 				}
 			});
+		},
+		// 加载更多
+		loadMore() {
+			console.log("到底了");
+			if (this.orderList.length < this.pagination.total) {
+				this.pagination.page += 1;
+				this.dataStatus = 'loading';
+				this.getOrderList();
+			}
 		},
 		onNav(id) {
 			this.orderType = id;
@@ -250,10 +317,14 @@ export default {
 	    display: flex;
 	    flex-wrap: wrap;
 	    justify-content: center;
+	    
 	}
 	.Rucian_NowBox .Rucian_List:nth-child(1) {
 	    width: 50%;
 	    padding: 3%;
+	    border-color:#8B8B7A;
+	    border-radius: 20upx;
+	    height: 150upx;
 	}
 	.Rucian_NowBox .Rucian_List .BigZt {
 	    font-size: 20px;
@@ -263,7 +334,7 @@ export default {
 	    width: 70px;
 	    font-size: 13px;
 	    margin: 0 auto;
-	    background-color: #ec3455;
+	    background-color: #3cb371;
 	    border-radius: 10px;
 	    padding: 2px 5px;
 	}
@@ -280,10 +351,11 @@ export default {
 	.Rucian_NowBox .Rucian_List {
 	    width: 35%;
 	    margin: 2%;
-	    border: 1.5px solid red;
+	    border: 2.5px solid red;
 	    padding: 6% 4%;
 	    border-radius: 4px;
 	    background-color: #07b3d1;
+	    border-color: #3cb371;
 	    color: white;
 	    position: relative;
 	}
@@ -328,6 +400,12 @@ page {
 	background: #fff;
 	height: 80rpx;
 	border-bottom: 1rpx solid #f6f6f6;
+	        position: absolute;
+	        left: 0;
+	        right: 0;
+	        top: 0;
+	        bottom: 0;
+		z-index: 999;
 	.nav-item {
 		flex: 1;
 
@@ -342,13 +420,21 @@ page {
 		.nav-line {
 			width: 100rpx;
 			height: 4rpx;
-			//background: #f6f6f6;
+			//background: #f5f5f5;
 		}
 
 		.line-active {
 			background: $zhuse;
 		}
 	}
+}
+.history_con{
+	margin-top: 80upx;
+	display: flex;
+}
+.now_con{
+	margin-top: 80upx;
+	display: flex;
 }
 .one {
 	text-align: center;
@@ -360,7 +446,7 @@ page {
 		border-radius: 100%;
 		margin: 0 auto;
 		padding: 2px;
-		background: rgba(239, 58, 58, 0.8);
+		background: rgba(105,139,34, 0.8);
 		image {
 			width: 100%;
 			height: 100%;
@@ -424,8 +510,8 @@ page {
 		.obtn2 {
 			width: 160rpx;
 			height: 60rpx;
-			//background: rgba(239, 58, 58, 0.8);
-			background: rgba(233, 180, 97, 1);
+			background: rgba(239, 58, 58, 0.8);
+			// background: linear-gradient(90deg, rgba(233, 180, 97, 1), rgba(238, 204, 137, 1));
 			box-shadow: 0px 7rpx 6rpx 0px rgba(239, 58, 58, 0.22);
 			border-radius: 30rpx;
 			margin-right: 20rpx;
@@ -487,18 +573,14 @@ page {
 }
 .goods-box {
 	position: relative;
-	width: 100%;
 	.goods-img {
 		width: 200rpx;
 		height: 200rpx;
 		background-color: #ccc;
 		margin-right: 25rpx;
-		float: left;
-		
-		
 	}
 	.order-goods__tag {
-		//position: absolute;
+		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: 3;
@@ -510,10 +592,8 @@ page {
 		font-family: PingFang SC;
 		font-weight: 500;
 		color: rgba(51, 51, 51, 1);
-		width:85%;
-		width: 480rpx;
+		width: 450rpx;
 		line-height: 40rpx;
-		float: right;
 	}
 
 	.size-tip {
@@ -533,14 +613,8 @@ page {
 		margin: 10rpx 0;
 	}
 
-	.price1 {
-		color:back;	
-		
-	}
-	.price2 {
-		color: #e1212b;	
-		margin-top: 10rpx;
+	.price {
+		color: #e1212b;
 	}
 }
-
 </style>

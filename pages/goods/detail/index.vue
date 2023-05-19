@@ -6,7 +6,7 @@
 <view class="detail_box">
 	<view class="detail-content">
 		<view class="goodes_detail_swiper-box">
-			<!-- 详情轮播 -->
+			<!-- Detail Swiper -->
 			<swiper class="carousel" circular @change="swiperChange" :autoplay="true">
 				<swiper-item v-for="(img, index) in goodsInfo.g_imgs" :key="index"
 					class="carousel-item">
@@ -29,7 +29,7 @@
 					style="display: flex;align-items: center;justify-content: space-between;">
 					<view class="sub-title">{{$t("user.app.score.list.detail.tip")}}
 					</view>
-					<!-- <view style="font-size: 26upx;color: #ef3a3a;">【立即加入7人成团】</view> -->
+					
 				</view>
 			</view>
 		</view>
@@ -154,7 +154,7 @@
 			</view>
                       <!-- Team up foot rules-->
 			<view v-if="goodsInfo.g_type == 1" class="tools-item y-f" @tap="rules()">
-				<image class="tool-img" :src="'../../../static/imgs/rule.png' " mode="">
+				<image class="tool-img" :src="'../../../static/imgs/faq.png' " mode="">
 				</image>
 				<text class="tool-title">{{$t("user.goods.detail.footer.gz")}}</text>
 			</view>
@@ -175,11 +175,11 @@
 				<text class="tool-title">{{$t("user.goods.detail.footer.sc")}}</text>
 			</view>
 			<view class="tools-item y-f"   @tap="onChat">
-                             <image class="tool-img" src="../../../static/imgs/share.png" mode=""></image>
+                             <image class="tool-img" src="../../../static/imgs/kefu.png" mode=""></image>
                             <text class="tool-title">{{$t("user.tabbar.chat")}}</text>
                         </view>
 			<view class="tools-item y-f" @tap="onShare" v-if="goodsInfo.g_type != 2 ">
-			     <image class="tool-img" src="../../../static/imgs/share.png" mode=""></image>
+			     <image class="tool-img" src="../../../static/imgs/user/share.png" mode=""></image>
 			    <text class="tool-title">{{$t("components.uniPopupShare.fxd")}}  </text>
 			</view>
 			 <!-- Share End -->

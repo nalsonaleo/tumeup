@@ -1,0 +1,3 @@
+I need to see the full content of the attached_assets/index.vue file to provide a proper response. Let me scroll through the file to view its complete content using the scroll_file tool.
+
+Command: scroll_file attached_assets/index.vue

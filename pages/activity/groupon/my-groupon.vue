@@ -82,11 +82,8 @@
 					<div class="Rucian_Number">{{item1.num}}</div>
 				
 				</div>
-			
-			
-			
-			
 		</div></div>
+		
 	</scroll-view >
 	</view>
 		<!-- 当前拼团end -->
@@ -106,9 +103,17 @@
 							<view class="y-start">
 								<view class="goods-title more-t">{{ order.g_name }}</view>
 								<slot name="tipTag"></slot>
-								<slot name="goodsBottom">
-									<view class="price">￥{{ order.p_price }}</view>
-								</slot>
+								<view style="display: inline;text-align:right; width: 100%;margin-top: 20rpx;">
+									<view class="price1" >
+									<text>{{$t("order.detail.actually")}} : {{$t('money.symbol')}} {{ order.p_price }}
+									 </text> 
+									</view>
+									<view class="price2" >										
+										<view >
+											<text class="state">{{ order.is_group == 0 ? $t("order.groupon.myGroupon.yj") : $t("pages.pages.Teamup.bonus") }} : + {{$t('money.symbol')}} {{yuji}}</text>
+										</view>	
+									</view>									
+								</view>
 								<view class="x-f" style="margin-top: 30rpx;" v-if="order.order_id == 0 && order.goods_code">
 									<text style="font-size: 26rpx;">{{$t("order.groupon.myGroupon.thm")}}:{{ order.goods_code }}</text>
 									<button class="cu-btn copy-btn" @tap="onCopy(order.goods_code)">{{$t("order.groupon.myGroupon.fz")}}</button>
@@ -120,15 +125,20 @@
 				</view>
 				<view class="order-bottom x-f">
 					<view class="btn-box">
-						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/huiyuan')">{{$t("order.groupon.myGroupon.qth")}}</button>
-						<button class="cu-btn obtn1" v-if="order.order_id != 0" @tap="jump('/pages/order/ptdetail?order_id='+order.order_id)">{{$t("order.groupon.myGroupon.ddxq")}}</button>
+						<button class="cu-btn obtn1" v-if="order.order_id == 0 && order.goods_code" @tap="jump('/pages/huiyuan/index')">{{$t("order.groupon.myGroupon.qth")}}</button>
+						<button class="cu-btn obtn1" v-if="order.order_id != 0" @tap="jump('/pages/order/Teamupdetail?order_id='+order.order_id)">{{$t("order.groupon.myGroupon.ddxq")}}</button>
 						<button  @tap.stop="jump('/pages/activity/groupon/detail?id='+order.id)" class="cu-btn obtn2">
 							{{$t("order.groupon.myGroupon.ptxq")}}
 						</button>
 						<button @tap.stop="onRefund(order.order_id)" class="cu-btn obtn1" v-if="order.is_group != 0">
-			{{$t("order.commomPtOrder.detail.Request.refund")}}
-						</button>						
+			{{$t("order.commomPtOrder.detail.Change.Money")}}
+						</button>
+						
 					</view>
+					
+				</view>
+				<view class="order-bottom x-f" >
+				<text style="width: 96%;font-size: 0.8rem;color:red">{{$t("order.commomPtOrder.detail.Change.Money.tip")}}</text>
 				</view>
 				<view style="width: 100%;height: 20upx;background: #f6f6f6;"></view>
 			</view>
@@ -137,7 +147,7 @@
 			<!-- 空白页 -->
 			<shopro-empty v-if="!orderList.length && !isLoading" :emptyData="emptyData"></shopro-empty>
 			<!-- load -->
-			<!-- <shoproLoad v-model="isLoading"></shoproLoad> -->
+			<shoproLoad v-model="isLoading"></shoproLoad>
 			</scroll-view>
 		</view>
 		
@@ -161,10 +171,13 @@ export default {
 	data() {
 		return {
 			isLoading: true,
-			orderType: 'now',
+			orderType: 'history',
+			
 			emptyData: {
 				img: '/static/imgs/empty/empty_groupon.png',
-				tip: this.$t("user.order.list.tip"),
+				tip: this.$t("user.teamup.list.tip"),
+				path: '/pages/huiyuan/index',
+				pathText: this.$t("user.teamup.button"),
 			},
 			orderState: [
 				{
@@ -196,7 +209,7 @@ export default {
 		};
 	},
 	onShow() {
-		this.getNowGroup();
+		this.gethistoryGroup();
 	},
 	methods: {
 		jump(path, query) {
@@ -254,11 +267,13 @@ export default {
 			};
 			that.$api.nowGroup(data).then(res => {
 				if (res.code == 1) {
+					
 					that.list = res.data;
 					that.num1_img = res.data[0].u_img;
 					that.num1_name = res.data[0].u_name;
 					that.num1_id = res.data[0].uid;
 					that.yuji = res.data[0].yuji;
+					
 				}
 			});
 		},
@@ -289,7 +304,7 @@ export default {
 		},
 		// 加载更多
 		loadMore() {
-			console.log("到底了");
+			console.log("End");
 			if (this.orderList.length < this.pagination.total) {
 				this.pagination.page += 1;
 				this.dataStatus = 'loading';
@@ -351,11 +366,10 @@ export default {
 	.Rucian_NowBox .Rucian_List {
 	    width: 35%;
 	    margin: 2%;
-	    border: 2.5px solid red;
+	    border: 2upx solid $zhuse;
 	    padding: 6% 4%;
 	    border-radius: 4px;
 	    background-color: #07b3d1;
-	    border-color: #3cb371;
 	    color: white;
 	    position: relative;
 	}
@@ -615,6 +629,14 @@ page {
 
 	.price {
 		color: #e1212b;
+	}
+	.price1 {
+		color:back;	
+		
+	}
+	.price2 {
+		color: #e1212b;	
+		margin-top: 10rpx;
 	}
 }
 </style>

@@ -24,7 +24,7 @@
 					<view class="l">
 						<image src="../../static/imgs/search.png"></image>
 						<input type="text" placeholder-class="pl-input" :placeholder="$t('pages.pages.search')"
-							v-model="searchVal" @confirm="onSearch" confirm-type="搜索">
+							v-model="searchVal" @confirm="onSearch" confirm-type="$t('pages.pages.search')">
 					</view>
 
 				</view>
@@ -66,7 +66,7 @@
 			  <view style="width: 1%;">|</view>
 			  <view style="width:47%  ;padding-left: 70rpx;">
 				  <image src="../../static/imgs/secunity.png" style="width:30rpx;height: 35rpx; position: absolute;"></image>
-				  <view style="margin-left: 50rpx;"> {{$t("Rebate")}} 30%</view>
+				  <view style="margin-left: 50rpx;"> {{$t("Rebate")}} 50%</view>
 				
 			  </view>
 			</view>
@@ -79,7 +79,7 @@
             	<navigator url="/pages/user/team" class="on">
 					<image style="width:110rpx;height:110rpx;margin:20px 0px 5px 40px;float:left;border-radius:15px;"  :src="teamup_tag2"></image>
 				</navigator>
-            <navigator url="/pages/app/score/list" class="on">
+            <navigator url="/pages/public/webview" class="on">
 				<image style="width:110rpx;height:110rpx;margin:20px 0px 5px 40px;float:left;border-radius:15px;"  :src="teamup_tag3"></image>
 				</navigator>
             <navigator url="/pages/public/tuiguang" class="on">
@@ -122,95 +122,36 @@
 			</view>
             <!--INDEX BANNER END-->
 		</view>
-		<!-- 分类 -->
-		<view  style="position: relative;width: 100%;display: flex;flex-direction: column;left:0;top: 0;color: #000000;background-color:white;margin-top:15rpx;">
-		<view style="width: 100%;padding-left: 25rpx;margin-top: 10rpx;"> 
-				
-				
-					<view style="font-size: 1rem;display: flex;align-items: center; ">{{$t("pages.tabBar.category")}} 
-					<image src="../../static/imgs/next.png" style="width:50rpx;height:35rpx;padding-left: 25rpx;position: relative;"></image>
-					</view>
-					
-					
-				
-				
-		</view>	 
-
-		<view class="menu-category-box" v-if="cate"
-			:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`">
-				
-			
-			<swiper class="menu-swiper-box"
-				:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:360rpx`" @change="onSwiper"
-				:autoplay="false" :interval="3000" :duration="1000">
-				<swiper-item class="menu-swiper-item" v-for="(itemList, index) in cate" :key="index"
-					:style="cate.length>0 && cate[0].length <= 4 ? `height:200rpx` : `height:340rpx`">
-					<view class="menu-tab-box">
-						<view class="tab-list y-f" :style="{ width: 700 / 4 + 'rpx' }" v-for="item in itemList"
-							:key="item.c_name" @tap="toList(item.id)">
-							<image class="tab-img" :style="{ width:'88rpx', height: '88rpx' }" :src="item.c_img">
-							</image>
-							<view class='tab-text'>{{ item.c_name }}</view>
+		<!--team up index-start -->
+				<view class="bot_con" style="margin-top: 30upx;">
+					<view class="con">
+						<!-- <image class="gg" :src="gg1"></image> -->
+						<view class="goodsCon">
+							<navigator class="list" :url="'/pages/goods/detail/index?id='+item.id" v-for="(item,index) in group" :key='index'>
+								<view style="margin-top:10upx;width: 105px;background-color: #000000;
+		opacity: 0.5;border-bottom-right-radius:10px;border-top-right-radius:10px">
+		                                           <text style="font-size: 0.8rem;color: #ffffff;margin-left: 10upx;">{{ item.g_sell }} Partner</text></view>
+								<image :src="item.g_img" class="goodsImg"></image>
+								<view class="info">
+									<view class="t">{{item.g_name}}</view>
+									<view class="b">
+										<view>
+											<text style="font-weight: 600;">
+											{{$t('money.symbol')}}{{item.g_price}}
+											</text>
+											<!-- <text>￥{{item.g_price1}}</text> -->
+										</view>
+										
+										<image src="../../static/imgs/go.png"></image>
+									</view>
+								</view>
+							</navigator>
+		
 						</view>
 					</view>
-				</swiper-item>
-			</swiper>
-		</view>
-		</view>
-		<!-- 分类end -->
-
-        <!--team up index-start -->
-		<view class="bot_con" style="margin-top: 30upx;">
-			<view class="con">
-				<image class="gg" :src="gg1"></image>
-				<view class="goodsCon">
-					<navigator class="list" :url="'/pages/goods/detail/index?id='+item.id" v-for="(item,index) in group"
-						:key='index'>
-						<image :src="item.g_img" class="goodsImg"></image>
-						<view class="info">
-							<view class="t">{{item.g_name}}</view>
-							<view class="b">
-								<view>
-									<text style="font-weight: 600;">
-									{{$t('money.symbol')}}{{item.g_price}}
-									</text>
-									<!-- <text>￥{{item.g_price1}}</text> -->
-								</view>
-								<image src="../../static/imgs/go.png"></image>
-							</view>
-						</view>
-					</navigator>
-
 				</view>
-			</view>
-		</view>
-        <!--team up index-End -->
-		<!-- INDEX SHOPPING START -->
-		<view class="bot_con">
-			<view class="con">
-				<image class="gg" :src="gg2"></image>
-				<view class="goodsCon">
-					<navigator class="list" :url="'/pages/goods/detail/index?id='+item.id" v-for="(item,index) in goods"
-						:key='index'>
-						<image :src="item.g_img" class="goodsImg"></image>
-						<view class="info">
-							<view class="t">{{item.g_name}}</view>
-							<view class="b">
-								<view>
-									<text style="font-weight: 600;">
-									{{$t('money.symbol')}}{{item.g_price}}
-									</text>
-									<text>{{$t('money.symbol')}}{{item.g_price1}}</text> 
-								</view>
-								<image src="../../static/imgs/go.png"></image>
-							</view>
-						</view>
-					</navigator>
+		    <!--team up index-End -->
 
-				</view>
-			</view>
-		</view>
-		<!-- INDEX SHOPPING END -->
 		<!--Language Start-->
 		<uni-popup ref="languagePopup" type="center">
 			<view class="vipPopup " style="padding-top: 32rpx;">

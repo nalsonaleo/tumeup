@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<!-- titleview -->
-		<view class="head-box"><cu-custom :isBack="true"></cu-custom></view>
+		<!-- <view class="head-box"><cu-custom :isBack="true"></cu-custom></view> -->
 		<view class="wrapper">
 			<view style="font-size: 54upx;color: #333;margin-left: 60upx;font-weight: 500;margin-bottom: 40upx;">{{$t("public.register.zc")}}</view>
 			<!-- 表单 -->
@@ -73,10 +73,10 @@ export default {
 		},
 		getCode() {
 			let that = this;
-			// if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-			// 	that.$msg(that.$t('public.register.qtxzqsjhm'));
-			// 	return false;
-			// }
+			if (!/^\d{8,10}$/.test(that.u_phone)) {
+				that.$msg(that.$t('public.register.qtxzqsjhm'));
+				return false;
+			}
 			if(that.u_phone.length <= 0) {
 				that.$msg(that.$t('public.register.qtxzqsjhm'));
 				return;
@@ -107,10 +107,10 @@ export default {
 		register() {
 		
 			let that = this;
-			// if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
-			// 	that.$msg(that.$t("public.register.qtxzqsjhm"));
-			// 	return false;
-			// }
+			if (!/^\d{8,10}$/.test(that.u_phone)) {
+				that.$msg(that.$t("public.register.qtxzqsjhm"));
+				return false;
+			}
 			if(!that.areaCodeData.code) {
 				that.$msg(that.$t('components.selectAreaCode.qszqh'))
 				return false;
@@ -164,6 +164,7 @@ page {
 	// background: linear-gradient(180deg, rgba(239, 196, 128, 1) 0%, rgba(248, 220, 165, 1) 25%, rgba(255, 255, 255, 1) 98%);
 	// titleview
 	.head-box {
+		padding-top: var(--status-bar-height);
 		.cuIcon-back {
 			font-size: 50rpx !important;
 			font-weight: 500;

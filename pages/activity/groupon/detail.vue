@@ -3,17 +3,18 @@
 		<!-- 当前拼团 -->
 		<view class="now_con">
 		<div id="container" style="width: 100%;height: auto;"><div class="Rucian_NowBox">
+		          <!--me-->
 				<div class="Rucian_List">
-					<div>{{$t("order.groupon.text.yj")}}</div>
-					<view class="BigZt">{{yuji}}</view>
-					<div class="Rucian_Id">ID:{{ num1_id }}</div>
+					<img :src="num1_img || '../../../static/imgs/noMen.png'" alt="">
+					<div>{{$t("order.groupon.text.yj")}}:{{$t('money.symbol')}}{{yuji}}</div>
+					<view class="BigZt"></view>
+					<div class="Rucian_Id">	Your ID : {{ num1_id }}</div>
 					<div class="Rucian_Number">1</div>
 				</div>
-		
-				
-				
-					<div style="background-color: #0081FF;" v-for="(item1, index1) in list" :key="index1" v-if="index1>0 && item1.uid>0 && item1.check==1" class="Rucian_List">
-						<img :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
+		           <!--me end-->
+                           <!--leve one-->
+				<div style="background-color: #0081FF; height: 110px;" v-for="(item1, index1) in list" :key="index1" v-if="index1>0 && item1.uid>0 && item1.check==1" class="Rucian_List">
+						<img style="width: 25px;height: 25px" :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
 						<div>{{item1.u_name}}</div>
 						<div class="Rucian_2">
 							<div>{{$t("order.groupon.text.yhid")}}：{{item1.uid>0?item1.uid:'?'}}</div>
@@ -21,9 +22,11 @@
 							<div>{{$t("order.groupon.text.yj.one")}}：{{item1.uid>0?item1.yongjin:'?'}}</div>
 						</div>
 						<div class="Rucian_Number">{{item1.num}}</div>
-					</div>
-					<div  v-for="(item1, index1) in list" :key="index1" v-if="index1>0 && item1.uid>0 && item1.check!=1" class="Rucian_List">
-						<img :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
+				</div>
+			   <!--leve one end-->
+			   <!--leve tow -->
+				<div style="height: 110px;" v-for="(item1, index1) in list" :key="index1" v-if="index1>0 && item1.uid>0 && item1.check!=1" class="Rucian_List">
+						<img style="width: 25px;height: 25px" :src="item1.u_img || '../../../static/imgs/noMen.png'" alt="">
 						<div>{{item1.u_name}}</div>
 						<div class="Rucian_2">
 							<div>{{$t("order.groupon.text.yhid")}}：{{item1.uid>0?item1.uid:'?'}}</div>
@@ -31,27 +34,17 @@
 							<div>{{$t("order.groupon.text.yj.one")}}：{{item1.uid>0?item1.yongjin:'?'}}</div>
 						</div>
 						<div class="Rucian_Number">{{item1.num}}</div>
-					</div>
-					
-					<div style="min-height: 150px;display: flex;justify-content: center;align-items: center;" v-for="(item1, index1) in list" :key="index1" v-if="index1>0 && item1.uid==0" class="Rucian_List">
-					
-						
-						
+				 </div>
+			    <!--leve tow end -->
+			    <!--leve three -->	     
+					<div style="min-height: 110px;display: flex;justify-content: center;align-items: center;" v-for="(item1, index1) in list" :key="index1" v-if="index1>0 && item1.uid==0" class="Rucian_List">
 						<div class="Rucian_2" style="display: flex;justify-content: center;align-items: center;">
 							{{$t("order.groupon.text.dbw")}}
 						</div>
 						<div class="Rucian_Number">{{item1.num}}</div>
-					
 					</div>
-					
-				
-				
-				
-				
-				
-				
-			</div></div>
-		
+			     <!--leve three end-->	  			
+			</div></div>	
 		</view>
 		<!-- 当前拼团end -->
 	</view>
@@ -114,16 +107,18 @@ export default {
 	.Rucian_NowBox .Rucian_List:nth-child(1) {
 	    width: 50%;
 	    padding: 3%;
+	    border-color:#8B8B7A;
+	    
 	}
 	.Rucian_NowBox .Rucian_List .BigZt {
 	    font-size: 20px;
 	    margin: 8px;
 	}
 	.Rucian_NowBox .Rucian_List .Rucian_Id {
-	    width: 70px;
+	    width: 120px;
 	    font-size: 13px;
 	    margin: 0 auto;
-	    background-color: #ec3455;
+	    background-color:  #3cb371;
 	    border-radius: 10px;
 	    padding: 2px 5px;
 	}
@@ -140,7 +135,7 @@ export default {
 	.Rucian_NowBox .Rucian_List {
 	    width: 35%;
 	    margin: 2%;
-	    border: 1.5px solid red;
+	    border: 2upx solid $zhuse;
 	    padding: 6% 4%;
 	    border-radius: 4px;
 	    background-color: #07b3d1;

@@ -1,7 +1,11 @@
 <template>
 	<view class="con">
+		<view class="con">
+			<!-- <view >{{info.kf_name}}{{info.kf_tel}}</view> -->
+			<!-- <image :src="info.kf_img" style="width: 96%;min-height: 600px;"></image> -->
+			<iframe width="100%" height="200px" src="https://www.youtube.com/embed/CeIfzyt5JU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</view>
 		
-		<image style="width: 100%;min-height: 600px;" src="/static/imgs/jprule.jpg"> </image>
 	</view>
 </template>
 

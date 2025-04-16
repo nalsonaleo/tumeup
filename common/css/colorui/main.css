@@ -1031,7 +1031,7 @@ button.cuIcon.lg {
 }
 
 .cu-load.over::after {
-	content: "没有更多了";
+	content: "END";
 }
 
 .cu-load.erro::before {

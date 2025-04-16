@@ -57,7 +57,7 @@ export default {
 		// 重置密码
 		restPassword() {
 			let that = this;
-			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
+			if (!/^\d{8,10}$/.test(that.u_phone)) {
 				that.$msg(that.$t("public.forgot.qtxzqsjhm"));
 				return false;
 			}
@@ -88,7 +88,7 @@ export default {
 		},
 		getCode() {
 			let that = this;
-			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
+			if (!/^\d{8,10}$/.test(that.u_phone)) {
 				that.$msg(that.$t('public.forgot.qtxzqsjhm'));
 				return false;
 			}

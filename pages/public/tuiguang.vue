@@ -2,7 +2,7 @@
 	<view>
 		<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">
 			<view class="list" v-for="(item, index) in list" :key="index">
-				<text style="font-size:1rem; font-weight: 600;margin-left: 0rpx;" >Datatime:&nbsp; {{ item.m_time |date("dd-mm-yyyy")}}</text>
+				<text style="font-size:1rem; font-weight: 600;margin-left: 0rpx;" >Datatime:&nbsp; {{ item.m_time }}</text>
 				<image src="../../static/imgs/fz_icon.png" style="float: right;width: 34rpx;height: 34rpx;" @tap="onCopy(item.m_detail1)"></image>
 				<view class="tit">
 					<view>

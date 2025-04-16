@@ -153,16 +153,16 @@
 				<text class="tool-title">{{$t("user.goods.detail.footer.index")}}</text>
 			</view>
                       <!-- Team up foot rules-->
-			<view v-if="goodsInfo.g_type == 1" class="tools-item y-f" @tap="rules()">
+			<view v-if="goodsInfo.g_type == 1" class="tools-item y-f"  @tap="jump('/pages/user/rule')" >
 				<image class="tool-img" :src="'../../../static/imgs/faq.png' " mode="">
 				</image>
 				<text class="tool-title">{{$t("user.goods.detail.footer.gz")}}</text>
 			</view>
 		      <!-- Team up foot End-->
                        <!-- Group foot rules-->
-			<navigator url="/pages/user/rule" v-if="goodsInfo.g_type == 4"
+			<navigator  @tap="rules()" v-if="goodsInfo.g_type == 4"
 				class="tools-item y-f">
-				<image class="tool-img" :src="'../../../static/imgs/rule.png' " mode="">
+				<image class="tool-img" :src="'../../../static/imgs/faq.png' " mode="">
 				</image>
 				<text class="tool-title">{{$t("user.goods.detail.footer.gz")}}</text>
 			</navigator>

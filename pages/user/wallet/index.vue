@@ -34,17 +34,17 @@
 				<text class="cuIcon-right"></text>
 			</view>
 			<view style="margin: 10px 10px;">
-				<h4>{{$t("user.wallet.member.rule")}}</h4>
+				<!-- <h4>{{$t("user.wallet.member.rule")}}</h4>
 				<view>1.{{$t("user.wallet.member.rule.one")}}。</view>
 				
-				<view>2.{{$t("user.wallet.member.rule.two")}}。</view>
+				<view>2.{{$t("user.wallet.member.rule.two")}}。</view> -->
 				
 				<h4 style="margin: 10px 0;">{{$t("user.wallet.withdrawDeposit")}}：</h4>
-				<view>1、{{$t("user.wallet.withdrawDeposit.period")}}。</view>
-				<view>2、{{$t("user.wallet.withdrawDeposit.time")}}。</view>
-				<view>3、{{$t("user.wallet.withdrawDeposit.commission")}}%</view>
-				<view>4、{{$t("user.wallet.withdrawDeposit.introduce")}}</view>
-				<view>5、{{$t("user.wallet.withdrawDeposit.lowest")}}。</view>
+				<view>1.{{$t("user.wallet.withdrawDeposit.period")}}。</view>
+				<view>2.{{$t("user.wallet.withdrawDeposit.time")}}。</view>
+				<view>3.{{$t("user.wallet.withdrawDeposit.commission")}}%</view>
+				<view>4.{{$t("user.wallet.withdrawDeposit.introduce")}}</view>
+				<view>5.{{$t("user.wallet.withdrawDeposit.lowest")}}。</view>
 			</view>
 		</view>
 		<view class="foot_box"></view>

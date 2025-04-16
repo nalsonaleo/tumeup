@@ -131,6 +131,7 @@ page{background: #fff;}
 			font-size: 28rpx;
 			color: #333;
 			padding-left: 20rpx;
+			margin-bottom: 20upx;
 		}
 		.pl-input {
 			color: #999;
@@ -156,8 +157,8 @@ page{background: #fff;}
 		}
 
 		.pay-img {
-			width: 40rpx;
-			height: 40rpx;
+			width: 100rpx;
+			height: 60rpx;
 			// background: #ccc;
 			margin-right: 25rpx;
 		}

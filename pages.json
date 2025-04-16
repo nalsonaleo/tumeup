@@ -5,10 +5,11 @@
 	"pages": [{
 			"path": "pages/index/index",
 			"name": "home",
+			
 			"title": "%pages.tabBar.home%",
 			"aliasPath": "/", //对于h5端你必须在首页加上aliasPath并设置为/
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "Sevenup Shopping-Teamup Shopping Earn",
 				"navigationBarTextStyle": "white",
 				//"enablePullDownRefresh": true,
 				"navigationStyle": "custom"
@@ -21,6 +22,7 @@
 				"navigationBarTitleText": "%pages.tabBar.category%"
 			}
 		},
+
 		{
 			"path": "pages/index/cart",
 			"name": "cart",
@@ -63,6 +65,15 @@
 			}
 		},
 		{
+			"path": "pages/public/webview",
+			"name": "App Download",
+			"style": {
+				"navigationBarTitleText": "App Download",
+				"navigationStyle": "custom"
+			}
+			
+		},
+		{
 			"path": "pages/huiyuan/huiyuan",
 			"aliasPath": "/", //对于h5端你必须在首页加上aliasPath并设置为/
 			"style": {
@@ -70,6 +81,19 @@
 				"navigationBarBackgroundColor":"#54B85D",
 				"navigationBarTextStyle": "white",
 				"navigationStyle": "custom"
+				
+				
+			}
+			
+		},
+		{
+			"path": "pages/huiyuan/index",
+			"aliasPath": "/", //对于h5端你必须在首页加上aliasPath并设置为/
+			"style": {
+				"navigationBarTitleText": "%pages.huiyuan.huiyuan%",
+				"navigationBarBackgroundColor":"#54B85D",
+				"navigationBarTextStyle": "white"
+				//"navigationStyle": "custom"
 				
 				
 			}
@@ -187,7 +211,7 @@
 		},
 		// teamup
 		{
-			"path": "pages/order/ptdetail",
+			"path": "pages/order/Teamupdetail",
 			"style": {
 				"navigationBarTitleText": "%pages.order.detail%"
 			}
@@ -232,7 +256,7 @@
 			}
 		},
 		{
-			"path": "pages/order/ptOrder",
+			"path": "pages/order/TeamupOrder",
 			"name": "orderList",
 			"style": {
 				"navigationBarTitleText": "%pages.order.payment.teamuporder%"
@@ -282,17 +306,17 @@
 		},
 		{
 			"path": "pages/public/login",
-			"name": "login",
+			//"name": "login",
 			"style": {
-				"navigationBarTitleText": "%pages.public.login%",
-				"navigationStyle": "custom"
+				//"navigationBarTitleText": "%pages.public.login%"
+				//"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/public/register",
 			"style": {
-				"navigationBarTitleText": "%pages.public.register%",
-				"navigationStyle": "custom"
+				//"navigationBarTitleText": "%pages.public.register%"
+				//"navigationStyle": "custom"
 			}
 		},
 		{
@@ -467,7 +491,7 @@
 	// 默认导航栏样式
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "",
+		"navigationBarTitleText": "Sevenup Shopping",
 		"navigationBarBackgroundColor": "#fff",
 		"backgroundColor": "#fff",
 		"navigationStyle": "default" //默认是default，即带有原生导航栏。custom,取消导航栏。
@@ -484,18 +508,18 @@
 				"iconPath": "static/imgs/tabbar/tab-home.png",
 				"selectedIconPath": "/static/imgs/tabbar/tab-home-current.png"
 			},
-			{
-				"pagePath": "pages/index/category",
-				"text": "%pages.tabBar.category%",
-				"iconPath": "static/imgs/tabbar/tab-cate.png",
-				"selectedIconPath": "static/imgs/tabbar/tab-cate-current.png"
-			},
+			// {
+			// 	"pagePath": "pages/index/category",
+			// 	"text": "%pages.tabBar.category%",
+			// 	"iconPath": "static/imgs/tabbar/tab-cate.png",
+			// 	"selectedIconPath": "static/imgs/tabbar/tab-cate-current.png"
+			// },
 			{
 				"pagePath": "pages/huiyuan/huiyuan",
 				"text": "%pages.tabBar.teamup%",
-				"iconPath": "static/imgs/tabbar/teamup_index.png",
-				"selectedIconPath": "static/imgs/tabbar/teamup_index1.png",
-				"enablePullDownRefresh": true
+				"iconPath": "static/imgs/tabbar/tab-cate.png",
+				"selectedIconPath": "static/imgs/tabbar/tab-cate-current.png"
+				//"enablePullDownRefresh": true
 				
 			},
 			{

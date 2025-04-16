@@ -39,9 +39,9 @@
 			</view>
 			<view class="x-bc price-bottom-box">
 				<view class="x-f">
-					<view class="original-price">{{$t("user.goods.detail.shprice.yj")}}：<text style="text-decoration: line-through;">{{$t('money.symbol')}}{{ detail.g_price1 }}</text></view> 
-					<text class="line"></text>
-					<view class="sold">{{$t("user.goods.detail.shprice.yp")}}：{{ detail.g_sell }}{{$t("user.goods.detail.shprice.jie")}}</view>
+					<!-- <view class="original-price">{{$t("user.goods.detail.shprice.yj")}}：<text style="text-decoration: line-through;">{{$t('money.symbol')}}{{ detail.g_price1 }}</text></view> --> 
+					<!-- <text class="line"></text> -->
+					<view class="sold">{{$t("user.goods.detail.shprice.yp")}}：{{ detail.g_sell }}  {{$t("user.goods.detail.shprice.Participants")}}</view>
 				</view>
 				<!-- <view class="count-down" v-show="activityRules.status === 'waiting'">
 					距开始 {{ activityRules.countDownTime.h || '00' }} : {{ activityRules.countDownTime.m || '00' }} : {{ activityRules.countDownTime.s || '00' }}

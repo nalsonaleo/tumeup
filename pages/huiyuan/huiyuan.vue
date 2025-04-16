@@ -77,6 +77,9 @@
 				<view class="goodsCon">
 					
 					<navigator class="list" v-for="(item,index) in goods2" :key='index' :url="'/pages/goods/detail/index?id='+item.id">
+						<view style="margin-top:10upx;width: 105px;background-color: #000000;
+						opacity: 0.5;border-bottom-right-radius:10px;border-top-right-radius:10px">
+						  <text style="font-size: 0.8rem;color: #ffffff;margin-left: 10upx;">{{ item.g_sell }} Partner</text></view>
 						<image :src="item.g_img" class="goodsImg"></image>
 						<view class="info">
 							<view class="t">{{item.g_name}}</view>
@@ -120,6 +123,9 @@
 		},
 		onLoad() {
 			this.getList()
+		},
+		onShow() {
+		this.getList()
 		},
 		methods:{
 			getList(){

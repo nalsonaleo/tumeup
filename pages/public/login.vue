@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<!-- titleview -->
-		<view class="head-box"><cu-custom :isBack="false"></cu-custom></view>
+		<!-- <view class="head-box"><cu-custom :isBack="true"></cu-custom></view> -->
 		<view class="wrapper">
 			<view style="font-size: 54upx;color: #333;margin-left: 60upx;font-weight: 500;margin-bottom: 40upx;">{{$t("public.login.dl")}}</view>
 			<view class="login-box y-f">
@@ -49,10 +49,12 @@ export default {
 		
 	},
 	onShow() {},
-	methods: {
+	methods: { 
 		toLogin() {
 			let that = this;
-			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(that.u_phone)) {
+			if (!/^\d{8,10}$/.test(that.u_phone)) 
+			// if (!/^(0|1|2|3|4|5|6|7|8|9)\d{8,10}$/.test(that.u_phone))
+			{
 				that.$msg(that.$t("public.login.placeholder.qtxzqsjhh"));
 				return false;
 			}

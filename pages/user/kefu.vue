@@ -3,7 +3,8 @@
 		<view class="tit">{{info.kf_name}}{{info.kf_tel}}</view>
 		<image :src="info.kf_img"></image>
 	</view> -->
-	<web-view  :webview-styles="webviewStyles" src="https://chat.lazygirlshop.com/chat/index?noCanClose=1&token=570d97ebea88e719d1ba2be92d1a6b5e"></web-view> 
+	<web-view  :webview-styles="webviewStyles" src="https://chat.sevenupshop.com/chat/index?noCanClose=1&token=7da0bd9e4f2b6fbe9043e3c60e70a9b1"></web-view>  
+	
 </template>
 
 <script>

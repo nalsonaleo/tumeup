@@ -52,7 +52,7 @@
 <view class="titleNview-placing"></view>
 <view style="width:100%;height: 65rpx;color: white;background-color:rgba(105,105,105,0.8);border-radius: 5px;align-items:center;display: flex;">
 	<view style="float: left;font-size: 0.8rem;padding-left: 20rpx;width: 85%;">
-		{{$t("pages.user.switch")}} &nbsp;| &nbsp; 30% {{$t("pages.user.return")}} 
+		{{$t("pages.user.switch")}} &nbsp;| &nbsp; 50% {{$t("pages.user.return")}} 
 	</view>
 	<view style="align-items: center;text-align: center;" v-if="info.s_out == 1">
 		<switch class="olive switch" @tap="onSwitch" :class="{ checked: is_default }" :checked="is_default">
@@ -82,12 +82,13 @@ style="position: relative;width: 100%;display: flex;flex-direction: column;left:
 					style='font-size: 16rpx;margin-left: 4rpx;'>{{$t('user.order')}}</text> </text>
 			<text class="wallet-item__title">{{$t("user.mouthgroup.number")}}</text>
 		</view>
-		<view class="wallet-item y-f" @tap="jump('/pages/app/coupon/list')">
+		<view class="wallet-item y-f" >
+		<!-- <view class="wallet-item y-f" @tap="jump('/pages/app/coupon/list')"> -->
 			<text class="wallet-item__detail">{{$t('money.symbol')}}{{userInfo.fx_yj}} </text>
 			<text class="wallet-item__title">{{$t("user.distribution.money")}}</text>
 		</view>
 	</view>
-	<view class="wallet-item y-f wallet-right" @tap="jump('/pages/order/ptOrder')">
+	<view class="wallet-item y-f wallet-right" @tap="jump('/pages/order/TeamupOrder')">
 		<image class="cut-off--line" src="/static/imgs/user/cut_off_line.png" mode=""></image>
 		<image class="wallet-img" src="/static/imgs/user/teamup.png" mode="aspectFill"></image>
 		<text class="wallet-item__title">{{$t("user.groupon.order")}}</text>
@@ -95,7 +96,8 @@ style="position: relative;width: 100%;display: flex;flex-direction: column;left:
 </view>
 </view>
 <!--Teamup order End-->
-<navigator url="/pages/user/upgrade" style="margin-top:10px">
+<navigator  style="margin-top:10px">
+	<!-- <navigator url="/pages/user/upgrade" style="margin-top:10px"> -->
 <image style='width: 100%;height: 200rpx' src="/static/imgs/tovip.png" mode='scaleToFill' alt=""></image>
 </navigator>
 <view class="content_box" style="">
@@ -145,16 +147,25 @@ style="position: relative;width: 100%;display: flex;flex-direction: column;left:
 					style='font-size: 16rpx;margin-left: 4rpx;'></text></view>
 			<text class="wallet-item__title">{{$t("user.index.accountbalance")}}</text>
 		</view>
-		<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/score-balance')">
+		<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/chongzhi')">
+			
+			<image class="wallet-img" src="/static/imgs/user/Recharge.png" mode="aspectFill"></image>
+			<text class="wallet-item__title">{{$t("pages.user.xianxia")}}</text>
+		</view>
+		<!-- <view class="wallet-item y-f" @tap="jump('/pages/user/wallet/score-balance')">
 			<text class="wallet-item__detail">{{userInfo.u_money2}}<text
 					style='font-size: 16rpx;margin-left: 4rpx;'>{{$t('user.ge')}}</text> </text>
 			<text class="wallet-item__title">{{$t("user.index.fortunella.venosa")}}</text>
+		</view> -->
+		<view class="wallet-item y-f" @tap="jump('/pages/user/wallet/index')">
+			<image class="wallet-img" src="/static/imgs/user/Withdraw.png" mode="aspectFill"></image>
+			<text class="wallet-item__title">{{$t("user.wallet.log.tx")}}</text>
 		</view>
-		<view class="wallet-item y-f" @tap="jump('/pages/app/coupon/list')">
+		<!-- <view class="wallet-item y-f" @tap="jump('/pages/app/coupon/list')">
 			<text class="wallet-item__detail">{{ c_num || '0' }}<text
 					style='font-size: 16rpx;margin-left: 4rpx;'>{{$t('user.zhang')}}</text></text>
 			<text class="wallet-item__title">{{$t("user.index.coupon")}}</text>
-		</view>
+		</view> -->
 	</view>
 	<view class="wallet-item y-f wallet-right" @tap="jump('/pages/user/wallet/index')">
 		<image class="cut-off--line" src="/static/imgs/user/cut_off_line.png" mode=""></image>
@@ -163,7 +174,7 @@ style="position: relative;width: 100%;display: flex;flex-direction: column;left:
 	</view>
 </view>
 <!-- Coinsorder -->
-<view
+<!-- <view
 	style="position: relative;width: 100%;display: flex;flex-direction: column;left:0;top: 0;color: #000000;background-color:white;margin-top: 15rpx;z-index: 99">
 	<view
 		style="position: relative;width: 100%;height: 60rpx;display: flex;flex-direction: column;left:0;top: 0;justify-content: center;">
@@ -181,7 +192,7 @@ style="position: relative;width: 100%;display: flex;flex-direction: column;left:
 		<image class="tool-img" src="../../static/imgs/user/list2.png" mode=""></image>
 		<text class="item-title">{{$t("pages.index.hx")}}</text>
 	</view>
-</view>
+</view> -->
 <!-- Myteam -->
 <view
 	style="position: relative;width: 100%;display: flex;flex-direction: column;left:0;top: 0;color: #000000;background-color:white;margin-top: 15rpx;z-index: 99">
@@ -254,7 +265,7 @@ return {
 		{
 			id: 2,
 			title: this.$t("user.index.order.payment"),
-			img: 'http://shopro.7wpp.com/imgs/user/tab22.png',
+			img: '/static/imgs/user/tab22.png',
 			type: 1
 		},
 		{
@@ -453,7 +464,7 @@ getUrlParam(name) {
 },
 getCode() {
 	var appid = "wxd57af2243ce44594";
-	var url = encodeURIComponent('http://a.fondfell.com/index.html#/pages/index/user');
+	var url = encodeURIComponent('https://sevenupshop.com/index.html#/pages/index/user');
 
 	window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid +
 		'&response_type=code&scope=snsapi_userinfo&state=1&redirect_uri=' + url + '#wechat_redirect';

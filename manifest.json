@@ -1,9 +1,9 @@
 {
     "name" : "Seven Up",
     "appid" : "__UNI__5AEB7BB",
-    "description" : "SevenUp - Team Up Shopping",
-    "versionName" : "23051911",
-    "versionCode" : 23051911,
+    "description" : "Sevenup Shopping- Teamup Shopping Earn",
+    "versionName" : "23062801",
+    "versionCode" : 23062801,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -123,7 +123,7 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "SevenUp -TeamUp Shopping",
+        "title" : "Sevenup Shopping -Teamup Shopping Earn",
         "domain" : "http://a.fondfell.com",
         "router" : {
             "mode" : "hash"
